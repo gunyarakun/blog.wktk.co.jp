@@ -1,0 +1,14 @@
+{% if site.safe and site.WktkBlog.analytics.provider and page.WktkBlog.analytics != false %}
+
+{% case site.WktkBlog.analytics.provider %}
+{% when "google" %}
+  {% include WktkBlog/analytics-providers/google %}
+{% when "getclicky" %}
+  {% include WktkBlog/analytics-providers/getclicky %}
+{% when "mixpanel" %}
+  {% include WktkBlog/analytics-providers/mixpanel %}
+{% when "custom" %}
+  {% include custom/analytics %}
+{% endcase %}
+
+{% endif %}

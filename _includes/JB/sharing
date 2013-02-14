@@ -1,0 +1,8 @@
+{% if site.safe and site.WktkBlog.sharing.provider and page.WktkBlog.sharing != false %}
+
+{% case site.WktkBlog.sharing.provider %}
+{% when "custom" %}
+  {% include custom/sharing %}
+{% endcase %}
+
+{% endif %}
