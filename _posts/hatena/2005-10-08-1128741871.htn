@@ -1,0 +1,17 @@
+---
+layout: post
+title: spaces.msn.com...
+tags: Tidy
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051008/1128741871
+---
+http://spaces.msn.comのblog解析に難儀中。
+tidyがSEGVしてまーす。
+設定ファイルを指定しなければtidyクンは死なないようです。
+（warningもerrorも出るけど）
+
+xmlns:spaces、xmlns:msnなんてインポートしてる、
+DTDもないのに。
+
+tidyのデバッグなんてしたくねえなあ…
+

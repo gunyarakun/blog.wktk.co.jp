@@ -1,0 +1,12 @@
+---
+layout: post
+title: RPM作成
+tags: RPM
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060314/1142320199
+---
+いまさらRPM作成のお勉強。
+CPANでRPM::Makeというものを見つけた。
+また、checkinstallというmakeの挙動を見てパッケージ作成してくれるものが
+あるらしい。
+

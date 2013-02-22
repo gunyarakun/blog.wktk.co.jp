@@ -34,7 +34,7 @@ $enable_html_title_retrieval = true
 $title_ng_regex = /<a/
 
 # デバッグログを出力するかどうか
-$debug = false
+$debug = true
 
 
 # コマンドライン引数を読み取り
@@ -107,7 +107,7 @@ def parse_day(e, hatena_id)
     end
 
     # ファイル出力する
-    fn = "_posts/#{date}-#{new_name}.htn"
+    fn = "_posts/hatena/#{date}-#{new_name}.htn"
     content = {
       "layout" => "post", 
       "title" => name_ja,

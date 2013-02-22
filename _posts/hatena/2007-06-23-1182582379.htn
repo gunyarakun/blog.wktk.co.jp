@@ -1,0 +1,304 @@
+---
+layout: post
+title: ClearSilverについて調べる
+tags: Web
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070623/1182582379
+---
+Python + Djangoで掲示板システムを書いてみていたんだけど、
+どうもスマートに書けない。
+O/Rマッパが必要となるようなシステムでもないし、
+入力フォームもそう多くない。
+
+
+というわけで、
+自前でテンプレートシステムを呼び出して、
+データベースとのやりとりやロジックは自前で実装しちゃおうぜ、
+という気分になりました。
+
+
+ClearSilverっていうテンプレートエンジンが動作がはやそうなので調査。
+PythonでもCでも使えるみたい。
+
+
+随時更新。
+
+** 目標
+
+- すばやく動的なHTMLを出力したい。
+- でも楽もしたい。
+
+** かんたんな仕組み
+
+- HDFっていうデータ構造を作るよ
+- テンプレートにそれ流し込むよ
+- できあがり！
+
+** 導入事例
+
+- www.livedoor.comのトップページ (Cで書かれてるらしい)
+- Trac (Python) でも次期バージョンではGenshiというテンプレートエンジンになるらしい
+
+** ベンチマーク
+
+- Pythonでの
+-- http://genshi.edgewall.org/wiki/GenshiPerformance
+
+** Debianでのインストール
+>|sh|
+sudo aptitudeinstall clearsilver-dev python-clearsilver
+||<
+
+** データセットとHDFファイル
+(元の文章: http://www.clearsilver.net/docs/man_hdf.hdf)
+
+
+元となるデータセットなんだけど、
+HDFっていう形式で書かれたファイルから読むことができる。
+HDFでは、階層的なデータをあらわすことができるんだ。
+HDFの書き方には２つの文法があって、まぜこぜにすることもできる。
+
+
+１つめは、単純なドット区切りのやつ。
+>|HDF|
+Page.Name = My Index
+Page.URL = /myindex.html
+Page.Menu.0 = Home
+Page.Menu.1 = Preferences
+Page.Menu.2 = Help
+Page.Menu.3 = Support
+||<
+
+
+２つめは、ネストするやつ。
+>|HDF|
+Page {
+  Name = My Index
+  URL = /myindex.html
+  Menu {
+    0 = Home
+    1 = Preferences
+    2 = Help
+    3 = Support
+  }
+}
+||<
+ネストの中にはどんな要素も含むことができる。
+
+
+ためしに、Menuを拡張してみよう。
+>|HDF|
+Page {
+  Menu {
+    0 {
+      Name = Home
+      URL = /
+    }
+    1 {
+      Name = Preferences
+      URL = /prefs
+    } 
+    2 {
+      Name = Help
+      URL = /help.html
+    }
+    3 {
+      Name = Support
+      URL = /feedback/
+    }
+  }
+}
+||<
+
+
+HDF関係のAPIはこのフォーマットのファイルを読み書きできるから、
+データセットの永続化にも使える。
+けど、普通は静的なデータをテンプレートに流し込むのに使うよ。
+テンプレートをレンダリングするとき、
+データセットの特定の値が参照できるし、
+特定の点にある全ての要素を順に参照したりすることができるんだ。
+
+
+HDFの文法でさらに２つ重要な部分があるんだ。
+
+
+イコールの代わりにコロンを使えば、
+値のコピーができるよ。
+例えばこんなん。
+>|HDF|
+Page.Name : Page.Menu.0.Name
+||<
+Page.NameがPage.Menu.0.Nameと等しいってことを表してる。
+注意！コピーする前にPage.Menu.0.Nameを定義しとかないといけないよ。
+
+
+もひとつ、複数行の文字列値を使うことができるよ。
+シェルとかPerlの文法っぽい感じ。
+例えばこんなん。
+>|HDF|
+Page.Name << EOM
+This is my multi-line page name.
+Isn't it spiffy?
+EOM
+||<
+
+** ClearSilverテンプレート
+
+(元文章:http://www.clearsilver.net/docs/man_templates.hdf)
+
+
+ClearSilverのテンプレートについて。
+- 拡張子は普通.cstか.cs
+- 内容は、ClearSilverのテンプレートコマンドを含んだテキスト
+- &lt;?csと?&gt;の間にコマンドを埋め込む
+
+テンプレートコマンドはこんな感じ。
+- 置換: var, evar, lvar, include, linclude, set, name
+- フロー制御: if, else, elif, alt
+- 反復: each, loop, with
+- マクロ: def, call
+全てのフロー制御コマンド・全ての反復コマンド・defコマンドは対応する終了コマンドがあるよ(HTMLみたいな）。
+例えば、ifだったら/ifっていう終了コマンド。
+
+
+ほとんどのコマンドは、１つ以上の式を引数としてとるよ。
+さらに、#でコメントもつけられる。(こげな感じ &lt;?cs # this is a comment ?&gt; ）
+
+*** 置換
+
+- var: 単純な値の置換。&lt;?cs var:Page.Name ?&gt;
+- evar: varとほぼ同じ。ただし、ClearSilverテンプレートを読み込んでパースするときに置換される。よって、表示が始まる前にエラーが報告されるよ。ループの中では使えないっす。
+- lvar: evarとほぼ同じ。ただし、データセットの値はパース時のではなくレンダリング時のが使われる。エラーはレンダリングの前に報告される。こいつが使われていると、出力をバッファリングしてない時は毎回レンダリングが行われちゃう。CGI Kitは出力をバッファしてくれるけどね。
+- name: 名前をドット区切りした中で、一番お尻の部分を返す。&lt;?cs name:Page.Name ?&gt;だとNameが返ってくる。繰り返しやマクロの中で使うと便利、なぜなら、繰り返しやマクロの中では、変数の本当の名前が隠されちゃうことがあるから。変数名に特別な意味を持たせてること、あるよね（例はあとで出すよ）。
+- name(): 実は、組み込み関数でnameっていうのがある。&lt;?cs var:name(Page.Name) ?&gt;は&lt;?cs name:Page.Name ?&gt;と一緒ね。ただし、ローカル変数に対して使うと、ローカル変数が指している値の名前が出ちゃうから注意ですぞ。
+- include: 他のClearSilverテンプレートを読み込む。値でも変数でも引数にとれるよ。値を引数にするときは、&lt;?cs include:"header.cs" ?&gt;のように"でくくってね。この場合、HDFサーチパスってヤツに基づいてheader.csをさがす。ただーし！！！includeはパース時に行われるから、ローカル変数は引数に出来ませんぞ。同じ理由で、ifとかでフロー制御している中でincludeをした場合、条件によってincludeされたりされなかったりするんじゃなくて、毎回きっちり必ずincludeされるぞ。
+- linclude: includeみたいなの。ただし、読み込みがレンダリング時。だか～ら、ローカル変数を引数に渡せるし、条件つけてロードするかどうかを制御できる。ローカル変数はlincludeされるファイルには渡されないけど、lvarみたいにエラーはレンダリングに報告されるよ。
+- set: データセットに値を設定するよ。ちょっと文法が複雑。普通は必要なときだけに使うことをオススメするぞ。一般的に、setコマンドは整形のために使われるよ。決まった行数の表でデータを表示するとか、反復中ある条件を満たした値だけにチェックをつけるとか。あとで例出すよ！引数にHDFの値や値を決める式を取ることができるよ。例えばこんなん。&lt;?cs set:Page.Title = "The Title is " + Page.Menu.0.Name ?&gt;
+
+*** フロー制御
+
+ifとelifとelseが使える。
+ifとelifの引数には、booleanとして評価できる式を与えることができるよ。
+例えば、以下のifコマンドはいつもtrueと評価される。
+>|html|
+<?cs if:#1 ?>
+<?cs /if ?>
+||<
+/ifに注意ね。
+
+
+altコマンドは、if var elseの短縮形。
+altがtrueだったらaltを表示、そうでなければ/altまでのテキストを表示するよ。
+つまり、下の２つは等価ってことだね。
+>|html|
+  <?cs alt:my_text ?>There is nothing to see here<?cs /alt ?>
+  <?cs if:my_text ?><?cs var:my_text<?cs else ?>There is nothing to see here<?cs /if ?>
+||<
+
+*** 反復
+
+無限ループはヤバいので禁止してるよ。
+ループコマンドは「each」です。
+与えられたノードの子供全てをなめてくれるよ。
+例えば、こんなデータセットが与えられたと思いねい。
+
+>|HDF|
+Page {
+  Access = Public
+  Content = myword.cs
+  Menu {
+    0 {
+      Name = Home
+      URL = /
+    }
+    1 {
+      Name = Preferences
+      URL = /prefs
+    } 
+    2 {
+      Name = Help
+      URL = /help.html
+    }
+    3 {
+      Name = Support
+      URL = /feedback/
+    }
+  }
+}
+||<
+このとき、Pageに対してeachをかけたら、Page.Access・Page.Content・Page.Menuをくるくるまわる。
+Page.Menuに対してeachをかけたら、Page.Menu.0・Page.Menu.1・Page.Menu.2・Page.Menu.3をくるくるまわる。
+
+
+例えば、メニューを表示したいとしよう。
+>|html|
+<?cs each:item = Page.Menu ?>
+  <?cs name:item ?> - <a href="<?cs var:item.URL ?>">
+        <?cs var:item.Name ?></a><br>
+<?cs /each ?>
+||<
+
+結果は、以下のHTMLになる（ゴミ空白がちょっとついちゃうけどね）
+>|html|
+  0 - <a href="/">Home</a><br>
+  1 - <a href="/prefs">Preferences</a><br>
+  2 - <a href="/help.html">Help</a><br>
+  3 - <a href="/feedback/">Support</a><br>
+||<
+
+ここで、ローカル変数itemがその参照先（例えばPage.Menu.0）と同じように振舞うことに注意。だから、itemが持つ子供の要素にもアクセスできる。nameコマンドにも気をつけてね。
+
+
+withコマンドは、Pascalのwith演算子のようなもの。
+変数に別に変数名をつけてアクセスすることができるようになるよ。
+スコープ付きの値へのポインタと考えてもらえばOK。
+複雑な式のときおすすめ。こんな感じね。
+>|html|
+<?cs with:item = Page.Menu[Query.foo - #1] ?>
+  <?cs name:item ?> - <a href="<?cs var:item.URL ?>">
+        <?cs var:item.Name ?></a><br>
+<?cs /with ?>
+||<
+結果は、Query.fooが3のとき以下のようになる（またゴミ空白がつくけどね…）
+>|html|
+  2 - <a href="/help.html">Help</a><br>
+||<
+
+loopコマンドは、数値でループするのに使われる。for文みたいな感じ。
+引数は、開始値・終了値・増分の３つ。
+無限ループしないようにチェックしてます。
+例えば増分がマイナスで終了値が開始値より大きく設定されていた場合には、
+開始値と終了値を入れ替えちゃいます。
+引数の式は１回しか評価されないから、ループの中で変数変えても効果ないよ。
+
+
+例えばこんな感じ。
+>|html|
+<?cs loop:x = #1, #5, #2 ?><?cs var:x ?>, <?cs /loop ?>
+1, 3, 5
+||<
+>|html|
+<?cs loop:x = #1, #205, #2 ?><?cs var:x ?>, <?cs /loop ?>
+1, 3, 5... 205
+||<
+
+逆向き～
+>|html|
+<?cs loop:x = #205, #1, "-2" ?><?cs var:x ?>, <?cs /loop ?>
+205, 203, 201, ... 1
+||<
+
+** という風にドキュメントを翻訳してきたけれど
+温泉に入ったらやる気が減少。
+コードを書くか。
+
+** 参考
+- [http://d.hatena.ne.jp/bonar/searchdiary?word=%2a%5bClearSilver%5d:title=ClearSilver - bonar note]
+- [http://d.hatena.ne.jp/dayflower/20070416/1176705134:title=ClearSilver を Apache のフィルタモジュールとしてインプリメントしてみた - daily dayflower]
+- [http://blog.shebang.jp/archives/50579490.html:title=#!shebang.jp : ClearSilver の Apache モジュール化]
+- [http://d.hatena.ne.jp/spiritloose/searchdiary?word=%2a%5bClearSilver%5d:title=[ClearSilver] - spiritlooseのはてなダイアリー]
+- [http://d.hatena.ne.jp/pinkgear/20060917/1158455304:title=HDF DataSetについてメモ - 戯れ言日記]
+- [http://blog.craft-works.jp/uru/id/2e45fa5d-c399-47d7-a041-50609829e334:title=pythonã®ãã³ãã¬ã¼ãã¨ã³ã¸ã³ - ã¼ãã¡ã¼ãºã«ä½ãã§å¾æãã¦ããäººã®ãã­ã°]
+- [http://www.typemiss.net/blog/kounoike/20060118-49:title=Link: ClearSilver | Typemiss.net]
+- [http://d.hatena.ne.jp/yoshifumi1975/20070129/1170062978:title=WEBアプリケーション速さ比較 - Sleepless geek in Seattle]
+

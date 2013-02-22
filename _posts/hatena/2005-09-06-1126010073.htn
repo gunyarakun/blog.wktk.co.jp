@@ -1,0 +1,17 @@
+---
+layout: post
+title: POEの日本語での解説はPerlクックブックにある、が
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050906/1126010073
+---
+以前頼んでおいたPerl本9冊が届いた。うち8冊はオライリー。
+オライリー岡田。ギルガ～メッシュ★
+
+で、POEの日本語での解説はPerlクックブック第２版 Volume2 p.878にある。
+が、３ページほどしかない。
+
+http://poe.perl.org/を見るか、
+perldocを読むかしないといけないようだ。めんど～い。
+<A href="http://fleur.hio.jp/perldoc/mix/lib/POE/Kernel.html">POE::Kernel - Perlによるイベント駆動スレッドアプリケーション</A>でも読むかね。
+

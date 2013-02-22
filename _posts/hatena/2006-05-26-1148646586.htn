@@ -1,0 +1,51 @@
+---
+layout: post
+title: mmapをWindowsで
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060526/1148646586
+---
+WindowsのMapViewOfFile(Ex)を使って
+mmap同等の機能を実現しようとしたときに、
+mappingしてままファイルサイズの変更はできない。
+
+
+というわけで、大きめにmmapしておいて、
+随時追記していくような使い方をすると、
+最初にmappingしたサイズぶんだけのファイルができてしまう。
+
+
+実際、
+Pythonのmmapmodule.c中では、
+mapのresizeを行う際にいったんmappingを閉じて、
+ファイルサイズを大きくして、
+また開いている。
+
+
+素敵じゃない。
+
+
+cygwinのmmap.ccを見たところ、
+Windowsでも結構簡単に実現できるんじゃね？
+と思ったけどそれは早計。
+
+
+ソース中のコメントをそのままはってみる。
+>>
+      /* If the requested length is bigger than the file size, the
+	 remainder is created as anonymous mapping.  Actually two
+	 mappings are created, first the reminder from the file end to
+	 the next 64K boundary as accessible pages with the same
+	 protection as the file's pages, then as much pages as necessary
+	 to accomodate the requested length, but as reserved pages which
+	 raise a SIGBUS when trying to access them.  AT_ROUND_TO_PAGE
+	 and page protection on shared pages is only supported by 32 bit NT,
+	 so don't even try on 9x and in WOW64.  This is accomplished by not
+	 setting orig_len on 9x and in WOW64 above. */
+<<
+WinNT以降すべて動くならがんばろうという気になるが、
+WOW64で動かないのはちと微妙。
+うーん。。。
+まあ、MySQLはnative 64bit対応だし、
+Sennaも（がんばれば）native 64bit対応にできるちゃあできる。
+

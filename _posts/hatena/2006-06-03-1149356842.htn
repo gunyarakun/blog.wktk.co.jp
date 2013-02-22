@@ -1,0 +1,13 @@
+---
+layout: post
+title: 日本語での文字列検索
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060603/1149356842
+---
+・日本語で（アルファベットが多い）
+・実用上（重要！）高速な
+文字列検索アルゴリズムねえかなあ。
+…ちゃんと計測してみっか。。
+
+ISBN:0954300645:detail

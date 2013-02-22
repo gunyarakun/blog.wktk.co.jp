@@ -1,0 +1,30 @@
+---
+layout: post
+title: utf8::SWASHGETが重い
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050916/1126866767
+---
+なんか動かしてるプログラムのとある関数がやたら重い。
+DProfセンセ～イ！！
+>>
+%Time ExclSec CumulS #Calls sec/call Csec/c  Name
+ 59.3   36.62 38.237      1   36.621 38.236  Omokute::Tamaran::Function
+ 19.6   12.10 15.161  15223   0.0008 0.0010  utf8::SWASHGET
+<<
+ぎゃあ。激重いがな！utf8::SWASHGET。
+で、正規表現を使う際に内部的に呼ばれているらしいけど、
+ちょっと重すぎ。
+
+http://www.nntp.perl.org/group/perl.unicode/2807
+によると、
+>>
+Unicode含まない正規表現使うときは、
+そこだけスコープ切って、その中でuse bytesを指定してあげな！
+<<
+だそうです。
+
+めんどい。
+
+しかも日本語での情報が激少ない。
+

@@ -1,0 +1,12 @@
+---
+layout: post
+title: で、デバッグオプションつけたら
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050913/1126604845
+---
+SEGV出さないでやんの。
+まあ、ありがちな話だな。
+
+デバッグオプションなしで自前ビルドだとどうなるんだろう。
+

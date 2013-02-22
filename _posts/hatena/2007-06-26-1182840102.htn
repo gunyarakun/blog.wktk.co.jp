@@ -1,0 +1,145 @@
+---
+layout: post
+title: Lucene 2.2の新機能を調べてみた。
+tags: Lucene
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070626/1182840102
+---
+関口宏司さんのLuceneブログによると、
+Lucene 2.2がリリースされ、
+ペイロードをつけることができるようになったようだ。
+
+- [http://lucene.jugem.jp/?eid=131:title=Lucene 2.2のリリース | 関口宏司のLuceneブログ]
+- [http://lucene.jugem.jp/?eid=133:title=記事から名詞だけを取り出す | 関口宏司のLuceneブログ]
+- [http://lucene.jugem.jp/?eid=134:title=人名がヒットしたときはスコアを上げる | 関口宏司のLuceneブログ]
+
+ペイロードを使ってのスコア操作についても
+実例を挙げて説明している。面白い。
+Senの品詞情報や読み情報を利用した検索・スコアリングは
+夢が広がりまくりんぐな感じ。
+
+
+んで、Lucene 2.2でついたペイロード以外の機能も調べてみた。
+Luceneの知識は適当なので、間違っていたら訂正・突っ込み求む。
+
+** point-in-time機能
+インデックスを読み込むIndexReaderクラスと
+インデックスを用いて検索を行うIndexSearcherクラスにおいて、
+インデックスを開いたまさにその状態のまま読み込み・検索を行える機能のようだ。
+
+
+以下のURLには、「NFSを経由した"point-in-time"検索機能」と書いてあって、
+よく意味がわからなかった。
+- [http://journal.mycom.co.jp/news/2007/06/22/012/index.html:title=全文検索エンジンApache Lucene 2.2 - インデックスフォーマットに注意 | エンタープライズ | マイナビニュース]
+Lucene 2.2のCHANGES.txtによると、こういうことのようだ。
+
+
+まずLucene2.1の時点で、以下の機能が追加された。
+Writerがコミットしている間にもReaderがロックしない機能のようだ。
+ReaderはまさにReaderとしてインデックスへの書き込みが出来なくなったと予想。
+>||
+10. LUCENE-701: Lockless commits: a commit lock is no longer required
+    when a writer commits and a reader opens the index.  This includes
+    a change to the index file format (see docs/fileformats.html for
+    details).  It also removes all APIs associated with the commit
+    lock & its timeout.  Readers are now truly read-only and do not
+    block one another on startup.  This is the first step to getting
+    Lucene to work correctly over NFS (second step is
+    LUCENE-710). (Mike McCandless)
+||<
+
+
+次に、今回リリースされたLucene 2.2において、以下の機能が追加された。
+IndexWriterのインスタンスを作る際、
+autoCommitというフラグを指定できるようになったようだ。
+デフォルトではtrueのようで、
+この場合はLucene 2.1以下と同じように"point-to-time"ではない検索、
+つまりインデックスへのコミットされた変更点はReaderやSearcherに影響するようだ。
+>||
+ 3. LUCENE-710: added optional autoCommit boolean to IndexWriter
+    constructors.  When this is false, index changes are not committed
+    until the writer is closed.  This gives explicit control over when
+    a reader will see the changes.  Also added optional custom
+    deletion policy to explicitly control when prior commits are
+    removed from the index.  This is intended to allow applications to
+    share an index over NFS by customizing when prior commits are
+    deleted. (Mike McCandless)
+||<
+
+例えばインデックスがNFS上にあり、それを多数のクライアントが共有して読み込む場合を考える。
+autoCommitをfalseにしておけば、
+大量の更新トラフィックが飛んでこなくなったと推測される。
+よって、上記のような利用シーンでも実用的に使える感じになったと思われる。
+
+
+実際にIndexWriterのjavadocを見比べてみよう。
+- [http://lucene.apache.org/java/2_1_0/api/org/apache/lucene/index/IndexWriter.html:title=IndexWriter (Lucene 2.1.0 API)]
+- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/index/IndexWriter.html:title=IndexWriter (Lucene 2.2.0 API)]
+ふむ、確かにIndexWriterのコンストラクタ引数にautoCommitが追加されている。
+
+** Function queries機能
+
+CHANGES.txtによると、Lucene 2.2では以下の機能が実装されたようだ。
+>||
+ 8. LUCENE-446: Added Solr's search.function for scores based on field 
+    values, plus CustomScoreQuery for simple score (post) customization.
+    (Yonik Seeley, Doron Cohen)
+||<
+ふむふむ…　検索スコアをカスタマイズできる簡単ツールキットみたいなものが追加されたイメージかな。
+
+
+というわけで、該当するところのjavadocを見てみる。
+- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/search/function/package-summary.html:title=org.apache.lucene.search.function (Lucene 2.2.0 API)]
+そこにあったサンプルコードによると、
+指定のフィールドに入っている情報をスコアとして返したり、
+もともとのスコアを文書idの平方根で割ったものをスコアとして返したりすることができるらしい。
+
+
+今までのLuceneでもスコアをカスタマイズすることができたが（詳細は関口さんのブログを参照）、
+それがより簡単になったということだろう。
+
+** pre-analyzed fieldsのための新API
+
+CHANGES.txtによると、Lucene 2.2では以下の機能が実装されたようだ。
+>||
+10. LUCENE-580: Added a new constructor to Field that takes a TokenStream as
+    argument, available as tokenStreamValue(). This is useful to avoid the need of 
+    "dummy analyzers" for pre-analyzed fields. (Karl Wettin, Michael Busch)
+||<
+
+LuceneでいうところのDocumentは、DBMSでいうところの行みたいなもの。
+というわけで、fieldはDBMSのfieldをイメージするといいのかも。
+
+
+TokenStreamについては、関口さんのブログに詳しいエントリがある。
+- [http://lucene.jugem.jp/?eid=50:title=TokenStream/Tokenizer/TokenFilterクラス | 関口宏司のLuceneブログ]
+単純に言えば、テキストを食わせると、単語(Token)をピコピコ連続で返してくれるStreamらしい。
+TokenStreamは、Analyzerっていうものにテキストを食わせると得られるらしい。
+
+
+どうやら今まではFieldを作る際に、
+Analyzerをすでに通してあるTokenStreamを直に指定することができなかったようだ。
+JavaのReaderクラスとして受け取ることは出来るんだけれども、結局またAnalyzerを通されるらしい。
+というわけで、ダミーのAnalyzerを用意しなければならなかった、ということらしい。
+
+
+Lucene 2.2では、FieldのコンストラクタにTokenStreamを直に指定できるようになったみたい。
+javadocを見てみよう。
+- [http://lucene.apache.org/java/2_1_0/api/org/apache/lucene/document/Field.html:title=Field (Lucene 2.1.0 API)]
+- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/document/Field.html:title=Field (Lucene 2.2.0 API)]
+確かにコンストラクタが増えてます。
+
+** まとめ
+
+以下に、Lucene 2.2で目玉となる４つの新機能と、それによって出来ることをまとめたよ。
+
+- point-in-time機能
+-- NFS経由でのインデックス共用が可能に
+- ペイロード機能・Function queries機能
+-- 高度なスコアリング・検索を比較的簡単に実現できるように
+- pre-analyzed fieldsのための新API
+-- Field作成時にAnalyzeをパスすることが可能に
+
+さすがはLuceneといったところでしょうか。
+コードの実例や補足は関口さんがしてくれることを期待。
+

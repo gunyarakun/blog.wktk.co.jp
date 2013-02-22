@@ -1,0 +1,21 @@
+---
+layout: post
+title: 今日のかっこ悪いバグ
+tags: 偽プログラマ列伝
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060405/1144241506
+---
+>>
+if (!(cond = SEN_MALLOC(sizeof(_snip_cond)))) {
+　return sen_memory_exhausted;
+}
+memset(cond, 0, sizeof(cond));
+<<
+のmemsetは
+>>
+memset(cond, 0, sizeof(_snip_cond));
+<<
+だよね。
+
+
+ひどい。これはひどい。

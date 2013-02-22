@@ -1,0 +1,18 @@
+---
+layout: post
+title: 冷や汗かいた。。。
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060614/1150287202
+---
+職場-データセンター間の通信帯域をMaxまで使い切っていたらしい。。。
+（mysqldumpをリモートで実行して）
+ううう。最近ポカミスが多いなあ。
+
+
+で、しょげていてもしょうがないので、
+以下のソフトを探し出したよ！
+http://www.vector.co.jp/soft/win95/net/se297041.html
+
+
+100M契約らしいのだが、MRTGによると98Mくらいまできっかり出たらしい。やるな。

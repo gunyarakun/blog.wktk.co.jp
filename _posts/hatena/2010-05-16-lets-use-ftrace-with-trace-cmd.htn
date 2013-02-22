@@ -1,0 +1,183 @@
+---
+layout: post
+title: ftraceとtrace-cmdを使って、Linux Kernelのイベントログを簡単に取得する
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20100516/lets_use_ftrace_with_trace_cmd
+---
+
+Linuxには、ftraceというトレーサがあります。
+カーネル内の全関数タイムスタンプつき呼び出し履歴などを、それなりに高速に取得できます。
+
+
+詳しくは、@ITにある以下の記事をどうぞ。
+http://www.atmarkit.co.jp/flinux/rensai/watch2008/watch10a.html
+http://www.atmarkit.co.jp/flinux/rensai/watch2009/watch03a.html
+
+
+ためしにftraceを使ってみました。2010年5月時点にて、Debianでの使用方法をメモします。
+
+
+Debianの現行testingにおいて、kernelのftrace機能は無効とされています。ftrace機能が有効かどうかは、以下の操作で確認できます。
+>||
+# mount -t debugfs nodev /sys/kernel/debug
+# cat /sys/kernel/debug/tracing/available_tracers
+blk sched_switch initcall nop
+||<
+
+まず、debugfsをマウントします。そこにあるtracing/available_tracersというエントリが、現在利用できるトレーサの一覧です。tracing/available_tracersの内容に、「function_graph」「function」などがなければ、ftraceが有効とされていないkernelです。
+
+** Debianでftraceを有効としたkernelをビルドする
+
+Debianでのカーネルコンパイル方法ですが、インターネットで情報を探すとさまざまな情報があります。毎回調べるのですが、毎回やり方を忘れますし、どの流儀がよりよいのかも理解していません。
+
+
+今回はmake-kpkgを使いました。CONCURRENCY_LEVEL環境変数を設定し、8並列でmakeします。設定はmenuconfigで行います。
+
+>||
+> sudo aptitude install kernel-package linux-source-2.6.32 libncurses5-dev
+> mkdir kernel-2.6.32-ftrace
+> cd kernel-2.6.32-ftrace
+> tar xvfj /usr/src/linux-source-2.6.32.tar.bz2
+> cd linux-source-2.6.32
+> CONCURRENCY_LEVEL=8 fakeroot make-kpkg --append-to-version=-9-amd64 --revision ftrace1 \
+--initrd --config menuconfig kernel_image kernel_headers
+||<
+
+menuconfigでは、以下の２つの項目を選択します。
+>||
+Kernel hacking
+ -> Tracers
+   -> Kernel Function Tracer
+   -> Trace syscalls
+||<
+
+「Kernel hacking -> Compile the kernel with debug info」も必要があれば選択しましょう。
+
+
+以上の操作で、カレントのいっこ上のディレクトリに、カーネルパッケージが生成されます。あとはこれをdpkg -iで導入するだけ…でいいと思ったのですが、ちょっと詰まりました。
+
+
+カーネルパッケージのインストールの際、通常であればinitrdが自動的に作成されます。ですが、現在のtestingでは、initrdを作ってくれません((/etc/kernel/postinst.d/initramfs-toolsを見ると、「kernel-package passes an extra arg; hack to not run under kernel-package」っていう部分で止められちゃう))。今回は、明示的にupdate-initramfsを呼び出すことによって問題を回避しました。GRUBの設定もしてくれます。
+
+>||
+> cd ..
+> su
+# dpkg -i linux-image-2.6.32-ftrace_2.6.32_amd64.deb
+# update-initramfs -c -t -k 2.6.32-9-amd64
+# dpkg-reconfigure linux-image-2.6.32-9-amd64
+||<
+
+再起動後、uname -rなどで新しいカーネルが使われていることを確認します。
+
+
+再度debugfsをマウントして、tracing/available_tracersをチェックします。function_graphとfunctionが入っていることがわかります。
+>||
+# mount -t debugfs nodev /sys/kernel/debug
+# cat /sys/kernel/debug/tracing/available_tracers
+blk function_graph function sched_switch initcall nop
+||<
+
+
+ftraceをする場合には、debugfsのエントリをよく参照・更新します。/etc/fstabに以下のようなエントリを追加して自動的にマウントさせましょう。
+>||
+debugfs       /sys/kernel/debug          debugfs defaults        0       0
+||<
+
+さらに、/debugにシンボリックリンクを張るとよいでしょう。
+>||
+ln -s /sys/kernel/debug /debug
+||<
+
+** trace-cmdの導入
+
+ftraceに関する操作のほとんどは、debugfs経由で行うことができます。しかし、これがまた少々めんどくさいのです。echo 1 > /debug/tracing/misc的なことを頻繁に行う必要があるからです。その操作を支援するツールがあります。trace-cmdです。ネットワーク経由で、別のマシンのトレースなども取れちゃいます。
+
+
+trace-cmdはバージョン1.0が先月にリリースされたばかりです。usageを見たらまだバージョンが0.7ってなっているのはご愛嬌。導入は簡単です。
+
+>||
+> git clone git://git.kernel.org/pub/scm/linux/kernel/git/rostedt/trace-cmd.git trace-cmd-stable-v1
+> cd trace-cmd-stable-v1
+> make
+> sudo make install
+||<
+
+ためしに、trace-cmdでどのようなトレースができるのか一覧を表示してみましょう。trace-cmdにlistというコマンドを与えると、event/plugin/optionの一覧を表示できます。
+>||
+> trace-cmd list
+events:
+skb:kfree_skb
+skb:skb_copy_datagram_iovec
+syscalls:sys_enter_socket
+syscalls:sys_exit_socket
+...
+
+plugins:
+blk function_graph function sched_switch initcall nop
+
+options:
+print-parent
+nosym-offset
+...
+||<
+
+eventは、ftraceで取得できるイベントです。凡例は「イベント種別:イベント名」です。pluginは、available_tracersと同じようです。optionsは、トレースする際に指定できる各種オプション一覧です。「no」を頭につけることで、オプションをオフにすることができます。
+
+
+** プロファイリングする(草薙葵)
+
+プロファイリングをする前に、/proc/sys/kernel/ftrace_enabledが1であることを確認します。なっていなければ、sysctl kernel.ftrace_enabled=1などをしておいてください。この値の設定については、trace-cmdでは扱ってくれないようです。
+
+
+まずは、lsを実行した場合に、どのようなカーネル関数が呼ばれ、なおかつ実行時間はどうか、ということを調べたいとしましょう。
+
+>||
+# trace-cmd record -p function_graph ls
+||<
+
+上記のコマンドを実行すると、カレントディレクトリに「trace.dat」というファイルが作成されます。ここに、トレースされたデータが入っています。ファイル名を指定したい場合には、「-o」オプションを指定しましょう。
+
+
+トレースされたデータは独自のバイナリ形式です。これを解釈して表示してみましょう。
+
+>||
+> trace-cmd report | less
+||<
+
+うお、ごっちゃりとデータが出てきました。trace-cmd自身が実行したものも含む、カーネル内のすべてのイベントが表示されるからです。適当にgrepしましょう。
+
+>||
+> trace-cmd report | grep -E "^\s+ls-" | less
+||<
+
+これで、lsに関わるシステムコールの様子がわかります。function_graphを用いると、カーネル関数のネストがインデントされてわかりやすいです。さらに実行時間まで計算してくれます。実行実行は、ネストしない関数であればfuncgraph_entryの行に、ネストしている関数であればfuncgraph_exitの行に書かれます。
+
+
+trace-cmd自身にもフィルタ機能が存在します。たとえば、funcgraph_exitにて、1,000,000ナノ秒(1,000マイクロ秒)以上実行にかかったものだけを抽出したい場合には、以下のようにします。
+
+>||
+trace-cmd report -F "funcgraph_exit:(rettime - calltime) > 1000000" | less
+||<
+
+…と書いたものの、実はこのフィルタの文法、よくわかっていません。
+
+
+条件式では、C言語チックな+ - * / % >> << & | ^ ~ == != < > <= >=に加え、正規表現のマッチとその否定である=~ !~も演算子として使えるようです。条件に使える変数については、trace-cmdのソースコード中にあるget_field_val()関数呼び出しの第4引数を参照してみてください。
+
+
+「-e」でイベント名を書くことにより、関数呼び出し以外のイベントについても情報を取得することができます。今回は、コンテキストスイッチについてのイベントを取得してみましょう。イベント名は、trace-cmd listのevents項に表示されるものを指定することができます。今回はsched_switchですね。
+
+>||
+# trace-cmd record -e sched_switch -p function_graph ls
+||<
+
+funcgraph_entry/funcgraph_exitと同じ項に、sched_switchと書かれているのが、コンテキストスイッチのイベントです。どのプロセスからどのプロセスにスイッチしたのかがわかります。
+
+** まとめ
+
+エントリの最後のほうは歯切れ悪いじゃねーか、オイ！とツッコミたくなったでしょう。僕も使い始めたばかりで、まだまだ勝手がよくわかってないからです。
+
+
+みんなtrace-cmdを試してみて、その情報をblogなどに書いてくれるとうれしいよ、という想いでメモを公開してみました。ftraceの公式なドキュメントは、ソースツリー中Documentation/trace/ftrace.txtです。
+

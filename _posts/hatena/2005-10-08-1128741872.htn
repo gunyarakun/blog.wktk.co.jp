@@ -1,0 +1,18 @@
+---
+layout: post
+title: あぶないあぶない
+tags: Debian-amd64
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051008/1128741872
+---
+油断していたら、
+MySQLのあるMyISAMテーブルの容量が4G超えてた！
+
+…でもあっさり超えて正常稼動中。
+SHOW TABLE STATUS LIKE 'html_data';
+ってやってみると、
+Max_data_length : 281474976710655
+だそうで…(0xffffffffffff)
+これが64bitパワーでしょうか。
+といいつつ、よくよくfの数を数えると、48bitぶんなのね。
+

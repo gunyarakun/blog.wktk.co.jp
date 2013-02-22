@@ -1,0 +1,19 @@
+---
+layout: post
+title: 講演してきたりした。
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20061107/1162883565
+---
+資料はこちら。
+http://qwik.jp/senna/publication.download/senna-sigmod.pdf
+
+
+アガって失敗した。トホホ…
+
+
+補足すると、
+現在のMeCab 0.93+IPADIC 2.7.0では、
+「東京都」は「東京/都」に分かち書きされるので、
+Sennaの部分一致検索でも検索漏れを救えないのです。
+

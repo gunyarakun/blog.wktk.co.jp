@@ -1,0 +1,18 @@
+---
+layout: post
+title: gdbが動かない
+tags: Debian
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070718/1184752405
+---
+Debianでdist-upgradeをしたあと、gdbが動かなくなった。
+こんな感じ。
+>||
+This GDB was configured as "x86_64-linux-gnu"...BFD: /home/tasuku/test/a.out: don't know how to handle OS specific section `.gnu.hash' [0x6ffffff6]
+"/home/tasuku/test/a.out": not in executable format: ファイル形式が認識できません
+||<
+
+[http://forums.debian.net/viewtopic.php?t=16677&sid=2d732913a733238d52f54b2815fd85f9:title=Debian User Forums • View topic - GDB problems after update]によると、
+手動でunstableのgdbを入れよとのこと。
+試してみるか -> 試して動いた。
+

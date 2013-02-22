@@ -1,0 +1,30 @@
+---
+layout: post
+title: さようならTidy
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050928/1127877152
+---
+世の中にある小汚いHTMLを、
+戸塚ヨットスクールばりに更生させてくれるTidyくんですが、
+ちょっと複雑なHTMLを食わせただけでかなり時間がかかります。
+それだけマトモな処理をしているということなんだろうけれども。
+
+で、僕の用途としては、
+XML高校に編入できるくらいまで更生してもらえれればいいわけです。
+というわけで、htmlをxhtmlに変換するツールで十分なのではないかしら？
+これもちょっと余計なことをするが、tidyほど処理はしないだろうと予想。
+調査。
+
+-html2xhtml
+--http://suiten.wig.nu/soft/index.html
+--リンク系の閉じタグ作ってくれないのでout
+
+-xhtmlの書き方と留意点
+--http://www.kanzaki.com/docs/html/xhtml1.html
+--いちおう参考スクリプトあり。でも自動変換じゃ無理なとこもあるとちゃんと指摘してある。しょぼーん。
+
+-WWW::Webrobot::Html2XHtml
+--http://search.cpan.org/~strcek/webrobot-0.70/lib/WWW/Webrobot/Html2XHtml.pm
+--いけるかしら…　これから調査しまーす。
+

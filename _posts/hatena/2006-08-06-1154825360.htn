@@ -1,0 +1,11 @@
+---
+layout: post
+title: コンテキストスイッチスイッチ
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060806/1154825360
+---
+コンテキストスイッチをいっぱい起こすようにして、
+マルチスレッド特有のバグを検出しやすくしよう計画。
+ふむふむ。
+http://d.hatena.ne.jp/yupo5656/20060528

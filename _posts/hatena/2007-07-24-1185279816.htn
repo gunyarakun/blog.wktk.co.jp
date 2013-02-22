@@ -1,0 +1,19 @@
+---
+layout: post
+title: WindowsNT・2000ネイティブAPIリファレンスが高すぎる
+tags: Windows
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070724/1185279816
+---
+NtCreateSectionとNtMapViewOfSectionの挙動を記した本が欲しいなあ、と思って
+探してみたんだけど…
+
+>{% amazon jp:489471244X:detail %}<
+うはー、またプレミアムかよ！！
+どこかに定価で落ちていたら情報求む。
+
+**[追記]
+
+テストプログラムを書いて、
+NTSTATUSをFormatMessageでエラーメッセージ化したものを見たりしているうちに挙動を理解。
+そして、その挙動が自分が期待していたものと違ってガックリ…

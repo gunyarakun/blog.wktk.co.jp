@@ -1,0 +1,42 @@
+---
+layout: post
+title: Python Unconference 1でLTに参加してきた
+tags: Python
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071212/1197475864
+---
+Python Unconference 1というイベントで、
+LTに参加してきました。
+
+
+その際の発表資料をアップしておきます。
+- [http://tasuku.suenaga.name/pub/pytc/Python-unconference01-cextension.pdf:title=PyTCで学ぶPython C拡張の書き方]
+
+
+Pythonから既存のライブラリを呼びたい方はぜひ参考にしてみてください。
+口を酸っぱくして言っておきますが、普通はPyrexを使いますからね…
+
+
+**[追記]スライド中パフォーマンスについて
+スライドで紹介したパフォーマンス測定は
+「傀儡師の館.Python」から引用したものです。
+- [http://plaza.rakuten.co.jp/kugutsushi/diary/200711220000/:title=Python のいろいろな方法でキーと値の保存と検索をやってみようかと(2) - 傀儡師の館.Python - 楽天ブログ（Blog）]
+
+
+このパフォーマンスは、
+おそらく各DBが設定できる各種パラメータを
+カリカリにチューンして測定したものではありません。
+
+
+特にHDBについては、最初にHashのbucketサイズを大きくしておくことによって
+パフォーマンスが大きく伸びると考えられます。
+
+
+各DBでパラメータチューンを行った上での実験データを
+mikioさん本人が公開されています。
+この資料を参考にしてくださーい！
+- [http://tokyocabinet.sourceforge.net/benchmark.pdf:title=Tokyo Cabinet ベンチマークテストのレポート]
+
+
+一応念のため追記。
+こういうパフォーマンス比較資料は一人歩きしやすいので。

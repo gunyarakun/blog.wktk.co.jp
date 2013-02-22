@@ -1,0 +1,12 @@
+---
+layout: post
+title: U・D・F!U・D・F!
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060510/1147233831
+---
+MySQLのUDFを使うとクエリキャッシュに乗らなくなるのね。
+ああ。。。呼び出しごとに結果変わる可能性あるもんな。
+結果変わらないのでキャッシュしていいよフラグを立てたいな。
+UDFじゃなくてMySQL本体に関数として組み込むのがいいのかしら。。
+

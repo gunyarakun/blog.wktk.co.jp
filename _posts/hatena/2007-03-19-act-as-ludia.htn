@@ -1,0 +1,20 @@
+---
+layout: post
+title: acts_as_ludiaを使ってRails + Pg + Ludia + Sennaで全文検索
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070319/act_as_ludia
+---
+acts_as_ludiaという、RailsでLudiaが簡単に使えるプラグインが公開されています！！
+http://d.hatena.ne.jp/uchiuchiyama/20070318/ludia_rails_plugin
+
+
+スニペットが簡単に取得できるのが嬉しい。
+Ludia + Railsユーザはぜひぜひご利用を。
+
+
+[追記]
+<del datetime="2007-03-20T11:32:10+09:00">act_as_ludia</del>ではなく、acts_as_ludiaの間違いでした…
+uchiuchiyamaさん指摘ありがとうございます。修正いたしました。
+どんどん改良していく予定とのことで、楽しみにしております！
+

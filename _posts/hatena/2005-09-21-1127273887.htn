@@ -1,0 +1,25 @@
+---
+layout: post
+title: TinySVMのperlバインディングがうまくいかない件
+tags: だめ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050921/1127273887
+---
+TinySVM 0.09、perlバインディングがうまくいきましぇん。
+
+http://www.nesugi.net/diary/20050612.html
+から。
+>>
+-TinySVMのVer. 0.09を解凍 
+-TinySVMのVer. 0.04を解凍
+-0.09の方のperlディレクトリを削除して、 
+そこに0.04のperlディレクトリをコピーして持ってくる 
+-新しく持ってきたperl/Makefile.PLのLIBSに-lstdc++を追加
+'LIBS'              => '-L/usr/local/lib -ltinysvm'これを
+'LIBS'              => '-L/usr/local/lib -ltinysvm -lstdc++'こんな感じ。 
+-後は普通に./configure; make installして、TinySVMの本体をinstall 
+-Perl moduleを入れる場合は、cd perlした上で、perl Makefile.PL; make install 
+でできる、とメモには書かれてた。
+<<
+だそうです。
+

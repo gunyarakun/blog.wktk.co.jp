@@ -1,0 +1,16 @@
+---
+layout: post
+title: バイナリバイナリ
+tags: FreeBSD
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060323/1143083788
+---
+学部のときCORBAの研究（といえるのかアレは・・・）をしたのだが、
+そのときは複数マシンを個々にFreeBSDを新規インストールして、
+担当教官の鈴木正人様に「dumpしてrestoreすりゃいいじゃん！！」
+といわれたものだ。という思い出話も含めて。
+
+
+Single System, Multiple Machines 
+http://uyota.asablo.jp/blog/2006/03/19/294745
+

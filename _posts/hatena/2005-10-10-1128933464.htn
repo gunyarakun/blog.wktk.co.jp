@@ -1,0 +1,35 @@
+---
+layout: post
+title: CabochaのPerl bindingでSEGV
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051010/1128933464
+---
+でます。
+>>
+Starting program: /usr/bin/perl test.pl
+[Thread debugging using libthread_db enabled]
+[New Thread 1076875392 (LWP 31414)]
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 1076875392 (LWP 31414)]
+0x4033ce16 in std::_Rb_tree<std::string, std::pair<std::string const, std::string>, std::_Select1st<std::pair<std::string const, std::string> >, std::less<std::string>, std::allocator<std::pair<std::string const, std::string> > >::lower_bound () from /usr/local/lib/libyamcha.so.1
+
+#1  0x40021672 in YamCha::Param::setProfile () from /usr/local/lib/libyamcha.so.1
+#2  0x4001fc6f in YamCha::Param::open () from /usr/local/lib/libyamcha.so.1
+#3  0x4002c94c in YamCha::Chunker::Impl::open () from /usr/local/lib/libyamcha.so.1
+#4  0x40033eaf in YamCha::Chunker::open () from /usr/local/lib/libyamcha.so.1
+#5  0x40023ab4 in yamcha_new () from /usr/local/lib/libyamcha.so.1
+#6  0x0805bf27 in CaboCha::NE::open ()
+#7  0x080558e8 in CaboCha::newAnalyzer<CaboCha::NE> ()
+#8  0x08056ff7 in CaboCha::Parser::open ()
+#9  0x08057acc in CaboCha::Parser::parse ()
+#10 0x0804bf82 in cabocha_do ()
+#11 0x0804bf19 in main ()
+<<
+というわけで、YamCha先生が悪いってことか。
+
+さらに、YamChaのPerlバインディングもテストとおらない。
+Chunker::open(): unknown action modeって出る。うーむ。
+
+-解決- YamChaのconfigure時に--disable-sharedしちゃってました。そこ直してＯＫ。

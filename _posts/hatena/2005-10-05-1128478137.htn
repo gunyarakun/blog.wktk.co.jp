@@ -1,0 +1,12 @@
+---
+layout: post
+title: DProf
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051005/1128478137
+---
+新しい環境では、POEとDProfの相性が悪いらしく、
+Segmentation Faultを起こしてしまう。
+Devel::SmallProfも動かない。
+さてどうしたものか。
+

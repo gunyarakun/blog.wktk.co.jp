@@ -1,0 +1,31 @@
+---
+layout: post
+title: off_tめ。。。
+tags: 偽プログラマ列伝
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060322/1143022117
+---
+つい先日、やっちゃいました。配列の境界１個オーバー。
+いやあああああああ。
+
+
+というのはいいとして（よくねー）、
+今日はincludeの順番によるバグに１時間ほど悩まされる。
+無駄なテストプログラム群。ああああ。
+
+
+ま、何をしたかったかといいますと、
+2GB以上のファイル扱いたい場合、
+LFSサポートをONにしたかったわけです。
+
+
+configure.acにAC_SYS_LARGEFILEを書いたりするわけですが、
+（とか必要に応じてAC_FUNC_FSEEKOやAC_CHECK_SIZEOF( off_t )をまぜてね）
+その結果できていたconfig.hのincludeが、
+stdio.hのincludeより遅かったという超ダメな感じ。
+
+
+で、途中でググる先生にお伺いをかけたときに見つけたページ。
+http://charm.cs.uiuc.edu/users/olawlor/ref/examples/unix/index.html
+じ、地味なプログラム群。。。
+

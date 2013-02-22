@@ -1,0 +1,63 @@
+---
+layout: post
+title: Protothreadsで学ぶC言語
+tags: C言語
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070510/1178772003
+---
+いまだにC言語をよく理解していない。
+
+
+1文しかない関数を定義する場合でもブロックは必須なのね。
+例えばこういうのはダメ、と。
+>|c|
+void test_func(void) return;
+||<
+
+
+上記の問題は、
+epollのチェック関数を作っているときに気づきました。
+しかし、Linux 2.4君よ、
+なぜepoll_createのダミーを置くのだ…
+AC_CHECK_FUNCだけで調べられないじゃないか。
+
+
+C言語といえば、
+switch内のcaseが置ける場所について、
+ブラジルの中でちょっと話題になった。
+
+
+[http://ja.wikipedia.org/wiki/Duff's_device:title=Duff's device - Wikipedia]でも挙げられているとおり、
+ブロックの中にもcaseが置ける。
+caseはgotoのラベルのようなものということだな。
+
+
+同様のテクニックは、Protothreadsでも使われている。
+- [http://www.sics.se/~adam/pt/:title=Adam Dunkels]
+
+パッケージ内のlc-switch.hには以下のマクロが定義されていて、
+継続っぽいことができるようになっている。
+>|c|
+#define LC_INIT(s) s = 0;
+#define LC_RESUME(s) switch(s) { case 0:
+#define LC_SET(s) s = __LINE__; case __LINE__:
+#define LC_END(s) }
+||<
+
+Protothreadsの欠点として
+- スタック変数は使えない
+- switchの中で継続ができない(gccの拡張を使えば回避可能。see:lc-addrlabels.h)
+というのがあるが、適用範囲を間違えなければ使える。
+
+** [追記]
+Visual C++でコンパイルを行うとエラーが発生する場合がある。
+プログラムデータベースをエディットアンドコンティニュー可のものにしておくと、
+__LINE__が定数扱いされなくなるらしい。
+
+
+まあ、エディットアンドコンティニューするんだったら確かにそうだわな。
+
+
+というわけで、そういう場合にはエディットアンドコンティニューできない
+プログラムデータベースにするといいです。
+

@@ -1,0 +1,31 @@
+---
+layout: post
+title: 実用的なrpmメモ
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060614/1150286140
+---
+rpmのコマンドラインわからんち。--verbose --helpは長いし。
+つーわけで、普通これだけあったら大丈夫メモ。
+- installはrpm -Uvh、--testでテストのみ、-Uhvvでさらに詳細、--forceで強制
+- 削除はrpm -e
+- インストール済みパッケージの検索は rpm -q gccとかrpm -qa "lib*"とかrpm -qa | grep gccとか
+- あるファイルがどのパッケージ起源か調べるのはrpm -qf。rpm -qf $(which perl)とか
+- パッケージファイル開けるのはrpm2cpio package | cpio -i。cpio -tでファイル一覧が一応見れる。
+- 最近インストールしたパッケージ一覧を見るには rpm -qa --last | head
+以下、インストール済みパッケージに対して。
+パッケージファイル自体に適用する場合には、-pをつける。
+- パッケージの情報ゲットは  rpm -qi
+- パッケージのファイル一覧はrpm -ql、-qlvでより詳しく
+- パッケージ中の設定ファイル一覧は、rpm -qc、-qcvでより詳しく
+- パッケージ中のドキュメント一覧は、rpm -qd、-qdvでより詳しく
+- パッケージ中のファイルがパッケージから入った状態から変わっているかチェックはrpm -qs
+- パッケージの検証はrpm -V、-Vaで全部チェック
+- パッケージ導入中に実行されるスクリプトを見るのはrpm -q --scripts
+- パッケージが提供する機能一覧はrpm -q --provides package
+- パッケージが必要とする機能一覧はrpm -q --requires package
+- パッケージの競合はrpm -q --conflicts package
+以下、ある機能について。
+- 特定の機能を必要とするパッケージ一覧はrpm -q --whatrequires function
+- 特定の機能を提供するパッケージはrpm -q --whatprovides function
+

@@ -1,0 +1,249 @@
+---
+layout: post
+title: 全文検索エンジンgroongaをテストリリースしました。
+tags: groonga
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20090220/groonga_test_release
+---
+全文検索エンジンのgroongaをテストリリースしました。
+- [http://groonga.org/:title=groonga]
+
+本日開催された、key-value store勉強会で発表させていただきました。
+
+
+今まで、Sennaには
+- Tritonn経由で使った場合、MySQL側のインデックスとの併用が難しく、Senna本来のパフォーマンスが発揮できなかった。
+- 従来のインターフェースでは、トークナイザの切り替えなどの柔軟性がなかった。
+といった問題がありました。
+
+
+groongaは、それに対する返答です。
+- 自分でデータベース書けばいいんじゃね？
+- 柔軟なAPI用意すればいいんじゃね？
+ってことですね。
+
+
+データベースは、key-valueストアを組み合わせたcolumnストア的な感じになっています。
+詳細については、今後別エントリやドキュメントで述べます。
+
+
+今後は、Sennaはバグ修正のみ行うメンテナンスモードに移行します。
+
+** 実際使ってみよう
+
+今回は、groongaが備える「memcached互換プロトコル対応機能」を使ってみましょう。
+
+groongaは、独自のデータベース・全文検索機能をAPI経由で提供するライブラリです。そのライブラリを使って、memcached互換のデーモンを書いてみたよ、というお話ですね。プロトコルはmemcached互換ながら、データはHDD/SSDに保存されます。
+
+
+以下のようにインストールします。
+今回は、全文検索は行わないため、
+MeCabなしでインストールしてみましょう。
+
+>|sh|
+> tar xvfz groonga-0.0.1.tar.gz
+> cd groonga-0.0.1
+> ./configure --without-mecab
+> make
+> su
+# make install
+||<
+
+以下のように、groongaデーモンを起動します。
+デフォルトでは、ポート番号10041でlistenします。
+>|sh|
+> groonga -s <データベースファイル名>
+||<
+
+Gronngaは、独自プロトコルとmemcached互換プロトコルをサポートしています。
+今回は、memcached互換プロトコルを使ってみましょう。
+memcachedのバイナリプロトコルをサポートしているクライアントが必要です。
+
+
+今回は、libmemcachedを直に使ってみます。
+livedoorの池邊さんがWEB+DB pressに書いたコードのパクりですが…
+
+>|c|
+#include <stdio.h>
+
+#include "libmemcached/memcached.h"
+
+int
+main(int argc, char *argv[])
+{
+  struct memcached_st *memc;
+  struct memcached_server_st *servers;
+  memcached_return rc;
+  char *val;
+  size_t val_len;
+  uint32_t flags;
+
+  memc = memcached_create(NULL);
+  memcached_behavior_set(memc, MEMCACHED_BEHAVIOR_BINARY_PROTOCOL, 1);
+  servers = memcached_servers_parse("127.0.0.1:10041");
+  rc = memcached_server_push(memc, servers);
+  if (rc != MEMCACHED_SUCCESS) {
+    fprintf(stderr, "Error: %s\n", memcached_strerror(memc, rc));
+    return -1;
+  }
+  rc = memcached_set(memc, "key", 3, "value", 5, 0, 0);
+  if (rc != MEMCACHED_SUCCESS) {
+    fprintf(stderr, "Error: %s\n", memcached_strerror(memc, rc));
+    return -1;
+  }
+
+  val = memcached_get(memc, "key", 3, &val_len, &flags, &rc);
+  if (rc == MEMCACHED_SUCCESS) {
+    printf("val: %.*s\n", val_len, val);
+  }
+  if (val) {
+    free(val);
+  }
+
+  memcached_server_list_free(servers);
+  memcached_free(memc);
+
+  return 0;
+}
+||<
+
+'key'というキーに、'value'という値が設定して、
+それの取得ができましたね。
+キャッキャッ。
+
+** PHPのセッション維持をgroongaでやってみる
+
+PECLのmemcacheライブラリは、最近バイナリプロトコルをサポートしたようです。
+が、試してみたらうまく動かなかったっす。
+というわけで、今回は、PECLのmemcachedライブラリを使いました。
+libmemcachedのラッパーですね。
+
+
+PECLのmemcache/memcachedは、
+PHPのセッションをmemcachedに保存するための機能を持っており、
+php.iniを編集するだけでセッション情報をmemcachedに保存することが可能です。
+ただし、memcachedのテキストプロトコルが使われてしまうんですねー…
+
+
+よって、PHPのセッション維持をmemcachedのバイナリプロトコルを用いて行う
+テストプログラムを書きました。
+こんなんでうまく動くはずです。
+
+>|php|
+<?php
+extension_loaded('memcached') || dl('memcached.so') || exit(1);
+
+class MemcachedBinarySession
+{
+  private static $memcached;
+  private static $lifetime;
+
+  public static function open() {
+    self::$lifetime = ini_get('session.gc_maxlifetime');
+    $m = new Memcached;
+    $m->setOption(Memcached::OPT_BINARY_PROTOCOL, 1);
+    $ret = $m->addServer('localhost', 10041);
+    self::$memcached = $m;
+    return $ret;
+  }
+
+  public static function close() {
+    return TRUE;
+  }
+
+  public static function read($session_id) {
+    return self::$memcached->get($session_id);
+  }
+
+  public static function write($session_id, $session_data) {
+    return self::$memcached->set($session_id, $session_data, self::$lifetime);
+  }
+
+  public static function destroy($id) {
+    return self::$memcached->delete($session_id);
+  }
+
+  // don't delete.
+  public static function gc($max_lifetime) {
+    return TRUE;
+  }
+}
+
+ini_set('session.save_handler', 'user');
+
+session_set_save_handler(array('MemcachedBinarySession', 'open'),
+                         array('MemcachedBinarySession', 'close'),
+                         array('MemcachedBinarySession', 'read'),
+                         array('MemcachedBinarySession', 'write'),
+                         array('MemcachedBinarySession', 'destroy'),
+                         array('MemcachedBinarySession', 'gc')
+                        );
+
+if (session_id() == '') session_start();
+
+if (isset($_SESSION['counter'])) {
+  $_SESSION['counter']++;
+} else {
+  $_SESSION['counter'] = 1;
+}
+echo '<br/>SessionID: '. session_id() .'<br/>Counter: '. $_SESSION['counter'];
+?>
+||<
+
+groongaサーバをlocalhostで動かしているサーバに、
+上記のスクリプトを置いてみましょう。
+ブラウザで確認すると、カウンタが増えていきますねー。
+わーい。
+
+** 大事な注意
+
+とりあえず、今日の発表会のためだけにリリースをしてので、
+以下のような制限事項があります。
+
+
+groongaはリポジトリをgithubで公開しています。
+http://github.com/groonga/groonga/tree/master
+ぜひぜひパッチを！give me patch！！！
+
+- テストリリースのため、APIドキュメントがまったくないです。
+
+APIドキュメントは今必死に書いてます。
+memcachedバイナリプロトコル互換APIで遊んでみてね。
+
+- Macでテストしてないっす。kqueueサポートしてないっす。
+
+現在、Linux(amd64)で開発・テストしています。
+Macでもテストしてません。
+また、kqueueサポートもしていないため、多重度が高いテストをMacやFreeBSDで行うと遅いと思います。
+
+- 言語バインディングがありません。
+
+現在、各種LL言語のためのバインディングがありません。
+バインディング大募集中です！
+
+- exptimeは保存されていますが、処理は行っていません。
+
+Tokyo Tyrant等のmemcached互換実装では、flagsやexptimeを無視するものがあります。
+groongaでは、flagsやexptimeをきちんと保存しています。
+が、exptimeの処理を書いていないので、expireが行われません。
+きちんと保存はしているので、あとはexpireの処理の実装が必要です。
+
+とりあえずは、getの際にexptimeを越えていたら値を消す、
+的な実装からつけていきたいところです。
+
+- ファイルフォーマットが変わるかもしれません。
+
+テストリリースなので、ファイルフォーマット変わるかもしれません。
+
+- MySQLから使えません。
+
+現在、MySQL経由では利用できません。
+これについては、現在…ゲホゲホ　闇の組織がー！！　ぐふっ
+というわけで、ご期待あれ。
+
+** まとめ
+
+- Sennaの次世代バージョンのgroongaをテストリリースしました！
+- githubでソース公開してます！
+- みんなのツッコミ待ってます！
+

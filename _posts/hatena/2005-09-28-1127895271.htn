@@ -1,0 +1,34 @@
+---
+layout: post
+title: MySQL 5.0.13-rc with senna(rev.50) compiled with gcc-3.4 On Debian-amd64(sarge)
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050928/1127895271
+---
+うひひ。僕はチャレンジャーかもしれない。
+今日届いたDual Core Opteron x 2（つまり論理CPUは4）のサーバにDebianを突っ込んだ。
+
+で、出たばっかのMySQL 5.0.13-rcにMySQL 5.0.12-beta用のsennaのパッチを当てる。
+Hunk出たけど問題なさそう。
+でビルドする。
+>>
+ # autoconf
+ # CFLAGS="-O3 -march=opteron" CXX=gcc CXXFLAGS="-O3 -march=opteron \
+ -felide-constructors -fno-exceptions -fno-rtti" ./configure \
+ --prefix=/usr/local --localstatedir=/var/mysql/data --enable-assembler \
+ --with-named-curses-libs=/lib/libncurses.so.5.4 \
+ --with-charset=utf8 \
+ --with-client-ldflags=-all-static --with-mysqld-ldflags=-all-static
+<<
+怒られた。-march=opteronはgcc 3.4以降で対応らしい。
+じゃあgcc-3.4とg++-3.4入れちゃおうじゃないの！！！（馬鹿）
+mecabもsennaもgcc-3.4で作り直して。
+>>
+ # CC=gcc-3.4 CFLAGS="-O3 -march=opteron" CXX=gcc-3.4 CXXFLAGS="-O3 -march=opteron \
+ -felide-constructors -fno-exceptions -fno-rtti" ./configure \
+ --prefix=/usr/local --localstatedir=/var/mysql/data --enable-assembler \
+ --with-named-curses-libs=/lib/libncurses.so.5.4 \
+ --with-charset=utf8 \
+ --with-client-ldflags=-all-static --with-mysqld-ldflags=-all-static
+<<
+うひょひょ～。いま絶賛コンパイル中。どこで死ぬやら…

@@ -1,0 +1,13 @@
+---
+layout: post
+title: RastとかSennaとか
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050915/1126777638
+---
+わが社内ではpg_rastも動いているし、MySQL+Sennaも動いている。
+両者のプロジェクトはほぼ関係ないんだけど。
+やっぱり全文検索は大事だよね～
+他にもLucene先生も、独自のtrigram検索エンジンも動いています。
+検索マニア。
+

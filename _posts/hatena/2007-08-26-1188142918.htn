@@ -1,0 +1,19 @@
+---
+layout: post
+title: Django勉強会 Disc 4での資料を公開します
+tags: Django
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070826/1188142918
+---
+Django勉強会 Disc 4で発表させていただいた資料を公開します。
+今回は構成とかグダグダ＆Djangoの話が少なくてすみませんすみません…
+-[http://tasuku.suenaga.name/pub/senna/django-ja-disc4-senna.pdf:title=DjangoでSenna 2.0!(PDF注意)]
+
+Senna 2.0を用いたWikipedia検索はリポジトリに公開しています。
+- [http://svn.razil.jp/django-wikipedia/branches/senna:title=Senna2.0でのWikipedia検索@Django]
+Tritonn版はこちら
+- [http://svn.razil.jp/django-wikipedia/trunk:title=TritonnでのWikipedia検索@Django]
+
+公式の場でSenna 2.0について話すのは初めてだったのですが、
+やはり説明のための構成を練らないといけないですね…
+なぜSchemeを採用したか、というのは皆さん興味を持たれるようです。

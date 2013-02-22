@@ -1,0 +1,27 @@
+---
+layout: post
+title: 広がる広がるSennaの世界
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20061023/1161577528
+---
+わーいわーい！
+Sennaの利用が広がってうれしい今日この頃ですよ。
+
+
+全文検索ライブラリSennaのPythonバインディング with SWIG
+http://www.void.in/wiki/SWIG-senna
+
+
+SennaのRubyバインディング 非公式ドキュメント
+http://mono.kmc.gr.jp/~yhara/w/?RubySenna
+
+
+バインディングについては、
+-まずC++でラッパを書く
+-そこからSWIGで変換
+-ｳﾏｰ
+と考えていたのでした。
+
+
+SWIGのPHPサポートって進んだのかしら。。。

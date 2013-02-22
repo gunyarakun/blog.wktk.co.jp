@@ -1,0 +1,25 @@
+---
+layout: post
+title: WEB+DB PRESS Vol.42にSennaの記事が掲載されます。
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071210/1197297374
+---
+WEB+DB PRESS Vol.42にSennaの記事を書きました。
+- [http://gihyo.jp/magazine/wdpress/archive/2008/vol42:title=WEB+DB PRESS Vol.42｜技術評論社]
+
+
+今回の記事は、TritonnやLudiaのような他のDBMSを利用するのではなく、
+SennaQLという独自のクエリ言語をPHP経由で利用する場合の
+サンプルコードが載っています。
+
+
+というわけで、発売までにSennaの新版をリリースしたいところ。。。
+間に合うか！いや、間に合わないとマズいぞ。
+
+
+岡野原さんによるSuccinctなデータ構造＆全文索引の基礎の記事もあるので、
+全文検索マニア（？）の人は100冊くらい買うとよいと思います。
+
+
+ニコ動の記事にもSennaの話がちらっと出ているという噂。

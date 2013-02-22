@@ -1,0 +1,63 @@
+---
+layout: post
+title: SennaのPHP bindingを書くための下調べ
+tags: PHP
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070130/senna_php
+---
+
+http://qwik.jp/senna/PHP_binding.html　より、
+>>
+mojabi : 
+お願いです。PHPでも使用できるようにしてください。
+そうすればSennaがさらに普及するのも間違いないと思います。
+<<
+な、なんと！
+そういわれると作りたくなるじゃないか！
+
+
+というわけで、実現可能性をちょっとだけ調べてみたよ。
+
+
+上記ページ中に、GREEの小泉さんのツッコミもあります。
+>>
+Senna の構造上、個別ユーザランド関数の集合 + リソースとして
+API をエクスポートするのではなく
+クラス単位でまとめることをオススメします。
+<<
+ふむふむ。
+ということは、php extensionでのクラスの扱い方を知らないといけないのね。
+
+
+というわけで、調べて見つかった記事たち。
+-PHP Extension を作ろう第３回 - クラスを作ろう 
+http://dsas.blog.klab.org/archives/50903613.html
+-PHP拡張でクラス実装がよくわからん
+http://www.developer0000.jp/2007/01/07/phpeaycyyeyaaoeieo/
+
+
+ext/dom/php_dom.cを見ると、
+やはりクラスごとにzend_class_entry *を保持しないといけないのね。
+
+
+zend_register_internal_classに加えて
+zend_register_internal_class_exを使っている。
+ex付きのほうは、クラスの継承が出来るのかな？
+
+
+例えば、
+>>
+dom_domexception_class_entry = zend_register_internal_class_ex(&ce, zend_exception_get_default(TSRMLS_C), NULL TSRMLS_CC);
+<<
+こういう記述があるんだけど、
+これはPHPにもともとあるExceptionクラスを継承しているように見える。
+つか、PHPに例外機構ってあったんだっけか…
+
+
+zend_parse_parametersとzend_parse_parameters_exってのもある。
+ZEND_PARSE_PARAMS_QUIETという、エラーメッセージを出さないオプションを第１引数に指定できるらしい。
+これは、sen_setやsen_symみたいに、どんな値が入るかわからんポインタを扱うためのものらしいぞ。
+
+
+というわけで、ボチボチ調べながら書いていきます…
+そういえばSPARC対応もしないといけないんだったな…

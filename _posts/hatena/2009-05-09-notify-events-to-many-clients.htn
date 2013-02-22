@@ -1,0 +1,71 @@
+---
+layout: post
+title: ニコニコ大百科アラートでのメッセージキュー設計について。
+tags: amqp
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20090509/notify_events_to_many_clients
+---
+
+お風呂でメモ。
+
+** 要件
+
+ニコニコ大百科で起こったイベントのうち、
+ユーザが指定したものだけを通知するクライアントアプリケーションを作成したい。
+
+なお、すべてのイベントは漏れなくユーザに伝わることとし、
+すべてのユーザに送られる情報は同一とする。
+イベントが起こった「直後」にイベントが通知されることが望ましい。
+計算負荷・ネットワーク負荷が軽い方法がよい。
+サーバ側はRuby、クライアント側はPythonを用いる。
+
+さて、どのような通信方式でデータをやりとりすべきか。
+
+** RSS/ATOM
+
+まず考えられるのが、RSSやATOMなどの採用。クライアント側でもライブラリなどがあってお手軽。
+- feedのエントリ数が固定だと、pollingの間にすべてのイベントが流れてしまう恐れがある。
+- よって、feedのエントリ数は可変とし、一定の時間内に起こったイベントを全て記録することとする。
+- 一定の時間内に起こったイベントを全て記録すると、feed内のエントリ数が増える。
+- そうしたらファイルサイズが大きくなってネットワーク負荷がかかる。
+- 漏れをなくす方法として、たとえばTwitterのpublic timeline取得APIのsince_idパラメータのように、取得したい情報の位置をクライアントから与えてもらう方法がある。
+- でも、Twitterはそのパラメータを無視するようになった。スケールしないんだろう。キャッシュやりにくいしね。
+- そもそも、RSS/ATOMはblogのエントリなどの更新頻度が少ないもの向けじゃね？
+- メリットとしては、staticなファイルにできるってところかな。
+
+** XMPP PubSub
+
+- ぎゃー、この資料に上と同じようなこと書いてあった、勉強不足。[http://en.oreilly.com/oscon2008/public/schedule/detail/4359:title=Beyond REST? Building Data Services with XMPP PubSub: OSCON 2008 - O'Reilly Conferences, July 21 - 25, 2008, Portland, Oregon]
+- スライド中の「Polling sucks.」気持ちはよくわかる。
+- XMPP PubSubは、上記のような目的のために設計されたようだ。内部はxmlで、実体メッセージのxmlはatom推奨。でもどんなxmlでも入れていい。
+- たぶん、atomだとライブラリの支援を受けることができて楽そうだ。
+- senderのコード。イベントループくるくる。
+>|ruby|
+while true
+  event = queue.get_next_event()
+  #loop
+  Subscriptions.find_by_node(:all,
+    event.pubsub_nodes ).each do |subscriber|
+    #send new message
+    subscriber.send_xmpp_message(event.to_xmpp)
+  end
+end
+||<
+- スケールするかどうか要検証。あとは実装の充実度。
+
+** AMQP
+
+- AMQPでも同様のことはできるはず。
+- だんだん話がでかくなってきたぞ…
+- AS3ライブラリがある！これは便利だなー。
+- わはは、どこもかしこも「Polling sucks!」[http://d.hatena.ne.jp/Voluntas/20090502/1241268352:title=Bay Area Functional Programmers の RabbitMQ について。 - Twisted Mind]
+- 上記スライドでのXMPPとAMQPの比較表、ACKは今回の用途ではいらない。binaryのほうがいいよなー。Addr/Authもいらない。
+- やっぱ要検証
+- AMQP + XMPPという選択肢もあるらしい。RabbitMQにejabberdを埋め込むとかなんとか。
+
+** 結論
+
+XMPPとAMQPで実際にサーバ・クライアント書いてみるかー…
+話ふくらみすぎだよな。
+AMQPはちょっとオーバースペック感がしている。
+

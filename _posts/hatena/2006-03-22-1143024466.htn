@@ -1,0 +1,25 @@
+---
+layout: post
+title: でっかいファイルを高速に圧縮せねばならんとき
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060322/1143024466
+---
+意外と知らない人が多いので書いてみる。
+
+でっかいファイルを高速に圧縮したいならLZO。
+http://www.oberhumer.com/opensource/lzo/
+ページにセンスがないのがアレなんですが。。。
+早くて圧縮率もまあそこそこです。
+
+
+MySQLでただ読み込むだけのフィールドがある場合に、
+bzip2とかで圧縮して入れたり、
+MySQLのcompress関数（だっけ？zlib使うやつ）
+でパックしたデータをblobで入れたりすることがあります。
+lzoだと早いのでこういう用途にもお勧め。
+
+
+手軽にやるには、UDFを使うといいよ！
+http://empyrean.lib.ndsu.nodak.edu/~nem/mysql/udf/
+のmysql_udf_lzoをドゾー。

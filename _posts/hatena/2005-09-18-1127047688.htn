@@ -1,0 +1,15 @@
+---
+layout: post
+title: Inactive Perl...
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050918/1127047688
+---
+Active Perlは実装が違いすぎて、
+use encoding 'utf8';
+の挙動がいろいろおかしいようです。むにょ～！！！
+
+よってActive Perlの採用はやめ！
+gdb上でPerl動かしてやるぜ！へへへ…
+覚悟決めましたよ。
+

@@ -1,0 +1,12 @@
+---
+layout: post
+title: utf8::SWASHGET問題やっぱ未解決
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050916/1126872100
+---
+DProfやりなおしたらCALL回数もあんまり変わってないでやんの。
+use encoding 'utf8'を指定していると。
+ソースコード自体を読むときに呼ばれるのかしら？
+謎。
+

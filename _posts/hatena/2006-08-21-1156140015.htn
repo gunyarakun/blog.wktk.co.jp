@@ -1,0 +1,26 @@
+---
+layout: post
+title: Encode::Detect
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060821/1156140015
+---
+Encode::Detectってモジュールがある。
+
+
+Encode-Detect-0.01のインストールエラー
+http://d.hatena.ne.jp/nopolicy/20060612#p2
+って日記もあるとおり、コンパイルに詰まる。
+Redhat ES 4環境ね。
+
+
+gcc -Eを使って見ると、
+>>
+void XS_Encode__Detect__Detector_new( CV* cv __attribute__( (unused) ));
+<<
+でつまっとる。
+
+
+んで、原因はgcc 3.3の__attribute__( (unused) )の扱い。
+http://www.nntp.perl.org/group/perl.perl5.summary/177
+の#39634あたりでも見てもらえれば。

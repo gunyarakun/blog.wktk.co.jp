@@ -1,0 +1,12 @@
+---
+layout: post
+title: クローラー落ちていた
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051029/1130570894
+---
+またTidy先生のおかげで落ちていた。
+とりあえず、forkやめてフォアグランド動作に戻して、
+daemontools配下に全てのクローラ関係のデーモンを移動。
+
+あとデータ移行しておかなきゃ。

@@ -1,0 +1,36 @@
+---
+layout: post
+title: Windows+Apache2+WebDAV+Kerberos認証+Subversion
+tags: Apache
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050912/1126487297
+---
+http://d.hatena.ne.jp/tasukuchan/20050908/1126198290
+で書いたように、
+Windows+Apache2+WebDAV+LDAP+Subversion
+をやろうとしたらApache2が落ちてしまうという現象。
+
+で、LDAPで認証しなくても、Kerberos認証を直にやりゃあええやん、
+ってことで
+Windows+Apache2+WebDAV+Kerberos認証+Subversion
+を狙う。
+
+ということで、mod_auth_kerbのWin32バイナリを入手・・・
+入手・・・
+ねえ。
+
+コンパイルしよう。
+MITからKerberos5 for Windowsのソースと
+SourceForgeのサイトからmod_auth_kerbのソースを取ってきて、と。
+…
+
+XtOffsetOfで通らない。
+>>
+#define XtOffsetOf(s_type, field) ((size_t) &((s_type *)0)->field) 
+<<
+で逃げる。
+
+KRB5_DLLIMPが定義されていない…
+configureスクリプトでも見るか。
+と思ったらSourceForgeが激重。
+よってやる気が収束。

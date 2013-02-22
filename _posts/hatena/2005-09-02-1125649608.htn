@@ -1,0 +1,103 @@
+---
+layout: post
+title: ! ' Senna + mysql-4.1.14 on FreeBSD5 インストールメモ（失敗中）'
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050902/1125649608
+---
+
+>>
+# portinstall textproc/senna
+<<
+にゃんかmecab-razilとかipadicとかも一緒に入れてくれる。
+てへ。楽じゃ～ん。
+
+/usr/local/etc/pkgtools.confのMAKE_ARGSに
+>>
+'databases/mysql41-server' => 'WITH_CHARSET=ujis WITH_XCHARSET=utf8 WITH_LINUXTHREADS=yes WITH_PROC_SCOPE_PTH=yes BUILD_OPTIMIZED=yes BUILD_STATIC=yes',
+<<
+を追加。
+
+mysql-4.1.11.senna.diffを
+>>
+「--- mysql-4.1.11/」->「--- 」
+「+++ mysql-4.1.11.senna/」->「+++ 」
+「<senna/senna.h>」->「<senna.h>」
+「AC_CHECK_LIB(mecab, 」->「AC_CHECK_LIB(mecab-razil, 」
+<<
+と置換。
+で、/usr/ports/databases/mysql41-server/files/patch-mysql-senna.diff
+として置いてみる。
+
+/usr/ports/databases/mysql41-server/Makefile中の
+.include <bsd.port.pre.mk>
+のあとに、
+>>
+CFLAGS+=-I/usr/local/include/senna
+<<
+を追加。
+で、multithread関係のリンクオプションのところに
+>>
+ -L/usr/local/lib -lsenna -lmecab-razil
+<<
+を追加。
+本当はちゃんとリンカオプションを書く場所があるんだろうけど・・・
+LD_LIBRARYかしら。
+portsの作り方はよくわからん。
+
+んで
+>>
+# portinstall databases/mysql41-server
+<<
+うん。通った。
+
+/etc/rc.confに
+>>
+mysql_enable="YES"
+<<
+を追記して、
+>>
+# /usr/local/etc/rc.d/mysql-server.sh start
+# /usr/local/etc/rc.d/mysql-server.sh status
+<<
+あり、いねえぞ。
+>>
+# ps aux | grep mysqld
+<<
+いない・・・
+>>
+# tail /var/log/messages
+<<
+おお、core吐いて死んでいらっしゃる・・・南無。
+
+デバッガで追いかけるヒマがないので、
+やる気がなくなった。
+DBサーバはFreeBSDやめよう。
+Web,AppサーバはFreeBSDにするけど。
+
+で、mysqlの副社長がちょうどお見えになっていたので、
+どのプラットフォームがいいのか？
+Linux? FreeBSD? Intel Solaris?
+っていう質問をしてみた。
+一般的にはLinuxだということです。
+AMD64の乗ったLinuxがパフォーマンスがいいとも言っていた。
+まあ、そりゃそうか。
+
+DebianはsargeのAMD64対応版は正式リリースされてないし、
+赤帽高いし、
+MiracleはOracle入れるわけでもないし、
+Turboは・・・Turboは・・・なんか積極的に選ぶ気にならんし・・・
+といろいろ悩んだあげく、
+SUSEの9.3 Professionalにすることにした。
+Enterpriseは、Professionalがよければ考える。
+日本語の情報が少ないところが問題やね。
+
+というわけで、今SUSEをテスト環境にしこしこインストール中。
+実環境のハードウェア見積もりまだかしら。
+
+ちなみに、mysqlの副社長に
+「日本語のfulltext searchはいつ実装するんじゃ」
+って聞いたら
+「tokenizerが難しくてさ・・・」
+とmysqlのドキュメントと同じ言い訳をしていた。
+でも5.1には実装される・・・らしい・・・

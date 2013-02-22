@@ -1,0 +1,57 @@
+---
+layout: post
+title: チャート作成コンポーネント
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050908/1126164527
+---
+サーバ側で利用可能で、
+Perl/PHPで使えるChart作成コンポーネントについて、
+ライセンス料も含めて調査。
+情報間違ってたらごめん。日本語通らなかったらごめん。
+超えろGD::Graph。PHPだとJpGraphとかもあるんだっけ・・・
+
+●ChartDirector(Perl/PHP)
+　出力形式：画像ファイル,それを変換してPDF
+ http://www.advsofteng.com/gallery.html
+
+□ライセンス
+　\ 68,985 (税込)   1 Redistribute License  
+
+●FusionCharts(Perl/PHP)
+　出力形式：FLASH
+　http://www.infosoftglobal.com/FusionCharts/Gallery.asp?gMenuItemId=3
+
+□ライセンス
+ \ 65,700 1 Enterprise License 
+  (Allows Unlimited Developers at a Single Physical Address)  
+
+●FusionCharts Instrumentation Suite(Perl/PHP)
+　出力形式：FLASH
+　http://www.infosoftglobal.com/FusionCharts/IS/Gallery.asp?gMenuItemId=4
+　コックピットみたいなものなどがある。
+
+□ライセンス
+　\ 52,500   1 Site License
+　(Unlimited Developers for ONE Website (ONE domain name))  
+　または
+　\ 105,200   Enterprice License with Source Code
+　(Unlimited Developers, Unlimited Websites at ONE physical location)  
+
+●Swiff Chart Generator
+　出力形式：FLASH
+　http://www.globfx.com/products/swfchartgen/demo.php
+
+□ライセンス
+　US $899/server 
+
+●PopChart
+　出力形式：FLASH
+　ライセンスが高いので省略。
+　\ 1,104,915 (税込)   1 Production Server License  
+
+★発注はココらへんから。
+　http://componentsource.co.jp/catalog.asp?fl=&gf=+BUSFUNCGRAPHP&bc=&sc=CSJ&ul=ja
+
+しっかしこういう調査ってめんどくさいよなあ。
+

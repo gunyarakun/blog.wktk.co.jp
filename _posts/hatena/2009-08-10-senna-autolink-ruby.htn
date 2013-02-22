@@ -1,0 +1,353 @@
+---
+layout: post
+title: はてなのようなキーワードリンクをRubyで付与する実例
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20090810/senna_autolink_ruby
+---
+>>
+hrjn: はてなとかニコニコ大百科のキーワードリンクってどうやってんのかなぁ。正規表現だと死んでしまうので、専用のパーサ作ったりしてんのかな。
+- http://twitter.com/hrjn/status/2926407314
+<<
+ニコニコ大百科では、キーワードリンク専用のRubyモジュールを書いています。「SENNA」というキーワードがあったら、「senna」とか「ＳＥＮＮＡ」とかにリンクさせたりとかもできます。
+
+
+Senna 1.1.4 + Ruby 1.8.6で、UTF-8専用ですが、使いたい人はどぞー。あと、いつもどおりいい加減な書き方なので気をつけて。とりあえず、以下のtest.rb, wordsym.rb, extconf.rb, sen_np_api.cをどこかに放りこんで
+>|sh|
+ruby extconf.rb
+make
+sudo make install
+ruby test.rb
+||<
+的な操作で動くはず！だと期待したい。なぜなら公開のためにコードをいじったから。
+
+
+ライセンスはRuby's Licenseで。
+
+test.rb
+>|ruby|
+$KCODE = 'u'
+require 'sen_np_api'
+require 'wordsym'
+
+sym = WordSym.new('test.sym')
+sym.add('リンク')
+sym.add('リンクの冒険')
+sym.add('冒険')
+sym.add('ｶﾞｯ')
+sym.add('ＭＵＴＥＫＩ')
+puts sym.add_link_str('muTEki リンクの冒険 ミリバール ガッ', 'http://dic.nicovideo.jp/a/', '_blank')
+sym.close
+||<
+
+wordsym.rb
+>|ruby|
+$KCODE = 'u'
+require 'sen_np_api'
+require 'uri'
+require 'cgi'
+
+class WordSym
+  def initialize(path)
+    @sym = SennaNP::Sym.open(path)
+    raise NicoDHException, '(内部エラー)記事名を保持するSymが作成できません。' unless @sym
+  end
+
+  def add(word)
+    nword = SennaNP::normalize(word, 0)
+    @sym.add(nword)
+  end
+
+  def del(word)
+    nword = SennaNP::normalize(word, 0)
+    @sym.del(nword)
+  end
+
+  def count_array(word_array)
+    word_array.map {|word|
+      nword = SennaNP::normalize(word, 0)
+      @sym.at(nword).nil? ? 0 : 1
+    }
+  end
+
+  def prefix_search(word)
+    @sym.prefix_search(word)
+  end
+
+  def add_link_tag(ret, str, url_prefix, title, target = nil)
+    ret << '<a href="' <<
+        url_prefix << # don't escape
+        CGI.escape(title).gsub('+', '%20') <<
+        '">' <<
+        CGI.escapeHTML(str) <<
+        '</a>'
+  end
+
+  def add_link_str(str, url_prefix = '', target = nil)
+    pos = 0
+    prestart = preend = -1
+    ret = []
+
+    @sym.scan(str) {|word, start, length|
+      # puts "word: #{word}, start: #{start}, length: #{length}"
+      next if start == prestart or start < preend
+      ret << str[pos...start]
+      pos = start + length
+      prev = add_link_tag(ret, str[start...pos], url_prefix, word, target)
+      prestart = start
+      preend = start + length
+    }
+    return ret.join('')
+  end
+
+  def getall
+    @sym.getall
+  end
+
+  def close
+    @sym.close
+    @sym = nil
+  end
+end
+||<
+
+extconf.rb
+>|ruby|
+require 'mkmf'
+dir_config("senna", `senna-cfg --prefix`.chomp)
+$LOCAL_LIBS << ' ' + `senna-cfg --libs`.chomp
+$CFLAGS << ' ' + `senna-cfg --cflags`.chomp
+if have_header("senna.h") and have_library("senna", "sen_init")
+  create_makefile("sen_np_api")
+end
+||<
+
+sen_np_api.c
+>|c|
+#include <ruby.h>
+#include <senna/senna.h>
+
+typedef struct _sen_np {
+  sen_sym *sym;
+} sen_np;
+
+#define KEY_BUF_SIZE 2048
+VALUE normalize(VALUE self, VALUE rb_str, VALUE rb_flags)
+{
+  VALUE r;
+
+  char *str;
+  long str_len;
+  int flags;
+  int buf_size;
+  char nstrbuf[KEY_BUF_SIZE];
+
+  str = rb_str2cstr(rb_str, &str_len);
+  flags = NUM2INT(rb_flags);
+
+  buf_size = sen_str_normalize(str, (unsigned int)str_len, sen_enc_utf8, flags, nstrbuf, KEY_BUF_SIZE);
+  if (buf_size > KEY_BUF_SIZE) {
+    return Qnil;
+  }
+
+  r = rb_str_new(nstrbuf, buf_size);
+  return r;
+}
+
+VALUE sym_close(VALUE self) {
+  sen_np *np;
+
+  Data_Get_Struct(self, sen_np, np);
+  sen_sym_close(np->sym);
+  np->sym = NULL;
+
+  return Qtrue;
+}
+
+void free_np(sen_np *np) {
+  sen_sym_close(np->sym);
+  np->sym = NULL;
+}
+
+VALUE sym_open(VALUE self, VALUE rb_path) {
+  VALUE obj;
+  sen_np *np;
+  sen_sym *sym;
+  char *path;
+
+  path = StringValuePtr(rb_path);
+  if (!(sym = sen_sym_open(path))) {
+    if (!(sym = sen_sym_create(path, 0, SEN_INDEX_NORMALIZE, sen_enc_utf8))) {
+      return Qnil;
+    }
+  }
+  obj = Data_Make_Struct(self, sen_np, NULL, free_np, np);
+  np->sym = sym;
+  return obj;
+}
+
+VALUE sym_add(VALUE self, VALUE rb_key) {
+  sen_id sym_id;
+  const char *key;
+  sen_np *np;
+
+  Data_Get_Struct(self, sen_np, np);
+  key = StringValuePtr(rb_key);
+
+  if (!(sym_id = sen_sym_get(np->sym, key))) {
+    return Qnil;
+  }
+  return INT2NUM(sym_id);
+}
+
+VALUE sym_at(VALUE self, VALUE rb_key) {
+  sen_id sym_id;
+  const char *key;
+  sen_np *np;
+
+  Data_Get_Struct(self, sen_np, np);
+  key = StringValuePtr(rb_key);
+
+  if (!(sym_id = sen_sym_at(np->sym, key))) {
+    return Qnil;
+  }
+  return INT2NUM(sym_id);
+}
+
+VALUE sym_del(VALUE self, VALUE rb_key) {
+  sen_rc rc;
+  const char *key;
+  sen_np *np;
+
+  Data_Get_Struct(self, sen_np, np);
+  key = StringValuePtr(rb_key);
+
+  rc = sen_sym_del(np->sym, key);
+  return INT2NUM(rc);
+}
+
+VALUE sym_prefix_search(VALUE self, VALUE rb_key) {
+  sen_set *set;
+  sen_np *np;
+  const char *key;
+  sen_set_cursor *cur;
+  VALUE ret = Qnil;
+
+  Data_Get_Struct(self, sen_np, np);
+  key = StringValuePtr(rb_key);
+
+  if ((set = sen_sym_prefix_search(np->sym, key))) {
+    if ((cur = sen_set_cursor_open(set))) {
+      unsigned int set_size;
+      sen_set_info(set, NULL, NULL, &set_size);
+      if ((ret = rb_ary_new2((long)set_size))) {
+        long i;
+        for (i = 0; i < set_size; i++) {
+          VALUE rb_str;
+          sen_id *key_id;
+          char buf[SEN_SYM_MAX_KEY_SIZE];
+
+          sen_set_cursor_next(cur, (void **)&key_id, NULL);
+          sen_sym_key(np->sym, *key_id, buf, SEN_SYM_MAX_KEY_SIZE);
+          if ((rb_str = rb_str_new2(buf))) {
+            rb_ary_store(ret, i, rb_str);
+          }
+        }
+      }
+      sen_set_cursor_close(cur);
+    }
+    sen_set_close(set);
+  }
+  return ret;
+}
+
+#define SH_SIZE 32
+VALUE sym_scan(VALUE self, VALUE rb_str) {
+  int found;
+  int offset;
+  const char *str;
+  const char *rest;
+  long str_len;
+  sen_np *np;
+  sen_sym_scan_hit sh[SH_SIZE];
+  char buf[KEY_BUF_SIZE];
+
+  Data_Get_Struct(self, sen_np, np);
+  str_len = RSTRING(rb_str)->len;
+  str = StringValuePtr(rb_str);
+  offset = 0;
+  do {
+    int i;
+    if (!(found = sen_sym_scan(np->sym, str, (unsigned int)str_len, sh, SH_SIZE, &rest))) {
+      break;
+    }
+    for (i = 0; i < found; i++) {
+      int key_len;
+      key_len = sen_sym_key(np->sym, sh[i].id, buf, KEY_BUF_SIZE);
+      if (key_len > 0) {
+        VALUE args =
+          rb_ary_new3(3, rb_str_new(buf, key_len - 1), INT2NUM(sh[i].offset + offset), INT2NUM(sh[i].length));
+        rb_yield(args);
+      }
+    }
+    offset += (rest - str);
+    str_len -= (rest - str);
+    str = rest;
+  } while (rest < (str + str_len));
+
+  return Qtrue;
+}
+
+VALUE sym_getall(VALUE self) {
+  VALUE ret;
+  sen_np *np;
+  unsigned int nrec;
+  sen_id id = SEN_SYM_NIL;
+
+  Data_Get_Struct(self, sen_np, np);
+  if (!sen_sym_info(np->sym, NULL, NULL, NULL, &nrec, NULL)) {
+    if ((ret = rb_ary_new2(nrec))) {
+      int i = 0;
+      while ((id = sen_sym_next(np->sym, id)) != SEN_SYM_NIL) {
+        VALUE rb_str;
+        char buf[SEN_SYM_MAX_KEY_SIZE];
+
+        if (sen_sym_key(np->sym, id, buf, SEN_SYM_MAX_KEY_SIZE)) {
+          if ((rb_str = rb_str_new2(buf))) {
+            rb_ary_store(ret, i++, rb_str);
+          }
+        }
+      }
+      return ret;
+    }
+  }
+  return Qnil;
+}
+
+void
+void_sen_fin(void) {
+  sen_fin();
+}
+
+void Init_sen_np_api(void) {
+  VALUE rb_cSennaNP;
+  VALUE rb_cSennaNP_Sym;
+
+  sen_init();
+
+  rb_cSennaNP = rb_define_class("SennaNP", rb_cObject);
+  rb_define_singleton_method(rb_cSennaNP, "normalize", normalize, 2);
+
+  rb_cSennaNP_Sym = rb_define_class_under(rb_cSennaNP, "Sym", rb_cObject);
+  rb_define_singleton_method(rb_cSennaNP_Sym, "open", sym_open, 1);
+  rb_define_method(rb_cSennaNP_Sym, "close", sym_close, 0);
+  rb_define_method(rb_cSennaNP_Sym, "add", sym_add, 1);
+  rb_define_method(rb_cSennaNP_Sym, "at", sym_at, 1);
+  rb_define_method(rb_cSennaNP_Sym, "del", sym_del, 1);
+  rb_define_method(rb_cSennaNP_Sym, "scan", sym_scan, 1);
+  rb_define_method(rb_cSennaNP_Sym, "prefix_search", sym_prefix_search, 1);
+  rb_define_method(rb_cSennaNP_Sym, "getall", sym_getall, 0);
+  atexit(void_sen_fin);
+}
+||<
+

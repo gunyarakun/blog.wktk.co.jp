@@ -1,0 +1,18 @@
+---
+layout: post
+title: Rubyで半角文字を全角文字に変換 without NKF
+tags: Ruby
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060331/1143802029
+---
+<del datetime="2006-04-02T01:54:29+09:00">NKFでやるとなんだか挙動がおかしいので、
+($KCODEもちゃんと指定してるのににゃー）</del>
+（最終的に動作しましたー。）
+
+
+半角文字を全角に変換するRuby関数　
+http://www.yohasebe.com/diary/diary_search.php?id=137
+を参考に。
+
+
+そうそう、日本語のKWICって地味に大変なんですよー。

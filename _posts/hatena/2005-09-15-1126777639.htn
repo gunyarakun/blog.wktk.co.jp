@@ -1,0 +1,16 @@
+---
+layout: post
+title: 謎diff
+tags: だめ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050915/1126777639
+---
+MySQL 5.0.12-beta + sennna rev.49のpatchをsenna-devに投稿しようと思って
+diffを取った。diff -Nurで取ったんだけど、
+ディレクトリを指定したらdiffの容量がおかしいほど大きくなる。
+中身見るとほぼ全文+になっていたり。
+でも、個々のファイルでdiffを同じオプションで取ったら小さい。
+なんだろう。謎だ。
+
+ちなみに、KDiffとかいうKDEについてるGUI経由でやったら
+やっぱり誤検出なし。

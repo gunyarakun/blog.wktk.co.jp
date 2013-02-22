@@ -1,0 +1,18 @@
+---
+layout: post
+title: PowerBookをいただいた
+tags: Mac
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060629/1151574582
+---
+PowerBookをいただいた。
+-cキーを押しながら電源入れる
+-Tiger入れる
+-ADCに登録する
+-DeveloperTools入れる
+-落ちてたsubversionクライアントのパッケージ入れる
+-fink入れる
+
+
+で、finkとDarwinPorts、どっちがいいのかしら。
+

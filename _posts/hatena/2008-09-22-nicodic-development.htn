@@ -1,0 +1,22 @@
+---
+layout: post
+title: ニコニコ大百科開発ブログはじめました。
+tags: ニコニコ大百科
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080922/nicodic_development
+---
+ニコニコ大百科の開発関連についてはブログ分けました！
+- [http://d.hatena.ne.jp/nicodic:title=ニコニコ大百科開発日記]
+
+
+EeePCをサーバとして使い倒す方法や、
+libeventのevhttpとvarnishの組み合わせ、
+repcachedを使う上でlibmemcachedに当てなければいけないパッチ、
+Rubyのlibmemcached bindingsに当てるパッチなどの情報については、
+上記ブログに書いていこう…かと思ったのですが…
+
+
+上記ブログはサービス寄りのほうがいいかな、
+と今考えを改めました…
+というわけで、どちらのブログもよろしくお願いいたします！
+

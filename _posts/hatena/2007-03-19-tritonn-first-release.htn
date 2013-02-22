@@ -1,0 +1,38 @@
+---
+layout: post
+title: 出た！出た出た！Tritonn（トリトン）
+tags: mysql
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070319/tritonn_first_release
+---
+SennaのMySQLバインディングを高品質にする、Tritonnプロジェクトの成果物がリリースされました！
+http://qwik.jp/tritonn/
+
+
+僕が覚えている範囲だと、今までのMySQLバインディングとの差異は以下のとおりです。
+-alter table/create index/drop indexなどでインデックスのフラグが落ちてしまう問題を修正
+-Tableの文字コードからSennaの文字コードを自動指定する機能の追加
+-fstatの不要な呼び出しによって一般的なクエリのパフォーマンスまで落ちてしまう問題の修正
+-テーブル削除のパフォーマンスが劣化する問題の修正
+-show senna status関数の増設
+-show senna status関数への移行による、MySQL管理ツールやMySQLテストスイートとの親和性の向上
+
+
+Senna 1.0.2のリリース後、
+MySQL 5.0.36 + Sennaをインストールされた方には非常に、非常に申し訳ないと思っておりますが…
+（しかも、うたださんのMLでの報告によると、どうやらMySQL 5.0.36用パッチはバグっているらしい…）
+いままでのMySQLバインディングからTritonnに移行することをお勧めします!!!
+
+
+Senna 1.0.2本体については、Ubuntu上で落ちる問題が指摘されています。
+Voluntas様、aodag様お手数かけてすみません…
+http://d.hatena.ne.jp/Voluntas/20070318/1174220633
+上記問題を修正したバージョン1.0.3をリリースする予定です。
+
+
+実は、上記のバグに起因する問題はMLですでに報告されていたのですが、
+その問題がWindows環境固有であると勘違いし、
+さらに再現に失敗したので困っていたところでした。ありがたい!!!
+
+
+そろそろ目立ったバグは潰れてきたかな、という印象です。

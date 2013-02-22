@@ -1,0 +1,26 @@
+---
+layout: post
+title: failmallocのようなもの
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20061025/1161757435
+---
+Sennaでmallocに失敗した場合に、
+落ちてしまうパスがいくつかあるようだ。
+
+
+[http://www.nongnu.org/failmalloc/:title=Failmalloc]で検査しようと思ったら、
+そもそもMeCabの段階で落ちてしまう。
+
+
+[http://www.dodgson.org/omo/t/?date=20060728:title=steps to phantasien t(2006-07-28)]では、
+>>
+"特定の関数の中でだけ"エラーを起こせるようにした
+<<
+failmalloc相当のものを使っていたらしい。
+
+
+んでも、コールスタックをまじめにとるのはさすがにめんどくさいので、
+__FUNCTION__マクロ(もしくは__func__マクロ)とgetenvだけで同等の機能を実現できるようにしよう。
+全てのmallocはSEN_MALLOCというマクロ経由で呼び出されているので、
+これで問題ないじゃろ。

@@ -1,0 +1,29 @@
+---
+layout: post
+title: sudoの正しい発音
+tags: 雑談
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070125/sudo_pron
+---
+職場で話題に出た。
+
+
+結論は
+http://www.gratisoft.us/pipermail/sudo-users/2006-July/002913.html
+>>
+The correct pronunciation is sue due / soo doo for "superuser do".
+
+ - todd
+<<
+
+僕は、'su'を「えすゆー」と発音しています。もはやswitch userになってますしね。
+というわけで、'sudo'は'su'で'do'だから、「えすゆーどぅー」と発音しています。
+
+
+まあ、人が「すどー」と言っていても大体理解できちゃう、
+mallocは「えむあろっく」派の僕なのでした。
+
+
+このエントリを書いていたら、
+タグの読み方というサイトを思い出したよ。
+http://www.tagindex.com/statistics/tag_name/index.html

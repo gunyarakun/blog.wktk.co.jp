@@ -1,0 +1,33 @@
+---
+layout: post
+title: Flexでキーボードイベントを取得するのに詰まる
+tags: 偽プログラマ列伝
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080715/1216069836
+---
+Flex 3でコントロールのfocus関係なしにキーボードの入力を取得するには、
+http://livedocs.adobe.com/flex/3_jp/html/help.html?content=events_11.html
+http://www.adobe.com/cfusion/communityengine/index.cfm?event=showdetails&productId=2&postId=304
+の２つの方法があります。
+
+
+前者は、applicationに対してaddEventListenerする方法。
+後者は、stageに対してaddEventListenerする方法。
+stageはcreationComplete時にはセットされておらず、
+applicationComplete時には取得できるので注意。
+
+
+…といいつつ、以下のようなコードでイベントが取れなくて
+２時間くらい悩んだ。
+>|javascript|
+...
+  application.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
+...
+private function keyDownHandler(evt:KeyboardEvent):void {
+  Alert.show('' + evt.keyCode);
+}
+||<
+原因は、keyDownHandlerってものが普通にUIComponentにもあって、
+そっちを参照しに行っていたから。
+ギギギギギギギ
+

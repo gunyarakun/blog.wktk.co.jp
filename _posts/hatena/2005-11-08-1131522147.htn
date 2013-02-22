@@ -1,0 +1,10 @@
+---
+layout: post
+title: CLucene つ ポイッ
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051108/1131522147
+---
+インデックス中に持っている属性でのソートはできますが、
+Perl wrapperにそのためのインターフェースがない…
+

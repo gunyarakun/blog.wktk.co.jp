@@ -1,0 +1,14 @@
+---
+layout: post
+title: sourceforge.netのコンパイルファームが落ちている？
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070111/sfnetcompile
+---
+せっかくSPARC + Solaris用にコードを修正しようと思ったのに、
+sourceforge.netのコンパイルファームが落ちているようだ。
+
+
+sourceforge.jpにはSPARC環境のコンパイルファームがないので悩ましい。
+どっかいらないSPARCマシンないかなあ。
+

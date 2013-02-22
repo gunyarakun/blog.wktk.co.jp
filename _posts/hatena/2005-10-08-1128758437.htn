@@ -1,0 +1,59 @@
+---
+layout: post
+title: 結局gdbセンセイにご足労願ったよ
+tags: Tidy
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051008/1128758437
+---
+実行ファイル版でも同じ設定ファイルを食わせると落ちる。
+で、gdbセンセイの登場ってわけでさ。
+>>
+#0  0x40056c7e in tmbstrncmp () from /usr/lib/libtidy-0.99.so.0
+#1  0x4004c623 in DropSections () from /usr/lib/libtidy-0.99.so.0
+#2  0x4004ca61 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#3  0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#4  0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#5  0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#6  0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#7  0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#8  0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#9  0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#10 0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#11 0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#12 0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#13 0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#14 0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#15 0x4004ca50 in CleanWord2000 () from /usr/lib/libtidy-0.99.so.0
+#16 0x400595bb in tidyDocCleanAndRepair () from /usr/lib/libtidy-0.99.so.0
+#17 0x400590b8 in tidyCleanAndRepair () from /usr/lib/libtidy-0.99.so.0
+#18 0x0804a8ab in ?? ()
+#19 0x0804e008 in ?? ()
+#20 0xbffffc16 in ?? ()
+#21 0x40017cf0 in ?? ()
+#22 0x401a3194 in timezone () from /lib/tls/libc.so.6
+#23 0x00000000 in ?? ()
+#24 0x0804d0f4 in ?? ()
+#25 0xbfffed48 in ?? ()
+#26 0x0804e008 in ?? ()
+#27 0xbffffc16 in ?? ()
+#28 0x00000000 in ?? ()
+#29 0x00000000 in ?? ()
+#30 0x00000000 in ?? ()
+#31 0xbffffbee in ?? ()
+#32 0x401a1e80 in ?? () from /lib/tls/libc.so.6
+#33 0x00000000 in ?? ()
+#34 0x401a1e80 in ?? () from /lib/tls/libc.so.6
+#35 0x00000004 in ?? ()
+#36 0xbfffee08 in ?? ()
+#37 0xbfffedc8 in ?? ()
+#38 0x40085974 in __libc_start_main () from /lib/tls/libc.so.6
+#39 0x40085974 in __libc_start_main () from /lib/tls/libc.so.6
+#40 0x080492e1 in ?? ()
+<<
+にゃる。Microsoft OfficeのHTML出力のいらんタグを落とす設定にしてるんだけど、
+CleanWord2000ってそれっぽいね。
+その設定を変えてみるか…
+word-2000っていう名前のまんまなプロパティ。
+falseにしたら落ちなくなりました。
+ま、blogを探すのにこの設定はいらんわな。
+

@@ -1,0 +1,58 @@
+---
+layout: post
+title: 【指令】Brianを捕獲せよ
+tags: libmemcached
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20090419/request_for_libmemcached_binary_protocol_document
+---
+ほぼ私信のようなエントリです。
+
+
+やっと以下のバグが直って、個人的にはほっとしているところのlibmemcachedです。
+- http://lists.tangent.org/pipermail/libmemcached/2009-February/000621.html
+- http://lists.tangent.org/pipermail/libmemcached/2009-April/000698.html
+- http://cvs.tangent.org/libmemcached/rev/d4f1e92c62b7
+libmemcached-rubyはMEMCACHED_BEHAVIOR_CACHE_LOOKUPSフラグを「有効」にしていて、このパッチなしでは動かないという悲しい状態でした。libmemcachedもlibmemcached-rubyもどっちもどっちという感じですが…
+
+
+今、Groongaのmemcached binary protocol互換サーバのデバッグ中です。だけれども、binary protocolのドキュメントだけでは実装ができません。
+- [http://github.com/dustin/memcached/blob/f6e095954c73052827b7af8cccdd3637f40887fa/doc/protocol-binary.xml:title=2009/4/19時点でのmemcached binary protocol]
+たとえば、キーがすでに存在してaddが失敗したときに、「Key exists」を返せばいいのか、「Invalid arguments」を返せばいいのか、「Item not stored」を返せばいいのかこのドキュメントだけではわかりません。
+
+
+こういうときは、実装を見るのもよいですが、元となったテキストプロトコルを参照するとよいでしょう。
+- [http://github.com/dustin/memcached/blob/f6e095954c73052827b7af8cccdd3637f40887fa/doc/protocol.txt:title=2009/4/19時点でのmemcached text protocol]
+を見ると…
+>>
+- "NOT_STORED\r\n" to indicate the data was not stored, but notbecause of an error. This normally means that thecondition for an "add" or a "replace" command wasn't met.
+<<
+ふむ。ということは、キーがすでに存在してaddが失敗したときには「Item not stored」を返すとよさそうですね。
+さっそく実装、そしてlibmemcachedを使ってテスト…　むむむ、プロトコルエラー！？なんでだなんでだ。
+
+>|c|
+    switch (header.response.status) 
+    {
+    case PROTOCOL_BINARY_RESPONSE_KEY_ENOENT:
+      rc= MEMCACHED_NOTFOUND;
+      break;
+    case PROTOCOL_BINARY_RESPONSE_KEY_EEXISTS:
+      rc= MEMCACHED_DATA_EXISTS;
+      break;
+    case PROTOCOL_BINARY_RESPONSE_E2BIG:
+    case PROTOCOL_BINARY_RESPONSE_EINVAL:
+    case PROTOCOL_BINARY_RESPONSE_NOT_STORED:
+    case PROTOCOL_BINARY_RESPONSE_UNKNOWN_COMMAND:
+    case PROTOCOL_BINARY_RESPONSE_ENOMEM:
+    default:
+      /* @todo fix the error mappings */
+      rc= MEMCACHED_PROTOCOL_ERROR;
+      break;
+    }
+||<
+んぺぺ！（舌を噛み切る
+
+
+というわけで、今週MySQL U.C.にいく人はBrianを捕まえてここの部分を実装させてきてください！
+絶対だぞ！
+あとbinary protocolのドキュメントに、どんなエラーのときどんなコードを返せばいいかを記述するのもヨロシク。
+

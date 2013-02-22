@@ -1,0 +1,21 @@
+---
+layout: post
+title: パッケージパッケージ
+tags: Debian
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060524/1148495231
+---
+debパッケージ作らないとなあ、
+あとはDebianのaptで依存関係で困るケースが何度があったので、
+以下の書籍を購入。
+http://www.amazon.co.jp/exec/obidos/ASIN/477412768X/ref=ase_titechbbs-22/
+
+
+最近checkinstallでrpmを作りまくっているのですが、
+ちゃんとしたrpmの作り方も学ばねば。
+
+
+Alien package converter
+http://kitenet.net/programs/alien/
+でdebから変換できるみたいだけど。。。どうなんだろ。
+

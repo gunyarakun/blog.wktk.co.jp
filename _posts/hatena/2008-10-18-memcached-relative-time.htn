@@ -1,0 +1,84 @@
+---
+layout: post
+title: memcachedを時刻巻き戻りに強くしてみる
+tags: memcached
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20081018/memcached_relative_time
+---
+昨日のダサい失敗エントリが注目を集めているようで恥ずかしいお…
+今後ダサい失敗で困らないために、memcachedのパッチを書いてみようと思った。
+時間が巻き戻った瞬間に障害が出るのはしょうがないけど、
+巻き戻ったあとにその影響が残り続けるのは嬉しくない。
+
+
+昨日起きた現象を考えるに、
+「memcached内部での時間は、絶対時間で保持しているのではなく起動時間からの相対時間で保持されている」のだろう、と予想していた。実際そうみたい。
+
+
+current_timeという変数に、現在の起動時間からの相対秒が記録されている（set_curent_time()）。
+realtime()では、各種コマンドで与えられるexptimeを起動時間からの相対秒に変換している。
+>|c|
+#define REALTIME_MAXDELTA 60*60*24*30
+typedef unsigned int rel_time_t;
+
+/* time-sensitive callers can call it by hand with this, outside the normal ever-1-second timer */
+static void set_current_time(void) {
+    struct timeval timer;
+
+    gettimeofday(&timer, NULL);
+    current_time = (rel_time_t) (timer.tv_sec - stats.started);
+}
+
+static rel_time_t realtime(const time_t exptime) {
+    /* no. of seconds in 30 days - largest possible delta exptime */
+
+    if (exptime == 0) return 0; /* 0 means never expire */
+
+    if (exptime > REALTIME_MAXDELTA) {
+        /* if item expiration is at/before the server started, give it an
+           expiration time of 1 second after the server started.
+           (because 0 means don't expire).  without this, we'd
+           underflow and wrap around to some large value way in the
+           future, effectively making items expiring in the past
+           really expiring never */
+        if (exptime <= stats.started)
+            return (rel_time_t)1;
+        return (rel_time_t)(exptime - stats.started);
+    } else {
+        return (rel_time_t)(exptime + current_time);
+    }
+}
+||<
+まず思いつく手法は、rel_time_t型の変数について、全部絶対秒に変える手法。
+time_tの型である__TIME_T_TYPEはlong intか。
+絶対時間を採用するとLP64ではサイズが2倍になる。これは使えねー。
+そもそも、絶対秒にすると修正点が多すぎる。
+
+
+というわけで、set_current_timeを以下のように変えてみた。
+時間の巻き戻りを検出したら、検出時の時間を起動時間に設定する、という超泥縄。
+分岐予測も効くから実行速度への影響も少なげ。
+2秒ずらしているのは、相対時間0が特別な意味を持つためっす。
+
+>|c|
+/* time-sensitive callers can call it by hand with this, outside the normal ever-1-second timer */
+static void set_current_time(void) {
+    struct timeval timer;
+
+    gettimeofday(&timer, NULL);
+    if (timer.tv_sec < stats.started) {
+      stats.started = timer.tv_sec - 2;
+    }
+    current_time = (rel_time_t) (timer.tv_sec - stats.started);
+}
+||<
+
+
+時間さえきっちり設定していれば、
+- 揮発するとそれなりにマズい
+- 永続化するほどでもない
+- 高スループットが要求される
+- ネットワーク越しで参照したい
+情報について保持するために、repcachedは適していますよ！！
+(これが主に言いたい)
+

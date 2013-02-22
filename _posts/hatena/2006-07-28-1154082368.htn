@@ -1,0 +1,10 @@
+---
+layout: post
+title: multilingual stemmer
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060728/1154082368
+---
+多言語対応のstemmer。
+http://snowball.tartarus.org/
+

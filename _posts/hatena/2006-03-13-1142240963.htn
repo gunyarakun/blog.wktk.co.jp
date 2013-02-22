@@ -1,0 +1,17 @@
+---
+layout: post
+title: UDFについて
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060313/1142240963
+---
+MySQLのUDF(User Defined Function)は死にゆく運命なわけですが、
+一応メモを残しておこう。
+間違ってたらごみん。
+
+・テーブルからわたってくる文字列は、
+　NULL Terminatedされてない場合がある。
+　適宜memcpy+NULL付加する。
+・error=1としてしまうと、全ての結果がNULLになってしまう。
+　エラーメッセージを返してあげたほうが親切。
+・initでエラーと返した場合、deinitは呼ばれない。

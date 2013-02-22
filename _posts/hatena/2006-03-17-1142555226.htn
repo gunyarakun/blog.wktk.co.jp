@@ -1,0 +1,13 @@
+---
+layout: post
+title: メモメモ
+tags: 偽プログラマ列伝
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060317/1142555226
+---
+http://www.thefreecountry.com/programming/debuggers.shtml
+から
+Splint(旧Lclint)
+http://www.splint.org/
+コードチェックツール。
+コンピュータに出来ることはやらせてしまえ。

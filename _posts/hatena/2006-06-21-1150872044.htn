@@ -1,0 +1,29 @@
+---
+layout: post
+title: ''
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060621/1150872044
+---
+gcc-4.0から、
+>>
+ warning: pointer targets in assignment differ in signedness
+<<
+といった類のwarningがたくさん出ると思います。
+
+
+これは、ポインタ型の代入などにおいて、
+その指し示す値の型の符号が違う場合に出てきます。
+
+
+要は、
+>>
+  unsigned char *a;
+  char *b;
+  ...
+  a = b
+<<
+なんてやると警告されます。
+
+
+地道に直し中。

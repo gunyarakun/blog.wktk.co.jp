@@ -1,0 +1,40 @@
+---
+layout: post
+title: グニャラは大変なFlashを描いていきました
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080127/flash_javascript_perl
+---
+
+今週末は2つの勉強会に参加・発表させていただきました！
+ステキな発表の場を設けていただいてありがとうございます！！
+
+
+両方ともActionScript/Flashについて（？）の発表です。
+それぞれ発表資料を公開させていただきます。
+
+
+** Flash + JavaScriptでmemcachedと直接通信 @ さかとくカンファレンス
+ActionScript3上で、Socketを用いてmemcachedとの通信を行うモジュールを書きました。
+さらに、そのモジュールをJavaScriptから呼べるようにしました。
+
+
+get/setしかサポートしてないですし、
+全体的に設計とコーディングが小汚いです。
+ちょっと恥ずかしいけど、
+CodeReposにアップしているので適当に直してもらえると嬉しいです…
+
+
+プログラム本体・発表資料は以下に置いております。
+- [http://svn.coderepos.org/share/lang/actionscript/memcached-client/trunk:title=CodeReposのレポジトリパス]
+- [http://tasuku.suenaga.name/pub/presentation/as3_memcached/as3-memcached.pdf:title=発表資料(PDFです)]
+
+** Perlへの愛憎 @ Soozy Conference 4
+Soozy Conference 4では以下の資料を発表させていただきました。
+ブログでは生のFlashファイルで動画を見ることができます。
+(たまに表示できないようです。表示されない場合はしばらく待ってリロードください）
+<script src="http://gmodules.com/ig/ifr?url=http://nitoyon.googlepages.com/embed_flash.xml&amp;up_url=http%3A%2F%2Ftasuku.suenaga.name%2Fpub%2Fpresentation%2Fperl_dis%2Fsoozy-20080127last.swf&amp;up_background=%23ffffff&amp;synd=open&amp;w=480&amp;h=360&amp;title=Soozy+Conference+4&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js"></script>
+
+
+ニコニコ動画にもアップしました。
+- [http://www.nicovideo.jp/watch/sm2164173:title=グニャラは大変なPerlをDISっていきました(ニコニコ動画)]

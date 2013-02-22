@@ -1,0 +1,118 @@
+---
+layout: post
+title: Rubyでeventmachineを使って高速にメールを送る
+tags: Ruby
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20081006/ruby_eventmachine_sendmail
+---
+またまた某サービスで、今度はメールを送るという要件が発生。
+しかも、ユーザごとに異なった内容を送るというもの。
+
+
+テンプレートはErubisを使うとして、
+メール送信はどのライブラリを使おう。tmailかなぁ？
+とGoogle検索すると、eventmachineってものがあるらしい。
+Rubyから非同期でガンガンSMTPサーバに接続できるようです。ひゃっほい！
+
+
+というわけで、ためしにeventmachineを使って
+メールを送信するテストコードを書いてみた。
+一応並列に20個コネクションを張っている…はず。
+テストが怪しいので、ご利用時は検証のこと。
+eventmachineの挙動全く理解してねっす。
+eventmachineにはSMTP clientだけでなくSMTP serverの実装もあるので、
+テスト時にはそれを使うといいと思う。
+
+
+ちなみに、EM::Protocols::SmtpClient.sendでGoogle検索したら
+2件くらいしか引っかからない…
+情報少ないなぁ。
+>|ruby|
+#!/usr/bin/ruby
+# UTF-8前提です
+$KCODE = 'u'
+
+require 'nkf'
+require 'eventmachine'
+
+class SendMailWithEventMachine
+  attr_reader :successes, :errors
+
+  def send_mail(domain, host, port, starttls, from, queue_threshold, &blk)
+    @successes = 0
+    @errors = 0
+    @on_queue = 0
+    @all_queued = false
+
+    @domain = domain
+    @host = host
+    @port = port
+    @starttls = starttls
+    @from = from
+
+    EM.run {
+      queue_threshold.times {
+        send_mail_queue(blk)
+      }
+    }
+  end
+
+  private
+
+  def send_mail_queue(blk)
+    unless @all_queued
+      if data = blk.call
+        if (smtp = EM::Protocols::SmtpClient.send :domain => @domain,
+          :host => @host,
+          :port => @port,
+          :starttls => @starttls,
+          :from => @from,
+          :to => [data[:to]],
+          :header => {'To' => data[:to],
+                      'Subject' => NKF.nkf('-jW --mime', data[:subject])},
+          :body => NKF.nkf('-jW', data[:body]),
+          :verbose => false)
+          @on_queue += 1
+          smtp.callback {|r|
+            @on_queue -= 1
+            @successes += 1
+            send_mail_queue(blk)
+          }
+          smtp.errback {|e|
+            @on_queue -= 1
+            @errors += 1
+            send_mail_queue(blk)
+          }
+        end
+      else
+        @all_queued = true
+      end
+    end
+    if @all_queued and @on_queue == 0
+      EM.stop_event_loop
+    end
+  end
+end
+
+mails = [{
+  :to => 'victim1@example.com',
+  :subject => 'さっき天一で',
+  :body => '無料券使ったら',
+},
+{
+  :to => 'victim2@example.com',
+  :subject => '並盛だけですと言われ',
+  :body => 'きちんと抗議したよ！',
+}]
+
+i = 0
+sm = SendMailWithEventMachine.new
+sm.send_mail(
+  'example.com', 'mx1.example.com', 25, false, 'spammer@example.com', 20) {
+  # mysqlのfetch_rowなどを想定
+  next if i >= mails.length
+  i += 1
+  mails[i - 1]
+}
+||<
+

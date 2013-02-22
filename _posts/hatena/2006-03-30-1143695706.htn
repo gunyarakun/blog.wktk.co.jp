@@ -1,0 +1,11 @@
+---
+layout: post
+title: Tagの検索にMySQLの全文検索とSennaを使う
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060330/1143695706
+---
+revision 105で対応。
+MySQLパッチのsen_index_create関数の第３引数に
+SEN_INDEX_DELIMITED
+を入れると吉かも。テストはしてないですが。。。

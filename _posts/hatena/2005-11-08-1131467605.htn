@@ -1,0 +1,14 @@
+---
+layout: post
+title: Hyper Estraier
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051108/1131467605
+---
+Hyper Estraier。
+amd64でも問題なく。
+perlバインディングも問題なく。
+index作成もそれなりに早く。
+つか、indexがかなり小さい気がする。zlib効きまくり？
+
+さて、そろそろスヤリしないと。

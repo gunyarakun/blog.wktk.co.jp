@@ -1,0 +1,28 @@
+---
+layout: post
+title: ビュービュー風が吹き荒れる。
+tags: MySQL5
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051009/1128857893
+---
+例えば、
+uid,date,textという３フィールドあるテーブルと、
+uid,titleという２フィールドあるテーブルを、
+uidで結合したビューを作るとしよう。
+textにはfulltext indexがついている。
+
+ビューを使ってfulltext searchをするクエリに、
+order by date descをつける。
+そうすると、なんとソートされていないのだ！！！！
+これはバグだな。
+
+よって、ビュー作成時にorder by date descをつけてみる。
+すると、fulltext indexは使えなくなってしまうのだ。
+
+まあ、納得といえば納得だし、納得いかんといえば納得いかんぞ。
+どう回避しようかな・・・
+
+そいえば、MySQLではEXISTSよりINの使用を推奨するらしい。
+なぜなら、相関サブクエリが推奨されないから、だって。
+むにょ～なんだそれ。
+こんなに早く暗黒面にぶち当たるとは…

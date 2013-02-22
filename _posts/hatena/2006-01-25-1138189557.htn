@@ -1,0 +1,26 @@
+---
+layout: post
+title: 健忘症
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060125/1138189557
+---
+ひさびさにPHPを書いたらすっかり忘れている。
+ちょうどよい機会なので、現代的なPHPの書き方を学習。
+時代はPDOなのね。ADOを思い出すな。
+PEAR::DBより速いとか。
+
+適当にportsでPDOをブチ込むと、
+適当に動いているご様子。おー。
+
+PerlでまずxmlをDBに突っ込んで、
+次に、
+PHP（CLI）でMediaWiki由来のコードをだましだまし動かして
+フォーマット済テキストを生テキストにしつつIndex化。
+
+フロントエンドは・・・PHPにしよっかな。
+テンプレートエンジンはHTML_Template_Flexyで。
+
+まあ、今日で基礎固めはできたので、
+あとはやるべき作業をやるだけー。
+

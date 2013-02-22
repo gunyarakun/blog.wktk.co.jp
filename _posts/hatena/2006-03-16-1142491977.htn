@@ -1,0 +1,14 @@
+---
+layout: post
+title: blogクローラ
+tags: クローラ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060316/1142491977
+---
+blogは更新情報が取りやすいんだけど、
+そのせいで重複したページ取りに行ったりして地味にクロールが大変な気が。
+
+
+そして、Blog-Crawlerっていう単語でGoogle検索すると、
+xango-blogが上位に出ている罠。
+

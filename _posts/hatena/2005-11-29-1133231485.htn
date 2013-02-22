@@ -1,0 +1,13 @@
+---
+layout: post
+title: ふふふ
+tags: Hyper Estraier
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051129/1133231485
+---
+DBが壊れる原因がわかった。
+Perlでの利用だけかもしらんが、
+1つのプロセスで複数のDBを開いて更新をしているとおかしくなる。
+(not ひとつのDBを複数のプロセスで開く)
+同時に１個しか開かないようにしたら壊れなくなった。
+まあ、ありがちといえばありがちだけど。

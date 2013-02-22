@@ -1,0 +1,13 @@
+---
+layout: post
+title: 分散ファイルシステム
+tags: 分散
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060315/1142418679
+---
+http://d.hatena.ne.jp/pekeq/20060222
+ここを見つつ。
+
+冗長化によるデータ保護はあんまいらん。
+どちらかというとI/Oの高速化に興味あり。
+

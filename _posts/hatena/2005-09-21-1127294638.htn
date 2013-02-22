@@ -1,0 +1,18 @@
+---
+layout: post
+title: Cabocha
+tags: だめ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050921/1127294638
+---
+CabochaではUTF-8扱えないのかしら…
+ちゃんと追ってないけど、マニュアル見る限りUTF-8については言及してないな。
+
+あとは、-I1の入力、ChaSen方式じゃないとダメなのかしら？
+Mecab対応って、Mecabを-Ochasenで呼び出してるってことかしら？
+
+せっかくEUCからUTF-8化したのに…ぐすん。
+
+集めたblogテキストにバイトでラベル付けして学習させてみようかしら。
+えらく大変そうだけど。
+

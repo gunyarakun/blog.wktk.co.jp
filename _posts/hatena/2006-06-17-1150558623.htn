@@ -1,0 +1,21 @@
+---
+layout: post
+title: MySQLのインストーラー for Windows
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060617/1150558623
+---
+今はBitKeeper上に乗っていないようだ。
+sfioball bk://mysql.bkbits.net/mysql-server-setup mysql-server-setup
+
+
+適当に探したら出てきた。メモメモ。
+勝手に使っていいのかどうかという問題もあるが。
+http://svn.mysql.com/svnpublic/mysql-server-setup/
+
+
+[追記]wix 2.0の最新版ではmsiファイルがちゃんと生成されない。
+どうやらwixに入れるxmlのスキーマが変わったっぽい。
+適当に古いバージョンのwix 2.0を入れたら動いた。
+ただし、zipがないとせっかく作成したファイルを消してしまうので、
+適宜バッチファイルを修正すること。

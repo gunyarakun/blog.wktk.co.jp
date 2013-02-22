@@ -1,0 +1,16 @@
+---
+layout: post
+title: 難しいよなあ。
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060324/1143212163
+---
+嘘を嘘と見抜けない人には(Sennaをビルドするのは)難しい、
+と弊社取締役の声マネをしてみる。
+慣れていても、autoconfを忘れたりしちゃうし、
+結構環境依存のところが多いな。。。
+
+
+つか、早くバイナリパッケージを作るべきだな。
+s・t・a・t・i・c！s・t・a・t・i・c！（字余りぎみ
+

@@ -1,0 +1,24 @@
+---
+layout: post
+title: 開発環境をUbuntuに移す
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060608/1149737058
+---
+oprofile + prospectを試そうと思ったけど、
+今までのDebianじゃカーネルが古すぎるし、
+かといってカーネル再構築はめんどいので
+UbuntuのVMWareイメージを落としてそれを開発環境に。
+gccが4.0なのね。ワオワオ。
+
+
+んで、いろんなプロファイラが紹介されてます。
+http://d.hatena.ne.jp/shinichiro_h/20060304#1141411168
+
+
+sysprofも試してみるかねえ。
+
+追記：
+vmlinuzからvmlinuxを取り出すのはどうすりゃええんじゃー。
+prospectはkernel 2.6に対応してないみたい。。
+

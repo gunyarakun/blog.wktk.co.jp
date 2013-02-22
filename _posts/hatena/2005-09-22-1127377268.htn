@@ -1,0 +1,17 @@
+---
+layout: post
+title: 遅い主原因判明
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050922/1127377268
+---
+http://www.pure.ne.jp/~learner/program/Perl_unicode.html
+ここを早めに読むべきだった。
+
+use utf8とuse encoding 'utf8'、どっち使えばええねん！
+ってわけでuse encoding 'utf8'をしていたわけですが、
+それのせいでuseしただけでdecode_xsがいっぱい呼ばれて遅くなっていたようです。
+
+しかし、DProf見てもどこから呼ばれているかわからんので、
+かなり追うのに苦労した感が。むにゅー。
+

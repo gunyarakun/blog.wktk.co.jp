@@ -1,0 +1,38 @@
+---
+layout: post
+title: Ludia 1.1.0リリース
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070601/1180701473
+---
+Ludiaの1.1.0がリリースされていました。
+変更点を勝手にコピペするとこんな感じ。
+>>
+(1) VACUUM対応
+　　concurrent VACUUM, FULL VACUUM両方に対応しました。
+　　Auto VACUUMも使用可です。
+(2) senna.confの使用廃止
+　　senna.confで設定していたINITIAL_N_SEGMENTSは、
+　　postgresql.confで設定可能となります。
+(3) Ludiaの設定を行わない場合は、デフォルト値を使用。
+　　ludia.max_n_sort_result = 10000　などの設定を省略した場合、
+　　デフォルト値が使用されます。
+　　(custom_variable_classes = 'ludia'　の記述は必須です。)
+(4) Ludiaの設定を参照する関数の追加。
+　　pgs2getoption関数を用いて、Ludiaの設定を確認できます。
+(5) 使用しているSennaのバージョンを参照する関数の追加
+　　pgs2seninfo関数を用いて、Sennaのバージョンを確認できます。
+(6) バグ修正
+　　pgs2pdftotext1,2のバグ修正
+　　FreeBSDでのMAKE不具合修正
+(7) TextPorter API対応
+　　オフィスファイルなどのLudiaインデックスを作成することができます。
+　　TextPorterは同梱されませんので、アンテナハウス様にお問い合わせください。
+<<
+今回の目玉はVACUUM対応でしょうか。
+TextPorterのAPIに対応したということで、
+社内文書の検索アプリなどに用途が広がる感じですね。
+
+
+(2)については、
+Senna 1.1.0ではsenna.confが無くなるため対応をお願いしました。

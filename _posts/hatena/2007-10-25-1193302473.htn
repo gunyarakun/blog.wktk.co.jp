@@ -1,0 +1,29 @@
+---
+layout: post
+title: Tokyo CabinetのPythonバインディングを書いている人いますか？
+tags: Tokyo Cabinet
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071025/1193302473
+---
+いないんだったら書く。
+書いたあとにカブっていることが分かると悲しいから。。
+
+** 追記
+お待たせしております。。手を挙げたのに作業遅くて申し訳ないです。
+PHP版の完成とid:shnさまのコードに触発されて今超絶書き中です。。
+
+↓ここで書き中。。たぶんハッシュDBはほとんどできた。次B-tree。
+- [http://svn.razil.jp/pytc/trunk/:title=PyTCのリポジトリ]
+
+** 追記2
+
+B+treeにおいて、同一キーで複数の値を返す時の仕様について悩む。
+IDLでは特に触れていない。
+PHP bindingsでは、getallというメソッドを別途設けて、
+それはtcbdbget4に接続されている。
+
+Perl/Ruby bindingsを読んで参考にするか。。。
+
+今はopenがクラスメソッドになっていますが、
+tuneなどの対応のため、将来はopenはインスタンスメソッドとなる予定です。
+その代わりに、newにpathとomodeを渡すと、インスタンス作成＆tcxdbopenをする予定です。

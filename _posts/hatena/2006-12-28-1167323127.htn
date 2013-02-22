@@ -1,0 +1,51 @@
+---
+layout: post
+title: SPARC用コードを書く…
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20061228/1167323127
+---
+Ludiaのメーリングリストで、以下のような要望が出ていた。
+http://lists.sourceforge.jp/mailman/archives/ludia-users/2006-December/000011.html
+
+
+SPARCかあ。
+[http://d.hatena.ne.jp/tasukuchan/20060813/1155457417:title=昔調べた結果]が使えるぞｳﾋﾋ…
+
+
+一応、Monoでの実装を見てみる。
+>|c|
+static inline gint32 InterlockedExchangeAdd(volatile gint32 *_dest, gint32 add)
+{
+       register volatile gint32 *dest asm("g1") = _dest;
+       register gint32 tmp asm("o4");
+       register gint32 ret asm("o5");
+
+       __asm__ __volatile__(
+               "1:     ld      [%%g1], %%o4\n\t"
+               "       add     %%o4, %3, %%o5\n\t"
+               /*      cas     [%%g1], %%o4, %%o5 */
+               "       .word   0xdbe0500c\n\t"
+               "       cmp     %%o4, %%o5\n\t"
+               "       bne     1b\n\t"
+               "        add    %%o5, %3, %%o5"
+               : "=&r" (tmp), "=&r" (ret)
+               : "r" (dest), "r" (add)
+               : "memory", "cc");
+
+        return ret;
+}
+||<
+…う～ん、命令は想像つくが、その前のasm３つが謎だ。
+そもそもgとoがよーわからん。gはgeneralかなあ。oはoutput？
+SPARC仕様書を読めばいいんだけど、かなりメンドイ。
+
+
+oは、[http://cvs.m17n.org/~akr/pub/getcontext2006-12-15.pdf:title=getcontextの怪]で出てきた
+レジスタウィンドウからみだとは思うんだけど…
+と思って検索したら、[http://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%B8%E3%82%B9%E3%82%BF%E3%83%BB%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6:title=Wikipedia]に案外詳しい説明が載っていた。ふむふむ、出力ね。
+
+
+それより、Monoの実装でcas命令がバイナリで展開してあるのが気になる。gasが通さないのかな？それはヤだな…
+実機がない環境で確認できないのがツラい。クロスコンパイルは大変だしな…
+

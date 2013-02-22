@@ -1,0 +1,21 @@
+---
+layout: post
+title: fulltext検索サポートはもともとあるらしい
+tags: Django
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070219/django_fulltext
+---
+[patch] Fulltext search support in Django
+http://code.djangoproject.com/ticket/593
+Changeset 3073
+http://code.djangoproject.com/changeset/3073
+こんなんあったのね。
+
+
+他のDBMSにも対応しているようです。
+http://code.djangoproject.org/attachment/ticket/3254/fts-pstgres-oracle-mssql.patch
+
+
+これでDjangoでfulltext三昧じゃ～い!!!
+(実はやっとDjangoのチュートリアルが終わったのさ…)
+

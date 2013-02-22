@@ -1,0 +1,63 @@
+---
+layout: post
+title: pytc-0.1 - Tokyo Cabinet Python bindings公開
+tags: Python
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071123/1195850560
+---
+
+お待たせしました。Tokyo CabinetのPython bindingsを公開します。
+sourceforgeで公開を予定していましたが、
+pypiで公開することにします。
+- http://pypi.python.org/pypi/pytc/
+
+リポジトリはCodeReposにあります。
+- http://svn.coderepos.org/share/lang/python/pytc/
+
+** 使い方(適当)
+
+HDB/BDBとも、永続化できるdictみたいな感じで使えます。
+
+簡単な使い方(hash database)
+>|python|
+import pytc
+
+db = pytc.HDB('hdb.db', pytc.HDBOWRITER | pytc.HDBOCREAT)
+db['niku'] = 'umai'
+print db['niku']
+
+db['ra-men'] = 'kuitai'
+print db['ra-men']
+
+for key in db:
+  print 'key:', key, ' value:', db[key]
+||<
+
+簡単な使い方(B+ tree database)
+>|python|
+import pytc
+
+db = pytc.BDB('bdb.db', pytc.BDBOWRITER | pytc.BDBOCREAT)
+db['niku'] = 'umai'
+print db['niku']
+
+db['ra-men'] = 'kuitai'
+print db['ra-men']
+
+for key in db:
+  print 'key:', key, ' value:', db[key]
+||<
+
+複雑な使い方については、配布パッケージ内のtestsの中にあるテストスクリプトを参考にしてください。
+「pydoc pytc」でメソッドを一覧できます。
+
+
+現状では、Pythonのオブジェクトを保存したい場合には、
+cPickle/pickleでのシリアライズ/デシリアライズは自前でやってね方針です。
+
+
+今後の予定：
+- iteritems()、iterkeys()、itervalues()をちゃんと実装。
+- 定数をHDB/BDBの下に移すかもしれません。
+- ドキュメントちゃんと書く
+

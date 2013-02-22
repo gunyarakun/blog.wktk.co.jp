@@ -1,0 +1,13 @@
+---
+layout: post
+title: 5.0.24がリリース
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060804/1154675743
+---
+MySQL 5.0.24がリリースされたようだが、
+ミラーまでバイナリが回っていないようだ。
+
+
+全パッケージ作成しなおそう。
+今度は実機で作るぞ。。。

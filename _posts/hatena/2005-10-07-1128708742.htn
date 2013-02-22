@@ -1,0 +1,18 @@
+---
+layout: post
+title: robots.txt
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051007/1128708742
+---
+Xangoでいろいろやろうとするときには
+robots.txtを自前で処理しなきゃいけません。
+POE::Component::Client::HTTPを派生していろいろやるのが一番かと思うけど、
+Xangoから呼ばれるイベントの中で、
+WWW::RobotUAを参考に（ほぼコピぺ）、
+RobotRules::Any_DBMFileを使ってごにょごにょやっていた。
+が、ロジックミスで、ロックするようになっていた。危ない。
+つか、内容読まずにコピペしたのがいけなかった。反省。
+
+ロジックリライトしたら、うまくいってそうだ。
+つか、早めにこういうのはやれ、というハナシで。

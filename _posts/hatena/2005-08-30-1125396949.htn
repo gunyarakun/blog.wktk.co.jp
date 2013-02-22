@@ -1,0 +1,61 @@
+---
+layout: post
+title: ! ' DBD::Google'
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050830/1125396949
+---
+[http://search.cpan.org/~darren/DBD-Google-0.11/]
+>>
+> ppm install dbd-google
+<<
+…無いんだって。
+>>
+> perl -MCPAN -e shell
+cpan> install DBD::Google
+The module DBD::Google isn't available on CPAN.
+<<
+だってさ。
+>>
+cpan> i DBD::Google
+Strange distribution name [DBD::Google]
+Module id = DBD::Google
+    DESCRIPTION  Treat Google as a DBI datasource
+    CPAN_USERID  DARREN (Darren Chamberlain <darren@cpan.org>)
+    CPAN_VERSION undef
+    CPAN_FILE    Contact Author Darren Chamberlain <darren@cpan.org>
+    DSLI_STATUS  bdpO (beta,developer,perl,object-oriented)
+    INST_FILE    (not installed)
+<<
+もひゃ。
+えっと、普通に取ってこよう。
+…
+解凍して、perl Makefile.PLして、nmake testっと。
+…
+Net/Google.pmね。
+>>
+> ppm install net-google
+<<
+…やっぱりGoogle関係のモジュールは利用許諾関係でないのかしら。
+で、
+>>
+cpan> install Net::Google
+<<
+spellingでtest1つだけ通らなかった。
+>>
+cpan> force install Net::Google
+<<
+で強引にねじこんで。
+んが・・・
+>>
+> nmake test
+<<
+SQL::Parserがないって。
+>>
+cpan> install SQL::Parser
+> nmake test
+<<
+お見事。
+
+<strong>結論：SQL::Parserへの依存関係を書いてないDBD::Googleが悪い。</strong>
+

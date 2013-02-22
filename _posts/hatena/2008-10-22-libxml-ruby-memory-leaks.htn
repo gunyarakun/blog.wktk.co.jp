@@ -1,0 +1,33 @@
+---
+layout: post
+title: libxml-rubyでメモリリークしている気がする
+tags: ruby
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20081022/libxml_ruby_memory_leaks
+---
+libxml-rubyでメモリ使用量がじわじわと増えていく。
+以下のようなコード。使い方の間違いとかについてツッコミ求む。
+>|ruby|
+require 'xml/libxml'
+
+doc = XML::Document.new()
+doc.root = XML::Node.new('root')
+root = doc.root
+root << child = XML::Node.new('child')
+(1..100000).each {|i|
+  a = XML::Node.new('dummy')
+  child.prev = a
+  a.remove!
+  GC.start
+}
+||<
+Hpricotはメモリリークするのでlibxml-rubyに乗り換えたんだけど、
+世の中そうそう楽できるようには出来てないのね…
+- [http://code.whytheluckystiff.net/hpricot/ticket/48:title=Hpricotのメモリリークについて]
+
+
+明日ちゃんと追おう。
+
+** [追記]修正されました。
+修正してもらいました(rev. 647) 。再現コードと、不完全でもいいからパッチがあるとやはり動きが早い。
+

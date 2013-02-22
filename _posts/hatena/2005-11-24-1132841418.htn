@@ -1,0 +1,15 @@
+---
+layout: post
+title: snippet作成なんか
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051124/1132841418
+---
+snippet作成のときに必要となる、文字列検索アルゴリズム。
+BM法くらいしか覚えていなかったんですが（しかも名前だけ）、
+ちょちょいと検索すると面白いページ発見。
+http://www-igm.univ-mlv.fr/~lecroq/string/index.html
+
+1997って書いてあるのが気になるけど、
+この分野はそうそう大きな進歩がなさそうな気がするので、
+とりあえず載ってるやつらからサーベイだな。

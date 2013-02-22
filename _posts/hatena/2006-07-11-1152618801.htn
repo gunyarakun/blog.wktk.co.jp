@@ -1,0 +1,12 @@
+---
+layout: post
+title: MySQL組み込みの全文検索エンジン
+tags: 検索エンジン
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060711/1152618801
+---
+こんなんがあった。
+http://sphinxsearch.com
+
+
+独自ストレージエンジンとして実装しているようだ。

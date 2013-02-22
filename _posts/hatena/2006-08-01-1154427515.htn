@@ -1,0 +1,75 @@
+---
+layout: post
+title: というわけでこうなった。
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060801/1154427515
+---
+mysql-5.0.22-sennaでSennaのコンパイルを一度通す。
+mysql-5.0.22-winにWindows用ソースディストリを展開。
+以下のコマンドを実行。
+>>
+cp mysql-5.0.22-senna/include/my_pthread.h mysql-5.0.22-win/include/my_pthread.h
+cp mysql-5.0.22-senna/include/myisam.h mysql-5.0.22-win/include/myisam.h
+cp mysql-5.0.22-senna/myisam/fulltext.h mysql-5.0.22-win/myisam/fulltext.h
+cp mysql-5.0.22-senna/sql/handler.h mysql-5.0.22-win/sql/handler.h
+cp mysql-5.0.22-senna/sql/item.h mysql-5.0.22-win/sql/item.h
+cp mysql-5.0.22-senna/sql/item_cmpfunc.h mysql-5.0.22-win/sql/item_cmpfunc.h
+cp mysql-5.0.22-senna/sql/item_func.h mysql-5.0.22-win/sql/item_func.h
+cp mysql-5.0.22-senna/sql/lex.h mysql-5.0.22-win/sql/lex.h
+cp mysql-5.0.22-senna/sql/lex_hash.h mysql-5.0.22-win/sql/lex_hash.h
+cp mysql-5.0.22-senna/sql/sql_class.h mysql-5.0.22-win/sql/sql_class.h
+cp mysql-5.0.22-senna/sql/sql_lex.h mysql-5.0.22-win/sql/sql_lex.h
+cp mysql-5.0.22-senna/sql/sql_yacc.h mysql-5.0.22-win/sql/sql_yacc.h
+cp mysql-5.0.22-senna/sql/structs.h mysql-5.0.22-win/sql/structs.h
+cp mysql-5.0.22-senna/libmysqld/filesort.cc mysql-5.0.22-win/libmysqld/filesort.cpp
+cp mysql-5.0.22-senna/libmysqld/ha_myisam.cc mysql-5.0.22-win/libmysqld/ha_myisam.cpp
+cp mysql-5.0.22-senna/libmysqld/item_cmpfunc.cc mysql-5.0.22-win/libmysqld/item_cmpfunc.cpp
+cp mysql-5.0.22-senna/libmysqld/item_func.cc mysql-5.0.22-win/libmysqld/item_func.cpp
+cp mysql-5.0.22-senna/libmysqld/item_sum.cc mysql-5.0.22-win/libmysqld/item_sum.cpp
+cp mysql-5.0.22-senna/libmysqld/records.cc mysql-5.0.22-win/libmysqld/records.cpp
+cp mysql-5.0.22-senna/libmysqld/sql_db.cc mysql-5.0.22-win/libmysqld/sql_db.cpp
+cp mysql-5.0.22-senna/libmysqld/sql_delete.cc mysql-5.0.22-win/libmysqld/sql_delete.cpp
+cp mysql-5.0.22-senna/libmysqld/sql_select.cc mysql-5.0.22-win/libmysqld/sql_select.cpp
+cp mysql-5.0.22-senna/libmysqld/sql_show.cc mysql-5.0.22-win/libmysqld/sql_show.cpp
+cp mysql-5.0.22-senna/libmysqld/sql_table.cc mysql-5.0.22-win/libmysqld/sql_table.cpp
+cp mysql-5.0.22-senna/myisam/ft_boolean_search.c mysql-5.0.22-win/myisam/ft_boolean_search.c
+cp mysql-5.0.22-senna/myisam/ft_nlq_search.c mysql-5.0.22-win/myisam/ft_nlq_search.c
+cp mysql-5.0.22-senna/myisam/ft_update.c mysql-5.0.22-win/myisam/ft_update.c
+cp mysql-5.0.22-senna/myisam/mi_check.c mysql-5.0.22-win/myisam/mi_check.c
+cp mysql-5.0.22-senna/myisam/mi_close.c mysql-5.0.22-win/myisam/mi_close.c
+cp mysql-5.0.22-senna/myisam/mi_create.c mysql-5.0.22-win/myisam/mi_create.c
+cp mysql-5.0.22-senna/myisam/mi_delete_table.c mysql-5.0.22-win/myisam/mi_delete_table.c
+cp mysql-5.0.22-senna/myisam/mi_info.c mysql-5.0.22-win/myisam/mi_info.c
+cp mysql-5.0.22-senna/myisam/mi_open.c mysql-5.0.22-win/myisam/mi_open.c
+cp mysql-5.0.22-senna/myisam/mi_rename.c mysql-5.0.22-win/myisam/mi_rename.c
+cp mysql-5.0.22-senna/myisam/myisamchk.c mysql-5.0.22-win/myisam/myisamchk.c
+cp mysql-5.0.22-senna/sql/filesort.cc mysql-5.0.22-win/sql/filesort.cpp
+cp mysql-5.0.22-senna/sql/ha_myisam.cc mysql-5.0.22-win/sql/ha_myisam.cpp
+cp mysql-5.0.22-senna/sql/item_cmpfunc.cc mysql-5.0.22-win/sql/item_cmpfunc.cpp
+cp mysql-5.0.22-senna/sql/item_func.cc mysql-5.0.22-win/sql/item_func.cpp
+cp mysql-5.0.22-senna/sql/item_sum.cc mysql-5.0.22-win/sql/item_sum.cpp
+cp mysql-5.0.22-senna/sql/mysqld.cc mysql-5.0.22-win/sql/mysqld.cpp
+cp mysql-5.0.22-senna/sql/records.cc mysql-5.0.22-win/sql/records.cpp
+cp mysql-5.0.22-senna/sql/sql_db.cc mysql-5.0.22-win/sql/sql_db.cpp
+cp mysql-5.0.22-senna/sql/sql_delete.cc mysql-5.0.22-win/sql/sql_delete.cpp
+cp mysql-5.0.22-senna/sql/sql_select.cc mysql-5.0.22-win/sql/sql_select.cpp
+cp mysql-5.0.22-senna/sql/sql_show.cc mysql-5.0.22-win/sql/sql_show.cpp
+cp mysql-5.0.22-senna/sql/sql_table.cc mysql-5.0.22-win/sql/sql_table.cpp
+cp mysql-5.0.22-senna/sql/sql_yacc.cc mysql-5.0.22-win/sql/sql_yacc.cpp
+<<
+
+mi_delete_table.cとmi_rename.cのsnprintfをmy_snprintfに変える。
+
+
+config-win.hに
+#define ENABLE_SENNA 1
+を入れる。
+
+
+mysqld,myisamchk,myisamlog,myisam_ftdump,myisampackプロジェクトで追加の依存関係にlibsenna.libを入れる。
+
+
+mysqld,myisamchk,myisamlog,myisam_ftdump,myisampackをreleaseでコンパイル。
+mysqldをDebug,Max,Max nt,nt,Releaseでコンパイル。
+

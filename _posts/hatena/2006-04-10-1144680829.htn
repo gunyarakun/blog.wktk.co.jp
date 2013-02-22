@@ -1,0 +1,23 @@
+---
+layout: post
+title: Cのお勉強 Cのお勉強
+tags: 偽プログラマ列伝
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060410/1144680829
+---
+>>
+if (bmres[j].end_offset > bmres[i].start_offset + snip->width) {
+  break;
+}
+<<
+は、
+>>
+if (bmres[j].end_offset > bmres[i].start_offset + snip->width) {
+  continue;
+}
+<<
+でした。
+
+
+そ、そろそろ、ここのブログから社名隠そうかしら。。。
+かっこ悪いバグを量産して恥ずかしい。

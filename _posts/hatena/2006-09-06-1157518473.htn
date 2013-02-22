@@ -1,0 +1,19 @@
+---
+layout: post
+title: PHP Crawlerを日本語で使う
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060906/1157518473
+---
+MOONGIFTで紹介されていたPHP Crawlerだが、
+日本語ではそのまま利用することができない。
+http://oss.moongift.jp/intro/i-2341.html
+
+
+利用するためには、Sennaを用いるのが楽だろう。
+http://qwik.jp/senna/
+
+
+SennaやSenna+MySQLのsrpmは以下のサイトのを利用すると楽かも。
+http://www.ma2world.net/2006/08/31/284/
+

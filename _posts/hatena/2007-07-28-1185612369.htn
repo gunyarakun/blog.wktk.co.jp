@@ -1,0 +1,75 @@
+---
+layout: post
+title: 音楽からボーカルだけを抽出or削除
+tags: sound
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070728/1185612369
+---
+ある音源があって、ボーカルだけを抽出 or 削除したい場合ってあるよね。
+
+
+ボーカルが中央に定位していれば、
+- K5 WAVE Filterでセンター音を抽出
+-- [http://kkkkk.net/?key=soft.kwf:title=K5 WAVE Filter]
+- 波形エディタでボーカル以外を丁寧に取り除く
+-- 400Hz～4Khzらへんが残るように周波数フィルタをかける
+-- 細かい手作業
+- 逆位相にする
+- 元音源にぶつける
+で結構キレイにボーカルが抜けると予想。
+倍音成分がちょっと残ってしまうかもしれない。
+
+
+適当でよければ、
+K5 WAVE Filterでサイド音だけを残したり、
+ボーカルリデューサーを使ったりで十分かもしれない。
+- [http://limetarte.net/software/more/binary/VocalReducer.htm:title=ボーカルリデューサー]
+
+
+英語サイトのソフトウェアも試してみたのだが、
+どれもソフトウェアとしてのデキが…
+BestPracticeの使い心地は悪くなかった。
+- BestPractice : [http://wayohoo.com/music-news/knowledge/bestpractice.html:title=一発でボーカルのみ消す！手持ちの曲をカラオケに即変換「BestPractice」 | 和洋風KAI]
+英語版のソフトウェアを探すときには、
+「"vocal reducer"」「"voice canceler"」「"vocal remover"」「karaoke voice software」などの
+クエリで検索してみた。
+
+
+AudioSculptのフィルタがイイ！というのをどこかで読んだのだが、
+AudioSculptはMac専用… Macを買えというお告げかしら。
+- AudioSculptを使って女声に加工 : [http://pc11.2ch.net/test/read.cgi/dtm/1157621827/80-:title=【ネカマ】男でも女声【テラキモス】]
+
+
+んで、一番の問題はボーカルが中央に定位していない場合と、
+ボーカル以外が中央に定位している割合が高い場合。
+たとえば、『魔理沙は大変なものを盗んでいきました』は
+- 一部ボーカルが左右にステレオで振ってある
+- 中央定位で目立つ音が多い
+と大変ボーカルが抜きにくい。
+
+
+情報求む。
+
+** 追記1
+
+Vocalつき音源とカラオケ音源があった場合、
+Vocalだけを取得するソフトとしてGetVocalなるソフトがあるようだ。
+
+- [http://www.geocities.co.jp/HeartLand-Gaien/5978/karamain.html:title=GetVocalを配布しているサイト]
+
+カラオケ音源と元のVocalつき音源にゆらぎがあってもVocalを取得してくれるすばらしいソフトです。
+
+** 追記2
+実はこの記事って、このブログの中だとひそかな人気エントリなんだ。。。
+
+SoundEngine Freeというソフトにボーカルキャンセル機能がついたようです。
+各種フィルタもかけられるようなので、パラメータ次第によってはキレイに抜けやすいのかもね。
+- [http://www.forest.impress.co.jp/article/2007/11/12/soundenginefree305.html:title=SoundEngine Freeの紹介記事]
+
+** 追記3
+
+強力なボーカル除去ソフトが出たようです。
+- [http://www.oshiete-kun.net/archives/2008/03/post_77.html:title=強力な音楽ファイルボーカル除去「精密マイナスワンメーカー」]
+
+
+まだ試していないですが、画面キャプチャを見る限りは周波数帯指定があるのが便利だと思った。

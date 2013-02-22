@@ -1,0 +1,25 @@
+---
+layout: post
+title: 入れてみる
+tags: Debian-amd64
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050928/1127887154
+---
+やっぱSUSE Pro 9.3 for AMD64やめ。Linux側はDebianで統一しちゃおう。
+で、Debian-amd64(sarge)。
+
+初心者なので
+http://debian.fam.cx/index.php?install#content_1_10
+ここを見てインストールしようと思うが、
+いきなりlinux26が通らない。
+で、調べてみると、Debian-amd64はkernel 2.4には対応しないぜイエーイ、
+ということらしいので、何も指定せずとも2.6になるようだ。
+
+こことか
+http://kmuto.jp/open.cgi?debian-amd64&l=en
+こことか
+http://wiki.debian.net/index.cgi?debian-amd64-faq
+こことか
+https://alioth.debian.org/docman/view.php/30192/21/debian-amd64-howto.html
+見ながら設定するかね。
+

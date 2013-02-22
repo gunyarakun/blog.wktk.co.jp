@@ -1,0 +1,23 @@
+---
+layout: post
+title: Perl自前コンパイル
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050913/1126599304
+---
+Perlをコンパイルして入れてみる。初めて。
+デバッグ情報が欲しかったので。
+
+http://www.perl.com/download.csp
+ここからダウンロードして、
+>>
+rm -f config.sh Policy.sh
+sh Configure -Dusethreads -Dprefix=/usr -Duseshrplib -DDEBUGGING -Doptimize='-g'
+LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+make test
+make install
+<<
+で。
+
+いろいろ聞かれるので適当にEnterで答えた。
+

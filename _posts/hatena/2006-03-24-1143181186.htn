@@ -1,0 +1,21 @@
+---
+layout: post
+title: DebianパッケージのMySQLのsocket
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060324/1143181186
+---
+DebianのパッケージのMySQLライブラリに依存するやつ、
+デフォルトのsocketが/var/run/mysqld/mysqld.sockになっている。
+
+
+というわけで、MySQL 4.0.26を自前ビルドする場合には、
+ --with-unix-socket-path=/var/run/mysqld/mysqld.sock
+をconfigure時に指定してあげると、
+既存のパッケージが使えて便利。
+（もちろん既存のパッケージでも、
+　ソケットを指定してあげれば使えます）
+
+
+普通だと/tmp/mysql.sockになっちゃう。
+

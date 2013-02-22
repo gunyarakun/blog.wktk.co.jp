@@ -1,0 +1,17 @@
+---
+layout: post
+title: ふうむ。
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060420/1145545193
+---
+MySQLでCHAR(1)型のフィールド、例えばflagがあったとしよう。
+
+
+SELECT * FROM tekito WHERE flag = 0
+というクエリを実行すると、
+全レコードがひっかかる。
+つまり、flag = 0は常にTRUEと評価されるようだ。
+
+
+どこかにドキュメントあるのかしら。

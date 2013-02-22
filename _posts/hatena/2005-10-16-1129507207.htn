@@ -1,0 +1,15 @@
+---
+layout: post
+title: DBIx::Cursor
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051016/1129507207
+---
+DBIx::Cursorっていう汎用カーソル君が存在するみたい。
+やほーい！！！
+さっそく試してみっか。
+…
+全部レコードとってきとるやないかい！
+カーソル風アクセスを実現するだけ、ってことやな。
+結局Pgを入れた。
+

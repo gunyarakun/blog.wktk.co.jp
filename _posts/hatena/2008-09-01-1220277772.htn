@@ -1,0 +1,28 @@
+---
+layout: post
+title: ピコカキコ機能リリース。
+tags: ニコニコ大百科
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080901/1220277772
+---
+ニコニコ大百科でMMLでメロディを書き込める「ピコカキコ」機能をリリースしました。
+JASRACと音楽著作物利用許諾についての契約を結んでいるので、
+JASRAC管理楽曲についても投稿可能です。
+
+
+はてなのMML記法(メロディ再生記法)と互換性があるので、
+今までに投稿したMMLについても再投稿どうぞー！
+(FlMMLを使っているから当たり前ではあるんですが…)
+
+
+JASRACとの契約締結にあたって、
+[http://mml.g.hatena.ne.jp/bbs/5:title=はてなMML部でJASRACに利用許諾申請してみたいのですが]
+の議論が大変参考となりました。ありがとうございました！！
+
+
+というわけで、頑張ってねー！。わくわく。
+http://d.hatena.ne.jp/satoru_net/20080901/1220253796
+
+
+ちなみに、ピコカキコと同じバイナリは
+Google codeとCodeReposとlibsparkを回ればビルドできます。

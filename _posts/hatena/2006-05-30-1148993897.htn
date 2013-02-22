@@ -1,0 +1,30 @@
+---
+layout: post
+title: リークをチェック
+tags: Windows
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060530/1148993897
+---
+ずっと前使ったDevPartnerProの中のBoundsCheckerは便利だった。
+ま、当時はVC6のSTLでリークでもないものをリークと報告して
+ウザかったりもしたのだが。
+
+で、メモリリーク対策を探していたんだけど、
+http://piza.2ch.net/tech/kako/978/978705727.html
+の16,17
+http://piza.2ch.net/log/prog/kako/946/946364904.html
+の11
+のような方法があるのね。知らんかった。
+
+>>
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options
+にプログラム名(DLL名)でキーを作る。
+GlobalFlag(REG_SZ) "0x02000000"
+でヒープチェック有効。
+PageHeapFlags(REG_SZ) "1"
+でさらに厳密なヒープチェック有効。ただしこれはメモリ食う。
+<<
+
+この本に詳細が載っているらしい。英語読むのめんどいずら。
+ISBN:020170238X:detail
+

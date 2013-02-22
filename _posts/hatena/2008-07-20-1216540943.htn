@@ -1,0 +1,47 @@
+---
+layout: post
+title: lighttpdでモジュールを書く際に気をつけること
+tags: lighttpd
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080720/1216540943
+---
+lighttpdのモジュールを書くことを覚えてしまったせいで、
+ついついlighttpdのモジュールで仕事を進めてしまうクセがつきました。
+「なんでもおもっど」状態です。
+
+
+全パスに対するアクセス数をTokyoCabinetに記録したり、
+特定のパスに対してはmemcachedから値を取得したり、
+Sennaで特定のキーワードにリンクを付与したり、
+まあ、やりたい放題です。パフォーマンスも出てます。
+ああ毛が立っちゃう。
+
+
+lighttpdのbufferやarrayを使えば、
+メモリリークなどに悩まされることはほぼありません。
+意外と安定して開発・稼動できたので正直ビックリしています。
+まあ、cookieをパースしたりする便利関数がないので、
+そこらへんは根性で書く必要はあります。
+どうにかしてくれよ（そろそろ飽きてきた）。
+
+
+lighttpdのモジュールの欠点は、
+ビルドシステムがちゃんとしていないという点です。
+- [http://trac.lighttpd.net/trac/wiki/HowToWriteALighttpdPlugin:title=lighttpdプラグインの書き方(英語)]
+上のサイトを見ると、/srcにモジュールのソースコードを入れて
+Makefile.amを書き換えろ、みたいなことが書いてあると思いますが、
+あれだけ入れるんじゃねえよお、という話ですね。
+
+
+lighttpd本体とlighttpdモジュールを切り離して開発する場合には、
+以下の点に気をつけようぜ。
+- lighttpdのソースディレクトリの/と/srcをincludeしないといけません。
+- lighttpdはconfigureしておく必要があります。
+- 通常lighttpdはoff_tが64bitという前提でconfigureされます。
+  モジュールのoff_tも64bitにしておかないと、
+  情報をやりとりする構造体イメージと変数マッピングがズレて泣きます。
+
+
+あと、lighttpdのtracサイトは常時重めなので、
+ローカルに保存して参照するとよいです。
+

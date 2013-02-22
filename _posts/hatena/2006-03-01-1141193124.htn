@@ -1,0 +1,19 @@
+---
+layout: post
+title: ''
+tags: 偽プログラマ列伝
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060301/1141193124
+---
+自分の偽プログラマっぷりを書いていこうと思う。
+
+かっこ悪いバグ。
+誤 : str = (char *)malloc(sizeof(char *) * length);
+正 : str = (char *)malloc(sizeof(char) * length);
+ううう。。。
+
+この修正を行って、
+今まで顕在化していなかった
+バッファオーバーランが出たらどうしようと思ったけれども大丈夫だった。
+
+lengthを文字数+1じゃなくて文字数とかしてたりしたら自殺してますよ。

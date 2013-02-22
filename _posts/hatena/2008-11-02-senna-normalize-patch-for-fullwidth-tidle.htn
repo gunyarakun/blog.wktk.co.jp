@@ -1,0 +1,56 @@
+---
+layout: post
+title: SennaでWAVE DASH(～)とFULLWIDTH TILDE(～)を同一視する
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20081102/senna_normalize_patch_for_fullwidth_tidle
+---
+Sennaでは、UTF-8の文字列を正規化しています。
+たとえば、「?」は「ミリバール」に、「AbRACADAbra」は「abracadabra」に、「ﾊﾗﾍｯﾀＺＯ」は「ハラヘッタZO」に変換されます。
+これで、文字のゆれに対応した検索ができるわけです。
+
+
+さて、某サービスでWAVE DASH(～)とFULLWIDTH TILDE(～)を同一視してほしい、
+という要望が届きました。
+そういうときはlib/nfkc.cをいじるとよいです。
+
+
+lib/nfkc.cのいじり方について説明します。このソースコードは自動生成されていますので、直にいじるのはちょっと大変です。
+lib/nfkc.c自動生成のためのプログラムは、util/unicode/以下に入っています。
+util/unicode/icudump.cに以下のようなパッチを当てれば、FULLWIDTH TILDEを全てWAVE DASHに変換するようになります。
+あくまで全角チルダのみ変換されて、チルダそのものは変換されないので地球に大変やさしい(?)ですね。
+
+>|diff|
+--- /home/tasuku/senna-svn/util/unicode/icudump.c       2008-10-15 20:09:54.000000000 +0900
++++ icudump.c   2008-11-02 14:49:50.000000000 +0900
+@@ -75,6 +75,10 @@
+   if (rc != U_ZERO_ERROR /*&& rc != U_STRING_NOT_TERMINATED_WARNING*/) {
+     return -1;
+   }
++  /* normalize full width tilda to wave dash */
++  if (ubuf[0] == 0xff5e) {
++    ubuf[0] = 0x301c;
++  }
+   rc = U_ZERO_ERROR;
+   nlen = unorm_normalize(ubuf, ulen, mode, 0, nbuf, BUF_SIZE, &rc);
+   if (rc != U_ZERO_ERROR /*&& rc != U_STRING_NOT_TERMINATED_WARNING*/) {
+||<
+
+lib/nkf.cの自動生成を行うには、util/unicode/nfkc.rbを実行します。
+nfkc.rb動作のためには、ICU(開発用のヘッダファイル含む)とRubyが必要です。
+Debianですと、libicu-devパッケージをインストールしてください。
+nfkc.rbを動作すると以下のような操作を行います。
++ icudump.cからicudumpを作る
++ icudumpを使ってマッピング表を作り、nfkc.cを生成する
+生成されたnfkc.cをlibに移動してビルドすればOKです。
+
+
+今回は１文字だけでしたので直にnfkc.cをいじってもよかったのですが、
+ひらがなとカタカナを同一視したい、などの要件がある場合には
+icudump.cで置換することをオススメしておきます。
+
+
+今月あたりに、仮想空間が枯渇したりメモリが枯渇したときの安定度を増した
+Senna 1.1.4を出せたらいいなぁ、と考えています。
+最後のSenna 1.1系となる予定です。
+

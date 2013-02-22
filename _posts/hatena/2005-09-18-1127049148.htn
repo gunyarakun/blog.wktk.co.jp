@@ -1,0 +1,61 @@
+---
+layout: post
+title: うーん、svはsegvのコトじゃないらしいぞ
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050918/1127049148
+---
+>>
+#0  0x080df04b in Perl_sv_2cv (my_perl=0x816c008, sv=0x88c1174, st=0xbfffee90,
+    gvp=0xbfffee94, lref=0) at sv.c:7273
+#1  0x080c817e in Perl_pp_entersub (my_perl=0x816c008) at pp_hot.c:2651
+#2  0x080ae789 in Perl_runops_debug (my_perl=0x816c008) at dump.c:1449
+#3  0x08064d79 in perl_run (my_perl=0x816c008) at perl.c:1934
+#4  0x0805fdd1 in main (argc=11, argv=0xb, env=0xbffff0a0) at perlmain.c:98
+
+7232        switch (SvTYPE(sv)) {
+7233        case SVt_PVCV:
+7234            *st = CvSTASH(sv);
+7235            *gvp = Nullgv;
+7236            return (CV*)sv;
+7237        case SVt_PVHV:
+7238        case SVt_PVAV:
+7239            *gvp = Nullgv;
+7240            return Nullcv;
+7241        case SVt_PVGV:
+7242            gv = (GV*)sv;
+7243            *gvp = gv;
+7244            *st = GvESTASH(gv);
+7245            goto fix_gv;
+7246
+7247        default:
+7248            if (SvGMAGICAL(sv))
+7249                mg_get(sv);
+7250            if (SvROK(sv)) {
+7251                SV **sp = &sv;              /* Used in tryAMAGICunDEREF macro. */
+7252                tryAMAGICunDEREF(to_cv);
+7253
+7254                sv = SvRV(sv);
+7255                if (SvTYPE(sv) == SVt_PVCV) {
+7256                    cv = (CV*)sv;
+7257                    *gvp = Nullgv;
+7258                    *st = CvSTASH(cv);
+7259                    return cv;
+7260                }
+7261                else if(isGV(sv))
+7262                    gv = (GV*)sv;
+7263                else
+7264                    Perl_croak(aTHX_ "Not a subroutine reference");
+7265            }
+7266            else if (isGV(sv))
+7267                gv = (GV*)sv;
+7268            else
+7269                gv = gv_fetchpv(SvPV(sv, n_a), lref, SVt_PVCV);
+7270            *gvp = gv;
+7271            if (!gv)
+7272                return Nullcv;
+ *ERROR*:7273            *st = GvESTASH(gv);
+<<
+で、7273で落ちている、と。
+…実用Perlプログラミングの20章が参考になりそうなので今から読みます。グスン。
+svはScalar Valueだったのね。

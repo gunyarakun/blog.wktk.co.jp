@@ -1,0 +1,29 @@
+---
+layout: post
+title: ニコニコ大百科リリース
+tags: nicopedia
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080525/1211732953
+---
+[http://dic.nicovideo.jp:title=ニコニコ大百科]という、ニコニコ動画版Wikipediaとも説明すべきサイトをリリースしました。
+[http://www.nicovideo.jp/watch/sm3398283:movie]
+
+5/25 25:25:25公開という設定になっております。
+社会人になってから、初めての外部向けWebサイト構築がこれだよ！
+
+
+ミドルウェア開発が本業（？）なので、
+ミドルウェアばっかりに凝ってしまいました…あはは…
+
+
+- lighttpd
+- ruby(ほとんどのロジック、Pythonにしとけばよかった… FastCGI経由)
+- MySQL(DBサーバ)
+- Senna(自動キーワードリンク)
+- repcached(セッション保持用memcached、EeePCでLVS frontと一緒に動いている)
+- Tritonn(検索)
+- libeventのevhttp(API用Webサーバ)
+- Varnish(API用WebサーバのHTTPアクセラレータ)
+
+
+他にも、各ページの閲覧数ランキングのために、Tokyo Tyrantを投入予定です。

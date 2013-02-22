@@ -1,0 +1,35 @@
+---
+layout: post
+title: TidyでHTMLの根性を叩き直す。
+tags: HTML
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050914/1126702015
+---
+世の中に溢れる、だらけたHTML。
+こいつらの腐りきった根性を叩き直してやる！
+
+で、Tidyクンなわけです。
+http://tidy.sourceforge.net/
+からダウンロードできる、んですが、
+正式ダウンロード版は古い。
+cvsから自動でアーカイブされたものは必要なファイル群が足りておらず、
+makeに失敗する。
+
+というわけで、以下のようにちゃんとcvsから取るべし。
+>>
+cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/tidy co -P tidy
+<<
+
+で、buildディレクトリにでも移ってmake installでも。
+
+こいつをPerlで使うためには
+HTML::Tidyを使うのですが、
+HTML::Tidyというpackage名を持つモジュールが２つ出回っています。
+http://search.cpan.org/~petdance/HTML-Tidy-1.06/
+http://users.rcn.com/creitzel/tidy.html#tidyperl
+前者は設定ファイルを読み込む方式、
+後者はメソッド経由でいろいろオプション設定できます。
+が、前者を採用。オプション多いし。
+
+前者、Test通りません。いつもどおり（？）force installで逃げる。
+

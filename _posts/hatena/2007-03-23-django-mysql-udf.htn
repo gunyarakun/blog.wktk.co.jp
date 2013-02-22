@@ -1,0 +1,142 @@
+---
+layout: post
+title: MySQLのUDF(ユーザ定義関数)をDjangoから使う
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070323/django_mysql_udf
+---
+
+** 動機
+
+SennaのMySQLバインディングには、
+UDFというMySQLのユーザ定義関数を使ってスニペットを返す関数があります。
+
+
+スニペットとは、検索対象文書の一部を抜粋したものです。
+通常はKWICと呼ばれる、検索キーワードとその周辺の文書を抽出したものを出力します。
+
+
+この関数を使うと、
+-MySQLのデータすべてをクライアントに転送する必要がないので効率がよい
+-面倒なマルチバイト対応やタグ付け処理等もやってくれる
+といった嬉しい点があります。
+
+
+というわけで、この関数を是非Djangoから呼びたいと考えていたわけです。
+
+
+-前提条件
+--articlesというテーブルに、bodyというフィールドがある、モデル名はArticle
+--この中を全文検索して、検索結果をsnippet関数を通じて取り出したい
+--bodyのデータそのもの必要ない、サイズが大きいので、できればMySQLからロードしたくない
+--キレイに書きたい!!!
+
+** 実践
+
+*** お手軽メソッド
+
+まずは、
+http://ymasuda.jp/python/django/docs/model-api.html
+のフィールドのオプションの項を参考にして
+>|python|
+snip = models.TextField(db_column='snippet(body, ...)')
+||<
+と書くとエラーが出た。ダマせなかったか…
+
+*** カスタムSQLの実行
+
+http://ymasuda.jp/python/django/docs/model-api.html
+の「カスタム SQL の実行」にあるように、
+まずArticle.objects.filter(body__search = query)で全文検索を行い、
+以下のようなget_snippetメソッドを呼び出してsnippetを取り出す方法です。
+
+>|python|
+def get_snippet(self):
+    from django.db import connection
+    cursor = connection.cursor()
+    cursor.execute("SELECT snippet(body, %s) FROM articles WHERE id = %d", [snippet_args, self.id])
+    row = cursor.fetchone()
+    return row
+||<
+
+しかし、これだとうまくいって当たり前だし、キレイじゃないし、
+bodyそのものは読んでいるし、
+なにより、クエリが毎行発行されてしまう！！！
+
+う～ん。
+
+*** extraを使う
+
+新たなクエリセットを返すクエリセットメソッド
+http://ymasuda.jp/python/django/docs/db-api.html
+のextra(select=None, where=None, params=None, tables=None)を使ってみる。
+
+
+>|python|
+Article.objects.filter(body__search = senna_query).extra(
+  select={'snip': 'snippet(body, %s)' % snippet_args}
+)
+||<
+
+ふむ！出来た！出来たぞ～い！！！
+
+
+このままだと結局bodyを読み込んでしまうので、
+models.pyからbodyを追放してやって、
+
+>|python|
+Article.objects.extra(
+  select={'snip': 'snippet(body, %s)' % snippet_args},
+  where=["MATCH(body) AGAINST('%s' IN BOOLEAN MODE)" % query],
+)
+||<
+
+これでbodyを読み込まなくできた。
+でも、Django備え付けの全文検索フィルタが使えなくなって悲しい。
+
+*** extraをちゃんと使う
+
+さて、このままだとSQL Injectionされてしまうので、
+extraに設けられているparamsを用いてみよう。
+
+>|python|
+Article.objects.extra(
+  select={'snip': 'snippet(body, %s)'},
+  where=["MATCH(body) AGAINST(%s IN BOOLEAN MODE)"],
+  params=[snippet_args, query],
+)
+||<
+
+うぎゃー、エラーだ！！！
+なんでなんで、と思ったら
+http://code.djangoproject.com/ticket/2902
+http://groups.google.com/group/django-users/browse_thread/thread/8ced145389650d62 
+を読む限り、selectに対してparamsを適用するのは想定外ということらしい。
+
+
+まあ、2902のticketの人はそれだけにとどまらず、
+selectの辞書にkeyが複数あり、辞書は順序なしなので、
+arrayとマッチしないという問題があるのでした。
+
+
+Django本体にパッチを当ててもいいけど、
+追従するのがめんどくさい。
+よって、エスケープする関数を自前ででっちあげた。
+backend.quote_nameみたいな関数が欲しいところ。
+
+
+** まとめ
+
+- MySQLのUDFはカスタムSQLでもextra()経由でも利用できるよ
+- カスタムSQLの場合、snippet関数が毎行ごとに別々に呼ばれて非効率だよ。
+- 条件としてだけ使うけど内容が欲しくないフィールドというものは、たぶん現行のDjangoじゃ指定できないっぽいよ
+- extraを使ってある程度SQLを指定したら、条件としてだけ使うフィールドが実現できたよ
+- extraのparamsはwhereで使うことが念頭にあり、selectのほうで使うと思わぬ落とし穴があるよ
+
+というわけで、models.pyで、
+whereの条件には使うけれども、データそのものはいらない!!!!
+と設定できたらいいなあ、と思った。
+
+
+情報求む。
+

@@ -1,0 +1,13 @@
+---
+layout: post
+title: PythonでSQLiteのFTS2を使う
+tags: Python
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070728/1185612566
+---
+いつもおなじみの？「傀儡師の館」にてSQLiteのFTS2をPythonで使う手順が公開されている。
+- [http://plaza.rakuten.co.jp/kugutsushi/diary/200707270001/:title=SQLite の全文検索を Python から使ってみる (1) - 傀儡師の館.Python - 楽天ブログ（Blog）]
+- [http://plaza.rakuten.co.jp/kugutsushi/diary/200707280000/:title=SQLite の全文検索を Python から使ってみる (2) - 傀儡師の館.Python - 楽天ブログ（Blog）]
+- [http://plaza.rakuten.co.jp/kugutsushi/diary/200707280001/:title=SQLite の全文検索を Python から使ってみる (3) - 傀儡師の館.Python - 楽天ブログ（Blog）]
+
+簡単に使えるようになれば、便利便利だねえ。

@@ -1,0 +1,24 @@
+---
+layout: post
+title: SennaとDjangoを使ったWikipedia検索のデモを公開してみた。
+tags: Django
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070407/senna_wikipedia
+---
+Djangoで書いた、Sennaを用いたWikipedia検索のデモを<del datetime="2008-04-05T04:12:12+09:00">公開してみた。</del>公開終了しました。
+インデックスはN-gramで作ってみたよ。
+
+
+<del datetime="2008-04-05T04:12:12+09:00">http://wikipedia.suenaga.name/
+にとりあえず置いてみた。
+</del>
+
+動いているコード自体は、
+http://svn.razil.jp/django-wikipedia/trunk
+あたりからSubversion経由で取得できます。
+
+
+クエリにかかった秒数の表示とか、Djangoでのキャッシュ機構の活用とか、
+インクリメンタルサーチとか、類似文書検索対応とか、キャッシュ文書の表示とか、
+いろいろやりたいこともあるのですが、
+まあ、とりあえず公開して様子見してみよう。

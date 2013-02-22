@@ -1,0 +1,116 @@
+---
+layout: post
+title: ! ' [xml][libxml2][c]XMLをHTTPSで取得して、XPathで指定された中身をC言語で取り出す方法'
+tags: ''
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080911/xml_https_with_c
+---
+某サービスのAPI呼び出しについて、
+- API呼び出しをSSL化する
+- UserAgentに特定の文字列を入れる
+という新しい要件が発生した。
+
+
+というわけで、
+- {% post_link 2008-07-06-1215344211 %}
+を更新。今度はlibcurlを使った。
+
+
+実用上は、
+curlのインスタンスやcurl_responseのバッファなどは使いまわすべきです。
+
+
+いつものごとくツッコミを待つ。
+今頃になって、文字列格納用バッファ関数群がlibxml2にあるような気もしてきた…
+>|sh|
+sudo aptitude install libxml2-dev libcurl-openssl-dev
+gcc -o test -I/usr/include/libxml2 test.c -lxml2 -lcurl
+||<
+>|c|
+#include <stdio.h>
+#include <string.h>
+#include <curl/curl.h>
+#include <libxml/xpath.h>
+
+#define URL "https://dokokako.api/"
+#define XPATH "/xpath"
+#define USER_AGENT "nicowiki"
+#define BAIRITU_DON 8
+
+typedef struct {
+  char *data;
+  size_t length;
+  size_t allocated;
+} curl_response;
+
+size_t
+curl_callback(void *ptr, size_t size, size_t nmemb, curl_response *cr)
+{
+  if (!size || !nmemb) { return 0; }
+  if (!cr->data) {
+    if (!(cr->data = malloc(size * nmemb * BAIRITU_DON))) {
+      return 0;
+    }
+    cr->allocated = size * nmemb * BAIRITU_DON;
+  } else if ((cr->length + size * nmemb) >= cr->allocated) {
+    char *b;
+    if ((b = realloc(cr->data, cr->allocated * 2))) {
+      cr->data = b;
+      cr->allocated *= 2;
+    } else {
+      free(cr->data);
+      cr->length = cr->allocated = 0;
+      return 0;
+    }
+  }
+  memcpy(cr->data + cr->length, ptr, size * nmemb);
+  cr->length += size * nmemb;
+  cr->data[cr->length] = '\0';
+  return size * nmemb;
+}
+
+int
+main(int argc, char *argv[])
+{
+  CURL *curl;
+  xmlDocPtr doc;
+  xmlNodeSetPtr nodes;
+  xmlXPathContextPtr ctx;
+  xmlXPathObjectPtr xpobj;
+  curl_response cr = {NULL, 0, 0};
+
+  if ((curl = curl_easy_init())) {
+    curl_easy_setopt(curl, CURLOPT_URL, URL);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
+    curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &cr);
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, USER_AGENT);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curl_callback);
+    if (curl_easy_perform(curl) != CURLE_OK || !cr.data) {
+      return;
+    }
+    curl_easy_cleanup(curl);
+  }
+  if ((doc = xmlParseDoc((xmlChar *)cr.data))) {
+    if ((ctx = xmlXPathNewContext(doc))) {
+      if ((xpobj = xmlXPathEvalExpression(
+                     (xmlChar *)XPATH, ctx))) {
+        if (!xmlXPathNodeSetIsEmpty(xpobj->nodesetval)) {
+          xmlNodePtr node = xmlXPathNodeSetItem(xpobj->nodesetval, 0);
+          if (node->content) {
+            printf("%s\n", node->content);
+          }
+        }
+        xmlXPathFreeObject(xpobj);
+      }
+      xmlXPathFreeContext(ctx);
+    }
+    xmlFreeDoc(doc);
+  }
+  xmlCleanupParser();
+  free(cr.data);
+
+  return 0;
+}
+||<
+

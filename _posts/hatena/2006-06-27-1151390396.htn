@@ -1,0 +1,19 @@
+---
+layout: post
+title: ひさびさにPerl
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060627/1151390396
+---
+ひさびさに書いております。
+DBIx::Class使っております。
+解説ページチラ見して使っていたら詰まった。。
+
+
+many_to_manyとかbelongs_toとかでコンパイルエラー。
+DEBUG=>1にしてなんとか追ってみるも、
+どの行が悪いんじゃーーーーい
+
+
+DB設計はDBIx::Classを使うことを想定してない名前づけルールになっているので、
+結構めんどくさげ。

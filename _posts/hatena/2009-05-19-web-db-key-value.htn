@@ -1,0 +1,22 @@
+---
+layout: post
+title: Web+DB press Vol.50にkey-valueストアの記事を書きました！
+tags: ''
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20090519/web_db_key_value
+---
+いまさらながら告知ですが、WEB+DB press Vol.50にて、key-valueストア入門という記事を執筆させていただきました。やっほーい！皆さんも、Software Design 2009年5月号が売り切れたくらいのイキオイで、100冊くらい買うといいと思います。
+>{% amazon jp:477413838X:detail %}<
+
+ま、執筆中は毎日「死にたい、あー死にたい」とつぶやいていたので、日本語やらコードやらが怪しい部分なども多いと思います。第１章で書きたいことが書けたので満足しています。決して、「WEB+DB press Vol.50ではGit特集がよかったです！」というBlogを発見しては伏目がちになる毎日を暮らしていませんよ…
+
+
+さて、上記記事でも紹介したgroongaですが、memcachedのバイナリプロトコルをほとんど実装してみました。casも実装してみたのですが、もともとのmemcachedのcasがいい加減な実装なので、あまり実用性ない気がしています。むしろcasは削除したい気が満々です。
+
+
+memcachedのバイナリプロトコルを実装してみて分かったのですが、libmemcachedには初期値付きのincr/decrを行う関数が無かったんです…というわけで、libmemcachedに初期値付きincr/decrを実現するmemcached_increment_with_initial/memcached_decrement_with_initialという関数を追加してみました。
+
+
+現在リリースされているlibmemcached 0.29では、
+上記関数にてバイナリプロトコルを用いた初期値付のincr/decrが出来るようになっています。
+ぜひgroongaと併せて試してみてください。

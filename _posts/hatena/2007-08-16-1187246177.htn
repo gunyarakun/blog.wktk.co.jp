@@ -1,0 +1,65 @@
+---
+layout: post
+title: 今流行の.emacs & .vimrc
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070816/1187246177
+---
+僕の周りで強引に流行らせている、
+エディタで行末に存在するスペースを強調表示する設定。
+
+
+この設定をすると、人が書いたコードの行末のスペースが大変気になってしまい、
+その人に設定を押し付けて…といった伝染力を持ちます。取り扱い注意。
+
+
+この設定の流行り始めた段階では、
+Subversionの差分で「どこが変わったの？」と思うような差分が多く出現します。
+
+.emacs
+>>
+(when (boundp 'show-trailing-whitespace) (setq-default show-trailing-whitespace t))
+<<
+
+.vimrc
+>>
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+<<
+
+** 追記その1
+
+Vimでtabを使っていると、２つめ以降のタブで強調表示されないようだ。
+- [http://d.hatena.ne.jp/kasahi/20070902:title=2007-09-02 - カサヒラボ]
+
+
+これでどうだろう。
+
+新.vimrc
+>>
+set listchars=trail:\ ,tab:.\ 
+hi SpecialKey ctermbg=red guibg=red
+<<
+listcharsには、tab/eol/extends/precedes/nbspも指定できる。
+eol/extends/precedesのハイライトグループはNonText、
+nbsp/tab/trailのハイライトグループはSpecialKey。
+
+
+ただし、これだとtabまで目立ってしまう。う～ん。
+** 追記その2 Vim最終版
+autocmd WinEnterっつーのがあるのね。
+これで末尾のスペースだけを目立たせることができるだろう。
+>>
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+autocmd WinEnter * match WhitespaceEOL /\s\+$/
+<<
+
+** 追記その3 emacsでのdevelock
+
+ひろせさんがdevelock.elを紹介してくださっています。
+- [http://d.hatena.ne.jp/hirose31/20070904/1188837366:title=行末の無駄なスペースなどを強調表示 - develock.el - (ひ)メモ]
+
+develockについては、以下のサイトも参考になるかと思います。
+同ページ内には、プログラミングに便利な設定が他にも紹介してありますよ！
+- [http://www.bookshelf.jp/soft/meadow_42.html#SEC634:title=Meadow/Emacs memo:  プログラム関連 ― 一般用]

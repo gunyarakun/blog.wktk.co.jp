@@ -1,0 +1,15 @@
+---
+layout: post
+title: AzaraCいいね
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20061013/1160740708
+---
+Sedueのプリファードインフラストラクチャーから出たAzaraC。
+http://labs.preferred.jp/azarac/
+
+
+昔C++だけで2ch風掲示板のスクリプトを書いたことがあったけど、
+こういうライブラリで、しかもBSDライセンスのものがなくて
+結局１から書いたのを思い出したりもしたのでした。
+

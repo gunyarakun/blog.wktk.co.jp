@@ -1,0 +1,15 @@
+---
+layout: post
+title: RCU
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060811/1155325086
+---
+Read-Copy Updateというアルゴリズム。
+知らなかった。やばい。
+http://www.atmarkit.co.jp/flinux/special/kernel26/kernel26_01a.html
+http://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%BC%E3%83%89%E3%83%BB%E3%82%B3%E3%83%94%E3%83%BC%E3%83%BB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88
+
+
+そろそろ各種アルゴリズムを勉強しなおさないとな。。。
+つか、Wikipedia充実しとるなあ。。。

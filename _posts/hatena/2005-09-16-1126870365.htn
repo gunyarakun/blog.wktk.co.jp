@@ -1,0 +1,16 @@
+---
+layout: post
+title: utf8::SWASHGET問題解決
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050916/1126870365
+---
+>>
+s/^.*?$val.*?$//o
+<<
+って式が重いらしく。
+確かに重そうだ。これを全行やるっていうのは。
+
+$valが存在したら行全体消しまっせ、いひひ、
+ってことでしょ。
+

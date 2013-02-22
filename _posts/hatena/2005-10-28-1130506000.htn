@@ -1,0 +1,16 @@
+---
+layout: post
+title: いやなバグ
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051028/1130506000
+---
+http://bugs.mysql.com/bug.php?id=14037
+(IN BOOLEAN MODEじゃなくても再現します)
+
+IN BOOLEAN MODEを使わずに、
+MATCH() AGAINST()を組み合わせて使うような
+設計にしていたらハマった。
+
+すなおにIN BOOLEAN MODEを使うべきかしらね。
+

@@ -1,0 +1,19 @@
+---
+layout: post
+title: PerlでRACEエンコーディング
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051018/1129655112
+---
+いるもの
+-Unicode::String
+-Convert::RACE
+-Convert::Base32
+>>
+エンコード
+$encoded_output = to_race(utf8($output)->utf16);
+デコード
+$decoded_input = utf16(from_race($input))->utf8;
+<<
+UTF-8フラグは適宜処理すること。
+

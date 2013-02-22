@@ -1,0 +1,23 @@
+---
+layout: post
+title: Hyper Estraier 1.06で
+tags: Hyper Estraier
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051124/1132833912
+---
+Hyper Estraier 1.06+perl binding 0.0.15で
+どうもDatabase Problemが起きたりすることがある。
+qdbmは1.8.33だが、1.8.34でバグが取れたらしいMinGW環境でもないし。
+
+1.04+perl binding 0.0.14に戻したらとりあえず壊れなくなった、ように見える。
+とりあえず1.04でのインデックス再作成を待ってみるか。
+
+ -追記-
+やっぱり1.04ではインデックスが壊れない。
+optimizeが悪さしてるのかしら…？
+（また原因究明はせず）
+
+ -追加2-
+1.04でも壊れました。
+むむう。こうなると僕のプログラムの問題ですかね。
+

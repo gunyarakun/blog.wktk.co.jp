@@ -1,0 +1,232 @@
+---
+layout: post
+title: Webサーバ書くのって流行りなの？
+tags: libevent
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070508/1178605968
+---
+Memcachedの添え物として扱われている（ような気がする）
+libeventちゃんカワイソウ。
+- [http://www.monkey.org/~provos/libevent/:title=libevent]
+
+
+というわけで、libeventとsennaを使って
+COOKIEによるセッション維持機能がついたWebサーバを書いてみた例。
+(Sennaは単なるハッシュライブラリとして使っています。)
+
+
+mainを書き下すと、
+- Senna初期化
+- libevent初期化
+- httpd機能開始
+- URIごとにハンドラ関数を設定
+- イベントをガンガン処理
+といった感じ。
+
+
+Cでこれくらいの長さだったら、
+妥当だと思います。
+バグがありそうだし、セッション変数の種も適当だけど、
+気にするなってことで。
+
+
+実用にはならないけど、サンプルの１つとしてどうぞ。
+LLな言語のインタプリタなんかを抱え込むと面白いのかもね。
+
+>|c|
+#ifdef WIN32
+#include <winsock2.h>
+#include <windows.h>
+#endif
+
+#include <sys/types.h>
+#include <sys/time.h>
+#include <stdlib.h>
+#include <err.h>
+
+#include <sys/queue.h>
+
+#include <event.h>
+#include <evhttp.h>
+
+#include <senna/senna.h>
+
+#include <stdio.h>
+#include <string.h>
+
+/* FIXME: now this value is not locked */
+sen_set *count = NULL;
+
+typedef enum {
+  send_rc_success = 0,
+  send_memory_exhausted,
+  send_invalid_argument
+} send_rc;
+
+#define PORT 8000 /* port number listened */
+#define COOKIE_MAX 4096
+#define SESSION_ID_NONE 0
+#define COOKIE_KEY_SESSION "s"
+
+/* FIXME: for now, only one key-value pair is able to be passed to this function */
+/* FIXME: domain and path pamaters are not supported !! */
+/* FIXME: now value is only numeric value */
+send_rc
+build_cookie(struct evkeyvalq *q, const char *key, int value) {
+  char *ekey, cookie[COOKIE_MAX];
+  if (!q || !key || !*key || !value) { return send_invalid_argument; }
+
+  if (!(ekey = evhttp_encode_uri(key))) {
+    return send_memory_exhausted;
+  }
+  /* FIXME: now value is deleted when value == 0 */
+  if (value) {
+    snprintf(cookie, COOKIE_MAX, "%s=%d;", ekey, value);
+  } else {
+    snprintf(cookie, COOKIE_MAX, "%s=;", ekey);
+  }
+  evhttp_add_header(q, "Set-Cookie", cookie);
+
+  free(ekey);
+}
+
+/* FIXME: performance up */
+/* FIXME: now, only numeric value(int) are allowed to cookie value */
+sen_set *
+parse_cookie(struct evkeyvalq *in) {
+  sen_set *s;
+  const char *cookie, *p, *q;
+  char key[COOKIE_MAX], value[COOKIE_MAX];
+  unsigned int *pval;
+  if (!(s = sen_set_open(0, sizeof(int), 0))) {
+    SEN_LOG(sen_log_alert, "cookie sen_set allocation error !");
+    return NULL;
+  }
+  if (!(cookie = evhttp_find_header(in, "Cookie"))) {
+    return s;
+  }
+  p = cookie;
+  while (*p) {
+    for(; *p == ' '; p++);
+
+    /* key */
+    q = p;
+    for(; *p != '=' && *p; p++);
+    if (q == p || !*p) { break; } /* empty or invalid key */
+    memcpy(key, q, p - q); key[p - q] = '\0';
+
+    sen_set_get(s, key, (void **)&pval);
+
+    /* value */
+    q = ++p;
+    for(; *p != ';' && *p; p++);
+    memcpy(value, q, p - q); value[p - q] = '\0';
+    *pval = atoi(value);
+
+    printf("key:%s value:%s\n", key, value);
+
+    sen_set_at(s, key, (void **)&pval);
+
+    printf("key:%s value:%ld\n", key, *pval);
+  }
+  return s;
+}
+
+void
+root_handler(struct evhttp_request *req, void *arg)
+{
+  struct evbuffer *buf;
+  unsigned int sess_id = SESSION_ID_NONE, *pcount;
+
+  buf = evbuffer_new();
+  if (!(buf = evbuffer_new())) {
+    err(1, "failed to create response buffer");
+  }
+
+  {
+    sen_set *cookie;
+    if (cookie = parse_cookie(req->input_headers)) {
+      int *val;
+      if (sen_set_at(cookie, COOKIE_KEY_SESSION, &val)) {
+        sess_id = *val;
+      }
+      sen_set_close(cookie);
+    }
+  }
+
+  printf("session_id: %d\n", sess_id);
+
+  if (sess_id == SESSION_ID_NONE) {
+    unsigned int *pcount;
+    /* session id kabutte nai ?*/
+    do {
+      sess_id = rand();
+    } while (sen_set_at(count, &sess_id, NULL));
+
+    if (sen_set_get(count, &sess_id, &pcount)) {
+      *pcount = 0; /* count value initialized */
+      evbuffer_add_printf(buf, "Hello new user! give you new session id %d", sess_id);
+      build_cookie(req->output_headers, COOKIE_KEY_SESSION, sess_id);
+    } else {
+      evbuffer_add_printf(buf, "Hello new user! But I cannot handle your request...");
+    }
+  } else {
+    if (sen_set_at(count, &sess_id, &pcount)) {
+      evbuffer_add_printf(buf, "Hi again! your access count is %d!", *pcount);
+      (*pcount)++;
+    } else {
+      evbuffer_add_printf(buf, "Shut up!!! your session id %d is invalid!!!", sess_id);
+      build_cookie(req->output_headers, COOKIE_KEY_SESSION, SESSION_ID_NONE);
+    }
+  }
+  evhttp_send_reply(req, HTTP_OK, "OK", buf);
+}
+
+void
+generic_handler(struct evhttp_request *req, void *arg)
+{
+  struct evbuffer *buf;
+
+  buf = evbuffer_new();
+  if (buf == NULL)
+          err(1, "failed to create response buffer");
+  evbuffer_add_printf(buf, "Requested: %sn", evhttp_request_uri(req));
+  evhttp_send_reply(req, HTTP_OK, "OK", buf);
+}
+
+int
+main(int argc, char **argv)
+{
+  struct evhttp *httpd;
+
+  sen_init();
+
+  /* init count */
+  /* count key: session_id value: count value */
+  if (!(count = sen_set_open(sizeof(int), sizeof(unsigned int), 0))) {
+    SEN_LOG(sen_log_alert, "count allocation error !");
+    return 1;
+  }
+
+  event_init();
+  if (httpd = evhttp_start("0.0.0.0", PORT)) {
+    evhttp_set_cb(httpd, "/", root_handler, NULL);
+    evhttp_set_gencb(httpd, generic_handler, NULL);
+
+    event_dispatch();
+
+    evhttp_free(httpd);
+  } else {
+    puts("cannot bind");
+  }
+
+  if (count) {
+    sen_set_close(count);
+  }
+
+  sen_fin();
+
+  return 0;
+}
+||<
+

@@ -1,0 +1,15 @@
+---
+layout: post
+title: mmapの仮想化
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060524/1148495233
+---
+mmapをWindowsのMapViewOfFileを使ってやろう、
+と思って参考にしようと思ったら、
+sufaryやH.E.(厳密にはqdbmだが)の例が出てくる出てくる。
+
+
+そして、ひさびさに触るWin32 APIは前より複雑怪奇になっている、気がする。
+それより、vcprojに1文字も現れてないのに追加されているリンカオプション、
+出所はどこじゃーーー

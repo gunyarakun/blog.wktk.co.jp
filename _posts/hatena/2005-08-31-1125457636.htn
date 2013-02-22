@@ -1,0 +1,19 @@
+---
+layout: post
+title: ! ' Net::Googleのバグ'
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050831/1125457636
+---
+
+Net::Google中のtool.pm、
+sub http_proxyの中の
+>>
+    shift->{'_service'}->transport()->proxy($uri)->proxy(http=>$uri);
+<<
+は、
+>>
+    $self->{'_service'}->transport()->proxy($uri)->proxy(http=>$uri);
+<<
+だと思う。
+

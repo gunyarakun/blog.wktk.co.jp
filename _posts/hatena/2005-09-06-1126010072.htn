@@ -1,0 +1,21 @@
+---
+layout: post
+title: 結局POE::Component::EasyDBIに
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050906/1126010072
+---
+POE::Component::EasyDBIを採用することにした。
+SimpleDBIからforkしたもののようです。
+
+とりあえず、非同期でクエリーばんばん投げて
+知らん振りできそうな様子。
+
+で、僕はPOEの理解が超いいかげんなので、
+変数のスコープとか同期とかがよく分かっていないのです。
+
+他のPOEを用いたモジュールから呼び出すときに、
+並列でspawnしてPOE::Kernel->run()しておけばよいのかしら。
+まずはPOEのオベンキョせんとな。
+Perl始めてまだ３週間目だし～
+

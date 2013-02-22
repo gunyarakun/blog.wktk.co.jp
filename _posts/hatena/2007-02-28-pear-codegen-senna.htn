@@ -1,0 +1,403 @@
+---
+layout: post
+title: PEAR::CodeGen_PECLでPHP拡張を書いてみよう(その1)
+tags: PHP
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070228/pear_codegen_senna
+---
+
+(この記事は随時更新していきます)
+
+
+SennaのPHPバインディングのページに、PHPバインディングを希望する声が続々！
+http://qwik.jp/senna/PHP_binding.html
+
+
+実は、以前PHPバインディングを書いていたののの、
+rm -rfですべてを消し去るというステキな行為をやらかしてしまったのでした。
+
+
+で、新たにPHPバインディングを書き直していたのですが、
+どうやら以下の記事によると、PEAR::CodeGen_PECLっていう便利なものがあるらしい。
+■[PEAR]PEAR::CodeGen_PECL事始め
+http://d.hatena.ne.jp/shimooka/20061030/1162200754
+
+
+というわけで、
+PEAR::CodeGen_PECLを使ってSennaのPHPバインディングを書く過程を記録に残してみます。
+日本語の情報は少ないようなので、ちょっとは役に立つかな？
+
+
+SWIGは、PHPの対応状況がイマイチらしいのが難点…
+PHPは詳しくないので、間違っていたらツッコミお願いいたします。
+
+=====
+
+** codegen_peclのインストール
+
+>|sh|
+sudo aptitude install php5-pear
+sudo pear install -a codegen_pecl
+||<
+これでインストールされます。簡単ですね。
+
+** モジュールの定義ファイルを作成する
+
+さて、手始めにSennaのbasic APIの定義ファイルを書いてみましょう。
+定義ファイルの大まかな構造は以下のような感じです。
+- PHP拡張の情報（拡張名や作者やライセンスなど）
+- 依存するヘッダファイル・ライブラリ
+- 初期化・終了用関数
+- 定数
+- リソース
+- 関数
+- テスト
+
+
+MINITで初期化用の関数を、MSHUTDOWNで終了用の関数を指定できます。
+Sennaでいうと、sen_init()とsen_fin()です。
+
+
+定数は、型と値を指定することができます。
+両者を指定しないでおくと、Cの#defineの値をそのまま持ってきてくれるようです。
+
+
+sennaのAPIはxxx_openでオブジェクトのインスタンスを取得し、
+xxx_closeでインスタンスを破棄するという構造になっています。
+そのインスタンスを、PHPでいうリソースに割り当てるとよいようです。
+リソースの開放時に呼ばれる関数も<destruct>で指定できます。
+
+
+関数の引数にリソースがあり、その名前がresでない場合には、
+'res_'というprefixがついたものがCの変数となります。
+例えば、resource sen_index indexが引数にある場合、
+res_indexというCの変数にリソースを表すポインタが入ってきます。
+
+
+関数がリソースを返す場合、
+return_resという変数にリソースを表すポインタを入れてあげれば大丈夫のようです。
+
+
+引数の型は、数値はlong型、文字列はstring型を割り当てます。
+文字列引数の名前の最後に_lenをつけると、
+その文字列の長さを得ることができます。
+
+
+数値や文字列を返す場合には、
+RETURN_LONGやRETURN_STRING(ヌル終端文字列)、RETURN_STRINGL(長さつき文字列)などで返します。
+
+
+arrayを返す場合には、return_valueという値を用います。
+<del datetime="2007-06-20T21:18:24+09:00">まず、array_init(return_value)を行います。</del>
+（追記：返り値がarrayだと勝手にarray_init(return_value)を入れてくれるようです）
+次に、add_next_index_longやadd_next_index_string、add_next_index_stringlなどで
+配列の要素を追加していきます。
+
+
+呼び出し側でバッファを確保してあげる必要のある関数は、
+バッファの最大長がわかっているため、
+最大長ぶんのバッファを確保してみました。
+
+
+テストは、ちゃんと作るのがめんどくさいんで、
+ダミーのテストを１つ書いてみました。
+
+
+というわけで、こんな定義ファイルができあがりました。
+
+>|xml|
+<extension name="senna" version="0.0.1">
+ <summary>Senna PHP extension</summary>
+ <description>
+  Senna PHP extension
+ </description>
+ <maintainers>
+  <maintainer>
+   <user>gunyarakun</user>
+   <name>Tasuku SUENAGA</name>
+   <email>a at razil.jp</email>
+   <role>lead</role>
+  </maintainer>
+ </maintainers>
+ <release>
+  <version>0.0.1</version>
+  <date>2007-02-25</date>
+  <state>alpha</state>
+  <notes>
+    First version.
+  </notes>
+ </release>
+ <changelog>
+ </changelog>
+ <license>PHP</license>
+ <logo src="senna_logo.jpg" mimetype="image/jpeg" />
+ <deps language="c" platform="all">
+  <with defaults="/usr:/usr/local" testfile="include/senna/senna.h">
+   <header name="senna/senna.h" />
+   <lib name="senna" platform="all" function="sen_init" />
+  </with>
+ </deps>
+ <function role="internal" name="MINIT">
+  <code>
+    <![CDATA[
+     sen_init();
+    ]]>
+  </code>
+ </function>
+ <function role="internal" name="MSHUTDOWN">
+  <code>
+    <![CDATA[
+     sen_fin();
+    ]]>
+  </code>
+ </function>
+ <function role="internal" name="MINFO" />
+ <constants>
+  <constant name="SEN_INDEX_NORMALIZE">
+  </constant>
+  <constant name="SEN_INDEX_SPLIT_ALPHA">
+  </constant>
+  <constant name="SEN_INDEX_SPLIT_DIGIT">
+  </constant>
+  <constant name="SEN_INDEX_SPLIT_SYMBOL">
+  </constant>
+  <constant name="SEN_INDEX_MORPH_ANALYSE">
+  </constant>
+  <constant name="SEN_INDEX_NGRAM">
+  </constant>
+  <constant name="SEN_INDEX_DELIMITED">
+  </constant>
+  <constant name="SEN_INDEX_ENABLE_SUFFIX_SEARCH">
+  </constant>
+  <constant name="SEN_INDEX_DISABLE_SUFFIX_SEARCH">
+  </constant>
+  <constant name="SEN_INDEX_WITH_STORE">
+  </constant>
+  <constant name="SEN_INDEX_WITH_VACUUM">
+  </constant>
+  <constant name="SEN_INDEX_TOKENIZER_MASK">
+  </constant>
+
+  <constant name="SEN_SYM_MAX_KEY_SIZE">
+  </constant>
+
+  <constant name="SEN_ENC_DEFAULT" type="int" value="0">
+  </constant>
+  <constant name="SEN_ENC_NONE" type="int" value="1">
+  </constant>
+  <constant name="SEN_ENC_EUC_JP" type="int" value="2">
+  </constant>
+  <constant name="SEN_ENC_UTF8" type="int" value="3">
+  </constant>
+  <constant name="SEN_ENC_SJIS" type="int" value="4">
+  </constant>
+  <constant name="SEN_ENC_LATIN1" type="int" value="5">
+  </constant>
+  <constant name="SEN_ENC_KOI8R" type="int" value="6">
+  </constant>
+ </constants>
+
+ <globals />
+
+ <resources>
+  <resource name="sen_index" payload="sen_index" alloc="no">
+   <description>
+    sen_index resource
+   </description>
+   <destruct>
+    sen_index_close(resource);
+   </destruct>
+  </resource>
+  <resource name="sen_records" payload="sen_records" alloc="no">
+   <description>
+    sen_records resource
+   </description>
+   <destruct>
+    sen_records_close(resource);
+   </destruct>
+  </resource>
+ </resources>
+
+ <function name="sen_index_create">
+  <proto>resource sen_index sen_index_create(string path, int flags, int initial_n_segments, int sen_encodings)</proto>
+  <code>
+   /* FIXME: now key_size is fixed to 0, so only string keys are accepted. */
+   return_res = sen_index_create(path, 0, flags, initial_n_segments, sen_encodings);
+   if (!return_res) RETURN_FALSE;
+  </code>
+ </function>
+
+ <function name="sen_index_open">
+  <proto>resource sen_index sen_index_open(string path)</proto>
+  <code>
+   return_res = sen_index_open(path);
+   if (!return_res) RETURN_FALSE;
+  </code>
+ </function>
+
+ <function name="sen_index_close">
+  <proto>void sen_index_close(resource sen_index res)</proto>
+  <code>
+   FREE_RESOURCE(res);
+  </code>
+ </function>
+
+ <function name="sen_index_remove">
+  <proto>int sen_index_remove(string path)</proto>
+  <code>
+   RETURN_LONG(sen_index_remove(path));
+  </code>
+ </function>
+
+ <function name="sen_index_rename">
+  <proto>int sen_index_remove(string old_name, string new_name)</proto>
+  <code>
+   RETURN_LONG(sen_index_rename(old_name, new_name));
+  </code>
+ </function>
+
+ <function name="sen_index_upd">
+  <proto>int sen_index_upd(resource sen_index index, string key,
+                            string oldvalue, string newvalue)</proto>
+  <code>
+   RETURN_LONG(sen_index_upd(res_index, key, oldvalue, oldvalue_len, newvalue, newvalue_len));
+  </code>
+ </function>
+
+ <function name="sen_index_sel">
+  <proto>resource sen_records sen_index_sel(resource sen_index index, string string)</proto>
+  <code>
+   return_res = sen_index_sel(res_index, string, string_len);
+   if (!return_res) RETURN_FALSE;
+  </code>
+ </function>
+
+ <function name="sen_records_next">
+  <proto>array sen_records_next(resource sen_records records)</proto>
+  <code>
+  <![CDATA[
+   char keybuf[SEN_SYM_MAX_KEY_SIZE];
+   int keysize, score;
+
+    keysize = sen_records_next(res_records, keybuf, SEN_SYM_MAX_KEY_SIZE, &score);
+   if (keysize) {
+     /*array_init(return_value);*/
+     add_next_index_stringl(return_value, keybuf, keysize, 1);
+     add_next_index_long(return_value, score);
+   }
+  ]]>
+  </code>
+ </function>
+
+ <function name="sen_records_rewind">
+  <proto>int sen_records_rewind(resource sen_records records)</proto>
+  <code>
+   RETURN_LONG(sen_records_rewind(res_records));
+  </code>
+ </function>
+
+ <function name="sen_records_curr_score">
+  <proto>int sen_records_curr_score(resource sen_records records)</proto>
+  <code>
+   RETURN_LONG(sen_records_curr_score(res_records));
+  </code>
+ </function>
+
+ <function name="sen_records_curr_key">
+  <proto>string sen_records_curr_key(resource sen_records records)</proto>
+  <code>
+  <![CDATA[
+   char keybuf[SEN_SYM_MAX_KEY_SIZE];
+   int keysize;
+
+   keysize = sen_records_curr_key(res_records, keybuf, SEN_SYM_MAX_KEY_SIZE);
+   RETURN_STRINGL(keybuf, keysize, 1);
+  ]]>
+  </code>
+ </function>
+
+ <function name="sen_records_nhits">
+  <proto>int sen_records_nhits(resource sen_records records)</proto>
+  <code>
+   RETURN_LONG(sen_records_nhits(res_records));
+  </code>
+ </function>
+
+ <function name="sen_records_find">
+  <proto>int sen_records_find(resource sen_records records, string key)</proto>
+  <code>
+   RETURN_LONG(sen_records_find(res_records, key));
+  </code>
+ </function>
+
+ <test name="basic_api">
+  <title>basic_api test</title>
+  <code>echo 'OK';</code>
+ </test>
+
+</extension>
+||<
+
+** モジュール定義ファイルからPHP拡張を作る
+
+以下のコマンドを実行すれば、
+sennaのPHP拡張がインストールされます。
+うん、簡単簡単。
+
+>|sh|
+pecl-gen --force senna_extension.xml
+cd senna
+phpize
+./configure && make && sudo make install
+||<
+
+** 実際にsennaのphpバインディングを使ってみる
+
+こんな感じで使えます。
+いやあ、便利だなあ…
+
+>|php|
+<?php
+// phpバインディング読み込み
+if (!extension_loaded('senna')) {
+    $_module_suffix = (PHP_SHLIB_SUFFIX == 'dylib') ? 'so' : PHP_SHLIB_SUFFIX;
+    dl('senna.' . $_module_suffix) || die('skip');
+}
+
+define(INDEX_NAME, 'test_index');
+
+// index作成
+$index = sen_index_create(INDEX_NAME, SEN_INDEX_NORMALIZE | SEN_INDEX_NGRAM, 512, SEN_ENC_EUC_JP);
+
+// ドキュメント追加
+sen_index_upd($index, '/www/docs/index.html', NULL, 'test document is here.');
+sen_index_upd($index, '/www/docs/menu.html', NULL, 'test test test test.');
+
+// ドキュメント検索
+$records = sen_index_sel($index, 'test');
+
+// ドキュメントのkeyとスコアを取得
+while ($record = sen_records_next($records)) {
+  list ($key, $score) = $record;
+  echo "key: $key score: $score\n";
+}
+
+// インデックス削除
+sen_index_remove(INDEX_NAME);
+%>
+||<
+
+** まとめ
+
+pecl-genは超便利です。
+
+
+今後の予定として、
+-basic API以外のAPIに対応する
+-クラスに対応する
+というのをやっていこうかと考えています。
+
+
+http://svn.razil.jp/php_senna/trunkにて、
+最新版の定義ファイル等を提供していく予定です。
+

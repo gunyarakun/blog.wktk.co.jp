@@ -1,0 +1,13 @@
+---
+layout: post
+title: MySQLのSpatial Data TypesとSenna全文検索の併用
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060911/1157945878
+---
+MySQLのSpatial Extensions
+http://dev.mysql.com/doc/refman/5.0/en/spatial-extensions.html
+を使って、
+以下のブログで実現していることをMySQL + Sennaで実現できるのかな？
+http://lucene.jugem.jp/?eid=92
+

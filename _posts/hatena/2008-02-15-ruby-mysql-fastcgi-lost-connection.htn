@@ -1,0 +1,102 @@
+---
+layout: post
+title: FastCGIでRubyのスクリプトを動かしたとき、Lost connection to MySQL server during queryと怒られる件について
+tags: FastCGI
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080215/ruby_mysql_fastcgi_lost_connection
+---
+Rubyを最近書いていなくて忘れそうだったので、次の仕事はRubyを使って書くことにしてみました。
+lighttpdを使ったことがなかったので、次の仕事はlighttpdを使うことにしてみました。
+という非常にいい加減な理由でlighttpd + Ruby on FastCGIでWebアプリケーションを書き始めてみたのさ。Railsは使ってないけど。
+
+
+アプリケーションを書き始めたときは、
+[http://fauna.rubyforge.org/svn/memcached/trunk/:title=libmemcachedのRuby binding]や
+[http://www.kuwata-lab.com/erubis/:title=Erubis]と[http://cgiext.rubyforge.org/:title=CGIExt]の採用を決めて喜んでいたりと、
+とても平和な毎日を送っていたのでした。
+（kuwata-labラブ、でも[http://www.kuwata-lab.com/tenjin/:title=Tenjin]は使ってないけどさ…
+
+
+** 破滅
+しかし、サクサクとアプリケーションを書き進めてリビジョン25くらいに達したとき、
+今まで快調に動いていたWebアプリが突然例外を吐き始めたのだ！！！
+
+
+例外の内容は、
+>>
+Lost connection to MySQL server during query
+<<
+うおおお。
+
+
+FastCGIのプロセスの最初でMySQLのセッションを作成して、
+それをプロセスが生きている間ずっと使いまわしていたのなら、
+何かの拍子でconnectionが切れたのだと判断できよう。
+
+
+でも、毎回コネクションを張るようにしてたんだよね…
+しかも、FastCGIではなくCGIなら例外を吐かないんだよね…
+おかしいなあ。
+
+** Google先生に尋ねる
+こんな時はGoogle先生だねっ！！！
+- [http://blog.s21g.com/articles/214:title=Railsを使っていて「Lost connection to MySQL server during query」に遭遇したら]
+- [http://idm.s9.xrea.com/ratio/2006/04/08/000406.html:title=Lost connection to MySQL server during query]
+ふーむ、なんかみんな困ってそうだけど原因不明な雰囲気。
+
+
+** 原因調査/再現コード
+腹をくくって小１時間ほど調査したところ、原因を発見。
+単なるtypoだった…
+Lost connectionってエラー文字列に惑わされていた。
+でも、これなかなか気づかないよ。
+というわけで、誰かの役に立つかもしれないのでエントリを書いてみた。
+
+
+以下再現コード。
+ポイントは、存在しないインスタンス変数を特攻む（ブッコむ）ところ。
+>|ruby|
+require 'fcgi'
+require 'mysql'
+
+class OreSql
+  def initialize
+    @dbh = Mysql.new('localhost', 'gunyarakun', 'perldaisuki', 'dbsoft')
+  end
+
+  def query(*params)
+    st = @dbh.prepare('SELECT ?')
+    st.execute(*params)
+  end
+end
+
+FCGI.each {|fcgi|
+  fcgi.out.print "Content-Type: text/plain\r\n\r\n"
+  begin
+    ore = OreSql.new
+    ore.query(@aaa) # 存在しないインスタンス変数を特攻む（ブッコむ）
+    fcgi.out.print 'OK ssu'
+  rescue Exception => e
+    fcgi.out.print e.message
+  end
+  fcgi.finish
+}
+||<
+
+ちなみに、FCGI.eachに渡したブロックの中身をFCGI以外の環境で評価すると、
+>>
+warning: instance variable @aaa not initialized
+<<
+ってwarningは出るけど'OK ssu'までたどり着く。
+
+
+ちょっと追いかけが足りないけど、とりあえず問題が解決したからよかったよかった。
+
+** まとめ
+<span style="font-weight:bold;">結論：Lost Connectionと言われた場合でも単なるタイポとかの場合があるから、自分のコードをチェックするといいよ！</span>
+
+
+原因を追究したのはRails環境ではないので、
+Rails環境(やActiveRecord)では実際何が起こっているかはわからんです。
+もしかしたら、似たような原因なのかもしれない。違うと思うけど…
+

@@ -1,0 +1,48 @@
+---
+layout: post
+title: Wikipediaの記事をPlainTextにしたい
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070304/mediawiki_plaintext
+---
+Wikipediaの記事検索はデモに使えるので、
+MediaWikiの記事をプレインテキストにしたい場合がよくある。
+
+
+以下のページにパーサ一覧みたいなものがあるんだけど、
+どれもHTML出力が多くて…
+http://meta.wikimedia.org/wiki/Alternative_parsers
+さらに、日本語に対応しているかどうかも重要ですよね。
+
+
+とりあえず、自分メモからパーサをいくつかピックアップしてみた。
+
+
+-Perl
+http://search.cpan.org/~dprice/Text-MediawikiFormat-0.05/lib/Text/MediawikiFormat.pm
+http://search.cpan.org/~dprice/Wiki-Toolkit-Formatter-Mediawiki-0.02/lib/Wiki/Toolkit/Formatter/Mediawiki.pm
+（どっちも、昔試してみた記憶だとうまくパースできないエントリがあったような…）
+
+-PHP
+http://tools.wikimedia.de/~magnus/wiki2xml/w2x.php
+(一番しっかりしている。しかし、plain text変換ロジックがちょっと弱い)
+http://pear.php.net/package/Text_Wiki_Mediawiki/
+(うまくパースできないエントリがあった)
+
+-Python
+http://www.python.org/pypi/mwparser/
+（試してないっす）
+
+
+今までの経験だと、
++PHPのw2xでXML出力
++w2x付属のxml->plain text変換をかます
++plain text変換でエラーが出たらstrip_tagsで逃れる、
+というのが今までで一番よい変換方法でした。
+
+
+というわけで、よいMediaWikiパーサがあったら情報ください。
+
+** 追記
+自分で書いた。
+http://svn.razil.jp/django-wikipedia/trunk/wpxmltodb/wpxmltodb.py

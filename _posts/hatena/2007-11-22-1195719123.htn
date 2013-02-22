@@ -1,0 +1,18 @@
+---
+layout: post
+title: Wikipediaにアップされている画像を取ってくる方法
+tags: Wikipedia
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071122/1195719123
+---
+Wikipedia英語版であれば、
+- ftp://www.wikigadugi.org/wiki/torrents/
+にあるtorrentsファイルから画像一式を落としてくることができる。
+
+
+でも、日本語版のtorrentsファイルは用意されていないんだな。
+
+
+そういう時には、Wikix。こいつを使えば画像をごっそり持ってくることができる。
+- http://meta.wikimedia.org/wiki/Wikix
+ご利用は計画的に。

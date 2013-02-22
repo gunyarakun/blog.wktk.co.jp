@@ -1,0 +1,30 @@
+---
+layout: post
+title: POEでDBI
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050906/1125984969
+---
+ん・・・どれがいいんだろ・・・
+
+-POE::Component::DBIAgent 
+--POE Component for running asynchronous DBI calls. 
+--POE-Component-DBIAgent-0.21 - 02 Dec 2003 - Rob Bloodgood 
+
+-POE::Component::EasyDBI 
+--Perl extension for asynchronous non-blocking DBI calls in POE 
+--POE-Component-EasyDBI-1.04 - 13 Aug 2005 - David Davis 
+
+-POE::Component::LaDBI 
+--POE Component that spawns a perl subprocess to handle non-blocking access to the DBI API. 
+--POE-Component-LaDBI-1.2.1 - 18 Jul 2004 - Sean Egan 
+
+-POE::Component::SimpleDBI 
+--Asynchronous non-blocking DBI calls in POE made simple 
+--POE-Component-SimpleDBI-1.12 - 20 May 2005 - Apocalypse 
+
+んんん・・・更新日が新しいのから選ぶか。
+POE::Component::EasyDBIは星４つ。
+POE::Component::SimpleDBIは星５つ。
+この２つ、ちゃんと評価するか・・・
+

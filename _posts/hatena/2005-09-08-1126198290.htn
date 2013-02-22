@@ -1,0 +1,18 @@
+---
+layout: post
+title: Windows+Apache2+WebDAV+LDAP+Subversion
+tags: Subversion
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050908/1126198290
+---
+記憶だけで書いているが、
+WindowsなApache2でmod_authz_svn経由でLDAP認証でWindows2000ServerなDCで…
+って環境で認証かけようとすると即Apacheが落ちる。
+
+しょうがないからDigest認証だけをかけた。
+遅いけど認証データはテキストに。
+パスワードの変更やユーザ追加用にPerlでCGI書きました。
+
+なぜWindowsなApache2かっていうと、
+NASのOSがWindowsだったから。
+NAS自体はNFSでマウントできるらしいけどね。

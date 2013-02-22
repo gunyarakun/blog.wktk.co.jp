@@ -1,0 +1,17 @@
+---
+layout: post
+title: おおおおHyper Estraierクンめ
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051109/1131532296
+---
+Perlバインディング、
+est_db_search（実際はest_mtdb_search）の第４引数がNULL固定！！！
+つまりest_cond_set_maxしていると全体ヒット件数が取れないのだ。
+maxを抜いて取るべし。ひい。
+
+あと、ESTCONDUSUALの場合にも、
+ひっかかったレコードをちゃんとスキャンしてゴミを取り除いて、
+しかも取得開始のoffsetを指定できるような関数あればいいな。
+1.3倍のレコードとってゴミを除くっていうのはちょっと…むにょむにょ
+

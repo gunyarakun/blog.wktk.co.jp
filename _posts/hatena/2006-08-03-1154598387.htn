@@ -1,0 +1,57 @@
+---
+layout: post
+title: ''
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060803/1154598387
+---
+Sennaのパッチを当てたMySQLのdebianパッケージを作る話の続き。
+
+
+http://qwik.jp/senna/debian_package.html
+に記載した方法で、おそらくパッケージングはOK。
+
+
+ただし、SennaのMySQLパッチにちょっとだけ修正が必要のようだ。
+というのも、configureを--with-embedded-server付きで実行すると、
+libmysqldのmakeでコケる。
+
+
+原因は
++libmysqld/Makefile.amのINCLUDESにsennaのヘッダが指定されていない
++libmysqld.aにsenna・mecabのライブラリがリンクされていない
+
+
+前者の問題はMakefile.amに追記するだけでOKなんだけど、
+後者の問題がちょっと悩む。
+
+>>
+for arc in ./libmysqld_int.a ../regex/libregex.a ../myisam/libmyisam.a ../myisammrg/libmyisammrg.a ../heap/libheap.a ../innobase/usr/libusr.a ../innobase/srv/libsrv.a ../innobase/dict/libdict.a ../innobase/que/libque.a ../innobase/srv/libsrv.a ../innobase/ibuf/libibuf.a ../innobase/row/librow.a ../innobase/pars/libpars.a ../innobase/btr/libbtr.a ../innobase/trx/libtrx.a ../innobase/read/libread.a ../innobase/usr/libusr.a ../innobase/buf/libbuf.a ../innobase/ibuf/libibuf.a ../innobase/eval/libeval.a ../innobase/log/liblog.a ../innobase/fsp/libfsp.a ../innobase/fut/libfut.a ../innobase/fil/libfil.a ../innobase/lock/liblock.a ../innobase/mtr/libmtr.a ../innobase/page/libpage.a ../innobase/rem/librem.a ../innobase/thr/libthr.a ../innobase/sync/libsync.a ../innobase/data/libdata.a ../innobase/mach/libmach.a ../innobase/ha/libha.a ../innobase/dyn/libdyn.a ../innobase/mem/libmem.a ../innobase/sync/libsync.a ../innobase/ut/libut.a ../innobase/os/libos.a ../innobase/ut/libut.a ../mysys/libmysys.a ../strings/libmystrings.a ../dbug/libdbug.a ../vio/libvio.a /usr/lib/libsenna.a /usr/lib/libmecab.a; do \
+  arpath=`echo $arc|sed 's|[^/]*$||'`; \
+  ar t $arc|sed "s|^|$arpath|"; \
+done | sort -u | xargs ar cq libmysqld.a ; \
+ranlib libmysqld.a    ; 
+<<
+これがMakefileのリンク部分なんだけど、
++libmysqld.aの構築に必要なライブラリを１つずつar tして含まれるオブジェクト名を調べる
++ライブラリと同じパスにある先ほど調べた名前のオブジェクトを全てarで固める
++固めたものをranlibしてlibmysqld.aを作る
+という手順になっている。
+
+
+つまり、ライブラリとオブジェクトが同じパスにないといけないわけだが、
+/usr/lib以下にあるsennaとmecabについてはそんなところにオブジェクトはない。
+というわけで、こいつらについてはarでオブジェクトそのものを取り出してあげると
+なんとか回避できそうだ。
+
+
+もう１つ解決策として、
+- debian/rulesで--with-embedded-serverの指定をやめる
+というのがあるのですが、
+dh_movefilesのあたりでエラーが出ている様子。
+こちらを直すほうがいいのかなあ。。。
+
+[追記]
+できました。
+http://qwik.jp/senna/debian_package.html
+

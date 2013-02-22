@@ -1,0 +1,17 @@
+---
+layout: post
+title: jgrepが異様に早い件について。
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060609/1149844694
+---
+Debianにgrep-jaというパッケージがあり、
+これを入れると/usr/bin/jgrepができる。
+これが異常に早い。なんだろう。。。
+というわけで調査中でございますよ。
+
+
+http://http.debian.or.jp/debian-jp/dists/stable-jp/main/source/base/grep-ja_2.3.orig.tar.gz
+http://http.debian.or.jp/debian-jp/dists/stable-jp/main/source/base/grep-ja_2.3-4.diff.gz
+をとってきて、がっちゃんこという感じで。
+

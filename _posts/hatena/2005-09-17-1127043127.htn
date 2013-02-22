@@ -1,0 +1,11 @@
+---
+layout: post
+title: なんだろうなにかしら。
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050917/1127043127
+---
+use diagnostics;を入れたらエラー無しで終了。
+use diagnostics;を入れなかったら「不正な命令」といわれて異常終了。
+なぜだー！
+

@@ -1,0 +1,27 @@
+---
+layout: post
+title: Xangoの新バージョン
+tags: 検索エンジン
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051019/1129708843
+---
+早速新バージョン(rev.94)に入れ替えてみた。
+
+旧バージョンとの入れ替えのポイントは…
+-Xango::BrokerをXango::Broker::Pullに
+-retrieve_jobsで返すやつを、uriが入ったhashrefのarrayじゃなくて、
+ Xango::Job->new( uri => xxx, ...)で返ってきたののarrayにする。
+ さらに、uriに入れるものはURIの文字列じゃだめで、
+ URI->new($url)で作ったものを入れる。
+-apply_policyで、
+ $kernel->post('broker', 'send_fetcher', $job);
+ はreturn 1;に、
+ $kernel->post('broker', 'finalize_job', $job);
+ はreturn 0;に変更。
+-$job->{'honya'}は$job->notes('honya')に。
+ ただし、$job->{'uri'}なんかはそのままとれるので、
+ Data::Dumperなどで適宜見るべし。
+
+こんな感じで動いていそうな予感。
+あくまで予感だけど。
+

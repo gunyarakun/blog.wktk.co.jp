@@ -1,0 +1,19 @@
+---
+layout: post
+title: gcc-4.0のwarning
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060608/1149737611
+---
+厳しくなってる。具体的にはsigned引数にunsignedを渡すとwarning。
+Visual C++のコンパイラみたいや。
+そして、Sennaのnfkc.cのコンパイルに失敗。。。
+
+>>
+gcc: Internal error: Killed (program cc1)
+Please submit a full bug report.
+See <URL:http://gcc.gnu.org/bugs.html> for instructions.
+For Debian GNU/Linux specific bug reporting instructions, see
+<URL:file:///usr/share/doc/gcc-4.0/README.Bugs>.
+<<
+がびーん。。。

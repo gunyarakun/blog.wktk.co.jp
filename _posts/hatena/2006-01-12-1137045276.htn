@@ -1,0 +1,25 @@
+---
+layout: post
+title: rev.73でWindows対応？
+tags: senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060112/1137045276
+---
+全文検索エンジンSennaですが、
+rev.73でWindowsに対応したとのこと。
+Windowsバカとしては早速開発環境もVisual Studio上に移してしまおう。
+
+早速無料ビルド環境でも設定してみますか。
+１．Visual C++ 8 Express EditionとPlatform SDKをインストールして設定
+以下のURLを参照
+http://www.microsoft.com/japan/msdn/vstudio/express/visualc/usingpsdk/
+
+２．mecabの0.81のバイナリ版をダウンロード、インストール。
+
+３．mecab.hとmecab.libをsennaのvcc/mecabにコピー。
+
+４．vccのプロジェクトファイルを開いてコンバート、
+　　普通にビルド -> OK
+
+ただし、test以下はビルドされないし、
+windows対応していないと思われる。

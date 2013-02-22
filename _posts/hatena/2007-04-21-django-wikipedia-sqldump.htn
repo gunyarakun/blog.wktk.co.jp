@@ -1,0 +1,90 @@
+---
+layout: post
+title: Wikipedia検索で、発行したSQLと実行時間をユーザに見せる
+tags: Python
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070421/django_wikipedia_sqldump
+---
+Wikipedia検索であるが、
+- 利用したSQLをHTMLでダンプする
+- 多言語化(とりあえず英語/日本語のみ)
+の２つをやる必要が出てきた。
+
+
+とりあえず、SQLをHTMLにダンプするのをやってみたよ。
+
+** 利用したSQLをHTMLにダンプする
+
+perezvonの日記によると、
+http://d.hatena.ne.jp/perezvon/20061231
+以下の３要素をsettings.pyで設定して、
+テンプレートに{%raw%}{{ sql_queries }}{%endraw%}を入れればOKらしい。
+
+>|python|
+# settings.py
+DEBUG = True
+
+INTERNAL_IPS = ('127.0.0.1', )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+)
+||<
+
+ところが、今回はどんなクライアントからでもSQLをダンプして表示したいので、
+INTERNAL_IPSを設定できない。
+
+
+というわけで、
+>|python|
+INTERNAL_IPS = ('127.0.0.1', )
+INTERNAL_IPS.__contains__ = lambda self, x: True
+||<
+なんてやってみたら怒られた。
+組み込み型だからマズいのかな？
+
+
+じゃあ、継承でやってみようと思ったら、
+なんかうまくいかない。
+
+
+Googleで「python class MyTuple tuple」で検索したら、
+以下のページがひっかかってきた。
+http://www.thescripts.com/forum/thread23206.html
+http://www.thescripts.com/forum/thread624365.html
+
+
+というわけで、__new__を使って解決した。
+
+>|python|
+class NandemoTuple(tuple):
+  def __new__(cls, *args):
+    return tuple.__new__(cls, *args)
+  def __contains__(self, x):
+    return True
+
+INTERNAL_IPS = NandemoTuple('127.0.0.1', )
+||<
+
+まあ、まだ__new__がうまくいく仕組みをよく理解していないんだけどね…
+
+
+本番にも反映した。
+本番運用でDEBUG = Trueでいいのかよ、という話はあるのだが、
+まあユルい感じで…
+
+
+ここで気づいたのだが、
+__searchでfilterした場合、
+MATCH AGAINSTの検索条件がクオートしてダンプされないという不具合が
+djangoにはあるみたい。実害はないんだけどね。
+
+
+[追記]2007/04/21 23:15
+id:perezvonさんに突っ込みもらいました。
+http://django.g.hatena.ne.jp/perezvon/20070421/1177163921
+
+ふむ、自分でdjango.core.context_processors.debugの必要な部分を書く感じかしら。
+というわけで、早速本番反映 & コミットしました。
+確かにこっちのほうが楽です。さすがDjangoマスター!!!
+

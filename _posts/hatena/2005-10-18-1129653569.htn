@@ -1,0 +1,20 @@
+---
+layout: post
+title: FusionChartsを日本語と共に使うときに気をつけるべきこと
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051018/1129653569
+---
+FusionCharts
+http://www.infosoftglobal.com/FusionCharts/
+は日本語通ります。
+
+ただし！！！
+-食わせるXMLはUTF-8で、BOM付き(UTF8BOMでも使う)
+-パラメータとしてdataURLを与えるとき、
+マニュアルどおりの&と?の変換だけでは、
+一部のマルチバイト文字で化ける。
+勝手に%xxの形式を解釈するため。
+%->%25に変換してもだめ。
+RACEエンコーディングなどして乗り切れ！！！
+

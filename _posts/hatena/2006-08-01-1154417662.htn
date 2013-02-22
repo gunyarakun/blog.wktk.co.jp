@@ -1,0 +1,22 @@
+---
+layout: post
+title: ちょ、ちょまっ！！！
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060801/1154417662
+---
+MySQLのBitkeeperリポジトリの中のscriptsに大改革が行われているようです。
+あーん。
+make_win_src_distributionも通らなくなっている。
+
+
+というわけで、
++MySQLのwindows用ソースディストリビューションをダウンロード
++MySQLにLinux上でsennaパッチを当てる
++Senna パッチがあたったソースだけをwindows用ソースにコピー
++include/my_config.h編集
+という方法で行こう。
+
+
+5.1系までの我慢だ。。。
+

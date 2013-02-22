@@ -1,0 +1,24 @@
+---
+layout: post
+title: Subversion to Subversion migration
+tags: Subversion
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071206/1196913865
+---
+CodeReposやsourceforgeなどのSubversionレポジトリに
+既存のSubversion管理のリポジトリを移したい。
+でも、移転先のSubversionリポジトリの物理ファイルには触れない。
+つまり、svnadmin dumpはできるけどsvnadmin loadはできない。
+
+
+こんなときに各リビジョンの変更履歴とコメントだけを移したいんだけど
+どうしたらいいのかな、
+と思ったらちゃんと記事があった。
+- [http://subtech.g.hatena.ne.jp/miyagawa/20071105/p1:title=SVKでsubversion下のプロジェクトを履歴も含めて移転 - Bulknews::Subtech - subtech]
+
+
+mumuを移転しようかと思ってます。
+
+** [追記]
+移転は大好評のようでした！
+#codereposで凄惨なリンチを受けたことは口外しちゃダメって言われたよ！

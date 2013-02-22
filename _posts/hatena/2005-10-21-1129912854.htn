@@ -1,0 +1,20 @@
+---
+layout: post
+title: Perlでの数値の最大値
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051021/1129912854
+---
+Perlの数値の最大値がよくわからん。
+整数はintegerもしくは文字列形式でいくらでも、
+浮動小数点数はどうなんだろう。
+
+use bignumをしたらスカラー値じゃない！っていっぱい怒られるしなあ。
+かといって、bignumで使っているモジュール群をいちいち指定するのもめんどくさい。
+
+や、infを使いたいだけなんですが、
+use POSIXでMAX_DBLだっけ？の定数を持ってくるというのもあるな。
+
+Math::BigFloatの中身を見てみたけれど、
+infとNaNはやっぱり別扱いなのね。
+どうしよう。移植モノだからなるべくいじりたくないなあ。

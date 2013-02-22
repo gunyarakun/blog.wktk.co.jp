@@ -1,0 +1,44 @@
+---
+layout: post
+title: Subversionクライアントだけをソースからインストールする(清貧な感じで)
+tags: Subversion
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20081010/subversion_in_wabisabi
+---
+複数台へのデプロイをするときに、
+各マシンでsvn updateをして、
+最新版のファイルをSubversionのリポジトリから入手する手法があります。
+でも、これって各マシンにSubversionを入れないといけないんだよね。
+portsも入れていない（わざとだけど）FreeBSDにいろいろと入れるのは大変めんどーい！
+
+
+というわけで、http経由でSubversionのサーバからsvn checkout/updateできればいいや、
+という目的のためのインストール方法のメモ。
+
+
+neonはインストールする必要はなく、subversionのディレクトリ下に入れておくだけでよいようです。
+>|sh|
+fetch http://www.webdav.org/neon/neon-0.28.3.tar.gz
+fetch http://subversion.tigris.org/downloads/subversion-1.5.2.tar.bz2
+tar xvfz neon-0.28.3.tar.gz
+tar xvfj subversion-1.5.2.tar.bz2
+mv neon-0.28.3 subversion-1.5.2/neon
+cd subversion-1.5.2
+./configure --includedir=/usr/local \
+ --without-berkeley-db \
+ --without-apache \
+ --without-apxs \
+ --without-swig \
+ --with-ssl \
+ --disable-nls
+make
+make install
+||<
+includedirはたぶんいらないと思います。必要に応じてつけてください。
+さらに何もない環境であれば、--with-sslを--without-sslにしたほうがいいかもしれません。
+たぶんhttpsは使えなくなると思うけど…
+
+
+neonがない場合、httpのURLでリポジトリを指定すると「Unrecognized URL scheme」と怒られてしまいます。
+neonは入れましょう。
+

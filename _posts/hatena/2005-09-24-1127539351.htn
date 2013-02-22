@@ -1,0 +1,16 @@
+---
+layout: post
+title: Perlで定数
+tags: パフォーマンス
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050924/1127539351
+---
+Perlで定数を使いたい。
+変更を不可にするんじゃなくて、パフォーマンスをアップするために。
+で、
+http://eureka.prits.jp/resources/developer/perl_memo.html
+によると、定数関数というのを用いるとインライン展開してくれるらしい。
+で、それを自動でやってくれるconstant.pmってあったのね。
+知らなかった。
+さっそく導入じゃ。
+

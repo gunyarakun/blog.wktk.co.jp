@@ -1,0 +1,80 @@
+---
+layout: post
+title: gccでatomicな64bit setを実現したい
+tags: gcc
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071124/1195915489
+---
+gccでatomicに64bitの値を代入したい。
+一応、以下のようなコードで実現はできるんだけど。。
+
+>|c|
+#include <stdio.h>
+#include <stdint.h>
+
+#define SEN_SET_64BIT(p,v) \
+  __asm__ __volatile__ ("1:\n" \
+                            "\tmovl (%0), %%eax\n" \
+                            "\tmovl 4(%0), %%edx\n" \
+                            "\tlock; cmpxchg8b (%0)\n" \
+                            "\tjnz 1b\n" \
+ : \
+ : "D"(p), "b"(*(((uint32_t *)&(v))+0)), "c"(*(((uint32_t *)&(v))+1)) \
+ : "ax", "dx", "memory");
+
+int
+main (int argc, char *argv[]) {
+  uint64_t a = 0x0123456789abcdefLL, b = 0;
+  SEN_SET_64BIT(&b, a);
+  printf("%016llx\n", b);
+}
+||<
+
+同じマクロを、実際使いたいプログラムに組み込むと、
+>>
+error: can't find a register in class 'BREG' while reloading 'asm'
+<<
+とgccに怒られてしまう。
+
+
+以下のブログエントリに書かれている、The atomic_ops projectでの問題と同じなのかな。
+- [http://lucille.atso-net.jp/blog/?p=269:title=64-bit Lock-free queue implementation]
+
+
+gccの__sync系関数を使いたいものの、gcc 4.1以降なんだよねえ。
+悩む。
+
+** 情報リンク集
+
+- [http://my.execpc.com/~geezer/osd/gotchas/index.htm:title=OSD: Gotchas]
+- [http://gcc.gnu.org/ml/gcc-help/2007-03/msg00420.html:title=Tim Blechmann - asm problem with and without -fPIC on x86]
+
+** [追記]できた。
+gccがどーしてもebxを使いたいらしいから、esiを犠牲にすることに。
+
+>|c|
+#include <stdio.h>
+#include <stdint.h>
+
+#define SEN_SET_64BIT(p,v) \
+  __asm__ __volatile__ ("\txchgl %%esi, %%ebx\n" \
+                            "1:\n" \
+                            "\tmovl (%0), %%eax\n" \
+                            "\tmovl 4(%0), %%edx\n" \
+                            "\tlock; cmpxchg8b (%0)\n" \
+                            "\tjnz 1b\n" \
+                            "\txchgl %%ebx, %%esi\n" \
+ : \
+ : "D"(p), "S"(*(((uint32_t *)&(v))+0)), "c"(*(((uint32_t *)&(v))+1)) \
+ : "ax", "dx", "memory");
+
+int
+main (int argc, char *argv[]) {
+  uint64_t a = 0x0123456789abcdefLL, b = 0;
+  SEN_SET_64BIT(&b, a);
+  printf("%016llx\n", b);
+}
+||<
+
+こんなんでいいのか…でもこれでコンパイル通るようになった。謎だ。
+

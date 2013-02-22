@@ -1,0 +1,31 @@
+---
+layout: post
+title: PHP Extensionを書く勉強会に参加中
+tags: PHP
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080122/1201003872
+---
+
+PHP Extension勉強会に参加しました。
+さすが肉好きのPHPer、
+懇親会のロウリーズ・ザ・プライムリブではみんな大食いしていました（嘘
+
+** 参考
+
+- [http://gihyo.jp/dev/serial/01/php-module:title=実例で学ぶPHP拡張モジュールの作り方：連載｜gihyo.jp … 技術評論社]
+- {% post_link 2007-02-28-pear-codegen-senna %}
+
+** php_printfについて
+
+php_printfは長さを引数で指定できます。よって、
+>|php|
+php_printf("Hello ");
+PHPWRITE(str, str_len);
+php_printf("!" PHP_EOL);
+||<
+は
+>|php|
+php_printf("Hello %.*s !" PHP_EOL, str_len, str);
+||<
+とスッキリ書けますぞ、たぶん。
+

@@ -1,0 +1,16 @@
+---
+layout: post
+title: 5.0.23
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060731/1154337643
+---
+MySQL 5.0.23がいったん出たが引っ込められたらしい。
+というわけで、
+http://mysql.bkbits.net:8080/mysql-5.0/tags?nav=index.html
+を見てみると、
+5.0.23はキャンセルで5.0.24がリリースされるのかしら。
+
+
+いずれにしても、早く出して欲しい。ビルドしなおすのが面倒なんです。。
+

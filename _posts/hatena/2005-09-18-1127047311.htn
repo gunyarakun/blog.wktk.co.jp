@@ -1,0 +1,27 @@
+---
+layout: post
+title: 不可思議なSEGVを解決するために
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050918/1127047311
+---
+Active Perl、Linux版なんて誰が使ってるんだろう、
+と思っていたけど、
+Perlで不可思議なSEGVが出る問題の回避のためにインストール。
+
+で、いろんなモジュールをppmやらperl -MCPANで突っ込んでいったわけだけど、
+なんかコンパイルエラーが出る。
+>>
+Scalar found where operator expected at ... line xxx, near "xxx"
+Global symbol "$xxxx" requires explicit packge name at xxx line xxx.
+<<
+ActiveStateセンセ～イ！！！
+
+http://bugs.activestate.com/show_bug.cgi?id=15715
+
+ズギャッッッッ！なんじゃそりゃ。やる気がなくなっていくわー。
+use strictを外せ、だって。やってみるか…
+
+でもこういう違いが出るってことは、実装もかなり違うってことで、
+つまりSEGV問題が解決することを期待。
+

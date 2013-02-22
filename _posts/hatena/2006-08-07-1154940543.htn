@@ -1,0 +1,12 @@
+---
+layout: post
+title: こんなんあったんだ
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060807/1154940543
+---
+Wikipediaの記事データはxmlで配布されている。
+いつも適当にパースしていたんだけど、
+ちゃんとツールあったのね。
+http://meta.wikimedia.org/wiki/Xml2sql
+

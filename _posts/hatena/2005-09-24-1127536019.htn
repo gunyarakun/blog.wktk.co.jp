@@ -1,0 +1,41 @@
+---
+layout: post
+title: Perl様には負けます
+tags: パフォーマンス
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050924/1127536019
+---
+>>
+#!/usr/bin/perl
+
+use utf8;
+binmode STDIN => ":raw";
+binmode STDOUT => ":raw";
+binmode STDERR => ":raw";
+
+use Benchmark;
+
+Benchmark::timethese(150000, {
+	's_regex' =>\&s_regex,
+	's_substr' => \&s_substr,
+});
+
+sub s_regex{
+	my $a = 'オレオレ詐欺';
+	if($a =~ /詐欺$/){
+		return 1;
+	}
+	return 0;
+}
+sub s_substr{
+	my $a = 'オレオレ詐欺';
+	if(substr($a,-2) eq '詐欺'){
+		return 1;
+	}
+	return 0;
+}
+<<
+で、s_regex先生の勝ち！なのです。やるな・・・
+substrが遅いんじゃないかと思ってきた。
+ちなみに、'詐欺' eq substr($a,-2)にしたらちょっとだけ遅くなった。
+

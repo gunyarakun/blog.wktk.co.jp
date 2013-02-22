@@ -1,0 +1,19 @@
+---
+layout: post
+title: CLucene
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051108/1131463569
+---
+CLucene。
+debian-amd64だとビルドに失敗する。
+i386だと大丈夫だけど、
+附属のperl wrapperがビルドに失敗する。
+CPANにあるCLuceneモジュールは、
+rpmの中にあるclucene_dllp.hがないと
+ビルドに失敗する。tar.gzの中にはない。
+
+とりあえず、rpmの中身を/usr/libと/usr/includeにぶちまけて
+CPANのCLuceneモジュールをビルドしたところうまくいった。
+が、なぜか疲労感が。
+

@@ -1,0 +1,8 @@
+---
+layout: post
+title: debianのmysqlビルドもコケている
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060801/1154433721
+---
+mysql-dfsg-5.0。くそう。my_memmemがないらしいぞ。

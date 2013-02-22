@@ -1,0 +1,30 @@
+---
+layout: post
+title: senna(20050905)+MySQL 4.1.14
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050905/1125974085
+---
+SUSE Linux Professional 9.3を導入。
+で、senna+MySQL 4.1.14を導入。
+
+MySQLのライブラリをすべてスタティックリンクにしようとしたら、
+libgcc_sのスタティックリンクが出来ねえ！といわれたので、
+さくっとダイナミックリンクに。
+
+コンパイルオプションは
+>>
+ CFLAGS="-O3 -mcpu=pentiumpro" CXX=gcc CXXFLAGS="-O3 -mcpu=pentiumpro \
+ -felide-constructors -fno-exceptions -fno-rtti" ./configure \
+ --prefix=/usr/local/mysql --enable-assembler \
+ --with-named-curses-libs=/lib/libncurses.so.5.4 \
+ --with-charset=ujis
+<<
+
+で、ホントは
+
+>>
+ --with-mysqld-ldflags=-all-static
+<<
+を入れたかったなあ。というところ。
+

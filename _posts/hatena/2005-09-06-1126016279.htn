@@ -1,0 +1,52 @@
+---
+layout: post
+title: DBD::Perl、SUSEのパッケージでハマる？
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050906/1126016279
+---
+>>
+DBD::mysql::st execute failed: Illegal mix of collations (ujis_bin,IMPLICIT) and (latin1_swedish_ci,COERCIBLE) for operation '=' at /usr/lib/perl5/site_perl/5.8.6/POE/Component/EasyDBI/SubProcess.pm line 593.
+<<
+こんなん出る。
+my.cnfにdefault-charsetみたいなのを入れてもダメみたいなので、
+YaSTで入れたDBD::mysqlを抜いてCPANのを入れようとする。
+もエラー。
+
+解決方法は
+<A href="http://y-kit.jp/saba/xp/cpan.htm">自宅サーバで行こう</A>
+の
+>>
+よくあるエラー、
+　Can't exec "mysql_config": No such file or directory at Makefile.PL line 174.
+　readline() on closed filehandle PIPE at Makefile.PL line 176.
+これは、この辺 を参考に、mysql_config にシンボリックリンクを張って解決できます。
+　ln -s /usr/local/mysql/bin/mysql_config /usr/local/bin/mysql_config
+という感じです。
+そして次に出てきたエラーは、
+　Note (probably harmless): No library found for -lmysqlclient
+これは解決に手間取りました。この辺 が参考になります。
+まず、先ほどの「mysql_config」を使い、
+　/usr/local/mysql/bin/mysql_config --libs
+で、吐き出されたデータをメモ。次に、
+　/usr/local/mysql/bin/mysql_config --cflags
+で、吐き出されたデータをメモします。
+CPANでインストール途中だったソースのあるディレクトリに移動します。
+　cd /root/.cpan/build/DBD-mysql-2.9003/
+メモしたパスをつなげて、
+　perl Makefile.PL --cflags=-I/usr/local/mysql/include/mysql "--libs=-L/usr/local/mysql/lib/mysql -lmysqlclient -lz -lcrypt -lnsl -lm"
+とタイプします。（一行で。）
+「Makefile」ファイルが正常に生成されたらOKです。後は、
+　make
+　make test
+　make install
+で、残りのインストールを完了します。（2004年03月19日）
+<<
+で。
+root@localhostにパスワードつけてるとmake testを通らない。
+でも、パスワード取っても(update mysql.user set password='')、
+何個かテスト通らなかった。
+
+結局force install。
+で、ちゃんと上記のエラー（ujisとswedishでウシシ）はでなくなったとさ。
+

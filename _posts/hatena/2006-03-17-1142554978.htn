@@ -1,0 +1,14 @@
+---
+layout: post
+title: IFilterってあるのね。
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060317/1142554978
+---
+Microsoft Indexing Service用の文書フィルタみたい。
+これ使えばデスクトップ全文検索もできるのね。
+http://www.hitachi.co.jp/Prod/comp/soft1/textsearch/faq/yougo/eiji.html
+ただ、デスクトップの場合はインターフェースとか、
+インデキシングの負荷分散とか、
+そういう細かいところこそが重要だったりするからなあ。
+

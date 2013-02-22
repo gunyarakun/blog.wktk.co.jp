@@ -1,0 +1,20 @@
+---
+layout: post
+title: MySQL with Sennaのビルドがコケる件
+tags: Debian
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060802/1154498540
+---
+-mysql-dfsg-5.0(5.0.22-4)には、Makefile.inを修正するパッチが入っている
+ NULL文字入れたら、その後がクエリログが残らないバグの修正のための
+ my_memmem関数の導入・テスト用のパッチ
+ http://bugs.mysql.com/bug.php?id=17667&error=no
+-Sennaの導入のためにはautotoolsの実行が必要
+-上のMakefile.inの修正が取り消されておじゃん
+うーん。どしよ。
+SennaのパッチをMakefile.inレベルまで落とそうかな。
+
+[追記]
+先頭にパッチを追加したところ、他のパッチがあたらなくなってエラー。
+むむむ。。。
+結局Windows版と同じような手順になりそうな予感だぞ。

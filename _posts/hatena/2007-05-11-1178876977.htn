@@ -1,0 +1,18 @@
+---
+layout: post
+title: Windowsのcmdでコードページを変更
+tags: Windows
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070511/1178876977
+---
+以下のエントリを読んで、直接関係ないのですが備忘録を。
+- [http://d.hatena.ne.jp/charsbar/20070511/1178868542:title=Perlでマルチバイトなファイル名を扱えないというFUD - Charsbar::Note]
+
+Windowsのcmdでコードページを変えるコマンドは「CHCP」。
+これ、ついこの間まで僕知りませんでした。
+cmdで「HELP」とするといろんなコマンドが出てきて面白い。
+
+
+上記の機能を利用して、こんなこともできる。
+- [http://d.hatena.ne.jp/s0u/20070307/1173282301:title=typeコマンドで文字列変換 - ひらいて]
+

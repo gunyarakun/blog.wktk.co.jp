@@ -1,0 +1,12 @@
+---
+layout: post
+title: Debianのlibtidy-ruby1.8がすぐ落ちてくれる件について
+tags: tidy
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080229/1204270348
+---
+scrAPIにも使われているlibtidy-rubyですが、
+DebianのtestingだとSEGVで落ちてくれるようです。
+
+原因はコレ↓
+- http://rubyforge.org/tracker/index.php?func=detail&aid=10007&group_id=435&atid=1744

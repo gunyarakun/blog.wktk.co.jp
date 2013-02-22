@@ -1,0 +1,130 @@
+---
+layout: post
+title: 最もタメになる「初心者用言語」はSennaQL！
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080204/1202112965
+---
+
+地味に反響のないSenna 1.1.0ですが、
+SennaQLという新しい問い合わせ言語が搭載されています。
+
+
+我々の調査の結果、
+なんとSennaQLは以下のページで挙げられている
+Schemeの特徴を全て満たしていることが判明しましたっ！！！
+- [http://d.hatena.ne.jp/hayamiz/20080204/1202108447:title=最もタメになる「初心者用言語」はScheme!]
+>>
+Schemeで豊かな表現力を身につける
+参照透明できれいな心をそだてる
+括弧はこわくない＞＜
+Schemeは上を目指せる！
+<<
+これはみんなSennaQLを学ばないといけないですね！！
+
+** SennaQLのおためし方法
+Senna 1.1.0以降をインストールしたあとに、
+>>
+% senna filename.db
+<<
+と実行すれば、対話的環境でSennaQLを試すことができます。
+
+
+SennaQLで簡単な計算をやってみましょう。
+>|scheme|
+> (+ 1 1)
+2
+> (define a 3)
+a
+> (define b (+ a 1))
+b
+> (define (abs x)
+>   (if (< x 0)
+>       (- x)
+>       x))
+abs
+> (abs -100)
+100
+||<
+ほら、簡単でしょう？（by ボブ）
+
+** SennaQLでリモートのサーバに計算させてみよう
+>>
+% senna -s filename.db
+<<
+と実行すればSennaサーバを立てることができます。
+デフォルトではport 10041をlistenします。
+
+>>
+% senna -c senna.example.com
+<<
+と実行すれば、senna.example.comのSennaサーバに接続することができます。
+
+
+ネットワーク時代にも対応したSennaQL！（当たり前か）
+
+** 初心者にやさしいSennaQL！
+SennaQLはプレースホルダ機能を実装しています。
+よって、文字列のエスケープなどをする必要がありません。
+安全安心初心者にやさしいねっ！！！
+
+>|scheme|
+> (display ?)
+> oreore
+oreore#t
+> (display ?)
+> "test"
+"test"#t
+||<
+
+** jsonも出力できるSennaQL！
+jsonってWeb 2.0っぽいよね！！
+SennaQLではJSON出力ができます。
+
+
+以下のようなsxmlっぽい式を与えると、
+それをjsonで出力してくれます。
+ブラボー！！！(味っ子)
+
+>|scheme|
+> (disp
+>   '(:html
+>      (:head (:title "sxml"))
+>      (:body
+>        (@ (:bgcolor "blue")
+>           (:text    "white"))
+>        (:center (:b "Hello."))))
+>   :json)
+["html", ["head", ["title", "sxml"]], ["body", {["bgcolor", "blue"]: ["text", "white"]}, ["center", ["b", "Hello."]]]]
+#t
+||<
+** SennaQLで全文検索をしてみよう
+[http://qwik.jp/senna/store_tutorial.html:title=詳しくはこちらのページを…]
+
+
+上記ページを試してみる前に１点注意。
+sennaコマンドを実行するときに、
+作成するSenna内データベースのエンコーディングを指定する必要があります。
+例えば、エンコーディングutf8でSenna内データベースを初期化するには、
+>>
+% senna -e utf8 /tmp/bookmark.db
+<<
+とする必要があります。
+
+
+エンコーディングが違うと検索結果がおかしくなる可能性が充分にあるのでご注意を！
+
+** SennaQLは今後どうなるの？
+
+Sennaは、バージョン1.1.0系で以下の作業を行う予定です。
+- 次期バージョンでのAPIを固める
+- SennaQLを使ったサービスをブラジル内で開発するのに併せて
+-- 全文検索エンジンに対するクエリ言語として必要な機能を実装する
+-- 安定性を上げる。バグ直す。
+-- パフォーマンスを測定し、SennaQLが足を引っ張っていないか調べる
+- SennaQLを直接書かなくても全文検索ができるAPIの開発
+
+
+SennaQLはSchemeとしては機能は足りないので、
+是非是非パッチ希望です。
+

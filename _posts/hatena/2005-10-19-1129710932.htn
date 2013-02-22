@@ -1,0 +1,19 @@
+---
+layout: post
+title: CDB_Fileなんですが
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051019/1129710932
+---
+CDB_Fileを使ってPgでカーソルでfreezeでbzip2のcompressで…
+というのをやっていたら、3.5GくらいでOut Of Memoryした。
+オンメモリでやってるのかいな!!!
+
+で、CPAN先生に泣きついたところ、
+CDB_File::Generatorっつーものがあるらしくてですね、ダンナ。
+>>
+This is a class which makes generating sorted large (much bigger than memory, but the speed will depend on the efficiency of your sort command. If you haven't got one, for example, it won't work at all.) CDB files on the fly very easy
+<<
+だそうです。いひひ。
+や、こういうのを使ってまでCDBにこだわる必要性はまったくなくて、
+シーケンシャルにファイルアクセスできればいいんだけどね…

@@ -1,0 +1,10 @@
+---
+layout: post
+title: gcc-4.1からatomic関係の関数がビルトインに
+tags: gcc
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060810/1155194128
+---
+知らなかった。メモメモ。
+http://gcc.gnu.org/onlinedocs/gcc-4.1.0/gcc/Atomic-Builtins.html#Atomic-Builtins
+

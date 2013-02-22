@@ -1,0 +1,14 @@
+---
+layout: post
+title: SVMライブラリの調査
+tags: SVM
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050924/1127529717
+---
+知能システム科学専攻というものの博士課程まで行っておきながら、
+ずーっと触ってなかったSVM。
+まあ、使われているから調べないと。アルゴリズム本も買うかな。
+
+http://www.kernel-machines.org/index.html
+でちょこちょこ。
+

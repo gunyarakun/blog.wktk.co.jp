@@ -1,0 +1,15 @@
+---
+layout: post
+title: RubyでREXMLでstreamlistenerで
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060811/1155275777
+---
+xml2sqlでWikipediaのxmlデータをsqlに変換できるわけだが、
+idとtitleとtextくらいしか必要でないのでrubyとREXMLで書いてみた。
+確かに動くけどちょっと遅いなあ。。
+
+[追記]
+結局xml2sqlに激しくパッチを当てた。
+importleanってフラグ追加。
+

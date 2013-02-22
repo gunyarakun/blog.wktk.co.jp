@@ -1,0 +1,14 @@
+---
+layout: post
+title: Netra X1のシリアルケーブルが見つかったよ！
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070206/netra_lom
+---
+SennaのSPARC対応のために借りたNetra X1。
+LOMというLAN兼管理ポートみたいな奴に繋げるシリアルケーブルが
+行方不明だったのだが、やっと発見された。
+(訂正:LOMポートとシリアルポートは別でした)
+
+これでSPARC対応ができるど！！！
+と思ったけど、シリアルケーブルがつながる端末がないぞ…

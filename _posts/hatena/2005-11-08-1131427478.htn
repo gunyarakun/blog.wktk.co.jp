@@ -1,0 +1,21 @@
+---
+layout: post
+title: Rast.pm
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051108/1131427478
+---
+Rast 0.3.1ではDATE型とDATETIME型の両方があります。
+Rast.pmでは過去のバージョンのRastを前提としており、
+DATE型にDATETIME型の値(ex.2005-11-05T12:31:12)をいれようとします。
+よって、Rast.pmとRast.xsを適当に修正すべし。
+
+…ひさびさに書くと感覚が分からなくなる。
+
+あと、大戸屋はなぜあんなに料理が出るのが遅いのだろう。
+
+my $rast_db = Rast->open($dbpath, RAST_DB_RDWR, {sync_threshold_chars => 1000000});
+こんな感じにしてもやっぱり数多くなってくると遅いなあ。
+数千万件のドキュメントをインデックス化したいのに、
+数十万で重い。検索はまあまあ軽いけど。
+

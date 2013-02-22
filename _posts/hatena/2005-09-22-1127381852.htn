@@ -1,0 +1,30 @@
+---
+layout: post
+title: ひらがな、カタカナ、漢字以外を落とす正規表現
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050922/1127381852
+---
+>>
+s/[^\p{Hiragana}\p{Katakana}\p{Han}]//sg;
+<<
+これでうまくいくかと思いきやうまくいかず。
+
+http://homepage1.nifty.com/ton_b/intro/regex03/
+によると、
+>>
+否定はpを大文字にして\P{Property}とするか、\p{^Property}と否定のメタ文字を入れます。 
+<<
+ということなので、
+>>
+s/[\P{Hiragana}\P{Katakana}\P{Han}]//sg;
+<<
+で解決、かと思いきや解決せず。
+>>
+s/[\p{^Hiragana}\p{^Katakana}\p{^Han}]//sg;
+<<
+でもダメ。
+>>
+s/[^\x{3040}-\x{30FF}\x{4E00}-\x{A000}]//sg;
+<<
+にしてみた。おそらく大丈夫。

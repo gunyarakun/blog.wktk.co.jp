@@ -1,0 +1,43 @@
+---
+layout: post
+title: Perl本大量購入
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050831/1125467999
+---
+2005/8/1に就職して、
+Visual C++,Java,PHP,Perlと書いてきた。
+短期間にしてはいろんな言語で書きすぎたと反省している。
+してないけど。
+
+今後はPerlの仕事が続くので、
+Perlをまじめにやろうと思う。
+今までラクダ本すら読んだことなかったからね。
+
+Webの情報を用いて勉強すればいいじゃない、とも思った。
+Googleで「Perl」で検索した結果を見る。
+古いバージョンのPerlを用いた文書や、
+CPANモジュールを追加しない状況
+(いわゆるどっかのレンタルサーバでCGIとして使うような状況）
+での使い方の文書が多くて、
+はっきり言って有害な情報が多い気がする。
+Perlの風評被害って、有害な情報に辟易とした人によるものではないかしら。
+
+僕としては、
+漏れがない文法解説・CPANの主要モジュールリファレンス・コード集・
+パフォーマンス向上・メンテナンス性/可読性向上
+の５つについて情報が欲しいんだな。
+
+初めてのPerlはいいとして…
+ということで、以下の9冊の購入申請。
+多すぎかしら。
+
+-続・初めてのPerl - Perlオブジェクト、リファレンス、モジュール
+-プログラミングPerl〈VOLUME1〉
+-プログラミングPerl〈VOLUME2〉
+-Perlクックブック〈VOLUME1〉
+-Perlクックブック〈VOLUME2〉
+-入門Perl DBI
+-実用Perlプログラミング
+-Perl Best Practices
+-Effective Perl    ASCII Addison Wesley Programming Series

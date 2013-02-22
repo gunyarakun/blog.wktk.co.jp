@@ -1,0 +1,10 @@
+---
+layout: post
+title: InnoDBでも動く全文検索
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060828/1156754384
+---
+sqlsearch。
+http://firestuff.org/wordpress/2006/07/20/sqlsearch-100/
+トリガベース？ちゃんと見てない。

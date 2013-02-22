@@ -1,0 +1,54 @@
+---
+layout: post
+title: バイナリエディタって何使ってる？
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070516/1179297548
+---
+僕は中高生の頃バイナリエディタを激しく使っていました。
+その頃の名残（？）で、僕の中でバイナリエディタと言えばMDeです。
+
+
+さて、
+Sennaのインデックスの一部を破損させた場合の挙動を調べるために、
+バイナリエディタでインデックスファイルを書き換えたいと思った。
+
+
+shell環境で使えるものを前提として、
+FreeBSDのportsからバイナリエディタらしきものを探すと、
+以下のようなエディタがあった。
+
+- beav : 一応操作がEmacsライクらしい。
+-- 参考: [http://x68000.q-e-d.net/~68user/unix/pickup?beav:title=UNIXの部屋 検索: beav]
+- bed : 
+-- 公式: [http://members.tripod.com/~bedlinux/:title=Bed: Adjustable data format binary editor] (tripodのポップアップ注意)
+- biew : disassembler付き。binaryのviewということらしい。
+-- 公式: [http://biew.sourceforge.net/:title=SourceForge.net:  - Project Web Hosting - Open Source Software]
+-- スクリーンショット: http://biew.sourceforge.net/biew_ss.png
+- bvi : 一応操作がViライクらしい。
+-- 公式: [http://bvi.sourceforge.net/:title=BVI - Binary VIsual editor]
+-- 名前は同じだけど恐らく違った実装のbvi: [http://www.vector.co.jp/soft/unix/util/se090510.html:title=bviの詳細情報 : Vector ソフトを探す！]
+- fb : う～ん…特に
+-- たぶん公式: [http://home.mho.net/jswaby/fb.html:title=fb - binary file viewer, editor, and manipulator]
+- hexcurse : ncursesを使ったhex editor…
+-- 公式サイトは飛んだ模様
+- hexpert : う～ん、これも特に…
+-- 公式: [http://www.hexpertsystems.com/:title=Hexpert Systems]
+
+GUIだったら、blessとかGHexとかlfhexとかがあるみたい。
+
+
+上記のうち、Debianパッケージがあったのは、beav/biew/bvi/hexcurse。
+hexerというパッケージもあった。
+- hexer : Viライクのインターフェースらしい…
+-- 公式サイト見つからず。結構古い？
+
+数が多すぎてゲンナリする…
+とりあえず、bviを試すか。
+オススメがあったら誰か教えて。
+
+
+** 追記
+
+2GBのファイルをいじったりするので、
+ファイル全部バッファに読み込み系じゃないバイナリエディタがいいですね…

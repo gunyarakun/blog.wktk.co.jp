@@ -1,0 +1,15 @@
+---
+layout: post
+title: mallocでSEGV
+tags: coLinux
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051203/1133635684
+---
+malloc、しかも数十バイトのやつを呼んだだけで落ちるってどういうことよ～。
+んが～。coLinuxだからか？
+
+ [追記]
+普通にヒープぶっ壊してました。
+やーひさびさのCはきっついのー。
+ccmallocでリークチェックはしてたけど、
+範囲外アクセスのチェックなんかも入れるか。

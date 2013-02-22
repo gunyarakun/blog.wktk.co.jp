@@ -1,0 +1,13 @@
+---
+layout: post
+title: automakeであるオブジェクトだけフラグを変える方法
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060722/1153570266
+---
+例えばSennaでは、nfkc.cというソースの最適化にかなりの時間がかかる。
+そこだけ-O0などにするとコンパイル時間が早くなる。
+
+んで、そういうやり方を見つけたのでメモ。
+http://sources.redhat.com/automake/automake.html#Per_002dObject-Flags
+

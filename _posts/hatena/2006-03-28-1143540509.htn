@@ -1,0 +1,12 @@
+---
+layout: post
+title: タグの検索
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060328/1143540509
+---
+Tagの検索にMySQLの全文検索を使う
+http://blog.nomadscafe.jp/archives/000643.html
+
+
+SEN_INDEX_SPLIT_SPACEを早く実装せよという指令が来ているようです！！！

@@ -1,0 +1,22 @@
+---
+layout: post
+title: Perl_sv_2cv
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050918/1127048529
+---
+gdb上でperl動かすと、Perl_sv_2cvって関数で止まった。
+sv.cっていうソース名からしても、おそらくSEGVをcatchするようなところなんだろう。
+backtraceは
+>>
+#0 0xffffffff in Perl_sv_2cv at sv.c:7273
+#1 0xffffffff in Perl_pp_entersub at pp_hot.c:2651
+#2 0xffffffff in Perl_runops_debug at dump.c:1449
+#3 0xffffffff in Perl_run at perl.c:1934
+#4 0xffffffff in main at perlmain.c:98
+<<
+って感じ。別マシンだから手写しでカンベン。
+
+…さてどうするか。pp_entersubってなんか汎用的な感じがするなあ。
+ああ、Perlのソース見たくない見たくないぞ…
+

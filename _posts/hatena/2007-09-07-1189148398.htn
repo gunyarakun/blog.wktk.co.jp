@@ -1,0 +1,108 @@
+---
+layout: post
+title: DjangoのテンプレートエンジンをPHPに移植してみた。
+tags: Django
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070907/1189148398
+---
+ブラジルのPHP仕事をひさびさにやることになった。
+そこで思ったこと。テンプレートエンジンを使いたいよ…
+しかも、Djangoみたいに継承ができるやつを。
+
+
+というわけで、よさげなテンプレートエンジンを探してみようか、
+と思ったんだけど、PHPテンプレートエンジン多すぎっす。調べる気失せるっす。
+- [http://gigazine.net/index.php?/news/comments/20060803_php_template_engine/:title=世界のPHPテンプレートエンジン、トップ25 - GIGAZINE]
+
+
+rhacoのテンプレートエンジンはDjango風らしいけど、
+テンプレートエンジンだけ使う方法を調べるまで至らなかった…
+- rhacoの公式サイト: [http://www.rhaco.org/:title=rhaco.org]
+
+
+じゃあ、自分で書いちゃう！？書いちゃう！？
+…
+書いちゃった！！
+その名も<del datetime="2007-09-10T14:52:38+09:00">GunyaTemplate。ダサいので名前募集中です。</del>
+ブラジル社長によってmumuという名前が授けられました！
+(EbiTemplateとかMaitakeTemplateという案も出ましたが、目を逸らしてスルーした)
+
+
+最初はスクラッチで書いていたけど、
+途中でDjangoの実装をモロパクりしだしました。
+
+** 入手方法
+
+以下のURLから入手できます。
+- http://svn.razil.jp/mumu/trunk/mumu.php
+
+** 使い方
+PHPからは以下のように呼びます。
+>|php|
+require_once('mumu.php');
+$t = MuParser::parse_from_file('test.tpl');
+echo $t->render(array('val1' => 'aaa', 'val2' => 'bbb'));
+||<
+まず、MuParser::parse_from_file()にテンプレートファイル名を渡します
+(MuParser::parse()にテンプレートの文字列そのものを渡してもOK）。
+次に、その返り値のrenderメソッドを呼ぶと、渡したPHPの連想配列の内容を用いて置換されたテンプレート文字列が返ってきます。
+あとは、それをechoするなりしてください。
+
+テンプレートファイルの書き方などは、だいたい以下のドキュメントを参照してください。
+ただし、いくつかのタグやフィルタはサポートしていません。
+- michilu.com(最新): [http://michilu.com/django/doc-ja/templates/:title=テンプレート作者のための Django テンプレート言語ガイド]
+- ymasuda.jp(michilu.comが落ちてたら): [http://ymasuda.jp/python/django/docs/templates.html:title=テンプレート作者のための Django テンプレート言語ガイド]
+
+** サポートしているタグ/フィルタ/特殊変数
+
+タグ
+- {%raw%}{% include "filename" %}{%endraw%} (変数名指定は対応してないです)
+- {%raw%}{% extends "filename" %}{%endraw%} (変数名指定は対応してないです)
+- {%raw%}{% block blockname %}{%endraw%} {%raw%}{% endblock %}{%endraw%}
+- {%raw%}{% for item in items %}{%endraw%} {%raw%}{% endfor %}{%endraw%} (reversed対応してないです)
+- {%raw%}{% cycle val1,val2 %}{%endraw%} (変数名指定して後で参照するのは対応してないです)
+- {%raw%}{% if cond %}{%endraw%} {%raw%}{% else %}{%endraw%} {%raw%}{% endif %}{%endraw%}
+- {%raw%}{% debug %}{%endraw%}
+- {%raw%}{% now "format" %}{%endraw%}
+- {%raw%}{% filter filter1|filter2 %}{%endraw%} {%raw%}{% endfilter %}{%endraw%}
+- {# comment #}
+
+フィルタ
+- addslashes
+- length
+- escape
+- stringformat:"format"
+- urlencode
+- linebreaksbr
+
+特殊変数
+- forloop.counter     : 現在のループ回数番号 (1 から数えたもの)
+- forloop.counter0    : 現在のループ回数番号 (0 から数えたもの)
+- forloop.revcounter  : 末尾から数えたループ回数番号 (1 から数えたもの)
+- forloop.revcounter0 : 末尾から数えたループ回数番号 (0 から数えたもの)
+- forloop.first       : 最初のループであれば true になります
+- forloop.last        : 最後のループであれば true になります
+- forloop.parentloop  : 入れ子のループの場合、一つ上のループを表します
+- block.super         : 親テンプレートのblockの中身を取り出す。内容を追加する場合に便利。
+
+** 現行の問題点
+include/extendsなどで相対パスのチェックとかそういうのをサボっているので危険です。
+include/extendsなどで無限ループがあるとマズいです。
+エラーが激烈不親切です。
+エラーハンドリングをサボっているところがあります。
+とかいろいろ問題あるよ。
+
+** パッチやツッコミ募集中
+デバッグろくにしてないので、
+問題点あったらツッコミお願いします。
+テストスイートも書いてません。
+
+
+DjangoにあるけどGunyaTemplateで実装してないタグとかフィルタを実装したら、
+ここのコメント欄とかいろんな手段で僕に連絡をくれると嬉しいです。
+
+
+PHPでオブジェクト指向のプログラムを書くのが始めてなので、
+おかしなことをしている可能性が大です。指摘ください。
+オブジェクトを代入したら、オブジェクトの参照が代入されるのかオブジェクト全コピーになるのかとかよく分かってません。
+

@@ -1,0 +1,10 @@
+---
+layout: post
+title: ChaSen利用部をMeCab利用に変更
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050916/1126835300
+---
+今、とあるプログラミングのパフォーマンス向上を目指している。
+というわけで、ChaSen使っている部分をMeCab利用に変えてみよう。
+ -Ochasenで適当に変更。

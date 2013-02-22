@@ -1,0 +1,32 @@
+---
+layout: post
+title: メールサーバって大変よね
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060501/1146484607
+---
+自宅サーバで自ドメインのメールをホストしている。
+転送先は、[https://www.iijmio.jp/guide/outline/mm/:title=IIJmioのセーフティメール]と、GMail。
+
+
+IIJmioのメールは、容量無制限なのはいい。
+しかし、添付ファイルの容量がMax 10MB。
+GMailもMax 10MB。
+いまどき大きな添付ファイルを送るというケースはそんなにはないが、
+今回Windows版のSennaのソースコードを送ってもらった際に
+エラーメールが返ってきていた模様。
+
+
+というわけで、
+-POP/SMTP over SSLに対応していること
+-qmailのアドレス拡張を使いまくっているので、同等のことができること
+-できれば、DNSのMXで指定してあげるだけで、メールを受け取ってくれること
+
+
+VPSのサービスを探したりしたんだけど、
+結局[http://fastmail.fm/:title=fastmail.fm]にした。
+添付ファイル容量は50MBまで。
+
+
+IIJmioの添付ファイル容量が50MBまでなって欲しかったなあ。
+

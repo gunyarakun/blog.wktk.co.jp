@@ -1,0 +1,24 @@
+---
+layout: post
+title: Visual Studioでのビットフィールド
+tags: Windows
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060603/1149303201
+---
+gccには-mwindowsの場合-mms-bitfieldsが指定できるらしいけど、
+ターゲットがWindowsでない場合はダメっぽい。
+
+>>
+`-mms-bitfields'
+     If set, RECORD_TYPE bit-fields are laid out following the rules of
+     Microsoft Visual C/C++, namely: (i) a bit-field won't share the
+     same storage unit with the previous bit-field if their underlying
+     types have different sizes, and the bit-field will be aligned to
+     the highest alignment of the underlying types of itself and of the
+     previous bit-field; (ii) a zero-sized bit-field will affect the
+     alignment of the whole enclosing structure, even if it is unnamed;
+     except that (iii) a zero-sized bit-field will be disregarded
+     unless it follows another bit-field of non-zero size. Currently,
+     this option is supported on `cygwin' and `mingw32'.
+<<
+

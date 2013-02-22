@@ -1,0 +1,43 @@
+---
+layout: post
+title: SQLiteスレでのSennaの話題
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070301/sqlite_senna_syobon
+---
+
+http://pc11.2ch.net/test/read.cgi/db/1162621344/446
+>>
+Sennaスレ http://pc8.2ch.net/test/read.cgi/php/1118762053/ 
+に書き込むか迷ったけど、あっちはPHP板なのでここに書いてみる。 
+
+mecab の src/Makefile.msvc.in をそのまま使うと iconv-win32 が微妙だったので 
+iconv依存を除去してみた。iconv依存な部分はちゃんと隔離されていたし、 
+変換自体はMultiByteToWideCharを使えばいいので十数行程度の変更で収まる。 
+
+iconv のcp932は変換テーブルが微妙に異なるのが気に入らん。 
+ttp://www.miraclelinux.com/technet/samba30/iconv_issues.html 
+ttp://damedame.monyo.com/?date=20061220 
+
+辞書はutf8のが良かったんだけど、これはx86なLinuxで生成したのがそのまま使える気配。 
+
+sennaは.cと.hだけ持ってきて適当にマクロを定義したらビルドできた。 
+リンカのコード生成が妙に遅かったけど。 
+
+環境はMicrosoft Visual C++ 2005
+<<
+iconv問題はMeCabがバージョンアップしたので
+(自前で変換テーブル持つようになった)
+問題なくなった。
+
+
+http://pc11.2ch.net/test/read.cgi/db/1162621344/453
+>>
+SQLiteのFTS1モジュールって完全転置インデクスだしカラムと位置まで覚えてるし、 
+実は思ったほど悪くないんじゃないか 
+…と思ったら、もうCVSにはFTS2が出てて、インデクス作成時間が大幅に短くなってんのか。 
+
+Senna組み込んでもカラムは覚えられないし、 
+FTSのtokenizerをマルチバイト対応させた方が幸せなケースもあるのかもしれん。 
+<<
+これは、そうなのかもなぁ…

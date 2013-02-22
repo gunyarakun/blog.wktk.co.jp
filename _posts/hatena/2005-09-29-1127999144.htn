@@ -1,0 +1,65 @@
+---
+layout: post
+title: AppServer設定
+tags: メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050929/1127999144
+---
+Perl 5.8.7
+>>
+ rm -f config.sh Policy.sh
+ sh Configure -Dcc=gcc-3.4 -Dusethreads -Dprefix=/usr -Duseshrplib -Doptimize='-O3 -march=pentium4'
+ LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+ make test
+ make install
+<<
+
+libexpat1-devとlibssl-devとlibtidy-devを入れる。
+
+MySQL 5.0.13-rc。クライアントだけ必要なので、--without-server。
+>>
+CC=gcc-3.4 CFLAGS="-O3 -march=pentium4" CXX=gcc-3.4 CXXFLAGS="-O3 -march=pentium4 \
+ -felide-constructors -fno-exceptions -fno-rtti" ./configure \
+ --prefix=/usr/local --localstatedir=/var/mysql/data --enable-assembler \
+ --with-named-curses-libs=/lib/libncurses.so.5.4 \
+ --with-charset=utf8 \
+ --with-client-ldflags=-all-static --with-mysqld-ldflags=-all-static \
+ --without-server
+<<
+でもエラー。
+>>
+`my_thread_var' undeclared 
+<<
+とかゴチャゴチャぬかす。
+ --without-serverを外してコンパイル。通る。
+よって、コンパイル通したあとにもっかいwithout-serverでconfigureして
+makeして止まったらmake -kして。でmake installでもだめ。
+
+で、MySQLページ見に行ったら…
+http://bugs.mysql.com/bug.php?id=11680
+ぎゃー！！！！なにが5.0.13にはまだ問題あるぜ！いひひ！だよ！！！
+もういい。サーバ付きでビルドしてインストールするも
+サーバ動かさない方向で。
+
+mecabは
+>>
+CC=gcc-3.4 CFLAGS="-O3 -march=pentium4" CXX=gcc-3.4 CXXFLAGS="-O3 -march=pentium4" \
+./configure --with-charset=utf8 --disable-shared
+make
+make check
+make install
+<<
+mecab-perlは
+>>
+CC=gcc-3.4 CFLAGS="-O3 -march=pentium4" CXX=gcc-3.4 CXXFLAGS="-O3 -march=pentium4" \
+perl Makefile.PL
+make
+make check
+make install
+<<
+
+Xangoのインストール時に
+Log::Dispatchが必要だけれども、
+こいつは自動で取ってこない。注意。
+
+そして、エプソンダイレクトの「Endeavor NT340」欲しい！

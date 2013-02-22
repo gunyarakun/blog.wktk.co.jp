@@ -1,0 +1,25 @@
+---
+layout: post
+title: Hyper Estraier 1.0.5が落ちる
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051111/1131684471
+---
+Hyper Estraier 1.0.5が出てました。パチパチ。
+で、使ってみようとしたら落ちる。
+
+文書に@dateという属性をつけている。
+>>
+$cond->set_phrase($parsed_query);
+$cond->add_attr("\@date NUMGE $from");
+$cond->add_attr("\@date NUMLE $to");
+$cond->set_order('@date NUMD');
+<<
+みたいにして使っているのだが、
+set_orderを抜くと落ちる。入れるとOK。
+落ちる場所は特定してましぇ～ん。
+
+でも、estcmdで
+estcmd search -attr '@date NUMGE 1995-01-01' -attr '@date NUMLE 2005-11-11' /var/hyper_estraier.idx/ test
+こんな風にやるとちゃんとうまくいくんだな。
+

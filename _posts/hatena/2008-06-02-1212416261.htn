@@ -1,0 +1,104 @@
+---
+layout: post
+title: x86_64環境でRubyからMySQLのクエリを実行するときの問題が示す根本的な問題…
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080602/1212416261
+---
+ニコニコ大百科というサービスをリリースしたわけですが、
+開発言語を選定する際に
+「最近書いてなくて忘れかけてるし、部下も書けるし、
+　たまにはRubyで書いてみようじゃないか。」
+とテキトーに決めたことをちょっと後悔。
+
+
+特にRubyの[http://www.ruby-lang.org/ja/man/html/base64.html:title=base64]に関しては
++ マニュアルの使用方法の項目にはencode64などの関数を直に使う方法が書いてあるが、生で使うと怒られる(encode64 is deprecated; use Base64.encode64 instead)。
++ Base64.encode64()を使うと、今度は途中とお尻に勝手に改行が入る。マニュアルには書いていない挙動（るびまには書いてあるが）。Base64.encode64().split.joinなどをして改行を除去する必要がある。
++ さらに、urlsafeなエンコードをしようとすると、Base64.encode64().split.join.tr('+/', '-_')とする必要がある。
+と正直ちょっとイラっとした。
+Pythonだとurlsafe_b64encode()という関数がある。これはこれでやりすぎ感はあるけど、実用的。
+その他にもCGIモジュール周りも結構手を入れたりして、
+足周りを確保する作業を多く行いました。
+
+
+Ruby、ロジックは非常に書きやすい言語なんだけどなー。
+クラスの拡張なども非常にキレイかつ書きやすく出来てしまうので、
+手元で問題を修正して満足しちゃって、
+本家までパッチが上がらないのかもしれない。
+ツッコミビリティの問題かなあ。
+
+
+んで、そんなのはどうでもいいんだけど、
+先日、サービスをちょっと高級なサーバにお引越ししたのです。
+その際に、以下の擬似コードが動かなくてかなりあせった。
+
+>|ruby|
+require 'mysql'
+require 'pp'
+my = Mysql.connect(host, name, pass, db, port)
+st = my.prepare('SELECT ?')
+st.execute(0xffffffff)
+pp st.fetch
+||<
+
+原因は、サーバのOSがi386版からx86_64版に変わったから。
+
+
+x86_64版Rubyでは、0xffffffffはFixNumになります(irbで0xffffffff.classを見てみよう)。
+基本、sizeof(long)*8-1ビットに収まる符号付数値の場合はFixNumになるみたいですね。
+MySQL/Rubyのst_execute関数内で、渡されたパラメータの型によって分岐する部分があります。
+FixNumなので、case T_FIXNUMのところにコードが遷移するわけです。
+んで、そこでFIX2INTを呼んでいるんですねー。
+sizeof(int)は4なので、符号を入れると1ビット足りない。
+よって、integer 4294967295 too big to convert to `int' と怒られてしまうのだ。
+
+
+この問題、ip2longした数値をカラムに入れるときに発覚しました。
+パッチを書きたいところですが、
+他のサービス修正で手が回らない…どこかにパッチ落ちてないかなあ。
+FIX2INTをFIX2LONGにすればいいのかな…
+
+
+んで、バグは直せば済むのでよいのです！
+このようなすぐに見つかってもよさそうなバグが
+MySQLとの接続モジュールに残っているということで、
+「本当にみんなサーバサイドでRubyを使っているんだろうか」
+とちょっと不安になったりしたのでした…
+x86_64版のOSは今や珍しくなくなってきましたし…
+
+** 追記
+
+パッチ書いたお。
+BigNumで64ビットフルに使っている場合に、is_unsignedを立てるとかいう処理はしていないけどね。
+tmtmさんにもメールしよ→お返事きた。対応いただけるみたい。ヤッター！
+
+>|diff|
+--- mysql.c.in.orig     2008-06-03 14:28:44.000000000 +0900
++++ mysql.c.in  2008-06-03 14:31:16.000000000 +0900
+@@ -1367,14 +1367,21 @@
+     if (argc > 0) {
+         memset(s->param.bind, 0, sizeof(*(s->param.bind))*argc);
+         for (i = 0; i < argc; i++) {
++            long num;
+             switch (TYPE(argv[i])) {
+             case T_NIL:
+                 s->param.bind[i].buffer_type = MYSQL_TYPE_NULL;
+                 break;
+             case T_FIXNUM:
+-                s->param.bind[i].buffer_type = MYSQL_TYPE_LONG;
+                 s->param.bind[i].buffer = &(s->param.buffer[i]);
+-                *(int*)(s->param.bind[i].buffer) = FIX2INT(argv[i]);
++                num = FIX2LONG(argv[i]);
++                if (num <= INT_MAX && num >= INT_MIN) {
++                    s->param.bind[i].buffer_type = MYSQL_TYPE_LONG;
++                    *(int*)(s->param.bind[i].buffer) = (int)num;
++                } else {
++                    s->param.bind[i].buffer_type = MYSQL_TYPE_LONGLONG;
++                    *(LONG_LONG*)(s->param.bind[i].buffer) = num;
++                }
+                 break;
+             case T_BIGNUM:
+                 s->param.bind[i].buffer_type = MYSQL_TYPE_LONGLONG;
+||<
+

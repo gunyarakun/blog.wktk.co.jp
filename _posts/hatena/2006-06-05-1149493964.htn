@@ -1,0 +1,11 @@
+---
+layout: post
+title: プロファイラ
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060605/1149493964
+---
+gprofで、ライブラリ・実行ファイルともにCFLAGS,LDFLAGSに-pgをつけたにもかかわらず、
+ライブラリのほうまで追ってくれない。
+ちゃんと調べれば方法があるんだろうけど、
+めんどくさいのでqprof入れてみる。

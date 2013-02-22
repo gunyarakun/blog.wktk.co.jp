@@ -1,0 +1,29 @@
+---
+layout: post
+title: PLucene
+tags: 全文検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051108/1131447260
+---
+Perl版Lucene。
+http://search.cpan.org/~tmtm/Plucene-1.24/lib/Plucene.pm
+C++版LuceneのCLuceneのPerlバインディングを使うという手もあり。
+
+で、PLucene、ドキュメントを追加しようとすると激烈にエラーを吐きます。
+Bitwise-String-Operatorsを普通のXORとインタプリタが解釈しちゃって、
+数値じゃねえぞコラ！と怒っているようです。
+対処法はこんな感じ。
+つ http://www.kasei.com/pipermail/plucene/2005-September/000618.html
+
+つか、Bitwise-String-Operatorsなんてものを知らんかった。
+そろそろPerlをちゃんと勉強しないと…（最近コレばっか言ってる気がする
+http://perldoc.perl.org/perlop.html#Bitwise-String-Operators
+
+PLuceneのTokenizerの例。
+http://blog.bulknews.net/mt/archives/000771.html
+CJKとNutchに対応するものでも書こうかしら。
+もしくはRastばりに、ひらがなカタカナはTri-gram、
+漢字と文字種変更の場合はBi-gramとか。
+
+おしりかゆい。
+

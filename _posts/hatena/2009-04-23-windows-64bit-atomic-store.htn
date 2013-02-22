@@ -1,0 +1,47 @@
+---
+layout: post
+title: Windows@i386でのatomic 64bit store
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20090423/windows_64bit_atomic_store
+---
+Windows@i386でのatomic 64bit store。_InterlockedCompareExchange64を使ったほうがいいのかな？だいたい、ちゃんと動作してるのかしら…ツッコミ求む。
+
+>|c|
+#include <windows.h>
+#include <stdio.h>
+
+#define int32_t INT32
+#define uint32_t UINT32
+#define int64_t INT64
+#define uint64_t UINT64
+
+void
+atomic_set_64bit(uint64_t *p, uint64_t v)
+{
+  uint32_t v1, v2;
+  v1 = *(((uint32_t *)&(v))+0);
+  v2 = *(((uint32_t *)&(v))+1);
+  __asm {
+  _set_loop:
+    mov esi, p
+    mov ebx, v1
+    mov ecx, v2
+    mov eax, dword ptr [esi]
+    mov edx, dword ptr [esi + 4]
+    lock cmpxchg8b qword ptr [esi]
+    jnz  _set_loop
+  }
+}
+
+int
+main(int argc, char *argv)
+{
+  uint64_t i = 0x0123456789abcdefULL, j = 0xfedcba9876543210ULL;
+  printf("%08llx\n", i);
+  printf("%08llx\n", j);
+  atomic_set_64bit(&i, j);
+  printf("%08llx\n", i);
+}
+||<
+

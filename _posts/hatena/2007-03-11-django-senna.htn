@@ -1,0 +1,35 @@
+---
+layout: post
+title: Django勉強会 Disc 3
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070311/django_senna
+---
+Django勉強会 Disc 3
+http://www.djangoproject.jp/etude/3/
+でお話させてもらってきた。
+
+
+資料を以下のURLに置いておきます。嘘が混じってるかもしれないけど…
+http://qwik.jp/senna/publication.download/django-ja-disc3-senna.pdf
+
+
+僕の発表内容を簡単にまとめると、こんな感じ。
+-PysennaやPyrostをDjangoから使う場合には工夫が必要かもしれません(調査中)
+-Pg + Ludiaでも、Django本体に1行パッチを当てれば、Djangoから自然に全文検索を行えるハズです
+-MySQLにSennaがバインディングされていた場合、Djangoはデフォルト状態でSennaを用いた全文検索が自然に行えます。
+
+
+寺子屋では、 id:MiCHiLU様に懇切丁寧な指導をもらって、
+Djangoレベルが3上がった感じです。
+汎用ビューだけであそこまでイケるんだなあ…
+
+
+自分用まとめ
+-stackless python面白そう
+-haltさんがサブテクノリのスライドを「分からないですよね…」といってガンガン飛ばしていた
+-常山フィード
+-newforms、早く安定してvalidation効いて欲しいなあ
+-チュートリアルのあと何をしていいのかわからないよね
+-「ただ、Pythonが好きなだけなんです…」
+

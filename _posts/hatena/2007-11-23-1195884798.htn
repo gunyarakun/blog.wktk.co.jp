@@ -1,0 +1,13 @@
+---
+layout: post
+title: ! ' [Tokyo Cabinet][Python]pytcとそれ以外のkey-value型DBとのパフォーマンス比較'
+tags: ''
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20071123/1195884798
+---
+「傀儡師の館」にて、PythonからBerkeley DB、GDBM、QDBM、Tokyo Cabinet、CDBの４つを使った場合での
+パフォーマンス比較がなされています。
+Tokyo Cabinet、結構CDBに肉薄していていい感じですね。
+
+- [http://plaza.rakuten.co.jp/kugutsushi/diary/200711220000/:title=Python のいろいろな方法でキーと値の保存と検索をやってみようかと(2)]
+

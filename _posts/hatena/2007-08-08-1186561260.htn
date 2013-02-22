@@ -1,0 +1,21 @@
+---
+layout: post
+title: Ohlohにプロジェクト登録をしてみた。
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070808/1186561260
+---
+ドジっ娘のハッカーから、
+Ohlohなるサイトを教えていただいた。
+- [http://www.ohloh.net/:title=Ohloh, the open source network]
+
+早速Sennaも登録してみたが、
+リポジトリのクロールの途中のようだ。
+- [http://www.ohloh.net/projects/7293:title=The Senna Open Source Project on Ohloh]
+
+Sennaは、1.1リリースに向けて大きな変更を行っています。
+そのため、Senna 1.0.8のリリースでヘマこいたりしたのですが…
+
+
+興味のある方はリポジトリ上のソースを読まれると面白いと思います。
+まだ仕様も確定していないし、ドキュメントもないですが。

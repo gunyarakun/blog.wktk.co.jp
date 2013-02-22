@@ -1,0 +1,61 @@
+---
+layout: post
+title: USB 印刷サポートを用いてレガシーなパラレルポート双方向通信を行うプログラムをWinwdows Vistaで動かす
+tags: パラレルポート
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070615/1181885617
+---
+自分が昔(10年前!)に作ったプログラムを発掘したので、
+そのプログラムを動かすためのメモ。
+実機もないPC/AT互換機用コードを書いてちゃんと動かしていた当時の自分、やるな。
+
+
+アプリケーションの中身は、
+パラレルポートに接続した機器との双方向データ転送。
+自前でSTROBEの制御をしていて、
+（確か普通はレベルトリガなんだけど、相手の機器がエッジトリガだった）
+データ受信は標準とは異なりステータスビットを使っている。
+（たぶんACK, BUSY, PAPER, ONLINEかな）
+元のアプリケーションでは、
+LPTx相当のポート(0x0408 + x * 2)に対して直にI/Oを行っていた。
+(Windowsで0x0408系に触る方法は [http://warmcat.com/parallel/:title=The Lost Scrolls of Parallel Port Interfacing] を参考に)
+
+
+…
+いろいろ調べた結果、どうやら敗北のようだ。
+深追いすればなんとかイケるのかもしれないが、そんな勢いはもうないぞ。
+
+** 方針
+
+- パラレルポートを叩くレガシーなプログラムがある
+- すでにパラレルポートのないパソコンを使っている
+- USBプリンタケーブルを活用して状況を打破
+
+** 購入物品
+
+- [http://d.hatena.ne.jp/asin/B0000ACC6K:title=ELECOM UC-PGT USB Pctoパラレルプリンターケーブル 1.8m - はてなキーワード]
+- [http://d.hatena.ne.jp/asin/B00008B2X8:title=ELECOM AD-2536 変換アダプタ - はてなキーワード]
+
+** USB 印刷サポートの利用方法や、同等のドライバ
+- [http://blog.peter.skarpetis.com/archives/2005/04/07/getting-a-handle-on-usbprintsys/:title=Getting a handle on usbprint.sys «  Peter’s blog]
+- [http://mcn.oops.jp/wiki/index.php?USB%2FClass%2FPrinter:title=USB/Class/Printer - SyncHack]
+
+** お役立ち情報
+- [http://www.keshi.org/blog/2005/11/pl2305.html:title=PL-2305 で敗北 - ほげめも]
+これを読んで白旗を挙げることにした。
+
+
+確かに、データシートのベンダ固有命令のところが適当すぎる。
+ここらへんもうちょっと情報があるとピン毎の制御・情報取得が出来てよいのだが…
+- [http://www.prolific.com.tw/support/files/%5CIO%20Cable%5CPL-2305%5CDoc%5CData%20Sheet%5Cds_pl2305_v11D.pdf:title=PL-2305のデータシート(PDF)]
+
+
+上記ブログにあるように[http://www.transdigital.net/info.htm:title=パラレルポートを増設するPCカード]を買うべきか。
+日本では以下のページで売っている。
+- [http://www.compass-lab.com/STK_CAN/ParaCard.htm:title=Universal Parallel Port]
+こんどはよくよく調査して、LPTxに直にマップしてくれる機器を買わねばなるまい。
+なんとか安く手に入れてやるぜ。
+giveioも入れないといけない。
+
+
+しかし、他のエントリから浮きすぎた。今は反省している。

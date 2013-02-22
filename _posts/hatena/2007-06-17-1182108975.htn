@@ -1,0 +1,19 @@
+---
+layout: post
+title: Software DesignでMySQL + Sennaが取り上げられているようです。
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070617/1182108975
+---
+- [http://d.hatena.ne.jp/software_design/20070615:title=Software Design 2007年7月号のお知らせ - Software Design×はてな]
+のエントリによると、Software Designの2007/07号でMySQL + Sennaが紹介されているようだ。チェックしよっと。
+>{% amazon jp:B000RE7P3Y:detail %}<
+
+さらに、Tritonnの開発者の一人であるmirさんのブログによると、
+- [http://d.hatena.ne.jp/mir/20070616/p1:title=mysql-5.0.42-tritonn-1.0.2 on Linux x86_64 glibc25 - mir the developer]
+>>
+今後のTritonnプロジェクトではdiffパッチの配布ではなくmake distで作ったソース丸ごとtarballの配布を検討しております。
+
+それに伴い、ビルド方法も変わるので公式サイトのドキュメントも更新するつもりです。今後はconfigure && make && make installでインストールできるようになる見込み。
+<<
+というわけで、SennaつきMySQLのビルドが楽になるらしい。きゃほーい。

@@ -1,0 +1,10 @@
+---
+layout: post
+title: HTML::RSSAutodiscoveryクンも
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050914/1126709079
+---
+HTML::RSSAutodiscovery、
+入れようとしたらwww.syndic8.comにつながらないでエラー。
+で、またforce install。

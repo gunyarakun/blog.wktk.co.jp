@@ -1,0 +1,44 @@
+---
+layout: post
+title: TurboGearsを勉強するもMATCH AGAINSTできねっす
+tags: Python
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070213/learn_turbogears
+---
+思いつきで、TurboGearsを勉強。
+Pythonもろくに出来ないのだが。
+
+
+とりあえず、20分でできるWikiをやってみる。
+http://docs.turbogears.org/1.0/Wiki20/
+
+
+…１時間強くらいかかったよ…プログラマ向いてないのかな…
+
+
+で、SQLObjectでMySQLの全文検索クエリであるmatch againstを発行する方法が見つからない。
+
+
+SQLObjectでPostgreSQLのtsearch2を使う方法はあるみたいだ。
+http://pythonpaste.org/archives/message/20040207.141614.22f8f757.en.html
+
+
+SQLObjectではなくて、SQLAlchemyを使えばいけるみたい。
+http://permalink.gmane.org/gmane.comp.python.sqlalchemy.user/5183
+
+
+Djangoでは、
+Extending Django’s database API to include full-text search
+http://www.mercurytide.com/whitepapers/django-full-text-search/
+にある方法でできるようだ。
+
+
+TurboLucene(pyLucene使用)とかHyperEstraierとかXapianとか他のエンジンだったら情報がある…
+http://groups.google.com/group/turbogears/browse_thread/thread/a4fff25ac27a1b64
+
+
+素のSQLObjectでMATCH AGAINST発行する方法誰か教えてわ～～ん！！！
+むう。SQLAlchemyのチュートリアルでも読んでみるかね…
+
+
+もしくは、早速Djangoに乗り換えるか。

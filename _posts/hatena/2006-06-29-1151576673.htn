@@ -1,0 +1,16 @@
+---
+layout: post
+title: 英語キーボードでのことえりショートカット
+tags: Mac
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060629/1151576673
+---
+確かに押すキーが多い。
+http://q.hatena.ne.jp/1129236873
+
+
+そして、command+spaceだと切り替わらないんだけど、なんでだろ。
+
+
+結局、Windows風のキー操作にチェックを入れて、
+caps lockキーを押したとき「ひらがな入力」にして解決。

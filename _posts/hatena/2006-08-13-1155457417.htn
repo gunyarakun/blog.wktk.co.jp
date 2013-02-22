@@ -1,0 +1,125 @@
+---
+layout: post
+title: WindowsでいうとこのInterlockedExchangeAdd（その２）
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060813/1155457417
+---
+sparcでのatomic add。
+
+
+Monoにもsparc用のInterlockedExchangeAdd実装があったけど、
+ロックして足し算してロック解除をしている。
+ロックするのはねえ。。。
+ここはJavaの実装を見るのが一番でしょ！
+
+
+https://www-06.ibm.com/jp/developerworks/java/041203/j_j-jtp11234.html
+によると、
+java.util.concurrentにatomic add関係のクラスがあるらしい。
+JDKの知識は1.3くらいで止まってるなあ。。。
+
+
+んで、ソースを見てみると、
+結局はUnsafe.compareAndSwapIntがその本体らしい。
+んで、こいつはUnsafeなのでVMのほうを見ないといけない。
+
+
+hotspotのソースを検索すると、
+<pre>
+UNSAFE_ENTRY(jboolean, Unsafe_CompareAndSwapInt(JNIEnv *env, jobject unsafe, jobject obj, jlong offset, jint e, jint x))
+  UnsafeWrapper("Unsafe_CompareAndSwapInt");
+  oop p = JNIHandles::resolve(obj);
+  jint* addr = (jint *) index_oop_from_field_offset_long(p, offset);
+  return (jint)(Atomic::cmpxchg(x, addr, e)) == e;
+UNSAFE_END
+</pre>
+こげな感じ。Atomic::cmpxchgが実体なのね。
+
+
+cmpxchgで検索。
+java-src\hotspot\src\cpu\sparc\vm\stubGenerator_sparc.cppにAtomic::cmpxchgを発見。
+んで、その下にお目当てのAtomic::addクンがいた。いひひ。
+<pre>
+  // Support for jint Atomic::add(jint add_value, volatile jint* dest).
+  //
+  // Arguments :
+  //
+  //      add_value: O0   (e.g., +1 or -1)
+  //      dest:      O1
+  //
+  // Results:
+  //
+  //     O0: the new value stored in dest
+  //
+  // Overwrites (v9): O3
+  // Overwrites (v8): O3,O4,O5
+  //
+  address StubGenerator::generate_atomic_add() {
+    StubCodeMark mark(this, "StubRoutines", "atomic_add");
+    address start = __ pc();
+    __ bind(_atomic_add_stub);
+
+    if (VM_Version::v9_instructions_work()) {
+      Label(retry);
+      __ bind(retry);
+
+      __ lduw(O1, 0, O2);
+      __ add(O0,   O2, O3);
+      __ cas(O1,   O2, O3);
+      __ cmp(      O2, O3);
+      __ br(Assembler::notEqual, false, Assembler::pn, retry);
+      __ delayed()->nop();
+      __ retl(false);
+      __ delayed()->add(O0, O2, O0); // note that cas made O2==O3
+    } else {
+      const Register& lock_reg = O2;
+      const Register& lock_ptr_reg = O3;
+      const Register& value_reg = O4;
+      const Register& yield_reg = O5;
+
+      Label(retry);
+      Label(dontyield);
+
+      generate_v8_lock_prologue(lock_reg, lock_ptr_reg, yield_reg, retry, dontyield);
+      // got lock, do the increment
+      __ ld(O1, 0, value_reg);
+      __ add(O0, value_reg, value_reg);
+      __ st(value_reg, O1, 0);
+
+      // %%% only for RMO and PSO
+      __ membar(Assembler::StoreStore); 
+
+      generate_v8_lock_epilogue(lock_reg, lock_ptr_reg, yield_reg, retry, dontyield);
+
+      __ retl(false);
+      __ delayed()->mov(value_reg, O0);
+    }
+
+    return start;
+  }
+</pre>
+げー、v8以前はロック方式じゃないとダメなのかー。。。
+
+
+cas sparc v9で検索。
+http://www.sparc.com/japanese/resource.htm
+おおお、まさにピンポイント。
+つか、もともと実装から探そうという考えがヤラシイのだな。
+cas命令はやはりv9で導入されたようで。
+
+
+んで、sparc v9の仕様書中にappendix J.11 Fetch_and_Addというのを発見。
+http://www.sparc.com/standards/V9-R1.4.7.pdf
+<pre>
+FetchAndAddCAS(address, increment)	!%i0 = address, %i1 = increment
+retry:
+	ld [%i0],%l0
+	add %l0,%i1,%l1
+	cas [%i0],%l0,%l1
+	cmp %l0,%l1
+	bne retry
+	mov %l1,%o0			!return old value
+</pre>
+hotspotの実装とだいたい一緒やね。
+

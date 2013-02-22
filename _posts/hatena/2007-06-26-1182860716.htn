@@ -1,0 +1,10 @@
+---
+layout: post
+title: MeCabで--with-libiconv-prefixが効いていない気がする
+tags: MeCab
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070626/1182860716
+---
+FreeBSD環境だからかもしれないけれど、--with-libiconv-prefixのオプションが効いていない気がする。
+Makefileとconfig.hを書き換えて強引にmakeを通した。
+

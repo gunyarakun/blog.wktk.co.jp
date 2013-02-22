@@ -1,0 +1,24 @@
+---
+layout: post
+title: qwik.jp/sennaをいろいろ書き換えた
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060315/1142407322
+---
+コードがひと段落したので、
+Sennaのドキュメントのメンテナンスを行った。
+
+-概要を高橋メソッドで紹介
+-snippet UDF
+-N-gram
+-AIO/DIO
+-NKFCコンパイル抑制
+-インストールの細部変更
+
+って感じで。
+
+残りは
+-low level APIでsnippetのところ追記
+-他のバインディングについても記載
+かにゃ。
+

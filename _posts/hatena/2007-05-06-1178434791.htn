@@ -1,0 +1,12 @@
+---
+layout: post
+title: Python関連の日記はは別日記に移動します。
+tags: django
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070506/1178434791
+---
+[http://d.hatena.ne.jp/gunyara-python/:title=グニャラくんのグニャグニャPython備忘録]
+に移転します。
+
+Djangoの話はともかく、wxPythonの話なんかはドメインが違う気がするので分割。
+本当にメモが多くなる予定。

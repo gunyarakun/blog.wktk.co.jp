@@ -1,0 +1,50 @@
+---
+layout: post
+title: sprintfは速い
+tags: パフォーマンス
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050924/1127552207
+---
+>>
+#!/usr/bin/perl
+
+use utf8;
+binmode STDIN => ":raw";
+binmode STDOUT => ":raw";
+binmode STDERR => ":raw";
+
+use Benchmark;
+
+Benchmark::timethese(300000, {
+	's_original' =>\&s_original,
+	's_new' => \&s_new,
+});
+
+sub s_original{
+
+	my $a = 'あれ';
+	my $b = '声が';
+	my $c = '遅れて';
+	my $d = '聞こえるよ';
+	my $e = 'という';
+	my $f = 'モノマネを';
+	my $g = 'やってみる。';
+
+    $result .= sprintf(
+        "%s\t%s\t%s\t%s\t%s\t%s\t%s\n",$a,$b,$c,$d,$e,$f,$g);
+}
+
+sub s_new{
+
+	my $a = 'あれ';
+	my $b = '声が';
+	my $c = '遅れて';
+	my $d = '聞こえるよ';
+	my $e = 'という';
+	my $f = 'モノマネを';
+	my $g = 'やってみる。';
+
+    $result .= "$a\t$b\t$c\t$d\t$e\t$f\t$g\n";
+}
+<<
+s_originalの勝ち。

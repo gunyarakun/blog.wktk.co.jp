@@ -1,0 +1,69 @@
+---
+layout: post
+title: ! ' [xml][libxml2][c]XMLをHTTPで取得して、XPathで指定された中身をC言語で取り出す方法'
+tags: ''
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080706/1215344211
+---
+タイトル通り。必要に迫られて…
+libxml2はAPIの数がオニのようにあります。泣きそうです。
+
+** 注意：ルートノードが１つの文書しか対応していません。
+
+根性不足で、URLからxmlDocPtrを得られるAPIを見つけられなかったため、
+xmlTextReaderPtrで最初のノードを読み、
+xmlTextReaderExpandで強引に子ノードを取ってこさせています。
+
+
+大変ダサいので、libxml2ウィザードの方の降臨を願う。
+
+>|sh|
+gcc -o test -I/usr/include/libxml2 test.c -lxml2
+||<
+
+>|c|
+#include <stdio.h>
+#include <libxml/xpath.h>
+#include <libxml/xmlreader.h>
+
+#define URL "http://www.nicovideo.jp/api/getthumbinfo/sm9"
+#define XPATH "/nicovideo_thumb_response[@status='ok']/thumb/title/text()"
+
+int
+main(int argc, char *argv[])
+{
+  int ret;
+  xmlDocPtr doc;
+  xmlNodeSetPtr nodes;
+  xmlXPathContextPtr ctx;
+  xmlTextReaderPtr reader;
+  xmlXPathObjectPtr xpobj;
+
+  if ((reader = xmlNewTextReaderFilename(URL))) {
+    // FIXME: now only one root node is supported
+    ret = xmlTextReaderRead(reader);
+    xmlTextReaderExpand(reader);
+    if ((doc = xmlTextReaderCurrentDoc(reader))) {
+      if ((ctx = xmlXPathNewContext(doc))) {
+        if ((xpobj = xmlXPathEvalExpression(
+                       (xmlChar *)XPATH, ctx))) {
+          if (!xmlXPathNodeSetIsEmpty(xpobj->nodesetval)) {
+            xmlNodePtr node = xmlXPathNodeSetItem(xpobj->nodesetval, 0);
+            if (node->content) {
+              printf("%s\n", node->content);
+            }
+          }
+          xmlXPathFreeObject(xpobj);
+        }
+        xmlXPathFreeContext(ctx);
+      }
+      xmlFreeDoc(doc);
+    }
+    xmlFreeTextReader(reader);
+  }
+  xmlCleanupParser();
+
+  return 0;
+}
+||<
+

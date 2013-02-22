@@ -1,0 +1,19 @@
+---
+layout: post
+title: た、たしかに。。
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060726/1153902944
+---
+とれない、昔のバージョンのMySQLをbitkeeperで。
+んがーーーー！！！！
+>>
+sfioball -r1.2092.13.3 bk://mysql.bkbits.net/mysql-5.0 mysql-5.0.22
+<<
+
+とりあえず、Windowsからビルドするときのメモ。
+MySQLバインディングを大きく変わったので、
+Windows環境でのビルドも大きく変わってきてる。。
+http://dev.mysql.com/doc/refman/5.0/en/windows-source-build.html
+http://dev.mysql.com/doc/refman/5.0/en/windows-bitkeeper-build.html
+

@@ -1,0 +1,9 @@
+---
+layout: post
+title: MySQL with Senna on Windows
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060731/1154343984
+---
+どうやらSennaページに載せている方法だとダメになったようだ。
+id:mirさん推奨のWindowsソースパッケージ法にしよう。。

@@ -1,0 +1,62 @@
+---
+layout: post
+title: ! 'Sennaではてなキーワード自動リンクを実装する '
+tags: senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080108/php_senna_keywordlink
+---
+
+** [注意]このエントリは[http://labs.unoh.net/2008/01/keyword-autolink-using-php-and-mecab.html:title=PHPとMecabでキーワード自動リンクを実装する]のパクリです。
+
+こんにちは、末永です。
+今年もどうぞよろしくお願い致します。
+
+Webサービスを開発していると、特定のキーワードを自動でURLリンクにする処理が必要になることがあると思います。今回は、このキーワード自動リンク機能を全文検索エンジンSennaを使って実装する方法を紹介したいと思います。
+
+** 1. Sennaインストール
+MeCabのインストールは必要ないので、こんな感じでインストールしてください。
+>|sh|
+$ ./configure --prefix=/usr --without-mecab
+$ make
+$ sudo make install
+||<
+
+** 2. 辞書を作る
+テキストファイルに、改行区切りでキーワードを記述したファイルkeyword.txtを作成します。
+ただし、文字コードはEUC限定ですぞ。
+Wikipediaのタイトル一覧なんかを持ってくるのもいいでしょう。
+gzipされたUTF-8なので、解凍＆nkfでコンバートしましょう。
+- http://download.wikimedia.org/jawiki/20071121/jawiki-20071121-all-titles-in-ns0.gz
+
+
+Sennaをコンパイルしたディレクトリに移動して、
+以下のコマンドを打ちます。
+>|sh|
+$ test/hatenapo keyword.dic ins < keyword.txt
+||<
+
+** 3. キーワードリンクを確認
+キーワードを付与する対象のarticle.txtというファイルを用意します。
+2.と同じディレクトリで以下のように実行します。
+
+>|sh|
+$ test/hatenapo keyword.dic sel < article.txt
+||<
+
+はてなキーワードがリンクされて出てきます！
+
+** 問題点1: PHPじゃない…
+
+SennaのPHPバインディングをid:rskyが作っているのですが、
+sen_symへのインターフェースがない…
+
+
+sen_symへのインターフェースがあればPHPから使えて、元記事の完パクリが出来たんだけどなあ。
+
+** 問題点2: 文字コードがEUCのみ
+
+hatenapo.cのsen_enc_euc_jpをsen_enc_utf8なんかに全て置換すればOK。
+
+** まとめ
+パクリきれなかった。非常に残念…
+

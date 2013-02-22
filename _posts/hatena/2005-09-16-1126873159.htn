@@ -1,0 +1,71 @@
+---
+layout: post
+title: utf8::SWASHGET問題ふたたび解決？
+tags: Perl
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050916/1126873159
+---
+ホッツエンポロッツふたたびあらわる。
+まあ、それはどうでもいいとして、
+dprofpp -Sした結果をみたところ、
+>>
+  Omoi::Logic::Omosugiru x 1  	18.36s = (0.41 + 17.95)s
+    XML::Clean::clean x 1  	5.29s = (4.28 + 1.01)s
+      Encode::utf8::decode_xs x 2152  	0.11s = (0.07 + 0.04)s
+        Encode::Encoding::renewed x 2152  	0.04s
+      XML::Clean::handle_end x 1183  	0.23s = (0.14 + 0.09)s
+        Encode::utf8::decode_xs x 4541  	0.09s = (0.04 + 0.05)s
+          Encode::Encoding::renewed x 4541  	0.05s
+      XML::Clean::handle_start x 1681  	0.45s = (0.11 + 0.34)s
+        Encode::utf8::decode_xs x 4079  	0.09s = (0.04 + 0.04)s
+          Encode::Encoding::renewed x 4079  	0.04s
+        XML::Clean::clean_attr x 1681  	0.26s = (0.16 + 0.09)s
+          Encode::utf8::decode_xs x 6429  	0.09s = (0.04 + 0.05)s
+            Encode::Encoding::renewed x 6429  	0.05s
+          utf8::SWASHGET x 6  	0.00s
+          utf8::SWASHNEW x 2  	0.00s
+      XML::Clean::handle_text x 2865  	0.22s = (0.21 + 0.01)s
+        Encode::utf8::decode_xs x 243  	0.01s = (0.00 + 0.01)s
+          Encode::Encoding::renewed x 243  	0.01s
+    utf8::SWASHGET x 970  	12.48s = (9.53 + 2.95)s
+      Encode::utf8::decode_xs x 177535  	2.73s = (1.59 + 1.14)s
+        Encode::Encoding::renewed x 177535  	1.14s
+      utf8::SWASHGET x 347  	0.22s = (0.19 + 0.03)s
+        Encode::utf8::decode_xs x 4120  	0.03s = (0.01 + 0.01)s
+          Encode::Encoding::renewed x 4120  	0.01s
+<<
+だって。うひょー。調べがいがある。
+重い関数の中の正規表現。
+>>
+    $html =~ s/<[\/]?form[^>]*?>//isg;
+    $html =~ s/<[ ]*?([^ ])/<$1/g;
+    $html =~ s/$comment_tag_regex//isgo;
+    $html =~ s/<script.*?<\/script>//isg;
+    $html =~ s/<style.*?<\/style>//isg;
+    $html =~ s/<map.*?<\/map>//isg;
+    $html =~ s/<area.*?\/>//isg;
+
+    ...
+
+    $html =~ s/　/ /g;
+    
+    $html =~ s/\t/ /g;
+    $html =~ s/\n/ /g;
+    $html =~ s/\r/ /g;
+    $html =~ s/>/>\n/g;
+    $html =~ s/</\n</g;
+    $html =~ s/^\n//mg;
+    $html =~ s/^[\s]+//mg;
+    $html =~ s/[\s]+$//mg;
+    $html =~ s/^<[\s]+/</mg;
+    $html =~ s/<\?.*?\?>\n//g;
+    $html =~ s/([^\s])\/>/$1 \/>/g;
+
+    $html =~ s/[ ]+/ /g;
+
+    $html =~ s/\&amp;/\&/g;
+    $html =~ s/\&nbsp;/ /g;
+
+    $html =~ /(<body.*?<\/body>)/is;
+<<
+確かにこりゃ重そうだ。

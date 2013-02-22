@@ -1,0 +1,14 @@
+---
+layout: post
+title: PEAR::CodeGen_MySQL_UDF
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070228/pear_codegen_mysql_udf
+---
+ところで、PEARを漁っていると、PEAR::CodeGen_MySQL_UDFなるものも発見。
+http://pear.php.net/package/CodeGen_MySQL_UDF
+
+
+MySQLのUDF(ユーザ定義関数)をXMLの定義ファイルから自動生成してくれるらしい。
+外部ライブラリを利用したUDFが書きやすくなるんじゃないかしら。
+

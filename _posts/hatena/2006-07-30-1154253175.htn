@@ -1,0 +1,37 @@
+---
+layout: post
+title: ストレージエンジン
+tags: MySQL
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060730/1154253175
+---
+MySQLはストレージエンジンが切り替えられるのが一応ウリ。
+んでMySQLパッケージには入っていないストレージエンジンを調べてみた。
+分散対応ですごくいいのが落ちているかもしれないからね（妄想）
+
+-PBXT
+http://www.primebase.com/xt/
+トランザクション対応らしい。
+えー、もうソースに取り込まれてるの！？
+ぜんぜん知らなかったよ。。。
+
+-SolidDB
+ACIDに完全対応らしい。
+http://dev.soliddb.com/
+Solid社の日本語ページもある。
+http://www.solidtech.com/jp/carrier-grade/index.asp
+
+-DDEngine
+http://ddengine.org/
+論理的な裏づけはあって、学生に実装やらせているらしい。むむむ。。。
+まだ実装は出てない。
+
+-RitmarkFS
+http://www.ritmark.com/
+ファイルシステムをMySQLのストレージ経由で扱える。
+
+-mdbtools
+http://sourceforge.net/projects/mdbtools 
+MS AccessのMDBファイルを扱える(read only)ストレージエンジン。
+
+やはり妄想は妄想のままで。

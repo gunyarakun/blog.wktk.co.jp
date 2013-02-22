@@ -1,0 +1,29 @@
+---
+layout: post
+title: Binary 2.0 カンファレンスにいってきた
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20061216/1166294564
+---
+Binary 2.0 カンファレンスにいってきた。
+どの話も面白かったよ。
+
+
+Sennaはlock-freeなRCU(Read-Copy-Update)を使っていますよ！
+Sennaはlock-freeなRCU(Read-Copy-Update)を使っていますよ！
+Sennaはlock-freeなRCU(Read-Copy-Update)を使っていますよ！
+と宣伝してみよう。
+
+
+>>
+次回はmallocカンファレンスを…
+<<
+という声が会場の中で聞こえた。
+mallocカンファレンス激希望!!!!!!
+[http://www.hoard.org/:title=Hoard]と[http://goog-perftools.sourceforge.net/:title=tcmalloc]と[http://www.pjsip.org/pjlib/docs/html/group__PJ__POOL__GROUP.htm:title=Fast Memory Pool]と[http://code.google.com/p/ememoa/:title=Ememoa]とのガチンコ勝負希望!!!!
+(マルチプロセッサ環境に強かったり、スレッドセーフでなかったり、固定サイズに強かったりと、
+ それぞれ特色が違うのだ)
+
+
+ライトニングトークはテンポが重要だね。
+そう、メイドインワリオのような感じで。

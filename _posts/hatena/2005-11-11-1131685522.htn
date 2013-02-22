@@ -1,0 +1,12 @@
+---
+layout: post
+title: rsync
+tags: 技術メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20051111/1131685522
+---
+rsyncのファイル転送全体をatomicにしたい。
+で、atomic-rsyncというPerlスクリプトがあるのですが、
+デスティネーションがローカルじゃないとダメなのよ。
+むにゅ。
+まあ、いろいろと方法はあるけど…

@@ -1,0 +1,27 @@
+---
+layout: post
+title: mysqlhotcopyが動かない
+tags: mysql
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20070709/1183984116
+---
+mysqlhotcopyを動かすと、
+>||
+Invalid db.table name 'ore.ore`.`oretable' at /usr/bin/mysqlhotcopy line 855.
+||<
+のように、データベース名が２つ重なってしまって動かない。
+
+- [http://bugs.mysql.com/bug.php?id=27303:title=MySQL Bugs: #27303: mysqlhotcopy dies with error Invalid db.table name 'foo.bar`.`baz']
+によると、DBD::mysqlのバージョンによる挙動の違いによって起こっているらしい。
+
+
+とりあえず、835行目の
+>|perl|
+my @dbh_tables = eval { $dbh->tables() };
+||<
+の後に、
+>|perl|
+map { s/^.*?\.//o } @dbh_tables;
+||<
+を入れれば動くらしいぞ。
+

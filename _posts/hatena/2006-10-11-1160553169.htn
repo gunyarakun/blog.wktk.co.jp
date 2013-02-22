@@ -1,0 +1,20 @@
+---
+layout: post
+title: MySQL/PgだけでなくRailsでもSQLiteでもSenna
+tags: Senna
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20061011/1160553169
+---
+LudiaでPostgres上での利用の幅が広がったSennaですが、
+Senna関係で他にも面白いことをやっている人がいるんです!!!
+
+
+SQLiteでSenna!
+http://www.dodgson.org/omo/t/?date=20061001
+
+
+RailsでSenna!
+http://blog.masuidrive.jp/articles/2006/10/03/mysql-fulltext-on-rails
+
+
+やっぱり、バージョンつけてリリースするっていうのが大事なのかなあ。。。

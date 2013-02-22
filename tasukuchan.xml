@@ -1695,6 +1695,7 @@ infとNaNはやっぱり別扱いなのね。
 </day>
 <day date="2005-10-23" title="[日記]クローラー落ちない">
 <body>
+*1129993200*[技術メモ][Perl]クローラー落ちない
 クローラーと各種デーモンがかなり安定してきた。
 ３日回しても大丈夫。
 POEのDBIがちょっと不安定だったので普通に同期にしたら安定している。
@@ -2111,10 +2112,10 @@ PHP（CLI）でMediaWiki由来のコードをだましだまし動かして
 </day>
 <day date="2006-02-10" title="Boofy">
 <body>
+*1139497200*Boofy
 昨日車の中で、
 Boofyとかいっぱい書いてあるコードを見ていたら
 車酔いしてしまった。
-
 </body>
 </day>
 <day date="2006-02-13" title="ブログ読んでいます、と生まれて初めて言われる">
@@ -8347,7 +8348,7 @@ loopコマンドは、数値でループするのに使われる。for文みた�
 - [http://d.hatena.ne.jp/dayflower/20070416/1176705134:title]
 - [http://blog.shebang.jp/archives/50579490.html:title]
 - [http://d.hatena.ne.jp/spiritloose/searchdiary?word=%2a%5bClearSilver%5d:title]
-- [http://blog.doofah.biz/?p=245:title]
+- [http://d.hatena.ne.jp/pinkgear/20060917/1158455304:title]
 - [http://blog.craft-works.jp/uru/id/2e45fa5d-c399-47d7-a041-50609829e334:title]
 - [http://www.typemiss.net/blog/kounoike/20060118-49:title]
 - [http://d.hatena.ne.jp/yoshifumi1975/20070129/1170062978:title]
@@ -8480,8 +8481,8 @@ autoCommitをfalseにしておけば、
 
 
 実際にIndexWriterのjavadocを見比べてみよう。
-- [http://lucene.apache.org/java/2_1_0/api/org/apache/lucene/index/IndexWriter.html:title]
-- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/index/IndexWriter.html:title]
+- [http://lucene.apache.org/java/2_1_0/api/org/apache/lucene/index/IndexWriter.html:title=IndexWriter (Lucene 2.1.0 API)]
+- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/index/IndexWriter.html:title=IndexWriter (Lucene 2.2.0 API)]
 ふむ、確かにIndexWriterのコンストラクタ引数にautoCommitが追加されている。
 
 ** Function queries機能
@@ -8496,7 +8497,7 @@ CHANGES.txtによると、Lucene 2.2では以下の機能が実装されたよ�
 
 
 というわけで、該当するところのjavadocを見てみる。
-- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/search/function/package-summary.html:title]
+- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/search/function/package-summary.html:title=org.apache.lucene.search.function (Lucene 2.2.0 API)]
 そこにあったサンプルコードによると、
 指定のフィールドに入っている情報をスコアとして返したり、
 もともとのスコアを文書idの平方根で割ったものをスコアとして返したりすることができるらしい。
@@ -8532,8 +8533,8 @@ JavaのReaderクラスとして受け取ることは出来るんだけれども�
 
 Lucene 2.2では、FieldのコンストラクタにTokenStreamを直に指定できるようになったみたい。
 javadocを見てみよう。
-- [http://lucene.apache.org/java/2_1_0/api/org/apache/lucene/document/Field.html:title]
-- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/document/Field.html:title]
+- [http://lucene.apache.org/java/2_1_0/api/org/apache/lucene/document/Field.html:title=Field (Lucene 2.1.0 API)]
+- [http://lucene.apache.org/java/2_2_0/api/org/apache/lucene/document/Field.html:title=Field (Lucene 2.2.0 API)]
 確かにコンストラクタが増えてます。
 
 ** まとめ
@@ -8622,7 +8623,7 @@ IPAX 2007は行き損ねた。
 --- カテゴリでスマートフォルダ検索
 - XPCOMでC++とPythonを連携している
 - 人材募集だって
--- [http://kigyou.jobdirect.jp/service/k002/485/0263211.html:title]
+-- [http://kigyou.jobdirect.jp/service/k002/485/0263211.html:title=SEGAの募集情報]
 ** 添削道場
 - ymasuda
 -- Py然
@@ -8639,7 +8640,7 @@ IPAX 2007は行き損ねた。
 - dlnicoの人がいた（多分）
 -- [http://nanabit.net/softwares/dlnico/:title]
 - 最新版のドキュメントはこちら
--- [http://michilu.com/django/doc-ja/index/:title]
+-- [http://michilu.com/django/doc-ja/index/:title=Django オンラインドキュメント和訳]
 
 *** セミナーのお手伝いをした側の立場から。
 
@@ -8727,7 +8728,7 @@ Rubber Band Matching(RBM　-ラバーバンドマッチング)
 
 誰が言っていたのかと聞いてみたところ、
 「表面的でない人間的な優しさを持った人」らしい。
-- [http://naoya.g.hatena.ne.jp/naoya/20070703/1183456164:title]
+- [http://naoya.g.hatena.ne.jp/naoya/20070703/1183456164:title=ひろゆき本 - naoyaの日記 - naoyaグループ]
 
 
 ( ﾟДﾟ)…へぇ～…ふぅ～ん…（#＾ω＾）ﾋﾟｷﾋﾟｷ
@@ -8903,7 +8904,7 @@ http://blog.livedoor.jp/blog_cs/archives/50268446.html
 同僚の女性から声をかけられて「ビクッ」ってしてしまった…
 「つるぺったん」はちょっとマズいよね…
 - ニコ動 : [http://www.nicovideo.jp/watch/sm183036:title]
-- YouTube : [http://www.youtube.com/watch?v=4WB02meT0L4:title]
+- YouTube : [http://www.youtube.com/watch?v=4WB02meT0L4:title=つるぺったん]
 - CDの購入 : [http://www.akibaoo.com/02/commodity_param/t/0/ctc/+/shc/0/cmc/2500020030530/:title]
 
 ブラジルのオフィス全体で「巨人のドシン」のサントラをかけたら、好評だった。
@@ -9325,7 +9326,7 @@ Tritonn版はこちら
 
 rhacoのテンプレートエンジンはDjango風らしいけど、
 テンプレートエンジンだけ使う方法を調べるまで至らなかった…
-- rhacoの公式サイト: [http://www.rhaco.org/:title]
+- rhacoの公式サイト: [http://www.rhaco.org/:title=rhaco.org]
 
 
 じゃあ、自分で書いちゃう！？書いちゃう！？
@@ -9817,7 +9818,7 @@ gccの__sync系関数を使いたいものの、gcc 4.1以降なんだよねえ�
 
 ** 情報リンク集
 
-- [http://my.execpc.com/~geezer/osd/gotchas/index.htm:title]
+- [http://my.execpc.com/~geezer/osd/gotchas/index.htm:title=OSD: Gotchas]
 - [http://gcc.gnu.org/ml/gcc-help/2007-03/msg00420.html:title]
 
 ** [追記]できた。
@@ -9917,7 +9918,7 @@ main (int argc, char *argv[]) {
 <body>
 *1196699619*[Senna]第5回？密教文献情報処理研究会というのがあるそうです
 密教文献(TEI文書として)と全文検索。
-- [http://www.koyasan-u.net/131/etp:title]
+- [http://www.koyasan-u.net/131/etp:title=密教文献(TEI文書として)と全文検索]
 &gt;&gt;
 最近，SennaやHyperEstraierなど多くの新しい全文検索エンジンが登場しています。それらはMecabによる分かち書きやN-Gramなどをサポートする最新のシステムですが，はたして，送りがなや返り点の付く漢文や最近ようやく実用レベルになってきたユニコードチベット文字の処理には適しているのでしょうか？
 &lt;&lt;
@@ -10164,7 +10165,7 @@ Amazonで買いたいところなんだけど、在庫がないことが多く�
 後に残る記念品だし、冗談でも良くないね。反省中です…
 *1198124767*[技術メモ][雑談]技術イベントだらけ。
 天下一カウボーイ大会が意外と真面目そうなイベントになっている件。
-- [http://onosendai.jp/championship2007/cowboychampionship.html:title]
+- [http://onosendai.jp/championship2007/cowboychampionship.html:title=天下一カウボーイ大会]
 もっとユルい感じだと思っていた。。。
 
 
@@ -10178,7 +10179,7 @@ Soozyカンファレンスのネタも仕上げないと！
 
 
 酒徳カンファレンスで
-- [http://labs.unoh.net/2007/12/post_111.html:title]
+- [http://labs.unoh.net/2007/12/post_111.html:title=ウノウラボ by Zynga Japan: 「酒徳カンファレンス」を開催します！]
 「FlashのSocket通信を用いたmemcachedとの直接通信」とかを発表したいけど
 45分話す内容を準備できそうにない。。LTだったら資料作りが楽でいいな。。
 </body>
@@ -10261,7 +10262,7 @@ DoCoMoについてはメールゲートウェイなどの余計なIPアドレス
 
 id:tomisimaが書いていたスクリプトを基に、
 AirHPhone対応を施したりいろんな改造をしました。
-- [http://d.hatena.ne.jp/tomisima/20070903/1188836400:title]
+- [http://d.hatena.ne.jp/tomisima/20070903/1188836400:title=SOBARCOの開発メモ: pythonで携帯IP制限]
 パフォーマンスは計って遅かったら泣くから計らない。
 ip2longが遅い可能性が大いにあるんだよなー…
 
@@ -12310,7 +12311,7 @@ sm.send_mail(
 <body>
 *brazil_good_design*[ブラジル][Senna]グッドデザイン賞を受賞しました。
 未来検索ブラジルが検索エンジン開発において(!)グッドデザイン賞を受賞したようです。
-- [http://www.g-mark.org/search/Detail?id=34960&amp;sheet=outline&amp;lang=ja:title]
+- [http://www.g-mark.org/search/Detail?id=34960&amp;sheet=outline&amp;lang=ja:title=Good Design Award]
 
 
 みんなも、オープンソース開発をしてグッドデザイン賞をもらおう！

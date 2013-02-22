@@ -1,0 +1,20 @@
+---
+layout: post
+title: SennaのTracが公開されております。
+tags: nicopedia
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20080720/1216540944
+---
+そういえば（安定剤）、lighttpのTracサイトで思い出しましたが、
+SennaのTracが稼動し始めました。
+
+
+まだ情報が少ないですが、Ticketを切って開発を進めていこうと思っています。
+宜しくお願いいたします。
+- [http://dev.razil.jp/senna/:title=SennaのTrac]
+
+
+ちなみに、
+以前から公開しているニコニコ大百科のTracですが、
+まったくToDoが減る気配がありません。（・３・）ｱﾙｪｰ
+- [http://dev.razil.jp/nicopedia/:title=ニコニコ大百科のTrac]

@@ -1,0 +1,15 @@
+---
+layout: post
+title: Senna Unicode 正規化サポート
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050908/1126198289
+---
+エラく容量増えてるな、と思ってSubversionの履歴見たら、
+SennaでUnicode正規化@utf8サポートだそうで。
+うーむ。DBをujisからutf8に変えておくか。
+
+ところで、ネットワークドライブの割り当てをしたドライブで
+TortoiseSVNのオーバーレイアイコンが出ないんだけど、
+これって仕様かしら。
+

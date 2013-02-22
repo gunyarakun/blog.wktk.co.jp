@@ -1,0 +1,36 @@
+---
+layout: post
+title: WindowsでいうとこのInterlockedExchangeAdd
+tags: 開発メモ
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20060811/1155322137
+---
+atomicな(足し算して結果の格納＋足す前の値の取得)をしてくれる
+InterlockedExchangeAdd。
+x86だとlock; xaddlで。
+
+
+んで、PowerPCでそれっぽい単語でググると以下のページが出てきますが、
+これバグっとります。最新のMonoだとさすがに直ってる。
+http://lists.ximian.com/pipermail/mono-list/2003-March/013148.html
+
+
+デバッグしたらこげな感じになった。最新のMonoでのコードとほぼ同じ。
+bneのお尻の-は、予測分岐の際に多分分岐せんやろというヒントらしい。
+<pre>
+1:
+  lwarx  result, 0, addr
+  add    result, result, delta
+  stwcx. result, 0, addr
+  bne-   1b
+  sub    result, result, delta
+</pre>
+
+PowerPCのgccインラインアセンブラの注意点として、
+- asmの中で\n\tの代わりに;が使えない
+- resultは書いたあとに読むので"=&r"のように&をちゃんとつける
+ってな感じかねえ。
+
+
+んでsparcを調べるかどうか悩み中。armとか。
+

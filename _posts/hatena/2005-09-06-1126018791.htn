@@ -1,0 +1,56 @@
+---
+layout: post
+title: MySQL 5系に上げたくなる
+tags: 検索
+lang: ja
+old_url: http://d.hatena.ne.jp/tasukuchan/20050906/1126018791
+---
+スキーマをきちんと正規化して、かつ、非同期でいろいろ投げていると
+VIEWとストアドが欲しくなる今日このごろ。
+でもSenna先生が…
+MySQL 5系にパッチ当てるか・・・
+
+でも、5系ってデータベースエンジンから派生してごにゃごにゃできる、
+ってsennaのMLに書いてあったような。
+
+で、とりあえずpatchコマンドやってみた。
+>>
+patching file configure.in
+Hunk #1 succeeded at 744 with fuzz 2 (offset -29 lines).
+patching file include/myisam.h
+Hunk #1 succeeded at 33 with fuzz 1.
+Hunk #2 succeeded at 213 (offset 70 lines).
+patching file libmysqld/sql_db.cc
+Hunk #1 succeeded at 802 with fuzz 2 (offset 61 lines).
+patching file myisam/ft_boolean_search.c
+Hunk #2 succeeded at 161 (offset 2 lines).
+Hunk #3 succeeded at 323 (offset 13 lines).
+Hunk #4 succeeded at 398 (offset 13 lines).
+Hunk #5 succeeded at 652 (offset 29 lines).
+Hunk #6 succeeded at 686 (offset 29 lines).
+Hunk #7 succeeded at 736 (offset 29 lines).
+Hunk #8 succeeded at 809 (offset 29 lines).
+patching file myisam/ft_nlq_search.c
+patching file myisam/ft_update.c
+Hunk #1 succeeded at 115 (offset -2 lines).
+Hunk #2 succeeded at 181 (offset -2 lines).
+Hunk #3 succeeded at 246 (offset -2 lines).
+Hunk #4 succeeded at 291 (offset -2 lines).
+Hunk #5 succeeded at 300 (offset -2 lines).
+Hunk #6 succeeded at 323 (offset -2 lines).
+patching file myisam/ftdefs.h
+patching file myisam/mi_check.c
+Hunk #1 succeeded at 1892 (offset 2 lines).
+Hunk #2 succeeded at 2691 (offset 2 lines).
+patching file myisam/mi_close.c
+patching file myisam/mi_delete_table.c
+patching file myisam/mi_open.c
+Hunk #1 succeeded at 346 (offset 9 lines).
+patching file myisam/mi_rename.c
+patching file sql/mysqld.cc
+Hunk #1 succeeded at 2612 (offset 117 lines).
+patching file sql/sql_db.cc
+Hunk #1 succeeded at 802 with fuzz 2 (offset 61 lines).
+<<
+んんん・・・まあ当たってるなあ。
+明日でdiffとってみよう。今日はもう疲れた！
