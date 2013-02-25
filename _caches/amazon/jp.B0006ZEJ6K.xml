@@ -1,0 +1,106 @@
+<Item>
+  <ASIN>B0006ZEJ6K</ASIN>
+  <DetailPageURL>http://www.amazon.co.jp/%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0-T-AD1WHX3-ELECOM-%E9%9B%BB%E6%BA%90%E5%BB%B6%E9%95%B7%E3%82%B3%E3%83%BC%E3%83%89-3%E6%9C%AC%E3%82%BB%E3%83%83%E3%83%88/dp/B0006ZEJ6K%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0006ZEJ6K</DetailPageURL>
+  <ItemLinks>
+    <ItemLink>
+      <Description>Add To Wishlist</Description>
+      <URL>http://www.amazon.co.jp/gp/registry/wishlist/add-item.html%3Fasin.0%3DB0006ZEJ6K%26SubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0006ZEJ6K</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>Tell A Friend</Description>
+      <URL>http://www.amazon.co.jp/gp/pdp/taf/B0006ZEJ6K%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0006ZEJ6K</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Customer Reviews</Description>
+      <URL>http://www.amazon.co.jp/review/product/B0006ZEJ6K%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0006ZEJ6K</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Offers</Description>
+      <URL>http://www.amazon.co.jp/gp/offer-listing/B0006ZEJ6K%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0006ZEJ6K</URL>
+    </ItemLink>
+  </ItemLinks>
+  <SmallImage>
+    <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L._SL75_.jpg</URL>
+    <Height Units="pixels">51</Height>
+    <Width Units="pixels">75</Width>
+  </SmallImage>
+  <MediumImage>
+    <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L._SL160_.jpg</URL>
+    <Height Units="pixels">109</Height>
+    <Width Units="pixels">160</Width>
+  </MediumImage>
+  <LargeImage>
+    <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L.jpg</URL>
+    <Height Units="pixels">341</Height>
+    <Width Units="pixels">500</Width>
+  </LargeImage>
+  <ImageSets>
+    <ImageSet Category="primary">
+      <SwatchImage>
+        <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L._SL30_.jpg</URL>
+        <Height Units="pixels">20</Height>
+        <Width Units="pixels">30</Width>
+      </SwatchImage>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L._SL75_.jpg</URL>
+        <Height Units="pixels">51</Height>
+        <Width Units="pixels">75</Width>
+      </SmallImage>
+      <ThumbnailImage>
+        <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L._SL75_.jpg</URL>
+        <Height Units="pixels">51</Height>
+        <Width Units="pixels">75</Width>
+      </ThumbnailImage>
+      <TinyImage>
+        <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L._SL110_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">110</Width>
+      </TinyImage>
+      <MediumImage>
+        <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L._SL160_.jpg</URL>
+        <Height Units="pixels">109</Height>
+        <Width Units="pixels">160</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/31VNZCJAS1L.jpg</URL>
+        <Height Units="pixels">341</Height>
+        <Width Units="pixels">500</Width>
+      </LargeImage>
+    </ImageSet>
+  </ImageSets>
+  <ItemAttributes>
+    <Binding>Personal Computers</Binding>
+    <Brand>エレコム</Brand>
+    <CatalogNumberList>
+      <CatalogNumberListElement>4953103063402</CatalogNumberListElement>
+      <CatalogNumberListElement>T-AD1WHX3</CatalogNumberListElement>
+    </CatalogNumberList>
+    <EAN>4953103063402</EAN>
+    <EANList>
+      <EANListElement>4953103063402</EANListElement>
+    </EANList>
+    <Label>エレコム</Label>
+    <ListPrice>
+      <Amount>1260</Amount>
+      <CurrencyCode>JPY</CurrencyCode>
+      <FormattedPrice>￥ 1,260</FormattedPrice>
+    </ListPrice>
+    <Manufacturer>エレコム</Manufacturer>
+    <Model>T-AD1WHX3</Model>
+    <MPN>T-AD1WHX3</MPN>
+    <PackageDimensions>
+      <Height Units="hundredths-inches">110</Height>
+      <Length Units="hundredths-inches">827</Length>
+      <Weight Units="hundredths-pounds">26</Weight>
+      <Width Units="hundredths-inches">472</Width>
+    </PackageDimensions>
+    <PartNumber>T-AD1WHX3</PartNumber>
+    <ProductGroup>Personal Computer</ProductGroup>
+    <ProductTypeName>COMPUTER_COMPONENT</ProductTypeName>
+    <Publisher>エレコム</Publisher>
+    <ReleaseDate>2004-11-01</ReleaseDate>
+    <SKU>sl019-13892z</SKU>
+    <Studio>エレコム</Studio>
+    <Title>ELECOM 電源延長コード 3本セット T-AD1WHX3</Title>
+  </ItemAttributes>
+</Item>

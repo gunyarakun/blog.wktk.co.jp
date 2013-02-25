@@ -1,0 +1,127 @@
+<Item>
+  <ASIN>477413838X</ASIN>
+  <DetailPageURL>http://www.amazon.co.jp/WEB-DB-PRESS-Vol-50-%E6%9D%89%E5%B1%B1/dp/477413838X%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D477413838X</DetailPageURL>
+  <ItemLinks>
+    <ItemLink>
+      <Description>Add To Wishlist</Description>
+      <URL>http://www.amazon.co.jp/gp/registry/wishlist/add-item.html%3Fasin.0%3D477413838X%26SubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3D477413838X</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>Tell A Friend</Description>
+      <URL>http://www.amazon.co.jp/gp/pdp/taf/477413838X%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3D477413838X</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Customer Reviews</Description>
+      <URL>http://www.amazon.co.jp/review/product/477413838X%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3D477413838X</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Offers</Description>
+      <URL>http://www.amazon.co.jp/gp/offer-listing/477413838X%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3D477413838X</URL>
+    </ItemLink>
+  </ItemLinks>
+  <SmallImage>
+    <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL._SL75_.jpg</URL>
+    <Height Units="pixels">75</Height>
+    <Width Units="pixels">53</Width>
+  </SmallImage>
+  <MediumImage>
+    <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL._SL160_.jpg</URL>
+    <Height Units="pixels">160</Height>
+    <Width Units="pixels">113</Width>
+  </MediumImage>
+  <LargeImage>
+    <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL.jpg</URL>
+    <Height Units="pixels">500</Height>
+    <Width Units="pixels">353</Width>
+  </LargeImage>
+  <ImageSets>
+    <ImageSet Category="primary">
+      <SwatchImage>
+        <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL._SL30_.jpg</URL>
+        <Height Units="pixels">30</Height>
+        <Width Units="pixels">21</Width>
+      </SwatchImage>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">53</Width>
+      </SmallImage>
+      <ThumbnailImage>
+        <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">53</Width>
+      </ThumbnailImage>
+      <TinyImage>
+        <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL._SL110_.jpg</URL>
+        <Height Units="pixels">110</Height>
+        <Width Units="pixels">78</Width>
+      </TinyImage>
+      <MediumImage>
+        <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">113</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/61Co2FMWsRL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">353</Width>
+      </LargeImage>
+    </ImageSet>
+  </ImageSets>
+  <ItemAttributes>
+    <Author>杉山 貴章</Author>
+    <Author>羽生 章洋</Author>
+    <Author>小飼 弾</Author>
+    <Author>角田 直行</Author>
+    <Author>橋本 正徳</Author>
+    <Author>はまちや2</Author>
+    <Author>久末 隆裕</Author>
+    <Author>Junio C Hamano</Author>
+    <Author>グニャラくん</Author>
+    <Author>やまだ あきら</Author>
+    <Author>川口 耕介</Author>
+    <Author>青木 靖</Author>
+    <Author>鶴岡 直也</Author>
+    <Author>長野 雅広</Author>
+    <Author>森田 創</Author>
+    <Author>伊藤 直也</Author>
+    <Author>武者 晶紀</Author>
+    <Author>ミック</Author>
+    <Author>高林 哲</Author>
+    <Binding>大型本</Binding>
+    <Creator Role="編集">WEB+DB PRESS編集部</Creator>
+    <EAN>9784774138381</EAN>
+    <EANList>
+      <EANListElement>9784774138381</EANListElement>
+    </EANList>
+    <IsAdultProduct>0</IsAdultProduct>
+    <ISBN>477413838X</ISBN>
+    <Label>技術評論社</Label>
+    <Languages>
+      <Language>
+        <Name>日本語</Name>
+        <Type>Unknown</Type>
+      </Language>
+    </Languages>
+    <ListPrice>
+      <Amount>1554</Amount>
+      <CurrencyCode>JPY</CurrencyCode>
+      <FormattedPrice>￥ 1,554</FormattedPrice>
+    </ListPrice>
+    <Manufacturer>技術評論社</Manufacturer>
+    <NumberOfPages>224</NumberOfPages>
+    <PackageDimensions>
+      <Height Units="hundredths-inches">47</Height>
+      <Length Units="hundredths-inches">1008</Length>
+      <Weight Units="hundredths-pounds">105</Weight>
+      <Width Units="hundredths-inches">717</Width>
+    </PackageDimensions>
+    <ProductGroup>Book</ProductGroup>
+    <ProductTypeName>ABIS_BOOK</ProductTypeName>
+    <PublicationDate>2009-04-24</PublicationDate>
+    <Publisher>技術評論社</Publisher>
+    <SKU>12-0129-0334-10696-3</SKU>
+    <Studio>技術評論社</Studio>
+    <Title>WEB+DB PRESS Vol.50</Title>
+  </ItemAttributes>
+</Item>

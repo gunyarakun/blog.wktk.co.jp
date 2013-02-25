@@ -1,0 +1,101 @@
+<Item>
+  <ASIN>B00005F3KM</ASIN>
+  <DetailPageURL>http://www.amazon.co.jp/%E3%83%89%E3%82%B7%E3%83%B3%E3%81%AE%E8%B7%A1%E3%82%92%E8%BF%BD%E3%81%A3%E3%81%A6-The-Wake-Doshin-GIANT/dp/B00005F3KM%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00005F3KM</DetailPageURL>
+  <ItemLinks>
+    <ItemLink>
+      <Description>Add To Wishlist</Description>
+      <URL>http://www.amazon.co.jp/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00005F3KM%26SubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00005F3KM</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>Tell A Friend</Description>
+      <URL>http://www.amazon.co.jp/gp/pdp/taf/B00005F3KM%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00005F3KM</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Customer Reviews</Description>
+      <URL>http://www.amazon.co.jp/review/product/B00005F3KM%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00005F3KM</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Offers</Description>
+      <URL>http://www.amazon.co.jp/gp/offer-listing/B00005F3KM%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00005F3KM</URL>
+    </ItemLink>
+  </ItemLinks>
+  <SmallImage>
+    <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L._SL75_.jpg</URL>
+    <Height Units="pixels">75</Height>
+    <Width Units="pixels">75</Width>
+  </SmallImage>
+  <MediumImage>
+    <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L._SL160_.jpg</URL>
+    <Height Units="pixels">160</Height>
+    <Width Units="pixels">160</Width>
+  </MediumImage>
+  <LargeImage>
+    <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L.jpg</URL>
+    <Height Units="pixels">300</Height>
+    <Width Units="pixels">300</Width>
+  </LargeImage>
+  <ImageSets>
+    <ImageSet Category="primary">
+      <SwatchImage>
+        <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L._SL30_.jpg</URL>
+        <Height Units="pixels">30</Height>
+        <Width Units="pixels">30</Width>
+      </SwatchImage>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">75</Width>
+      </SmallImage>
+      <ThumbnailImage>
+        <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">75</Width>
+      </ThumbnailImage>
+      <TinyImage>
+        <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L._SL110_.jpg</URL>
+        <Height Units="pixels">110</Height>
+        <Width Units="pixels">110</Width>
+      </TinyImage>
+      <MediumImage>
+        <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">160</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/41C868JTH5L.jpg</URL>
+        <Height Units="pixels">300</Height>
+        <Width Units="pixels">300</Width>
+      </LargeImage>
+    </ImageSet>
+  </ImageSets>
+  <ItemAttributes>
+    <Artist>浅野達彦</Artist>
+    <Binding>CD</Binding>
+    <EAN>4935228984909</EAN>
+    <EANList>
+      <EANListElement>4935228984909</EANListElement>
+    </EANList>
+    <Label>メディアファクトリー</Label>
+    <ListPrice>
+      <Amount>2310</Amount>
+      <CurrencyCode>JPY</CurrencyCode>
+      <FormattedPrice>￥ 2,310</FormattedPrice>
+    </ListPrice>
+    <Manufacturer>メディアファクトリー</Manufacturer>
+    <NumberOfDiscs>1</NumberOfDiscs>
+    <PackageDimensions>
+      <Height Units="hundredths-inches">43</Height>
+      <Length Units="hundredths-inches">579</Length>
+      <Weight Units="hundredths-pounds">22</Weight>
+      <Width Units="hundredths-inches">496</Width>
+    </PackageDimensions>
+    <ProductGroup>Music</ProductGroup>
+    <ProductTypeName>ABIS_MUSIC</ProductTypeName>
+    <Publisher>メディアファクトリー</Publisher>
+    <ReleaseDate>2000-02-02</ReleaseDate>
+    <RunningTime Units="分">43</RunningTime>
+    <SeikodoProductCode>ZMCX-1055</SeikodoProductCode>
+    <Studio>メディアファクトリー</Studio>
+    <Title>ドシンの跡を追って "In The Wake Of Doshin,the GIANT"</Title>
+  </ItemAttributes>
+</Item>

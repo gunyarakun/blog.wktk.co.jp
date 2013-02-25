@@ -1,0 +1,106 @@
+<Item>
+  <ASIN>B0009SC22W</ASIN>
+  <DetailPageURL>http://www.amazon.co.jp/%E3%82%B5%E3%83%B3%E3%83%AF%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4-KB-T6E-02LB-SANWA-SUPPLY-%E3%82%A8%E3%83%B3%E3%83%8F%E3%83%B3%E3%82%B9%E3%83%89%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA6LAN%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB2m/dp/B0009SC22W%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0009SC22W</DetailPageURL>
+  <ItemLinks>
+    <ItemLink>
+      <Description>Add To Wishlist</Description>
+      <URL>http://www.amazon.co.jp/gp/registry/wishlist/add-item.html%3Fasin.0%3DB0009SC22W%26SubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0009SC22W</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>Tell A Friend</Description>
+      <URL>http://www.amazon.co.jp/gp/pdp/taf/B0009SC22W%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0009SC22W</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Customer Reviews</Description>
+      <URL>http://www.amazon.co.jp/review/product/B0009SC22W%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0009SC22W</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Offers</Description>
+      <URL>http://www.amazon.co.jp/gp/offer-listing/B0009SC22W%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0009SC22W</URL>
+    </ItemLink>
+  </ItemLinks>
+  <SmallImage>
+    <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL._SL75_.jpg</URL>
+    <Height Units="pixels">75</Height>
+    <Width Units="pixels">75</Width>
+  </SmallImage>
+  <MediumImage>
+    <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL._SL160_.jpg</URL>
+    <Height Units="pixels">160</Height>
+    <Width Units="pixels">160</Width>
+  </MediumImage>
+  <LargeImage>
+    <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL.jpg</URL>
+    <Height Units="pixels">500</Height>
+    <Width Units="pixels">500</Width>
+  </LargeImage>
+  <ImageSets>
+    <ImageSet Category="primary">
+      <SwatchImage>
+        <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL._SL30_.jpg</URL>
+        <Height Units="pixels">30</Height>
+        <Width Units="pixels">30</Width>
+      </SwatchImage>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">75</Width>
+      </SmallImage>
+      <ThumbnailImage>
+        <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">75</Width>
+      </ThumbnailImage>
+      <TinyImage>
+        <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL._SL110_.jpg</URL>
+        <Height Units="pixels">110</Height>
+        <Width Units="pixels">110</Width>
+      </TinyImage>
+      <MediumImage>
+        <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">160</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/41etGUuOpRL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">500</Width>
+      </LargeImage>
+    </ImageSet>
+  </ImageSets>
+  <ItemAttributes>
+    <Binding>Personal Computers</Binding>
+    <Brand>サンワサプライ</Brand>
+    <CatalogNumberList>
+      <CatalogNumberListElement>4969887657522</CatalogNumberListElement>
+    </CatalogNumberList>
+    <Color>ライトブルー</Color>
+    <EAN>4969887657522</EAN>
+    <EANList>
+      <EANListElement>4969887657522</EANListElement>
+    </EANList>
+    <Feature>10ギガビットイーサネット対応、CAT6e LANケーブル。2m、ライトブルー。</Feature>
+    <Label>サンワサプライ</Label>
+    <ListPrice>
+      <Amount>1103</Amount>
+      <CurrencyCode>JPY</CurrencyCode>
+      <FormattedPrice>￥ 1,103</FormattedPrice>
+    </ListPrice>
+    <Manufacturer>サンワサプライ</Manufacturer>
+    <Model>KB-T6E-02LB</Model>
+    <MPN>KB-T6E-02LB</MPN>
+    <PackageDimensions>
+      <Height Units="hundredths-inches">94</Height>
+      <Length Units="hundredths-inches">717</Length>
+      <Weight Units="hundredths-pounds">26</Weight>
+      <Width Units="hundredths-inches">567</Width>
+    </PackageDimensions>
+    <PartNumber>KB-T6E-02LB</PartNumber>
+    <ProductGroup>Personal Computer</ProductGroup>
+    <ProductTypeName>COMPUTER_COMPONENT</ProductTypeName>
+    <Publisher>サンワサプライ</Publisher>
+    <SKU>43148</SKU>
+    <Studio>サンワサプライ</Studio>
+    <Title>SANWA SUPPLY KB-T6E-02LB エンハンスドカテゴリ6LANケーブル2m</Title>
+  </ItemAttributes>
+</Item>

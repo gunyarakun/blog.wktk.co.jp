@@ -1,0 +1,111 @@
+<Item>
+  <ASIN>B0000EZHSG</ASIN>
+  <ParentASIN>B005LLQ7ZK</ParentASIN>
+  <DetailPageURL>http://www.amazon.co.jp/%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0-ELECOM-AC%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%82%922%E3%82%B3%E3%81%A4%E3%81%AA%E3%81%92%E3%82%8B%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB-%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88-T-AD3WH/dp/B0000EZHSG%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0000EZHSG</DetailPageURL>
+  <ItemLinks>
+    <ItemLink>
+      <Description>Add To Wishlist</Description>
+      <URL>http://www.amazon.co.jp/gp/registry/wishlist/add-item.html%3Fasin.0%3DB0000EZHSG%26SubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0000EZHSG</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>Tell A Friend</Description>
+      <URL>http://www.amazon.co.jp/gp/pdp/taf/B0000EZHSG%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0000EZHSG</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Customer Reviews</Description>
+      <URL>http://www.amazon.co.jp/review/product/B0000EZHSG%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0000EZHSG</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Offers</Description>
+      <URL>http://www.amazon.co.jp/gp/offer-listing/B0000EZHSG%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB0000EZHSG</URL>
+    </ItemLink>
+  </ItemLinks>
+  <SmallImage>
+    <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L._SL75_.jpg</URL>
+    <Height Units="pixels">53</Height>
+    <Width Units="pixels">75</Width>
+  </SmallImage>
+  <MediumImage>
+    <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L._SL160_.jpg</URL>
+    <Height Units="pixels">113</Height>
+    <Width Units="pixels">160</Width>
+  </MediumImage>
+  <LargeImage>
+    <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L.jpg</URL>
+    <Height Units="pixels">353</Height>
+    <Width Units="pixels">500</Width>
+  </LargeImage>
+  <ImageSets>
+    <ImageSet Category="primary">
+      <SwatchImage>
+        <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L._SL30_.jpg</URL>
+        <Height Units="pixels">21</Height>
+        <Width Units="pixels">30</Width>
+      </SwatchImage>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L._SL75_.jpg</URL>
+        <Height Units="pixels">53</Height>
+        <Width Units="pixels">75</Width>
+      </SmallImage>
+      <ThumbnailImage>
+        <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L._SL75_.jpg</URL>
+        <Height Units="pixels">53</Height>
+        <Width Units="pixels">75</Width>
+      </ThumbnailImage>
+      <TinyImage>
+        <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L._SL110_.jpg</URL>
+        <Height Units="pixels">78</Height>
+        <Width Units="pixels">110</Width>
+      </TinyImage>
+      <MediumImage>
+        <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L._SL160_.jpg</URL>
+        <Height Units="pixels">113</Height>
+        <Width Units="pixels">160</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/3152YHSRZ3L.jpg</URL>
+        <Height Units="pixels">353</Height>
+        <Width Units="pixels">500</Width>
+      </LargeImage>
+    </ImageSet>
+  </ImageSets>
+  <ItemAttributes>
+    <Binding>Personal Computers</Binding>
+    <Brand>エレコム</Brand>
+    <CatalogNumberList>
+      <CatalogNumberListElement>T-AD3WH</CatalogNumberListElement>
+      <CatalogNumberListElement>4953103035096</CatalogNumberListElement>
+    </CatalogNumberList>
+    <EAN>4953103035096</EAN>
+    <EANList>
+      <EANListElement>4953103035096</EANListElement>
+    </EANList>
+    <Feature>仕様:電源2分岐ケーブル</Feature>
+    <Feature>容量:合計600Wまで</Feature>
+    <Feature>コネクタ:2P x2個口</Feature>
+    <Feature>カラー:ホワイト</Feature>
+    <Feature>ケーブル長:0.2m</Feature>
+    <Label>エレコム</Label>
+    <ListPrice>
+      <Amount>945</Amount>
+      <CurrencyCode>JPY</CurrencyCode>
+      <FormattedPrice>￥ 945</FormattedPrice>
+    </ListPrice>
+    <Manufacturer>エレコム</Manufacturer>
+    <MPN>T-AD3WH</MPN>
+    <PackageDimensions>
+      <Height Units="hundredths-inches">102</Height>
+      <Length Units="hundredths-inches">906</Length>
+      <Weight Units="hundredths-pounds">26</Weight>
+      <Width Units="hundredths-inches">409</Width>
+    </PackageDimensions>
+    <PartNumber>T-AD3WH</PartNumber>
+    <ProductGroup>Personal Computer</ProductGroup>
+    <ProductTypeName>COMPUTER_COMPONENT</ProductTypeName>
+    <Publisher>エレコム</Publisher>
+    <ReleaseDate>2003-10-15</ReleaseDate>
+    <SKU>57-035096</SKU>
+    <Studio>エレコム</Studio>
+    <Title>ELECOM ACアダプタを2コつなげるケーブル ホワイト T-AD3WH</Title>
+  </ItemAttributes>
+</Item>
