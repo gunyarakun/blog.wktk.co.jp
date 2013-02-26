@@ -1,0 +1,158 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: Longman(5訂版)附属DVDから英語・米語のMP3を抽出する
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 23
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMw==
+date: 2010-08-19 03:59:06.000000000 +09:00
+categories:
+- 英語学習
+tags: []
+comments:
+- id: 19
+  author: required
+  author_email: !binary |-
+    cmVxdWlyZWRAbm90LnB1Ymxpc2hlZA==
+  author_url: !binary |-
+    aHR0cDovL1dlYnNpdGU=
+  date: !binary |-
+    MjAxMC0xMS0wOSAyMDo1NTowMSArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMC0xMS0wOSAxMTo1NTowMSArMDkwMA==
+  content: ! 'LDOCE5の自作ビューアを作ろうとしていたので、抽出方法が参考になりました。
+
+    とはいえ、リバースエンジニアリング禁止規定に引っかからないか心配です。'
+- id: 20
+  author: tasuku
+  author_email: !binary |-
+    YmxvZ0B3a3RrLmNvLmpw
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMC0xMS0xMCAxNjozNTo0NSArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMC0xMS0xMCAwNzozNTo0NSArMDkwMA==
+  content: ! 'おお、自作ビューワ楽しみです。公式ビューワはちょっともっさりしていますし。もし可能であれば、公開を期待します。
+
+    僕は、LongmanのDVD内のデータやプログラミングはリバースエンジニアリングしていません。<a href="http://www.geocities.co.jp/tak492/"
+    rel="nofollow">LDOCE5 DVDをEPWING化する</a>のサイトのプログラミングを参考にしただけです。とはいえ、リバースエンジニアリング禁止規定の文言を見ていないので、厳密に規定に違反していないかどうかは不明です。'
+- id: 25
+  author: required
+  author_email: !binary |-
+    cmVxdWlyZWRAbm90LnB1Ymxpc2hlZA==
+  author_url: !binary |-
+    aHR0cDovL1dlYnNpdGU=
+  date: !binary |-
+    MjAxMC0xMS0xNSAxODozMTo1NyArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMC0xMS0xNSAwOTozMTo1NyArMDkwMA==
+  content: ! '良く考えずに適当なことを書いてしまいました。
+
+    データを利用するだけなら問題ないみたいです。
+
+
+    まだ何も作ってないですが、うまくいったら成果物は以下で公開しようと思います。
+
+    http://code.google.com/p/shortman/'
+- id: 101
+  author: 一利用者
+  author_email: !binary |-
+    c3RqbmRzQGdtYWlsLmNvbQ==
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMS0wOS0yMiAxNzozMjo1NiArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMS0wOS0yMiAwODozMjo1NiArMDkwMA==
+  content: ! "音声抽出スクリプト利用させていただきました。\r\nありがとうございます。\r\n\r\n1割くらい抜き出せない音があるのですが、仕様でしょうか？\r\nそれとも実行環境(vista)のせいでしょうか？\r\n教えていただければ幸いです。\r\nちなみに音声ファイルは46364個抽出できています。\r\n\r\n・音声ファイルがない。\r\nagricultural,
+    ax, berry, bite, catalog,draft　他多数\r\n・ファイルにあるけど発音が違う。\r\nera, coward, darling,
+    spade, frost, bond, cruise, orient,duke, 他"
+- id: 104
+  author: tasuku
+  author_email: !binary |-
+    YmxvZ0B3a3RrLmNvLmpw
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMS0wOS0yOSAxOToxMTozNCArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMS0wOS0yOSAxMDoxMTozNCArMDkwMA==
+  content: ! "報告ありがとうございます。\r\n\r\n実行環境のせいではなく、不具合だと思います。\r\nヒマがあったら修正しておきますね！"
+- id: 124
+  author: DAYS
+  author_email: !binary |-
+    bmluZWV4aXRAeWFob28uY28uanA=
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMS0xMS0xMSAxNzoxNjoyNSArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMS0xMS0xMSAwODoxNjoyNSArMDkwMA==
+  content: ! "ロングマンから問題集を作成しようとしています。\r\nLDOCE5toMP3.pyをしたいのですが、このプログラムのライセンス形態は何でしょうか？\r\nライセンス次第では、公開しようかと考えています。"
+- id: 128
+  author: tasuku
+  author_email: !binary |-
+    YmxvZ0B3a3RrLmNvLmpw
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMS0xMS0xMyAyMzozMTo0MiArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMS0xMS0xMyAxNDozMTo0MiArMDkwMA==
+  content: ! "コメントありがとうございます。\r\nでは、変形MIT licenseとしたいと考えます。\r\n著作権表示の代わりとして、このエントリのURLをソースコードのどこかに入れておいてください。\r\n公開楽しみにしております！"
+- id: 233
+  author: hiro
+  author_email: !binary |-
+    dW1pZ2FtZV9zdHlsZUB5YWhvby5jby5qcA==
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMi0xMC0zMSAxOTozNjowMyArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMi0xMC0zMSAxMDozNjowMyArMDkwMA==
+  content: ! "いつも拝見させていただいています。有益なエントリーばかりで大変勉強になります。\r\nこちらの記事を拝見して&rdquo;MP3ファイルに変換するスクリプト&rdquo;を使用させていただこうと思ったのですが、上手くダウンロードできませんでした。もしお時間があれば、再度アップロードしていただけないでしょうか。\r\n何卒よろしくお願いいたします。"
+- id: 241
+  author: tasuku
+  author_email: !binary |-
+    YmxvZ0B3a3RrLmNvLmpw
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMi0xMS0wOSAxMzo0MDowNCArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMi0xMS0wOSAwNDo0MDowNCArMDkwMA==
+  content: ! "★hiroさん＞\r\n指摘ありがとうございます。サーバが落ちていました。\r\n再度ダウンロードできるようになっています。"
+- id: 244
+  author: hiro
+  author_email: !binary |-
+    dW1pZ2FtZV9zdHlsZUB5YWhvby5jby5qcA==
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMi0xMS0xMSAxOTowMTozNyArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMi0xMS0xMSAxMDowMTozNyArMDkwMA==
+  content: ! "お忙しいところありがとうございます。\r\nさっそく利用させていただきました。とても快適です。また訪問させていただきます。"
+---
+前エントリ「<a href="http://blog.wktk.co.jp/archives/15">P-Study SystemでアルクのSVL/SILの問題集を簡単に作成する</a>」にて、英単語の学習を「<a href="http://www.takke.jp/">P-Study System</a>」を用いて行っていることを書きました。<a href="http://twitter.com/takke/status/21500818692">P-Study Systemの作者様にも当ブログを認知いただけた</a>ようです。ありがたいことです。
+
+認知記念に（？）、ロングマン 現代英英辞典【5訂版】(通称: LDOCE5)から、英語・米語発音の音声を取り出し、P-Study Systemで使える(だろう)形式のMP3ファイルに変換するスクリプトを公開してみます。
+
+http://www.amazon.co.jp/%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%9E%E3%83%B3%E7%8F%BE%E4%BB%A3%E8%8B%B1%E8%8B%B1%E8%BE%9E%E5%85%B8-5%E8%A8%82%E7%89%88-DVD-ROM%E4%BB%98/dp/4342100940
+
+あんまり出来はよくないですが、８割くらいは動いているっぽいので公開してみます。
+<ul>
+	<li><a href="http://tasuku.suenaga.name/pub/english/LDOCE5toMP3.zip">LDOCE5toMP3.zip</a></li>
+</ul>
+解凍後、ディレクトリ内のLDOCE5toMP3.exeを実行してください。DVDのパス選択、英語・米語の選択、出力先のパス選択の３つを行います。音声ファイルの一覧を取得したあと、MP3ファイルを大量に吐き出します。
+
+既知の問題点
+<ul>
+	<li>変換が始まると、変換終了までアプリケーションが無反応になります。変換終了とともに、自動的にプログラムも終了します。</li>
+	<li>余計なMP3ファイルをたくさん作っていそうな気がします。あまり気にしないでください。</li>
+	<li>米語のwon'tだけ変換に失敗しています。</li>
+	<li>P-Study Systemで読み込んでくれる音声ファイルのファイル名の規則性が分からないため、COBUILD用の変換スクリプトを参考に適当にファイル名を決めています。</li>
+</ul>
+修正やツッコミがあれば、よろしくお願いいたします。

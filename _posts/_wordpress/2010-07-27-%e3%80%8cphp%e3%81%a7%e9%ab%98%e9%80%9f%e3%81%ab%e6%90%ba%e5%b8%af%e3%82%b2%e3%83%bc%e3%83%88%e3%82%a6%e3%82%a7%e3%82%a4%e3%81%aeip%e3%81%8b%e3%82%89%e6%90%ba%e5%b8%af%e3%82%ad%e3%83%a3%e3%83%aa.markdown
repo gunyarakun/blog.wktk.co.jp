@@ -1,0 +1,49 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: 「PHPで高速に携帯ゲートウェイのIPから携帯キャリアを判別する」を更新する
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 10
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xMA==
+date: 2010-07-27 13:58:29.000000000 +09:00
+categories:
+- 技術メモ
+- PHP
+- Python
+tags: []
+comments:
+- id: 161
+  author: PHP で IP から各携帯キャリアの判定 | sugitaku.net
+  author_email: !binary ""
+  author_url: !binary |-
+    aHR0cDovL3d3dy5zdWdpdGFrdS5uZXQvYmxvZy8yMDEyLzA0LzIxL3BocC0l
+    ZTMlODElYTctaXAtJWUzJTgxJThiJWUzJTgyJTg5JWU1JTkwJTg0JWU2JTkw
+    JWJhJWU1JWI4JWFmJWUzJTgyJWFkJWUzJTgzJWEzJWUzJTgzJWFhJWUzJTgy
+    JWEyJWUzJTgxJWFlJWU1JTg4JWE0JWU1JWFlJTlhLw==
+  date: !binary |-
+    MjAxMi0wNC0yMSAxMTozNTozNSArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMi0wNC0yMSAwMjozNTozNSArMDkwMA==
+  content: ! '[...]  [...]'
+---
+はてなのブログに書いた「<a href="http://d.hatena.ne.jp/tasukuchan/20071231/1199105717">PHPで高速に携帯ゲートウェイのIPから携帯キャリアを判別する</a>」というエントリがあります。
+
+およそ３年前に書いたスクリプトで、すっかりその存在を忘れていました。
+
+そのスクリプトですが、某社内で使われていたことが判明。調べてみると、現在のhtmlではうまく情報が取得できなくなっていたようです。
+
+スクリプトを更新し、2010/07/27現在で動作するように修正いたしました。
+<ul>
+	<li><a href="http://svn.coderepos.org/share/lang/python/cidr-mobilejp/trunk/scrape.py" target="_blank">各キャリアの情報からPHPスクリプトを出力する scrape.py</a></li>
+	<li><a href="http://svn.coderepos.org/share/lang/python/cidr-mobilejp/trunk/ip2mobile.php" target="_blank">scrape.pyを用いて生成したip2mobile.php</a></li>
+</ul>
+ご利用の方は更新をお願いいたします。

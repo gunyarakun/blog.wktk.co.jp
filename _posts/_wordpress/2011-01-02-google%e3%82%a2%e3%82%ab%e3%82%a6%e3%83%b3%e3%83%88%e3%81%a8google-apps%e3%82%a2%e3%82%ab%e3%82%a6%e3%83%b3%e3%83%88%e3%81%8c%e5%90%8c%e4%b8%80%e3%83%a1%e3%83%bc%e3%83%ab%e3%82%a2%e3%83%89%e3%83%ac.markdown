@@ -1,0 +1,80 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: GoogleアカウントとGoogle Appsアカウントが同一メールアドレスの場合、App Engineのアプリケーション作成に不具合あり
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 100
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xMDA=
+date: 2011-01-02 22:39:35.000000000 +09:00
+categories:
+- 技術メモ
+- Google App Engine
+tags: []
+comments: []
+---
+Google App Engineでおそらく不具合であろう挙動に出会った。
+誰か情報があったら助けてほしいな。
+
+通常のGoogleのアカウントを、AAAA@example.comで取得。
+そのアカウントを使い、Google App Engineに登録。
+その後、Google Appsのアカウントを AAAA@example.com で取得。
+
+こういった状態のもと、App Engine 管理コンソールで作成したアプリケーションがリストに追加されないという問題があった。
+<a href="https://groups.google.com/group/google-app-engine-japan/browse_thread/thread/3cde38b1695db422/bd2efc8262c88322?show_docid=bd2efc8262c88322&hl=ja">https://groups.google.com/group/google-app-engine-japan/browse_thread/thread/3cde38b1695db422/bd2efc8262c88322?show_docid=bd2efc8262c88322&hl=ja
+</a>と同じ症状のようだ。
+
+上記メールの方は、以下のAppsログインページからログインすれば問題が解決したようだ。
+http://appengine.google.com/a/example.com/
+僕の場合は、「Unauthorized You are not authorized to access this application.」というエラーが出てNG。
+
+どうやら、Google Appsのアカウントに登録しているメールアドレスと、
+通常のGoogleアカウントのメールアドレスがかぶっていると、
+よからぬことが起こるらしい。
+<a href="http://www.google.com/support/a/bin/answer.py?answer=185172">http://www.google.com/support/a/bin/answer.py?answer=185172</a>
+<a href="http://www.google.com/support/a/bin/answer.py?answer=185186">http://www.google.com/support/a/bin/answer.py?answer=185186</a>
+
+メールアドレスがかぶっているのがよくないと考え、
+- Googleの個人アカウントは、そのままAAAA@example.comとする。
+- Google Appsのアカウントを、BBBB@example.comに変更する。
+をチャレンジ。
+
+Googleの個人アカウントの設定ページで、AAAA@example.comのメールアドレスを、CCCC@example.comに変更。
+Google Appsの管理画面で、BBBB@example.com というユーザを作成し、AAAA@example.com というユーザを削除。
+Googleの個人アカウントの設定ページで、CCCC@example.comのメールアドレスを、AAAA@example.comに変更。
+
+さあこれでどうだ！&hellip;やっぱり問題解決せず。
+しかも、appcfg updateでAAAA@example.comのメールアドレスを指定してデプロイすることも出来なくなっている。
+
+どうやら、Google AppsアカウントでありなおかつAAAA@example.comでないと、
+アプケーションリストをきちんと閲覧することができない & デプロイできないのではないか、と予想。
+
+方針を変えて、
+- Googleの個人アカウントは、DDDD@example.comとする。
+- Google Appsのアカウントを、AAAA@example.comに戻す。
+をチャレンジ。
+
+しようと思ったら、なんと削除したメールアドレスでは5日間Appsアカウントの作成ができないらしい。うおお。
+<a href="http://www.google.com/support/a/bin/answer.py?answer=107878&&hl=en">http://www.google.com/support/a/bin/answer.py?answer=107878&&hl=en</a>
+
+いろいろ移行作業をしている途中で、http://appengine.google.com/を見てみると、
+アプリケーションが複数表示されているのに、
+残りアプリケーション数が10になっている状態などを体験した。
+再現手順を確立していないが、アプリケーション数制限10を超えられる方法がありそうな気がする。
+
+Issue Trackerに報告しようと思ったら、似たような問題を報告している人がいた。
+<a href="http://code.google.com/p/googleappengine/issues/detail?id=2421">http://code.google.com/p/googleappengine/issues/detail?id=2421</a>
+んでも放置されているんだよなー&hellip;
+
+とりあえず、5日待ってAAAA@example.comのアカウント作成を再申請してみるか。復活してほしい。
+
+[追記] 復活できなかったので、問題を報告しておいた。
+<a href="http://code.google.com/p/googleappengine/issues/detail?id=4388">http://code.google.com/p/googleappengine/issues/detail?id=4388</a>

@@ -1,0 +1,98 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: 冬だ！グニャ鍋だ！（俺式ピェンローレシピ）
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 253
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yNTM=
+date: 2012-10-21 21:51:13.000000000 +09:00
+categories:
+- 日常
+tags: []
+comments: []
+---
+急に肌寒くなってきました。読者の皆様はいかがお過ごしでしょうか。
+
+冬といえば鍋の季節。我が家では、「グニャ鍋」の出番ですね。元ネタは、舞台美術家の妹尾河童さんの著書「河童のスケッチブック」で紹介されている「ピェンロー」です。あまりのおいしさ＆手軽さに、こればっかり食べていたのですが、その過程でちょっとアレンジされています。量は全部適量な。
+<h3>材料</h3>
+<ul>
+	<li>豚バラ</li>
+	<li>ごま油</li>
+	<li>干ししいたけ</li>
+	<li>だし昆布（オリジナルでは使わない）</li>
+	<li>塩昆布（オリジナルでは使わない）</li>
+	<li>七味唐辛子、もしくは一味唐辛子＋山椒（オリジナルでは一味唐辛子）</li>
+	<li>マロニー（なるべく太麺タイプ）、もしくは葛きり（オリジナルでは春雨）</li>
+</ul>
+<h4>オプション</h4>
+<ul>
+	<li>鶏モモ肉もしくは鶏手羽先</li>
+	<li>食べたければ、豆腐（オリジナルでは使わない）</li>
+	<li>日本酒（オリジナルでは使わない）</li>
+</ul>
+今回はフルセットで。
+
+<a class="thickbox" title="材料一覧" href="http://farm9.staticflickr.com/8328/8107981343_fbcea4d1de_b.jpg"><img title="材料一覧" src="http://farm9.staticflickr.com/8328/8107981343_fbcea4d1de.jpg" alt="材料一覧" width="500" height="375" /></a>
+
+この豚バラからおいしいダシが出るのです。
+
+<a class="thickbox" title="豚バラ先生" href="http://farm9.staticflickr.com/8194/8107991188_d321e35881_b.jpg"><img title="豚バラ先生" src="http://farm9.staticflickr.com/8194/8107991188_d321e35881.jpg" alt="豚バラ先生" width="500" height="375" /></a>
+<h3>準備</h3>
+白菜は、芯と葉っぱの部分を分ける。自分はキッチンばさみで１枚ずつ切り分けているが、ざっくり包丁で二分割するのでも可。芯の部分は千切りに。葉っぱの部分は手で適当に２・３分割する。
+<h4>オプション</h4>
+<ul>
+	<li>モモ肉があれば、自分が食べたい大きさに切り分けておく。</li>
+	<li>干ししいたけはお茶碗に入れて、ちょっと水入れてラップして電子レンジでチン。そのまま投入でも可。</li>
+	<li>マロニーや葛きりは、100均のパスタゆで容器などを使って、軽く戻しておく。そのまま投入でも可。</li>
+</ul>
+<h3>手順</h3>
+1. 鍋に「干ししいたけともどし汁」を入れ、だし昆布と、白菜の芯の部分を入れる。
+2. 日本酒を少量入れ、水をどぼどぼ入れ、火にかける。
+
+<a class="thickbox" title="グツグツ" href="http://farm9.staticflickr.com/8331/8107981677_f70709ec0e_b.jpg"><img title="グツグツ" src="http://farm9.staticflickr.com/8331/8107981677_f70709ec0e.jpg" alt="グツグツ" width="500" height="375" /></a>
+
+3. 沸騰してきたら、豚肉と鶏肉をくっつかないようにバラして入れる。
+4. 煮込む。弱火～中火がよい。
+5. 白菜の芯の部分が透明になってきたら、白菜の葉っぱの部分を重ね入れ、マロニー的なものを入れる。豆腐を入れる場合はこのタイミングで。
+
+<a class="thickbox" title="見えねー" href="http://farm8.staticflickr.com/7182/6776277360_bdcef59b2f_b.jpg"><img title="見えねー" src="http://farm8.staticflickr.com/7182/6776277360_bdcef59b2f.jpg" alt="見えねー" width="500" height="375" /></a>
+
+6. 葉っぱがクタってきたら、ゴマ油を２周くらいまわしかける。たっぷりと、多すぎかもってくらいに。
+
+<a class="thickbox" title="見えた！" href="http://farm9.staticflickr.com/8328/8107991862_31eafcf618_b.jpg"><img title="見えた！" src="http://farm9.staticflickr.com/8328/8107991862_31eafcf618.jpg" alt="見えた！" width="500" height="375" /></a>
+
+7. 器にゴマと塩昆布、七味唐辛子を入れておく。そこに少し煮汁をかける。その上に、適当な具材を取る。
+
+<a class="thickbox" title="ウマスープ" href="http://farm8.staticflickr.com/7192/6776278056_277e70870e_b.jpg"><img title="ウマスープ" src="http://farm8.staticflickr.com/7192/6776278056_277e70870e.jpg" alt="ウマスープ" width="500" height="375" /></a>
+
+<a class="thickbox" title="マルマル盛り盛り" href="http://farm9.staticflickr.com/8191/8107992134_3bf72d520b_b.jpg"><img title="マルマル盛り盛り" src="http://farm9.staticflickr.com/8191/8107992134_3bf72d520b.jpg" alt="マルマル盛り盛り" width="500" height="375" /></a>
+
+8. おいしくいただく。食べながら塩昆布、七味唐辛子、塩、ゴマなどを適宜追加投入して、スープの味を自分好みに保つ。
+9. 残ったダシで、うどん作ったり、雑炊作ったり、次の日の鍋のために濾して取っておく。
+<h3>連日食べ続けるための工夫</h3>
+この鍋は、残り汁を取っておいて、白菜・豚バラ・マロニーを追加すればずっとおいしくいただけます。
+<ul>
+	<li>残り汁は粗く濾しておいて、冷蔵しておきましょう。</li>
+	<li>豚バラは、大量に買って小分けにして冷凍しておきましょう。かなり持ちます。</li>
+	<li>鶏肉は初日のみ入れて、２日目以降は豚バラだけでもOKです。初日から鶏なしでもいけます。</li>
+</ul>
+<h3>いただいたアドバイス</h3>
+<blockquote class="twitter-tweet tw-align-center" lang="ja"><p>何かと思ったらピェンローに「グニャ鍋」とかわけわからん名前勝手に付けんな。鶏肉は豚肉と同量入れるのが基本。干し椎茸の戻し汁が薄いと台無しになるので量をケチらない。まずは妹尾河童のレシピ通りやれ。 / &ldquo;冬だ！グニャ鍋だ！（俺式ピェン&hellip;&rdquo; <a href="http://t.co/dcbyk8rk" title="http://htn.to/zh45ez">htn.to/zh45ez</a></p>&mdash; はどぼささん (@hardbossa) <a href="https://twitter.com/hardbossa/status/262861250042662912" data-datetime="2012-10-29T10:19:40+00:00">10月 29, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+鶏・豚・干し椎茸のダシがからみあうのがこの鍋のおいしさ。僕も干し椎茸の量は多めで作っています。ぜひぜひオリジナルレシピもお試しください！
+<h3>影響を受けたレシピ</h3>
+<ul>
+	<li><a title="ピェンロー（白菜鍋）レシピ" href="http://anond.hatelabo.jp/20071207170751">ピェンロー（白菜鍋）レシピ</a>
+たぶん、これ見て最初につくった。七味禁止、と言っているが、守ってませんサーセン。山椒で麻したくて。</li>
+	<li><a href="http://cookpad.com/recipe/714987">ピェンロー鍋（扁炉鍋） by noriran</a>
+日本酒はココ起源。</li>
+</ul>

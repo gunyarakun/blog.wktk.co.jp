@@ -1,0 +1,61 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: DeNAに転職いたしました
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 202
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMDI=
+date: 2011-08-09 19:20:34.000000000 +09:00
+categories:
+- 日常
+tags: []
+comments:
+- id: 145
+  author: R
+  author_email: !binary |-
+    UkBSLmNvbQ==
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMi0wMi0xNyAxMDo0MjoyOCArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMi0wMi0xNyAwMTo0MjoyOCArMDkwMA==
+  content: 株式会社ｗｋｔｋのコンタクトより問い合わせさせて頂こうとしたところエラーのようです。どちらへご連絡すればよろしいでしょうか？
+- id: 147
+  author: tasuku
+  author_email: !binary |-
+    YmxvZ0B3a3RrLmNvLmpw
+  author_url: !binary ""
+  date: !binary |-
+    MjAxMi0wMy0wNSAyMToxMjo1NSArMDkwMA==
+  date_gmt: !binary |-
+    MjAxMi0wMy0wNSAxMjoxMjo1NSArMDkwMA==
+  content: ! 'コンタクトフォーム放置していたら動かなくなっていました。
+
+    ご指摘ありがとうございます。
+
+    コンタクトフォームを修正させていただきましたので、そちらから連絡よろしくお願いいたします。'
+---
+2011年6月、有限会社未来検索ブラジルを退職し、株式会社ディー・エヌ・エーに転職いたしました。
+
+前職でお世話になった多くの方々にじゅうぶんに挨拶できていない状態で、大変申し訳ございません。現職では、スマートフォン向けソーシャルゲームの開発を行っております。今後ともよろしくお願いいたします。
+
+<a href="http://blog.shibu.jp/article/43616649.html" target="_blank">渋川さん</a>と一緒に撮影した写真を掲載します。
+
+<div><a class="thickbox" title="P1040177" href="http://farm7.static.flickr.com/6125/6024273571_31deb49003_b.jpg"><img src="http://farm7.static.flickr.com/6125/6024273571_31deb49003.jpg" alt="P1040177" title="P1040177" width="500" height="375" /></a></div>
+
+目が笑っていない人が僕です。
+
+<div><a class="thickbox" title="P1040178" href="http://farm7.static.flickr.com/6193/6024272833_d4d0e16659_b.jpg"><img src="http://farm7.static.flickr.com/6193/6024272833_d4d0e16659.jpg" alt="P1040178" title="P1040178" width="500" height="375" /></a></div>
+
+目をつぶっている人が僕です。
+
+結論：写真映りもっとよくなりたいよね

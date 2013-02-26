@@ -1,0 +1,28 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: ! 'MySQL Casual Talks #2で発表しました'
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 208
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMDg=
+date: 2011-08-10 10:45:06.000000000 +09:00
+categories:
+- 技術メモ
+- MySQL
+tags: []
+comments: []
+---
+MySQL Casual Talks #2にて発表してきました。「超カジュアルに使うMySQL」という内容で、いつものごとくジョーク枠担当です。
+
+発表資料は以下のとおりです。
+
+<div style="width:425px" id="__ss_8813654"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/TasukuSuenaga/mysqlcasualtalks2suenaga" title="超カジュアルに使うMySQL @ MySQL Casual Talks #2" target="_blank">超カジュアルに使うMySQL @ MySQL Casual Talks #2</a></strong> <iframe src="http://www.slideshare.net/slideshow/embed_code/8813654" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/TasukuSuenaga" target="_blank">Tasuku Suenaga</a> </div> </div>

@@ -1,0 +1,34 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: SALSA AIR/Cosmolite/Liquis/ZERO Air、どのスーツケースを買うかで悩む
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 196
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xOTY=
+date: 2011-07-23 15:39:17.000000000 +09:00
+categories:
+- 日常
+tags: []
+comments: []
+---
+スーツケース選びで悩んでいる。
+
+RIMOWA SALSA AIR 78cmと、Samsonite Cosmolite Spinner 74cmと、antler Liquis 75cmと、ZERO HALLIBURTON ZERO&nbsp;air。サルサエアーが一番容量がでかいが強度的に弱いのかも、コスモライトは貝殻の形状分容量が削られている、antlerは158cmの制限にひっかかる、ZERO airも角が削られている。
+
+Samsonite Cosmolite Spinnet 74cmは実際使っているところを見たことがあり、すごくよいものだった。コストパフォーマンスもよいし。
+
+寝かせて考える。
+
+[rakuten]selection:10007431[/rakuten]
+[rakuten]glv:10023533[/rakuten]
+
+[rakuten]getueno:10001812[/rakuten]

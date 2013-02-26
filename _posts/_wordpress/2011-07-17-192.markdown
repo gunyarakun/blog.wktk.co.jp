@@ -1,0 +1,46 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: JavaでPlay frameworkを試しに遊んでみるもさっそく詰まったでござる
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 192
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xOTI=
+date: 2011-07-17 06:25:10.000000000 +09:00
+categories:
+- Java
+tags: []
+comments: []
+---
+ひさびさにJavaを触りたいと思っていた。理由はすっかり忘れているから。
+
+ニコ生のプログラミング放送で、どのフレームワークでWebシステムを作ったほうがいいか聞いてみたところ、Play frameworkというのをおすすめされた。Java製（ツール類はPython製もあり）。というわけで、チュートリアルを触って遊んでいたら、いきなり詰まった。初のテストを書く部分で。
+
+以下のようなエラーが自動コンパイル時に発生する。
+<pre>Compilation error (In /app/models/user.java around line 9)
+The file /app/models/user.java could not be compiled. Error raised is : The public type User must be defined in its own file</pre>
+user.javaというファイル名なのにUserというpublicクラスを定義しようとしてエラー。しかし、ファイルシステム上のファイル名はきちんとUser.javaなんだが&hellip;
+
+試しに、アプリケーションのtmpディレクトリを削除いてみたら、エラーが変わり
+<pre>Compilation error (In /app/models/user.java around line 9)
+The file /app/models/user.java could not be compiled. Error raised is : The type User is already defined</pre>
+と出るようになった。
+
+原因は、初のテストを書く部分で
+<pre>User bob = user.find("byEmail", "bob@gmail.com").first();</pre>
+と書いていたこと。
+<pre>User bob = User.find("byEmail", "bob@gmail.com").first();</pre>
+に修正したら動いた。
+
+名前空間にuserがない -> user.javaというファイルをmodel内で探す -> open時にファイル名の大文字小文字を区別しないシステムだと(Windows/Mac) User.javaをuser.javaでも開ける -> Userの多重定義もしくはファイル名との相違
+ということらしい。うおお。
+
+Twitterで、ひさびさに触ったJavaにまだHashMapのリテラルがないことを嘆いてみた。しかし、HashMapのリテラルがないことが、Javaの設定ファイル文化を推し進めているのかな？AnnotationsがついたあたりからJavaを触っていないのでしばらくリハビリしてみる。

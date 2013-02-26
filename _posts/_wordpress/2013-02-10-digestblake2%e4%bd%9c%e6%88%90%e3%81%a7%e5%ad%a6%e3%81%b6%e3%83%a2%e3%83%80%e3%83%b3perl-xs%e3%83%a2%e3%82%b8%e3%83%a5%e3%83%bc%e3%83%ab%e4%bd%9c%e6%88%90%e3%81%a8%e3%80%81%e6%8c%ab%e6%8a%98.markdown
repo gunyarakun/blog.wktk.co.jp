@@ -1,0 +1,156 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: Digest::BLAKE2作成で学ぶモダンPerl XSモジュール作成と、挫折
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 331
+wordpress_url: !binary |-
+  aHR0cHM6Ly9ibG9nLndrdGsuY28uanAvP3A9MzMx
+date: 2013-02-10 15:16:49.000000000 +09:00
+categories:
+- 技術メモ
+- Perl
+tags: []
+comments: []
+---
+Perlを3行書くと死ぬ奇病にかかってはや数年、毎日青息吐息で出社している僕です。一番好きな言語はC言語です。裏切らないから。
+
+というわけで、裏切らないC言語でPerlのモジュールがかければ死ぬ可能性が低まるのではないか、という仮説のもとに、XS module作成を習作してみよう。
+
+<a href="https://blake2.net/">BLAKE2</a>というとよさげなハッシュアルゴリズムがあるので、それをPerl module化してみた。
+
+<ul>
+<li><a href="https://github.com/gunyarakun/p5-Digest-BLAKE2">https://github.com/gunyarakun/p5-Digest-BLAKE2</a></li>
+<li><a href="http://search.cpan.org/~gunya/Digest-BLAKE2/">http://search.cpan.org/~gunya/Digest-BLAKE2/</a></li>
+</ul>
+
+<h2>ベンチマーク</h2>
+
+まずはベンチマークから。
+
+BLAKE2には4つのアルゴリズムがあるが、マルチプロセス版はセグフォしたので、BLAKE2bとBLAKE2sのみ。
+
+BLAKE2bは64bit CPUで高速に動き512bit出力。BLAKE2sは8-32bit CPUで高速に動き256bit出力。
+
+ビット数あたりの早さでは、MD5を超え、MurmurHashに肉薄している。結構速いっすね。cmptheseでRateの割り算ができればもっときれいに比較できるかな。
+
+<code>
+[perl]
+                        Rate SHA512    (512bit) SHA1      (160bit) BLAKE2b   (512bit) BLAKE2s   (256bit) MD5       (128bit) MurmurHash(256bit)
+SHA512    (512bit)   70572/s                 --                -0%               -90%               -92%               -94%               -95%
+SHA1      (160bit)   70671/s                 0%                 --               -90%               -92%               -94%               -95%
+BLAKE2b   (512bit)  704225/s               898%               896%                 --               -15%               -41%               -54%
+BLAKE2s   (256bit)  833333/s              1081%              1079%                18%                 --               -30%               -45%
+MD5       (128bit) 1190476/s              1587%              1585%                69%                43%                 --               -21%
+MurmurHash(256bit) 1515152/s              2047%              2044%               115%                82%                27%                 --
+[/perl]
+</code>
+
+<h2>どんな風に書いたか</h2>
+
+BLAKE2のアルゴリズムごとに、pmとxsのソースコードを自動生成するようにしてみた。
+
+また、今時hexとbase64だけではつらいので、urlsafeなbase64と、Ascii85を追加してみた。<a href="http://base91.sourceforge.net/">basE91</a>とかも入れようかと思ったけど見送り。
+
+Base64, urlsafe Base64, Ascii85へのエンコードは、爆速をうたうエンコードライブラリであるstringencodersを使った。
+
+stringencodersのAscii85は、Adobe式というか、PostScript/PDFで使われているものに近いらしく、Convert::Ascii85とは文字セットが異なる。
+
+普通のAscii85だとテーブルルックアップする必要はないのだが、今回はstringencodersのmod_b85_gen.cをいじってテーブルの配置を変えた。
+
+また、big endianかどうかをstringencodersに教えないといけないので、use Config; $Config->{byteorder}; でバイトオーダを取得してconfig.hを書き出すようにしてしのいだ。
+
+<h2>悩んだところ</h2>
+
+今回、typester先生の<a href="https://speakerdeck.com/typester/xsnimatuwaruhua">XSにまつわる話</a>スライドを見ながらXSモジュールを書いてみた。
+
+以下のようなことで悩んだ。
+
+<ul>
+<li>
+Module::Build::Pluggable::XSUtilを使っているモジュールが少ない。ただでさえ、Build.PLを使っているモジュールが少ないのに、情報量が少なくて詰んだ。typester先生の<a href="https://github.com/typester/EV-Hiredis">EV::Hiredis</a>を見ながらしのいだ。
+</li>
+<li>
+Module::Build::PluggableとModule::Build->subclassを共存させる方法がよくわかんなくて、ACTION_codeでソースコードテンプレートからソースを生成したかったけど、Build.PLのトップレベルでソースコードを生成してしのいだ。Module::Build::Pluggableのソースコードを見る限り、そう簡単にはいかないっぽい。
+<a href="https://github.com/tokuhirom/mRuby.pm/blob/master/Build.PL">mRuby.pmのBuild.PL</a>のように、
+自分でppport.h生成とc99 checkをやらないといけないのかもしれないけど、ちょっと面倒。
+</li>
+<li>
+ソースコードテンプレートに変更があっても、Buildで検出してくれない。ソースコードを生成しなおして、Buildできるようにしたい。
+<a href="https://github.com/tokuhirom/Nana/blob/master/Build.PL">NanaのBuild.PL</a>のようにすれば、うまく自動生成をハンドリングしてくれるのかな。
+</li>
+<li>
+shipitしようとすると、Digest-BLAKE2-0.01/というディレクトリが消えずに残っていて怒られた。.gitignoreとMANIFEST.SKIPに書いてしのいだがなんか不吉な予感する。
+</li>
+<li>
+CPANにソースコードテンプレートであるBLAKE2x.pmファイルがインデックス化されている。そのモジュールはインストールされず、別名のモジュールがインストールされちゃいます。
+</li>
+<li>
+CPANにblake2ディレクトリのREADMEがインデックス化されている。
+</li>
+<li>
+今でもh2xsを最初に使うべきなのかな。今回はh2xsを全く使わず。
+</li>
+<li>
+typemapというファイルの存在を知らずにハマったのが一番時間を食った。h2xsを使わないのがよくないのか。
+</li>
+
+<h2>まとめ</h2>
+
+初めてのXS moduleとそのCPANリリースをやってみた。
+
+一応それなりに高速に動作するハッシュモジュールができて満足だが、パッケージングやビルドまわりでは手詰まり感。XSよりModule::Buildについて調べるのに時間がかかってしまった。モダンXSってどう書くのがいいのか、ある程度テンプレがほしいですね。
+
+<h2>ベンチマークコード</h2>
+
+<code>
+[perl]
+use Benchmark qw(:all);
+
+use Digest::MD5;
+use Digest::SHA;
+use Digest::MurmurHash;
+use Digest::BLAKE2;
+
+sub md5 {
+  Digest::MD5::md5_hex($_[0]);
+}
+
+sub sha1 {
+  Digest::SHA::sha1_hex($_[0]);
+}
+
+sub sha1 {
+  Digest::SHA::sha512_hex($_[0]);
+}
+
+sub murmur {
+  unpack('H*', Digest::MurmurHash::murmur_hash($_[0]));
+}
+
+sub blake2b {
+  Digest::BLAKE2::blake2b_hex($_[0]);
+}
+
+sub blake2s {
+  Digest::BLAKE2::blake2s_hex($_[0]);
+}
+
+cmpthese(1000000, {
+    'MD5       (128bit)' => sub { md5($str) },
+    'SHA1      (160bit)' => sub { sha1($str) },
+    'MurmurHash(256bit)' => sub { murmur($str) },
+    'BLAKE2s   (256bit)' => sub { blake2s($str) },
+    'SHA512    (512bit)' => sub { sha1($str) },
+    'BLAKE2b   (512bit)' => sub { blake2b($str) },
+});
+[/perl]
+</code>

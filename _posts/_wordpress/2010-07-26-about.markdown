@@ -1,0 +1,24 @@
+---
+layout: !binary |-
+  cGFnZQ==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: このブログについて
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 2
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cGFnZV9pZD0y
+date: 2010-07-26 08:59:31.000000000 +09:00
+categories: []
+tags: []
+comments: []
+---
+株式会社wktkという会社の代表取締役である、末永匡のブログです。
+
+詳細なプロフィールは<a title="プロフィール" href="http://www.wktk.co.jp/profile" target="_blank">株式会社wktkのプロフィールページ</a>をご覧ください。

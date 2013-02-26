@@ -1,0 +1,346 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: deCODEmeとNavigenicsで遺伝子検査をしたデータを公開してみる。
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+excerpt: ! "弊社、株式会社ｗｋｔｋは代表取締役一人だけが従事する会社です。彼に健康上の問題があれば、ゴーイングコンサーンが崩れてしまいます。会社存続リスクの定量化を試みました&hellip;
+  遺伝子検査を行うことによって！(ｷﾘｯ\r\n\r\nというわけで、海外の遺伝子検査サービスを複数申し込んでみて、その比較をしてみました。\r\n\r\n"
+wordpress_id: 20
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMA==
+date: 2010-10-11 23:53:46.000000000 +09:00
+categories:
+- 会社運営
+tags: []
+comments: []
+---
+弊社、株式会社ｗｋｔｋは代表取締役一人だけが従事する会社です。彼に健康上の問題があれば、ゴーイングコンサーンが崩れてしまいます。会社存続リスクの定量化を試みました&hellip; 遺伝子検査を行うことによって！(ｷﾘｯ
+
+というわけで、海外の遺伝子検査サービスを複数申し込んでみて、その比較をしてみました。
+
+<a id="more"></a><a id="more-20"></a>
+検査キットや検査結果などの画像が多いので、気楽に流し見てください。本エントリの情報は2010/08/14現在のもので、文中の$はUS$です。
+<h2>どの遺伝子検査サービスを選ぶか</h2>
+代表的な遺伝子検査サービスとして、deCODEme/23andMe/Navigenics/Pathway Genomicsの4つが挙げられます。
+
+これらのサービスでは、遺伝子の検査（特定の疾患にかかるリスクや、薬剤の効き、祖先の情報）をメインのサービスとしています。それ以外にも、遺伝子でつながるSNS的なサービスもやっていたりするものもあります。無料ゲームならぬ、遺伝子でつながるSNSですよ!!!遺伝子出会い系サービスなんか面白そうですね。
+
+脱線失礼。さて、これらの検査サービスは何が違うのでしょうか。
+
+deCODEmeのサイトに、<a href="http://www.decodeme.com/product-comparison" target="_blank">Compare with competitorsというページ</a>があります。Pathway Genomic以外の3サービスについて言及されています。各サービスで検査される「SNP」と呼ばれるものの数を比較しているようです。
+
+SNP(スニップ)とは、Single Nucleotide Polymorphismの略で、一塩基多型というらしいです。ある塩基配列のうち、１つの塩基のみ異なるやつらの集合、ということのようです。詳細は<a href="http://ja.wikipedia.org/wiki/%E4%B8%80%E5%A1%A9%E5%9F%BA%E5%A4%9A%E5%9E%8B" target="_blank">Wikipediaの「一塩基多型」の項目</a>をご覧ください。人間であれば遺伝子のほとんどは共通です。そのうち個人差が出る部分だけを調べてやろう、ということですね。SNPを調べることによって、さまざまな診断を行うわけです。
+
+上記比較サイトを見ると、検査されるSNPの数はdeCODEmeが一番多いようです。しかし、サービス全体の使い心地は、試してみなきゃわからないですよね。
+
+というわけで、NavigenicsとdeCODEmeの両社で遺伝子検査を申し込んでみました。
+
+23andMeは、残念ながら日本から申し込みを行うことができません。<a href="http://d.hatena.ne.jp/ma_ko/20100730/p1" target="_blank">Pathway Genomicsについては、申し込みを行った方のブログ</a>がありますので、そちらを参照ください。
+<h3>Navigenics</h3>
+<a href="https://www.navigenics.com/" target="_blank"> Navigenicsのサイト</a>で、アカウントを登録したあとに申し込みを行います。料金は$1,000。
+
+2010/05/13に申し込みを行いました。2010/05/14に、検査キットを発送したよ！というメールが来ました。
+
+申し込み後１週間くらいしたら、西濃運輸の人がFedExの包みを持ってきました。
+<a class="thickbox" href="http://farm5.static.flickr.com/4103/5055770612_1c2250b677_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4103/5055770612_1c2250b677.jpg" width="500" height="375" /></a>
+
+包みを開けると、青い箱と、紙袋が出てきました。
+<a class="thickbox" href="http://farm5.static.flickr.com/4092/5055771634_ae2f894aa3_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4092/5055771634_ae2f894aa3.jpg" width="500" height="375" /></a>
+
+紙袋を開けると、医療用のFedEx袋やら、FedExの伝票やらが入っています。
+FedExによる返送料はキット代金に含まれているようです。
+<a class="thickbox" href="http://farm5.static.flickr.com/4126/5055154135_1bef1b745c_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4126/5055154135_1bef1b745c.jpg" width="500" height="375" /></a>
+
+青い箱を開けてみましょう。説明書と検査キットが出てきました。
+<a class="thickbox" href="http://farm5.static.flickr.com/4151/5055155259_91fd5099d9_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4151/5055155259_91fd5099d9.jpg" width="500" height="375" /></a>
+
+説明書には、「唾液とれ！袋入れろ！送れ！」って書いてあるようです。
+<a class="thickbox" href="http://farm5.static.flickr.com/4091/5055155445_817294d35e_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4091/5055155445_817294d35e.jpg" width="500" height="375" /></a>
+
+検査キットはこんな感じ。
+<a class="thickbox" href="http://farm5.static.flickr.com/4110/5055774662_d647560f74_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4110/5055774662_d647560f74.jpg" width="500" height="375" /></a>
+<a class="thickbox" href="http://farm5.static.flickr.com/4145/5055156979_11e45058f9_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4145/5055156979_11e45058f9.jpg" width="500" height="375" /></a>
+
+「みそぎ」のつもりで、検体を採取する前に、リステリンを使ってしまった馬鹿な僕。何か食べたり飲んだりしたあとは、１時間の間隔を空ける必要があるようです。１時間じっと待ち、唾液をキット内に入れました。規定量まで入れるのがツラかったです&hellip;
+
+キット内の試験管部分だけを取り外し、フタをして標本袋に入れます。
+<a class="thickbox" href="http://farm5.static.flickr.com/4106/5055158945_913bc0f8de_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4106/5055158945_913bc0f8de.jpg" width="500" height="375" /></a>
+
+さらに、その標本袋を青い箱に入れて、付属のシールでフタをします。
+<a class="thickbox" href="http://farm5.static.flickr.com/4084/5055777006_155e876d5b_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4084/5055777006_155e876d5b.jpg" width="500" height="375" /></a>
+
+さらに、その青い箱を医療用のFedEx袋に入れます。俺の唾液守られすぎ。
+<a class="thickbox" href="http://farm5.static.flickr.com/4127/5055159591_0e9a17c36e_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4127/5055159591_0e9a17c36e.jpg" width="500" height="375" /></a>
+
+FedExの伝票を書きます。意外とメンドイ。
+<a class="thickbox" href="http://farm5.static.flickr.com/4083/5055777616_b6a42a3666_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4083/5055777616_b6a42a3666.jpg" width="500" height="375" /></a>
+
+伝票の左下に品目が書いてあるのですが、そこにNON-INFECTIOUS/NON-HAZARDOUSって書いてあります。その横は、$5とも。$5の価値があるキレイな俺の唾液！
+
+税関申告用の書類を書かなければいけません。送るものの重さを書く欄がありますが、僕が計ったときには116gでした。
+<a class="thickbox" href="http://farm5.static.flickr.com/4108/5055777840_27b895f213_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4108/5055777840_27b895f213.jpg" width="500" height="375" /></a>
+
+FedExの伝票と税関申告用の書類をまとめて、粘着面つきの袋に入れます。袋だらけ&hellip;
+<a class="thickbox" href="http://farm5.static.flickr.com/4105/5055160247_dec5c3638c_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4105/5055160247_dec5c3638c.jpg" width="500" height="375" /></a>
+
+検体が入ったキットと各種書類を、近所のFedEx/kinkosに持ち込みました。ここで１つトラブルが発生。なんと、もともと入っていた伝票は無効とのこと。
+
+伝票は新しく発行され、全ての内容を書き写す必要がありました。別途料金はかかりませんでしたが、かなり面倒でした。おそらく日本のFedExでは使えない伝票だったのかもしれないですね。
+
+さらに、もともとの伝票では、宛先欄に会社名(Navigenics)は記載してありましたが、受取人の氏名欄は空欄のままでした。FedEx/kinkosの窓口の方いわく、受取人の氏名が必要だとのこと。税関用の書類に、Navigenics社の担当者名が書いてあったので、それを書き写しました。
+
+2010/05/23に検体を送り、2010/05/28に検体が届いた旨のメールが届きました。そして、2010/06/08に検査結果が出たとのメールが！
+
+早速Navigenicsのサイトを見てみます。
+
+まず、Conditions included in resultsというページで、どの検査項目について結果を表示するかを選択します。
+僕は全ての検査項目について検査結果を表示するように設定してみました。
+<h4>Health Conditions</h4>
+検査結果ページは、検査項目ごとに枠が表示され、罹患するリスクなどの情報が枠内に記載されています。罹患リスクが平均より20%高いか、絶対値として25%以上である枠は、背景色がオレンジ色になります。
+
+<a href="http://www.flickr.com/photos/gunyarakun/5054007228/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4086/5054007228_89cb8eb6db.jpg" width="252" height="500" /></a>
+
+検査結果の英語が分かんねー&hellip;訳してみました。
+<ul>
+	<li>Abdominal aneurysm(腹部大動脈瘤)</li>
+	<li>Alzheimer's disease(アルツハイマー病)</li>
+	<li>Atrial fibrillation(心房細動)</li>
+	<li>Brain aneurysm(脳動脈瘤)</li>
+	<li>Celiac disease(小児脂肪便症/セリアック病)</li>
+	<li>Colon cancer(結腸癌)</li>
+	<li>Crohn's disease(炎症性腸疾患のうち、クローン病)</li>
+	<li>Deep vein thrombosis(深部静脈血栓症)</li>
+	<li>Diabetes, type 2(2型糖尿病)</li>
+	<li>Glaucoma(緑内障)</li>
+	<li>Graves' disease(バセドウ病)</li>
+	<li>Heart attack(心臓発作)</li>
+	<li>Hemo-chromatosis(血色素症/ヘモクロマトーシス)</li>
+	<li>Lactose intolerance(乳糖不耐症)</li>
+	<li>Lung cancer(肺がん)</li>
+	<li>Lupus(全身性エリテマトーデス)</li>
+	<li>Melanoma(黒色腫)</li>
+	<li>Multiple sclerosis(多発性硬化症)</li>
+	<li>Obesity(肥満症)</li>
+	<li>Osteoarthritis(変形性関節症)</li>
+	<li>Prostate cancer(前立腺癌)</li>
+	<li>Psoriasis(乾癬)</li>
+	<li>Restless legs syndrome(むずむず脚症候群)</li>
+	<li>Rheumatoid arthritis(関節リウマチ)</li>
+	<li>Sarcoidosis(サルコイドーシス)</li>
+	<li>Stomach cancer, diffuse(未分化型胃がん)</li>
+</ul>
+株式会社ｗｋｔｋ代表取締役は、未分化型胃がん、変形性関節症、心臓発作、肥満症のリスクが平均より高いようです。また、乳糖不耐症である可能性が高いことが分かりました。牛乳でお腹ゴロゴロする人ってことです。でも、ゴロゴロしたことないんですよねー&hellip;
+
+検査項目をクリックすると、より詳細な情報が表示されます。
+
+Obesity(肥満)について表示してみました。79%の人は、遺伝子的には僕より肥満になりやすいようです。ただし、同じページの記述によれば、33%は環境によって影響されるらしいです。大食いとかやめないと&hellip;
+<a href="http://www.flickr.com/photos/gunyarakun/5053387623/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4112/5053387623_5db4701397.jpg" width="239" height="500" /></a>
+
+Your DNAというタブがあります。
+
+「DNAの特定部位がどのようなパターンである、だから、このくらいのリスクがあるよ。その根拠はこの論文だよ。」といった内容が書いてあります。
+<a href="http://www.flickr.com/photos/gunyarakun/5053387659/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4090/5053387659_dd98f81ed5.jpg" width="300" height="500" /></a>
+<h4>Medications</h4>
+Medicationsというタブがあります。そこでは、ある特定の薬で副作用があるのか、また薬効があるのか、という情報を得ることができます。
+
+<a href="http://www.flickr.com/photos/gunyarakun/5054007282/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4107/5054007282_d3e243a5c2.jpg" width="244" height="500" /></a>
+
+抗凝固剤ワルファリンは特別な処方が必要で、経口抗血小板薬クロピドグレルは薬効が減っていくのであんまり効かないようです。
+<h3>deCODEme</h3>
+deCODEmeの場合、がんコース(Cancer Scan) $500、心臓病コース(Cardio Scan) $500、全部入りコース(Complete Scan)$2,000の３コースを選択できます。がん&amp;心臓病コースは、$200割引で$800です。
+
+今回は、$2,000の全部入りコースを2010/05/13に申し込みました。2010/05/14に、検査キットを発送したよ！というメールが来ました。
+
+それから１週間後くらいすると、事務所ポストに白い封筒が突っ込んでありました。封筒の端っこは破けています。
+<a class="thickbox" href="http://farm5.static.flickr.com/4110/5055153033_b19b6eb4f7_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4110/5055153033_b19b6eb4f7.jpg" width="500" height="375" /></a>
+
+封筒を開けると、キットが出てきました。キットの箱は返送時にも使うため、丁寧に扱う必要があります。
+<a class="thickbox" href="http://farm5.static.flickr.com/4151/5055770996_daf9f62934_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4151/5055770996_daf9f62934.jpg" width="500" height="375" /></a>
+<a class="thickbox" href="http://farm5.static.flickr.com/4129/5055153731_d97e1b3347_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4129/5055153731_d97e1b3347.jpg" width="500" height="375" /></a>
+
+箱を開けてみます。説明書と紙封筒、検体採取具が入っています。
+<a class="thickbox" href="http://farm5.static.flickr.com/4089/5055772166_efc7cd0ea1_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4089/5055772166_efc7cd0ea1.jpg" width="500" height="375" /></a>
+
+検体採取具は、プラスチックと紙でできたシンプルなものです。
+<a class="thickbox" href="http://farm5.static.flickr.com/4111/5055154913_69fef47c8e_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4111/5055154913_69fef47c8e.jpg" width="500" height="375" /></a>
+<a class="thickbox" href="http://farm5.static.flickr.com/4144/5055158171_75cfdb11fd_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4144/5055158171_75cfdb11fd.jpg" width="500" height="375" /></a>
+
+封筒は、返送時に検体採取具を入れるためのものです。
+<a class="thickbox" href="http://farm5.static.flickr.com/4127/5055772894_0db42238d1_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4127/5055772894_0db42238d1.jpg" width="500" height="375" /></a>
+
+説明書を見てみます。検体採取具をズラして、紙製の部分を露出させます。左ほほ、右ほほそれぞれの内側を、１つずつの採取具で８回こすります。
+２つの採取具を封筒にいれます。
+<a class="thickbox" href="http://farm5.static.flickr.com/4133/5055154543_6d652fd08c_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4133/5055154543_6d652fd08c.jpg" width="500" height="375" /></a>
+<a class="thickbox" href="http://farm5.static.flickr.com/4107/5055772598_f6769a3f3a_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4107/5055772598_f6769a3f3a.jpg" width="500" height="375" /></a>
+
+最後に、返送用あて先シールを箱に貼り、ガムテープで箱を密封します。Navigenicsに比べるとシンプル。
+
+Navigenicsとは違って、検体をdeCODEmeへ送るための送料を負担する必要があります。送料を安くするため、今回は、郵便局で「<a href="http://www.post.japanpost.jp/int/service/small_packing.html" target="_blank">小形包装物</a>」として発送しました。
+
+海外に物品を郵便として発送する際には、「<a href="http://www.post.japanpost.jp/int/use/writing/customs.html" target="_blank">税関告知書(CN22)</a>」というものを出す必要があります。「内容物の数量及び明細」には、「GENETIC TEST COLLECTION KIT」と書きました。
+
+郵便局で発送の際、CN22をチェックされました。窓口の方いわく、これでは内容が分からなく、税関で止められる場合もある、とのこと。
+「No Alcohol」とか「Plastic and Paper」とか、とにかく「安全なものである」ということを書いたほうがよい、とアドバイスを受けました。
+よって、CN22にそれらの文言を書き加え、発送しました。
+
+2010/05/23に検体を送りました。2010/05/26に検体が到着したとのメールが到着。2010/06/16に検査結果が出たとのメールが到着しました。
+
+早速deCODEmeのサイトを閲覧しましょう。
+<a href="http://www.flickr.com/photos/gunyarakun/5053386345/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4086/5053386345_94e4de7bc5.jpg" width="500" height="403" /></a>
+
+まずは、自分の個人情報を設定します。Gender(性別)とEthnicity(民族性)は必須入力項目です。deCODEmeに通知した個人情報は、項目ごとに公開の範囲を選択することができます。誰でも公開、マイミク的なdeCODEme friendsにのみ公開、まったく公開しない、の３種類の公開範囲を選択できます。
+
+deCODEmeには、Health Watch ResultsとAncestry Resultsという２つの結果を知ることができます。Health Watch Resultsでは特定の疾病に罹患するリスクなどの情報を、Ancestry Resultsでは自分の先祖がどのような系統であるのかという情報を知ることができます。
+<h4>Health Watch Results</h4>
+まずは、Health Watch Resultsを見てみます。結果ページには、ずらっと検査項目が並んでいます。
+<a href="http://www.flickr.com/photos/gunyarakun/5054005944/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4133/5054005944_b5ce730169.jpg" width="93" height="500" /></a>
+
+まずは、ABO血液型についての結果を閲覧してみましょう。deCODEmeでは結果を見るためには、項目ごとにいくつかの手順を踏む必要があります。項目をクリックすると、「本当に結果を表示していいのかどうか」を確認する画面が表示されます。
+<a class="thickbox" href="http://farm5.static.flickr.com/4110/5060230674_bde17106b2_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4110/5060230674_bde17106b2.jpg" width="240" height="229" /></a>
+
+次に、簡単なアンケート画面が表示されます。
+<a class="thickbox" href="http://farm5.static.flickr.com/4085/5059617099_6431e5da14_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4085/5059617099_6431e5da14.jpg" width="240" height="119" /></a>
+アンケートの質問としては、自分や自分の親が特定の疾患であると診断されたことがあるか？というものがメインです。これらの回答についても、情報公開する範囲を選択することができます。
+
+アンケートに答えると、診断結果のサマリーが選択した項目に表示されます。
+<a href="http://www.flickr.com/photos/gunyarakun/5054006086/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4087/5054006086_e9643cd1c3.jpg" width="93" height="500" /></a>
+
+項目内にある、「full results」のリンクをたどると、詳細な結果を閲覧することができます。
+<a href="http://www.flickr.com/photos/gunyarakun/5053386469/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4133/5053386469_ba62d53740.jpg" width="434" height="500" /></a>
+Nagigenicsに比べ、画像や写真を使って見た目がキレイですね。
+診断結果の根拠となる論文等へのリンクもあります。
+
+診断に使われたSNP近辺を、Javaで動作するゲノムブラウザで閲覧することもできます。
+<a href="http://www.flickr.com/photos/gunyarakun/5053386573/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4146/5053386573_151ab51fc1.jpg" width="500" height="378" /></a>
+
+すべての検査結果を閲覧するためには、検査項目ごとに上記の操作を繰り返していきます。地味に大変な作業です。
+<a href="http://www.flickr.com/photos/gunyarakun/5059616929/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4103/5059616929_c1b8747f55.jpg" width="93" height="500" /></a>
+
+上記の捜査を行ったのに、結果が表示されない項目があります。実は、Ethnicity/Genderによっては、いくつかの検査項目について結果が表示されません。どうやら、東アジア人男性は根拠となるデータが少なく、妥当性のある結果が出せないのでしょう。
+
+あーせっかく一番高いコースにしたのにっ！
+
+冷静になって考えれば、根拠が薄いデータを出されるよりは「わかんねー」と正直に言ってもらえるほうがいいですよね。好感度が上がりました。同時に、ちょっと損した気分になったけど。
+
+解析されたデータは、deCODEme側に保持されています。将来的に新たなエビデンスが発見されれば、結果が閲覧できるようになるようです。
+
+deCODEmeの結果と、他サービスとの結果が異なることもあるようです。たとえば、ABO血液型については、23andMeとdeCODEmeで結果が違う場合があるようです。検査しているSNP(s)が違うから、というのが理由らしいです。
+
+結局、どんな検査結果を閲覧することができるんでしょうか。東アジア人男性が閲覧できる検査結果一覧は、以下のとおりです。
+<ul>
+	<li>ABO Blood Types(ABO血液型)</li>
+	<li>Age Related Macular Degeneration(加齢黄斑変性）</li>
+	<li>Alcohol Flush Reaction(アルコール紅潮反応)</li>
+	<li>Asthma(ぜんそく)</li>
+	<li>Atrial Fibrillation(心房細動)</li>
+	<li>Bitter Taste Perception(苦味受容)</li>
+	<li>Brain Aneurysm(脳動脈瘤)</li>
+	<li>Colorectal Cancer(結腸直腸癌)</li>
+	<li>Eye Color(目の色)</li>
+	<li>Heart Attack(心臓発作)</li>
+	<li>Hemochromatosis(血色素症/ヘモクロマトーシス)</li>
+	<li>Lactose Intolerance(乳糖不耐症)</li>
+	<li>Male Pattern Baldness(男性型脱毛症)</li>
+	<li>Nicotine Dependence(ニコチン依存)</li>
+	<li>Psoriasis(乾癬)</li>
+	<li>Rheumatoid Arthritis(関節リウマチ)</li>
+	<li>Statin Induced Myopathy(スタチン誘発筋疾患)</li>
+	<li>Type 2 Diabetes(2型糖尿病)</li>
+	<li>Warfarin Metabolism(ワルファリン代謝)</li>
+</ul>
+東アジア人男性ではNavigenicsのほうが閲覧できる検査結果が多いようです。
+
+結果をざっと見る限り、株式会社ｗｋｔｋ代表取締役は、肺が弱くて、自己免疫疾患もかかりやすめ、といったところでしょうか。
+疾病に対するものではない検査項目がNavigenicsより多いです。見ていて楽しいですね。ニコチン依存性なども分かります。
+<h4>Ancestry Results</h4>
+Ancestry Resultsを見てみます。
+<a href="http://www.flickr.com/photos/gunyarakun/5053386593/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4088/5053386593_ee9390fd21.jpg" width="358" height="500" /></a>
+
+Ascestry Resultsの中にはいくつかのメニューがあります。Ancestral originsという項目を見ます。
+<a href="http://www.flickr.com/photos/gunyarakun/5053386617/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4110/5053386617_1d088dcb50.jpg" width="442" height="500" /></a>
+22個の常染色体と、X染色体について、europian/african/east-asianの３グループのうちどれに一番マッチするか、というのをコンピュータで検査した結果です。
+
+X染色体のほうは、6%もeuropianが入っているようです。とはいえ、このデータがどういう意味を持つのか、というのがよく分かりません。
+
+Female lineという項目を見ます。これは、母由来のミトコンドリアDNAを解析した結果です。
+<a href="http://www.flickr.com/photos/gunyarakun/5053386641/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4153/5053386641_6737785f6b.jpg" width="437" height="500" /></a>
+
+いわゆるミトコンドリア・イブから、どのように分化していったのかを示す表があります。自分のミトコンドリアDNAがどのグループに属するかが、表上に図示されています。
+
+僕のミトコンドリアDNAは、mitogroup Dに属するらしいです。当該mitogroupについて、簡単な説明とWikipedia英語版記事へのリンクがあります。東アジア人の2割は、mitogroup Dだそうですよ。
+
+また、同じmitogroupの人を閲覧することもでいます。マイミクならぬ、マイミト。同じmitogroupのdeCODEmeユーザに対してメッセージを送ることができたりします。
+<a href="http://www.flickr.com/photos/gunyarakun/5053386665/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4091/5053386665_518abf0a08.jpg" width="301" height="500" /></a>
+
+しかし、どんなメッセージがやりとりされているんでしょうか。「mitogroup Dだから仲良くしようぜ！」とかかな。
+
+Male lineという項目を見ます。これは、父由来のY染色体を解析した結果です。
+<a href="http://www.flickr.com/photos/gunyarakun/5054006330/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4083/5054006330_451ce70193.jpg" width="434" height="500" /></a>
+
+ミトコンドリアDNAの図と似ています。
+
+Y染色体グループにはさらにサブグループがあります。僕の場合は、Y染色体グループがOで、サブグループはO3a3でした。日本人男性の半数はOグループなんだって。
+
+これらの結果を見る限り、僕は東アジア人のようです。<strong>イタリア生まれ長崎育ちの色男</strong>だと思っていたのになー&hellip;もっといろいろ混血していれば、面白い結果が出るのかもしれないですね。
+
+Man of kinshipという項目を見ます。
+<a href="http://www.flickr.com/photos/gunyarakun/5054006394/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4110/5054006394_4b5704f84c.jpg" width="422" height="500" /></a>
+
+Man of kinshipを閲覧する際には、Javaのアプリケーションが起動します。いくつかの軸のなかから３軸を選び、地域ごとに色分けされた遺伝情報を３次元上に描くものです。
+<img src="http://farm5.static.flickr.com/4108/5053386873_8c4265f0c1.jpg" width="499" height="500" />
+ばっちり東アジア人ゾーンにプロットされていました。ちぇ&hellip;（ゲバラ）
+<h3>SNPsのcsvデータ</h3>
+deCODEmeでは、解析されたSNPsの一覧をcsvファイルでダウンロードすることができます。とはいえ、ダウンロードしても使い勝手がない&hellip;
+というわけで、<a href="http://tasuku.suenaga.name/SNPs.zip" target="_blank">ダウンロードした僕のSNPsデータ</a>を公開します。
+
+ファイル形式はcsvファイルです。SNPごとに、自分がどのタイプであるのかがわかります。
+<img src="http://farm5.static.flickr.com/4124/5059249693_796bc8bc8c.jpg" width="500" height="420" />
+
+「P2Pで公開されることにより、クラウド上で永遠と複製され続けるDNA」的なストーリーで、メディアアートなどに仕立ててやってください。
+「子孫から訴えられたりするので、公開やめたほうがいいよ！」とありがたいアドバイスもいただいたのですが、ためしに公開してみます。
+
+csvファイルを開いたエディタは、EmEditorです。EmEditorはWindows用のエディタです。csv/tsvファイルを整形して表示し、編集できる機能があって便利です。さらに、メモリには乗りきらない巨大なテキストファイルの一部のみを開く機能もあります。巨大なcsvファイルを閲覧・編集するのにうってつけですね。<a href="http://jp.emeditor.com/modules/feature1/rewrite/tc_13.html" target="_blank">Zen Codingも使えます。</a>
+
+<a href="http://www.shareit.com/product.html?productid=300338216&amp;backlink=http%3A%2F%2Fblog.wktk.co.jp%2F&amp;affiliateid=200126374" target="_blank">EmEditorを購入する際はぜひ当サイトから！（宣伝）</a>
+<h2>Navigenics/deCODEmeの比較</h2>
+両サービスのよいところ、悪いところをまとめました。
+<h3>Navigenicsのよいところ</h3>
+<ul>
+	<li>東アジア人男性でも、多くの検査結果を知ることができる。</li>
+</ul>
+<h3>deCODEmeのよいところ</h3>
+<ul>
+	<li>苦味受容や目の色など、疾病ではない項目の検査結果を知ることができる。</li>
+	<li>将来的に、Navigenicsより多くの結果を知りうる可能性がある。</li>
+	<li>祖先の情報を知ることができる。</li>
+	<li>SNPsの情報をcsvデータで得ることができる。</li>
+	<li>検査結果が見た目がキレイで、楽しい。</li>
+</ul>
+<h3>Navigenicsの悪いところ</h3>
+<ul>
+	<li>検体取得作業が手間がかかる。</li>
+	<li>FedExで検体を送付するのにひと手間かかる。</li>
+	<li>検査結果の妥当性については、deCODEmeよりは低い可能性がある。</li>
+</ul>
+<h3>deCODEmeの悪いところ</h3>
+<ul>
+	<li>現時点では、東アジア人男性が閲覧できる検査項目が少ない。特に、心臓病コース・がんコースでは、ほとんどの結果が表示されないと予想される。</li>
+	<li>検査料が高額。</li>
+</ul>
+どちらのサービスも、知りたくない検査結果を知らないで済むように注意深く作られているところがよいと感じました。あたりまえかもしれないけど。
+<h2>まとめ</h2>
+NavigenicsとdeCODEmeという２大遺伝子検査サービスについて実際に検査を申し込んでみました。どのように検体を取るのか、検査結果はどのように表示されるのかについて写真・画像を使って概説させていただきました。
+
+現段階では、東アジア人がこのような遺伝子検査サービスを申し込んでも、値段が高いわりには得られる情報の質が高くないという印象です。「高額な占い」気分で検査するのがよいと考えます。
+
+ALDH2や肥満などの検査であれば、日本でも検査キットが簡単に入手できます。特定の遺伝情報について知りたいのであれば、そういったキットで充分ではないでしょうか。日本人に特化していて、気軽に申し込め、多くのSNPを検査できるサービスが望まれます。
+
+ちなみに、NagivenicsとdeCODEmeのアフィリエイト収入でウハウハ計画を夢見ていたのですが、両社ともアフィリエイトが無かったのです。しょんぼり。

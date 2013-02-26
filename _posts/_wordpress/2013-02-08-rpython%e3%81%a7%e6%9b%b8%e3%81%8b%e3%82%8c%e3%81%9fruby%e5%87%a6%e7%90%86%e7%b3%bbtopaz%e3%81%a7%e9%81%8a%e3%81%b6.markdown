@@ -1,0 +1,152 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: RPythonで書かれたRuby処理系Topazで遊ぶ
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 328
+wordpress_url: !binary |-
+  aHR0cHM6Ly9ibG9nLndrdGsuY28uanAvP3A9MzI4
+date: 2013-02-08 03:48:59.000000000 +09:00
+categories:
+- 技術メモ
+- Python
+- Ruby
+tags: []
+comments: []
+---
+<a href="http://docs.topazruby.com/en/latest/blog/announcing-topaz/">Topaz</a>というRuby処理系が話題となっているようだ。RPythonで書かれており、CRuby(YARV)よりも高速だという。
+
+同僚でもあるパイパニスト（語弊ある）id: rokujyouhitoma がTopazをビルドできない！と言っていた。そんなに難しいのならチャレンジしてみよう。今日はなぜかPython Tシャツを着ているし。昨日はなぜか職場でNode.jsとPerlのコードを読んでいたし。
+
+<p>
+<img src="https://farm9.staticflickr.com/8233/8453063085_775391e53b.jpg">
+</p>
+
+<h3>ビルド</h3>
+
+python環境はpythonbrewで、今回はvirtualenvは使わない。OSはMountain Lion。git/Mercurial/各種ビルドツールは入っている感じで。
+
+<code>
+[shell]
+mkdir topazos
+cd topazos
+git clone http://github.com/topazproject/topaz
+hg clone https://bitbucket.org/pypy/pypy
+cd topaz
+pip install -r requirements.txt
+python ../pypy/rpython/bin/rpython -Ojit targettopaz.py
+[/shell]
+</code>
+
+RPythonが出すマンデルブロ集合をぼーっと見ていると、ビルドが終わる。
+最適化をかけたあと、RPythonの実行系も含んだC言語のソースコードを吐き出し、それをビルドするようだ。
+
+<h3>起動してみる</h3>
+
+まずは試しに起動、と。
+
+<code>
+[shell]
+> bin/topaz
+RPython traceback:
+  File "topaz_main.c", line 128, in entry_point
+  File "topaz_main.c", line 2163, in _entry_point
+Fatal RPython error: NotImplementedError
+[1]    99870 abort      bin/topaz
+[/shell]
+</code>
+
+Oh。なんか失敗した。-eでワンライナーするか、スクリプトファイルが必要らしい。
+
+<code>
+[shell]
+> bin/topaz -e "puts 'Hello Topaz.'"
+Hello Topaz.
+[/shell]
+</code>
+
+やたー、動いた。
+
+<h3>簡単なベンチマーク</h3>
+
+差が6つの素数の組である、<a href="https://gist.github.com/havenwood/4724778">セクシー素数を求めるRubyコード</a>を動かしてみる。セクシーな結果は出るのかな。
+
+<code>
+[shell]
+> ruby -v
+ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-darwin12.0.0]
+> time ruby sexy_prime.rb
+51.774221
+ruby sexy_prime.rb  51.76s user 0.03s system 99% cpu 51.793 total
+> time bin/topaz sexy_prime.rb
+10.434968
+bin/topaz sexy_prime.rb  10.42s user 0.02s system 99% cpu 10.444 total
+[/shell]
+</code>
+
+Oh, Sexy! 確かにこのベンチマークコードではかなり速くなっているようだ。
+
+<h3>実装を見てみる</h3>
+
+せっかくなので、実装も見てみよう。topazのディレクトリ構成はこんな感じ。
+
+<ul>
+<li>lib-ruby: Rubyで書かれたRubyの標準クラス/モジュール。FileUtilsとかppとか。</li>
+<li>topaz: RPythonで書かれた本体。構文解析とか。</li>
+<li>topaz/modules: RPythonで書かれた標準モジュール。KernelとかMathとか。</li>
+<li>topaz/objects: RPythonで書かれた標準クラス。BignumとかFileとかRegexpとか。</li>
+</ul>
+
+ためしに、topaz/modules/math.pyを見てみよう。
+
+<code>
+[python]
+from __future__ import absolute_import
+
+import math
+
+from topaz.module import Module, ModuleDef
+
+
+class Math(Module):
+    moduledef = ModuleDef("Math", filepath=__file__)
+
+    @moduledef.setup_module
+    def setup_module(space, w_mod):
+        space.set_const(w_mod, "PI", space.newfloat(math.pi))
+        space.set_const(w_mod, "E", space.newfloat(math.e))
+
+    @moduledef.function("exp", value="float")
+    def method_exp(self, space, value):
+        return space.newfloat(math.exp(value))
+
+    @moduledef.function("sin", value="float")
+    def method_sin(self, space, value):
+        return space.newfloat(math.sin(value))
+
+    @moduledef.function("sqrt", value="float")
+    def method_sqrt(self, space, value):
+        return space.newfloat(math.sqrt(value))
+
+    @moduledef.function("log", value="float", base="float")
+    def method_log(self, space, value, base=math.e):
+        if base == math.e:
+            return space.newfloat(math.log(value))
+        else:
+            return space.newfloat(math.log(value) / math.log(base))
+[/python]
+</code>
+
+どうみてもRPythonです。本当にありがとうございました。
+
+<h3>もっと突っ込んだベンチマーク</h3>
+
+調子に乗って、<a href="http://benchmarksgame.alioth.debian.org/">The Computer Language Benchmarks Game</a>にあるベンチマークプログラムを動かそうとしたけど、めんどそうなので挫折。<a href="http://benchmarksgame.alioth.debian.org/play.php">動かし方が書いてあるページ</a>があるので、誰かチャレンジしてほしいす。おっさんねむいっす。

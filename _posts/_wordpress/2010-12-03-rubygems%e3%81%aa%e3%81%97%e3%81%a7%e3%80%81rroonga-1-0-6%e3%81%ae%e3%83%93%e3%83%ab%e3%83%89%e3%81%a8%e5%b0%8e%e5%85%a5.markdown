@@ -1,0 +1,48 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: RubyGemsなしで、rroonga 1.0.6のビルドと導入
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 88
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD04OA==
+date: 2010-12-03 12:13:38.000000000 +09:00
+categories:
+- 技術メモ
+- Ruby
+tags: []
+comments: []
+---
+Rubyからgroongaを使うrroongaをインストールした。
+
+Ruby用pkg-configライブラリがビルドに必要となっているようだ。RubyGemsを入れていない環境に導入したので、Ruby用pkg-configライブラリを単体導入した。pkg-configライブラリ単体がどこでダウンロードできるのか悩んだが、<a href="http://rubyforge.org/projects/cairo/">RubyForgeのcairoプロジェクト</a>からダウンロードできた。
+
+pkg-configライブラリは単一のrbファイルであるので、以下に示すようにmake installしなくても、rroongaのビルドディレクトリにコピーしてあげるだけでもよいだろう。
+<pre># groonga
+tar xvfz groonga-1.0.4.tar.gz &amp;&amp; \
+  cd groonga-1.0.4 &amp;&amp; \
+  ./configure --prefix=/usr --without-cutter &amp;&amp; \
+  make &amp;&amp;
+  sudo make install
+
+# ruby-pkg-config for building rroonga.
+tar xvfz pkg-config-1.0.7.tgz &amp;&amp; \
+ cd pkg-config-1.0.7 &amp;&amp; \
+ ruby extconf.rb &amp;&amp; \
+ sudo make install
+
+# rroonga
+tar xvfz rroonga-1.0.6.tar.gz &amp;&amp; \
+ cd rroonga-1.0.6 &amp;&amp; \
+ ruby extconf.rb &amp;&amp; \
+ make &amp;&amp; \
+ sudo make install
+</pre>

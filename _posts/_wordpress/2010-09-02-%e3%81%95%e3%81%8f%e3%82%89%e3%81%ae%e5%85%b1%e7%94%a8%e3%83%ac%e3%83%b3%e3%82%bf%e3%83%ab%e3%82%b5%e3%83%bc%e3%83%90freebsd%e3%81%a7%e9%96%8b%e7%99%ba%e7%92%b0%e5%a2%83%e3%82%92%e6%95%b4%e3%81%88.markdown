@@ -1,0 +1,57 @@
+---
+layout: !binary |-
+  cG9zdA==
+status: !binary |-
+  cHVibGlzaA==
+published: true
+title: さくらの共用レンタルサーバ(FreeBSD)で開発環境を整える
+author: !binary |-
+  dGFzdWt1
+author_login: !binary |-
+  dGFzdWt1
+author_email: !binary |-
+  YmxvZ0B3a3RrLmNvLmpw
+wordpress_id: 34
+wordpress_url: !binary |-
+  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0zNA==
+date: 2010-09-02 01:16:23.000000000 +09:00
+categories:
+- 未分類
+tags: []
+comments: []
+---
+さくらのVPS(CentOS)が話題になっているが、共用レンタルサーバ(FreeBSD)のほうの設定を行った。CentOSよりはFreeBSDのほうが慣れている。
+
+さくらの共用レンタルサーバの環境設定について書かれたいろんなブログを見た。HTTP経由でのファイル取得にはwgetを使っていることが多かった。fetchのほうがFreeBSDっぽくね？
+
+cshをbashに変える。
+<pre class="syntax bash">% chsh -s /usr/local/bin/bash
+</pre>
+gitを入れる。Subversionよりは依存ライブラリが少なくてやりやすいか。
+<pre class="syntax bash">$ fetch http://kernel.org/pub/software/scm/git/git-1.7.2.tar.gz
+$ tar xvfz git-1.7.2.tar.gz
+$ cd git-1.7.2
+$ ./configure --prefix=$HOME/usr --without-tcltk
+$ gmake
+$ gmake install
+</pre>
+vimを入れる。
+<pre class="syntax bash">$ fetch ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
+$ fetch ftp://ftp.vim.org/pub/vim/extra/vim-7.2-extra.tar.gz
+$ fetch ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz
+
+$ tar xvfj vim-7.3.tar.bz2
+$ mv vim73 vim72
+$ tar xvfz vim-7.2-extra.tar.gz
+$ tar xvfz vim-7.2-lang.tar.gz
+$ cd vim72
+$ mkdir patches
+$ cd patches
+$ curl -O 'ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.[001-003]'
+$ cd ..
+$ cat patches/7.3.* | patch -p0
+
+$ ./configure --enable-multibyte --with-features=big --prefix=$HOME/usr
+$ make
+$ make install
+</pre>
