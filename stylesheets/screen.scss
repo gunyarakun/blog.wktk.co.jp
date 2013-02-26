@@ -1,0 +1,16 @@
+@charset 'utf-8';
+
+@import 'compass/reset';
+@import 'compass/css3/background-size';
+@import 'compass/css3/box-shadow';
+@import 'compass/css3/border-radius';
+@import 'compass/css3/text-shadow';
+@import 'compass/utilities/general/clearfix';
+
+// fonts
+$serif: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
+$serif_ja: "ヒラギノ明朝 Pro W6","Hiragino Mincho Pro","HGS明朝E","ＭＳ Ｐ明朝", serif;
+$gothic: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ",Meiryo,"ＭＳ Ｐゴシック",Helvetica,Arial,Verdana,sans-serif;
+$console: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+$code: "Courier New","Andale Mono",monospace,serif;
+$monospace: Monaco, "Courier New", monospace;

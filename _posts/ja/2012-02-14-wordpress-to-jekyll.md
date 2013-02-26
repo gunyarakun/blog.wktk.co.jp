@@ -7,7 +7,7 @@ tags : [intro, beginner, jekyll, tutorial]
 
 WordPress
 
-もともと僕は静的ファイル信者なのですが、。
+もともと僕は静的ファイル信者なのですが、
 
 - Apacheを前提としている
 - プラグインの食い合わせを調整するのが面倒
@@ -22,6 +22,9 @@ id:nitoyon センパイのblogでは、はてなと自ドメインで同じよ�
 
 これでした！つか、このエントリもid:nitoyon製だったのね。
 http://tech.nitoyon.com/ja/blog/2007/08/20/javascript-eval-on-hatena-diary/
+
+MML記法、AA記法には対応していませんでした。
+また、PygmentsがClearSilverというテンプレートエンジンのHDFファイルに対応していませんでした。
 
 
 

@@ -1,6 +1,63 @@
----
-theme :
-  name : twitter
----
-{% include WktkBlog/setup %}
-{% include themes/twitter/default.html %}
+<!-- vim: set expandtab ts=4 sw=4 nowrap ft=html ff=unix : -->
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <meta name="author" content="{{ site.author.name }}">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/stylesheets/screen.css" rel="stylesheet">
+
+    <!-- FIXME: change icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- FIXME: fb -->
+    <meta property="og:title" content="{{ page.title | escape  }}"/>
+    <meta property="og:url" content="http://tech.nitoyon.com{{ page.url | remove: 'index.html' }}"/>
+    <meta property="og:type" content="{% if page.url == '/en/index.html' %}website{% elsif page.url == '/en/blog/index.html' %}blog{% else %}article{% endif %}"/>
+    <meta property="og:description" content="{{ page.raw.content | strip_newlines | strip_html | truncatewords: 40 | truncate: 300 | escape }}"/>
+    <meta property="og:image" content="{% if page.thumbnail != null %}{{ page.thumbnail }}{% else %}http://tech.nitoyon.com/apple-touch-icon-114x114.png{% endif %}"/>
+    <meta property="og:site_name" content="{{ sub_title }}"/>
+    <meta property="fb:admins" content="1297551349" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/{{ page.lang }}/blog/index.xml" />{% if page.alternate %}
+    <link rel="alternate" hreflang="{{page.alternate.lang }}" href="http://tech.nitoyon.com{{ page.alternate.url }}">{% endif %}
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <ul class="nav">
+            {% assign pages_list = site.pages %}
+            {% assign group = 'navigation' %}
+            {% include WktkBlog/pages_list %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        {{ content }}
+      </div>
+      <footer>
+        <p>&copy; {{ site.author.name }} {{ site.time | date: '%Y' }}
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    {% include WktkBlog/analytics %}
+  </body>
+</html>
