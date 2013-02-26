@@ -1,6 +1,6 @@
 # This is the default format.
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock"]
 
 safe: false
 lang: [en, ja]
@@ -11,6 +11,13 @@ pygments: true
 markdown: redcarpet
 auto: false
 permalink: /ja/:year/:month/:day/:title
+
+default_update_policy:
+  page:     "{% if page.raw.modified %}1{% endif %}"
+  post:     "{% if page.raw.modified or page.previous.raw.yaml_modified or page.next.raw.yaml_modified %}1{% endif %}"
+
+redcarpet:
+  extensions: [autolink, tables]
 
 title : Jekyll Bootstrap
 tagline: Site Tagline

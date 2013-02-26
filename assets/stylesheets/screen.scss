@@ -1,3 +1,5 @@
+---
+---
 @charset 'utf-8';
 
 @import 'compass/reset';
@@ -14,3 +16,9 @@ $gothic: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ",M
 $console: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
 $code: "Courier New","Andale Mono",monospace,serif;
 $monospace: Monaco, "Courier New", monospace;
+
+html {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background: url(/assets/images/7758832526_79b91743ec_o.jpg) no-repeat center center fixed;
+}

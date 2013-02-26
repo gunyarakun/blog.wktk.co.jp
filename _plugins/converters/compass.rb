@@ -1,8 +1,7 @@
-#!/usr/bin/env ruby
 # referred https://gist.github.com/960150
 # referred load_compass method at lib/sass/exec.rb
-
 require 'sass'
+require 'compass'
 
 module Jekyll
   class SassConverter < Converter
@@ -19,8 +18,6 @@ module Jekyll
 
     def convert(content)
       begin
-        require 'compass'
-
         options = {
           :syntax => :scss,
           :style => :compact,

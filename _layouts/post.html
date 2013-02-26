@@ -25,19 +25,15 @@ layout: default
       </ul>
     </div>
     <hr>
-    {% include WktkBlog/comments %}
   </div>
 
   <div class="span4">
     <h4>Published</h4>
     <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
 
-  {% unless page.tags == empty %}
     <h4>Tags</h4>
     <ul class="tag_box">
-    {% assign tags_list = page.tags %}
-    {% include WktkBlog/tags_list %}
+      <li>FIXME: タグのリスト</li>
     </ul>
-  {% endunless %}
   </div>
 </div>

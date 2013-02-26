@@ -15,7 +15,6 @@ GEM
     fast-stemmer (1.0.2)
     fssm (0.2.10)
     hparser (0.4.0)
-    hpricot (0.8.6)
     jekyll (0.12.0)
       classifier (~> 1.3)
       directory_watcher (~> 1.1)
@@ -45,6 +44,5 @@ DEPENDENCIES
   amazon-ecs
   compass
   hparser
-  hpricot
   jekyll
   redcarpet

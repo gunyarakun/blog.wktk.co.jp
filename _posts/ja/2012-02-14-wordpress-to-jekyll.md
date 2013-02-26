@@ -3,8 +3,6 @@ layout: post
 category : lessons
 tags : [intro, beginner, jekyll, tutorial]
 ---
-{% include WktkBlog/setup %}
-
 WordPress
 
 もともと僕は静的ファイル信者なのですが、
