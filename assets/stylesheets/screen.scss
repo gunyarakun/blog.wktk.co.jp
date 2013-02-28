@@ -16,9 +16,20 @@ $gothic: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ",M
 $console: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
 $code: "Courier New","Andale Mono",monospace,serif;
 $monospace: Monaco, "Courier New", monospace;
+$aa: "Mona", "IPA MONAPGOTHIC", "MS PGothic", "ＭＳ Ｐゴシック", "MS Pｺﾞｼｯｸ", "MS Pゴシック", sans-serif;
 
-html {
+body {
+  // FIXME: kimeru
+  background: url(/assets/images/7530054972_6e987e8540_o.jpg) no-repeat center center fixed;
+  //background: url(/assets/images/7758832526_79b91743ec_o.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   background-size: cover;
-  background: url(/assets/images/7758832526_79b91743ec_o.jpg) no-repeat center center fixed;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+div.ascii-art{
+  font-size:12pt;
+  line-height:18px;
+  font-family: $aa;
 }
