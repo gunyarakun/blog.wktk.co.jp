@@ -7,6 +7,7 @@
 @import 'compass/css3/box-shadow';
 @import 'compass/css3/border-radius';
 @import 'compass/css3/text-shadow';
+@import 'compass/typography/vertical_rhythm';
 @import 'compass/utilities/general/clearfix';
 
 // fonts
@@ -18,17 +19,100 @@ $code: "Courier New","Andale Mono",monospace,serif;
 $monospace: Monaco, "Courier New", monospace;
 $aa: "Mona", "IPA MONAPGOTHIC", "MS PGothic", "ＭＳ Ｐゴシック", "MS Pｺﾞｼｯｸ", "MS Pゴシック", sans-serif;
 
+/* vertical rhythm font-size */
+$base-font-size: 14px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+/* content */
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 110%;
+  height: 10px;
+
+  @include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.8));
+}
+
 body {
   // FIXME: kimeru
   background: url(/assets/images/7530054972_6e987e8540_o.jpg) no-repeat center center fixed;
   //background: url(/assets/images/7758832526_79b91743ec_o.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  background-size: cover;
+  @include background-size(cover);
   min-width: 100%;
   min-height: 100%;
+  color: #333333;
 }
 
-div.ascii-art{
+h1 {
+  $font-size: 37px;
+  @include adjust-font-size-to($font-size, 3);
+  @include leader(1, $font-size);
+  @include trailer(1, $font-size);
+}
+
+h2 {
+  $font-size: 32px;
+  @include adjust-font-size-to($font-size, 3);
+  @include leader(1, $font-size);
+  @include trailer(1, $font-size);
+}
+
+h3 {
+  $font-size: 32px;
+  @include adjust-font-size-to($font-size, 3);
+  @include leader(1, $font-size);
+  @include trailer(1, $font-size);
+}
+
+h4 {
+  $font-size: 32px;
+  @include adjust-font-size-to($font-size, 3);
+  @include leader(1, $font-size);
+  @include trailer(1, $font-size);
+}
+
+h5 {
+  $font-size: 32px;
+  @include adjust-font-size-to($font-size, 3);
+  @include leader(1, $font-size);
+  @include trailer(1, $font-size);
+}
+
+p, ul, blockquote {
+  @include adjust-font-size-to($base-font-size, 1);
+  @include leader(1, $base-font-size);
+  @include trailer(1, $base-font-size);
+  margin-left: $base-font-size;
+  margin-right: $base-font-size;
+}
+
+.glass-panel:before, .glass-panel:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  @include box-shadow(0 0 20px rgba(0, 0, 0, 0.4));
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  @include border-radius(100px / 10px);
+}
+
+.glass-panel {
+  margin: 10px;
+  background: white;
+  position: relative;
+
+  @include box-shadow(
+    0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset
+  );
+}
+
+div.ascii-art {
   font-size:12pt;
   line-height:18px;
   font-family: $aa;
