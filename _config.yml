@@ -10,7 +10,7 @@ destination: ./_site
 lsi: false # not use related-posts
 pygments: true
 markdown: redcarpet
-# auto: false
+auto: false
 permalink: /:categories/entry/:year/:month/:day/:title
 
 default_update_policy:
@@ -19,15 +19,6 @@ default_update_policy:
 
 redcarpet:
   extensions: [autolink, tables]
-
-title : グニャラくんのwktk運営日記
-tagline: 趣味の会社経営
-author :
-  name : Tasuku SUENAGA a.k.a. gunyarakun
-  email : blog@wktk.co.jp
-  github : gunyarakun
-  twitter : tasukuchan
-  feedburner : feedname
 
 # TODO: ここから下見直す
 
