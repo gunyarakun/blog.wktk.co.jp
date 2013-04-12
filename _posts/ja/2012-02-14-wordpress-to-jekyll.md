@@ -1,6 +1,6 @@
 ---
 layout: post
-category : lessons
+lang: ja
 tags : [intro, beginner, jekyll, tutorial]
 ---
 WordPress

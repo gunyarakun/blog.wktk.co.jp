@@ -46,10 +46,33 @@ body {
   color: #333333;
 }
 
+.page-wrap {
+  position: fixed;
+  top: $base-line-height * 4;
+  right: $base-line-height / 2;
+  left: $base-line-height / 2;
+  bottom: $base-line-height / 2;
+  background: white;
+  border-radius: $base-line-height / 2;
+  padding: 20px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar-track {
+  background: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
 h1 {
   $font-size: 37px;
   @include adjust-font-size-to($font-size, 3);
-  @include leader(1, $font-size);
+  @include leader(0.5, $font-size);
   @include trailer(1, $font-size);
 }
 
@@ -87,29 +110,6 @@ p, ul, blockquote {
   @include trailer(1, $base-font-size);
   margin-left: $base-font-size;
   margin-right: $base-font-size;
-}
-
-.glass-panel:before, .glass-panel:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  @include box-shadow(0 0 20px rgba(0, 0, 0, 0.4));
-  top: 0;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  @include border-radius(100px / 10px);
-}
-
-.glass-panel {
-  margin: 10px;
-  background: white;
-  position: relative;
-
-  @include box-shadow(
-    0 1px 4px rgba(0, 0, 0, 0.3),
-    0 0 40px rgba(0, 0, 0, 0.1) inset
-  );
 }
 
 div.ascii-art {

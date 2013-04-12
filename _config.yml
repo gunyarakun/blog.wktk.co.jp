@@ -3,14 +3,15 @@
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock"]
 
 safe: false
+baselurl: /
 lang: [en, ja]
 
 destination: ./_site
 lsi: false # not use related-posts
 pygments: true
 markdown: redcarpet
-auto: false
-permalink: /ja/:year/:month/:day/:title
+# auto: false
+permalink: /:categories/entry/:year/:month/:day/:title
 
 default_update_policy:
   page:     "{% if page.raw.modified %}1{% endif %}"
@@ -19,14 +20,16 @@ default_update_policy:
 redcarpet:
   extensions: [autolink, tables]
 
-title : Jekyll Bootstrap
-tagline: Site Tagline
+title : グニャラくんのwktk運営日記
+tagline: 趣味の会社経営
 author :
   name : Tasuku SUENAGA a.k.a. gunyarakun
   email : blog@wktk.co.jp
   github : gunyarakun
   twitter : tasukuchan
   feedburner : feedname
+
+# TODO: ここから下見直す
 
 production_url : http://blog.wktk.co.jp/
 
