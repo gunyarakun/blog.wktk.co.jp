@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-12-07 16:56:24
+lang: ja
+layout: post
+tags: [未分類]
 title: 第1回ニコニコ学会&beta;でダダすべり発表してきました
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 225
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMjU=
-date: 2011-12-08 01:56:24.000000000 +09:00
-categories:
-- 未分類
-tags: []
-comments: []
 ---
 第1回ニコニコ学会&beta;という学会で発表させていただきました。運営の皆様がた、発表の機会を設けてくださり誠にありがとうございます。職場の皆様がた、忙しいさなか有給使ってごめんなさい。
 

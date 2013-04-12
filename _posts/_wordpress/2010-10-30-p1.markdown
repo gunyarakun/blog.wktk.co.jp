@@ -1,73 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2010-10-29 21:47:08
+lang: ja
+layout: post
+tags: [英語学習]
 title: iPhoneアプリ「ボキャブラキング 3.1.0未満」からP-Study System用問題集を作る
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 64
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD02NA==
-date: 2010-10-30 06:47:08.000000000 +09:00
-categories:
-- 英語学習
-tags: []
-comments:
-- id: 42
-  author: yasu
-  author_email: !binary |-
-    Zy1lbGVtZW50MTk4MUBob3RtYWlsLmNvLmpw
-  author_url: !binary |-
-    aHR0cDovL1dlYnNpdGU=
-  date: !binary |-
-    MjAxMS0wMS0yMyAwMDowODo0NiArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMS0wMS0yMiAxNTowODo0NiArMDkwMA==
-  content: ! "はじめまして、yasuと申します。\r\n\r\n当ページの「ボキャブらキング」からｐｓｓの問題集を作りたいのですが作成者様の「vocaking2pss」で「vocaking2pss.exe」実行し「ボキャキン
-    3.1.0 1.ipa」のアプリを指定して「開く」と以下のようなエラーが出ます。\r\n\r\nsee the logfile'C\\Documents and
-    Settings\\yasu\\デスクトップ\\vocaking2pss\\vocaking2pss.exe.log'for details\r\n\r\nとなり、ファイルの中にある「vocaking2pss.exe.log」の詳細に\r\n\r\nTraceback
-    (most recent call last):\r\n  File \"vocaking2pss.py\", line 93, in \r\n    je_count,
-    ej_count = convert(source_path, dest_path)\r\n  File \"vocaking2pss.py\", line
-    28, in convert\r\n    unzip(source_path, dest_path)\r\n  File \"vocaking2pss.py\",
-    line 25, in unzip\r\n    outf.write(zf.read('Payload/VocabulaKing.app/spwl%02d_json.txt'
-    % i))\r\n  File \"zipfile.pyc\", line 471, in read\r\n  File \"zipfile.pyc\",
-    line 462, in getinfo\r\nKeyError: 'Payload/VocabulaKing.app/spwl01_json.txt'\r\nTraceback
-    (most recent call last):\r\n  File \"vocaking2pss.py\", line 88, in \r\n    sys.exit(-1)\r\nNameError:
-    name 'sys' is not defined\r\nTraceback (most recent call last):\r\n  File \"vocaking2pss.py\",
-    line 88, in \r\n    sys.exit(-1)\r\nNameError: name 'sys' is not defined\r\n\r\nのように出ます。\r\nまた、「spwl01_json.txt」というものもファイルに出てきます。\r\n\r\nどうしても使ってみたいのですがどうしたらよいのでしょうか？"
-- id: 43
-  author: tasuku
-  author_email: !binary |-
-    YmxvZ0B3a3RrLmNvLmpw
-  author_url: !binary ""
-  date: !binary |-
-    MjAxMS0wMS0yNCAxNzozODozNiArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMS0wMS0yNCAwODozODozNiArMDkwMA==
-  content: ! 'バージョン3.1.0の最新版をためしたところ、SVLのデータファイルに簡単な暗号化がかけてありました。
-
-
-    直前のデータとのXORでの暗号化っぽいので、暗号を解けるバージョンを作成することはできるとは思います。しかし、暗号化をかけるようになったということは、「アルクとしてはSVLのデータをアプリ利用以外の用途では利用してほしくない」という意図だと捉えました。よって、暗号を解けるバージョンは作りません。
-
-
-    SVLの問題集を作る場合は、学辞郎の中古版などを買って別エントリの変換プログラムで作成されることをオススメします。'
-- id: 44
-  author: yasu
-  author_email: !binary |-
-    Zy1lbGVtZW50MTk4MUBob3RtYWlsLmNvLmpw
-  author_url: !binary |-
-    aHR0cDovL1dlYnNpdGU=
-  date: !binary |-
-    MjAxMS0wMS0yNCAxODo1MTowMCArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMS0wMS0yNCAwOTo1MTowMCArMDkwMA==
-  content: ! "作成者様の変換プログラムで学辞朗からは以前作らせてもらいました。\r\n\r\n簡単にほしかったものができたので、より覚えやすそうなボキャブラキングでやろうと思った次第です\r\n。\r\n\r\nアルクの暗号化でできないのであれば諦めが付きます。\r\n\r\nどうもありがとうございました。"
 ---
 <strong>ボキャブラキング バージョン3.1.0からこのプログラムでは問題集が作成できないようになっています。これに対応する予定はありません。</strong>詳しくは当エントリのコメント欄を参照ください。
 

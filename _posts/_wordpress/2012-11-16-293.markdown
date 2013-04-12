@@ -1,25 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2012-11-16 02:23:08
+lang: ja
+layout: post
+tags: [技術メモ, git]
 title: 危なくないgitこと、うちのチームのgit戦略草案(ver. 1)
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 293
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yOTM=
-date: 2012-11-16 11:23:08.000000000 +09:00
-categories:
-- 技術メモ
-- git
-tags: []
-comments: []
 ---
 <h2>この記事は更新された版があります</h2>
 <a href="http://blog.wktk.co.jp/archives/278">2012/11/16: いただいたフィードバックをもとに、version 2を書きました。</a>

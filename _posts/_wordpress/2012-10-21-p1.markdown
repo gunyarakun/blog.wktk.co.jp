@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2012-10-21 14:49:48
+lang: ja
+layout: post
+tags: [英語学習]
 title: 飽きっぽい30男が4ヶ月でTOEIC 850点を取った3つの方法
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 257
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yNTc=
-date: 2012-10-21 23:49:48.000000000 +09:00
-categories:
-- 英語学習
-tags: []
-comments: []
 ---
 英語学習、すぐ飽きちゃいますよね。はてなブックマークなどで人気の英語学習エントリを見ていると、僕から見ればかなりストイックな勉強方法を実践されている方が多いようです。僕はムリっす。
 

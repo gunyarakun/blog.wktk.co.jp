@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2010-09-01 16:16:23
+lang: ja
+layout: post
+tags: [未分類]
 title: さくらの共用レンタルサーバ(FreeBSD)で開発環境を整える
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 34
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0zNA==
-date: 2010-09-02 01:16:23.000000000 +09:00
-categories:
-- 未分類
-tags: []
-comments: []
 ---
 さくらのVPS(CentOS)が話題になっているが、共用レンタルサーバ(FreeBSD)のほうの設定を行った。CentOSよりはFreeBSDのほうが慣れている。
 

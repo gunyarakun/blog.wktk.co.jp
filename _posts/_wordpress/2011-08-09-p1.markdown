@@ -1,48 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-08-09 10:20:34
+lang: ja
+layout: post
+tags: [日常]
 title: DeNAに転職いたしました
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 202
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMDI=
-date: 2011-08-09 19:20:34.000000000 +09:00
-categories:
-- 日常
-tags: []
-comments:
-- id: 145
-  author: R
-  author_email: !binary |-
-    UkBSLmNvbQ==
-  author_url: !binary ""
-  date: !binary |-
-    MjAxMi0wMi0xNyAxMDo0MjoyOCArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0xNyAwMTo0MjoyOCArMDkwMA==
-  content: 株式会社ｗｋｔｋのコンタクトより問い合わせさせて頂こうとしたところエラーのようです。どちらへご連絡すればよろしいでしょうか？
-- id: 147
-  author: tasuku
-  author_email: !binary |-
-    YmxvZ0B3a3RrLmNvLmpw
-  author_url: !binary ""
-  date: !binary |-
-    MjAxMi0wMy0wNSAyMToxMjo1NSArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMy0wNSAxMjoxMjo1NSArMDkwMA==
-  content: ! 'コンタクトフォーム放置していたら動かなくなっていました。
-
-    ご指摘ありがとうございます。
-
-    コンタクトフォームを修正させていただきましたので、そちらから連絡よろしくお願いいたします。'
 ---
 2011年6月、有限会社未来検索ブラジルを退職し、株式会社ディー・エヌ・エーに転職いたしました。
 

@@ -1,44 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2012-10-23 12:02:26
+lang: ja
+layout: post
+tags: [日常]
 title: どんな家でもピッタリサイズ！快適パソコンデスクの入手法
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 266
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yNjY=
-date: 2012-10-23 21:02:26.000000000 +09:00
-categories:
-- 日常
-tags: []
-comments:
-- id: 217
-  author: e
-  author_email: !binary |-
-    dGVzdEBsb2NhbGhvc3QuY29t
-  author_url: !binary ""
-  date: !binary |-
-    MjAxMi0xMC0yNCAwOTozMToyNiArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0yNCAwMDozMToyNiArMDkwMA==
-  content: ! "そんな事よりkikiさんかわいいです。抱きしめたい。\r\nコストパフォーマンスはこの単品を取った限りだと、極悪でしょう。\r\n「どうしてもこの天板が！」というニーズ等が無いのであれば、ここまでコストと時間をかけるのはオーバーエンジニアリングです(断言)。\r\n餅は餅屋ですね(言いたかっただけ)。\r\nしかし、DIYスキルは幅広く応用が効きますから、大きな宝物ですよね(上から目線)。\r\nある程度のものは多くの人が備えていますが、世の中にはカラーボックスが組み立てられない、という方もいると聞きます。\r\n最近の子供(おっさん目線)はミニ四駆で鍛えられていないから組み立て図を見ても家具が組み立てられない、という話も聞きます。これについては「家庭科でやっているはずだからそんな事は無いだろう。ただの興味本位で弄くったフィクションじゃないの？」と私は思っていますが(提示された情報に対しての自分の知識に基づく相反する予想)。\r\n何はともあれ、家屋の修繕や改善が自分で出来るのは素晴らしいですね。水道のコマ、目張り、結露対策、防音断熱、その他色々&hellip;。出来るのと出来ないのとでは大きな差です。\r\n\r\nで、この机ですが、横からの荷重に弱そうですね&hellip;。ネジ接合部を多少補強していても、手をついて体重がかかったりするとグシャっといってしまいそうな怖さがあります。後ろ側に補強用の板があると応力がネジ接合部から分散されていい感じだと思うのですが。\r\n金具もこんなの\r\nhttp://www.amazon.co.jp/アイリスオーヤマ-L字金具-GSD-60K/dp/B002JT48OE/\r\nだったらより良かったかもしれませんね。"
-- id: 218
-  author: tasuku
-  author_email: !binary |-
-    YmxvZ0B3a3RrLmNvLmpw
-  author_url: !binary ""
-  date: !binary |-
-    MjAxMi0xMC0yNCAxOTozODo0NSArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0yNCAxMDozODo0NSArMDkwMA==
-  content: ! "横からの荷重弱いです。縦ボルトのおかげで横揺れはほぼないですが、揺らすと縦ボルト4つにかなりの負荷がかかっているようです。\r\n\r\nL字金折じゃなくて、棚受にしとくとよかった、というのはありますね。久宝の棚受とかいいな、と思っていたのですが、斜めつっかえ棒のせいでクリアランスがなくなるのがいやで今の形に。\r\nhttp://q-ho.com/products/bracket/interior.php\r\n\r\n補強するとしたら、裏側面に平型のL字金具を付けるとかが第一候補かなー。もしくは、幕板を中央部に付けるとか（後部だとモニターアームのクランプがつかなくなるので）。\r\n\r\n無印のコの字机みたいに、板内に金具を埋め込む、というのも事前に検討しとけばよかったかなー、と。\r\nhttp://ameblo.jp/cloverleaf55/entry-10633118222.html\r\n\r\nといろいろ検討できるのが自作の楽しみでよいすなー。\r\nこれくらいお金かけるんだったら、完全オーダーメイド家具でもよいかもしれないですね。"
 ---
 IKEAの商品を使って、快適なパソコンデスク環境を整えている記事がいくつかあります。
 <ul>

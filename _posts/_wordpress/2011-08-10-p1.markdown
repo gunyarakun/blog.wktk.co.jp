@@ -1,25 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
-title: ! 'MySQL Casual Talks #2で発表しました'
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
+date: 2011-08-10 01:45:06
+lang: ja
+layout: post
+tags: [技術メモ, MySQL]
+title: 'MySQL Casual Talks #2で発表しました'
 wordpress_id: 208
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMDg=
-date: 2011-08-10 10:45:06.000000000 +09:00
-categories:
-- 技術メモ
-- MySQL
-tags: []
-comments: []
 ---
 MySQL Casual Talks #2にて発表してきました。「超カジュアルに使うMySQL」という内容で、いつものごとくジョーク枠担当です。
 

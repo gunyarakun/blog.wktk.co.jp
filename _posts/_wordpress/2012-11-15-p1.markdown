@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2012-11-15 06:37:18
+lang: ja
+layout: post
+tags: [未分類]
 title: 危なくないgitこと、うちのチームのgit戦略草案(ver. 2)
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 278
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yNzg=
-date: 2012-11-15 15:37:18.000000000 +09:00
-categories:
-- 未分類
-tags: []
-comments: []
 ---
 <h2>履歴</h2>
 恥を忍んで記事を公開させていただいたおかげで、いろいろフィードバックいただきました。フィードバックを取り込んで更新を行なっています。

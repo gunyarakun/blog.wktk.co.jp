@@ -1,25 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-01-02 13:39:35
+lang: ja
+layout: post
+tags: [技術メモ, Google App Engine]
 title: GoogleアカウントとGoogle Appsアカウントが同一メールアドレスの場合、App Engineのアプリケーション作成に不具合あり
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 100
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xMDA=
-date: 2011-01-02 22:39:35.000000000 +09:00
-categories:
-- 技術メモ
-- Google App Engine
-tags: []
-comments: []
 ---
 Google App Engineでおそらく不具合であろう挙動に出会った。
 誰か情報があったら助けてほしいな。

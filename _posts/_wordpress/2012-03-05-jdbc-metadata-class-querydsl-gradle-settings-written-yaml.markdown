@@ -1,27 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2012-03-05 12:45:55
+lang: ja
+layout: post
+tags: [Java, Groovy, Gradle, Querydsl]
 title: Make JDBC metadata class for Querydsl on Gradle with settings written by YAML
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 229
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMjk=
-date: 2012-03-05 21:45:55.000000000 +09:00
-categories:
-- Java
-- Groovy
-- Gradle
-- Querydsl
-tags: []
-comments: []
 ---
 This is an example of build.gradle to make JDBC metadata class for Querydsl.
 JDBC settings are written in ../config.yaml. The target RDBMS of JDBC is MySQL.

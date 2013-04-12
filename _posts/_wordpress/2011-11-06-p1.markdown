@@ -1,27 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-11-05 17:23:53
+lang: ja
+layout: post
+tags: [技術メモ, Scala, MongoDB, 2chクローン]
 title: Scala + finagle + MongoDB + Herokuで2chクローンを作る（連載第3回）
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 220
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMjA=
-date: 2011-11-06 02:23:53.000000000 +09:00
-categories:
-- 技術メモ
-- Scala
-- MongoDB
-- 2chクローン
-tags: []
-comments: []
 ---
 11/3に、@xuwei_k さんの誕生祝 &amp; Scalaハッカソン！に参加した。とりあえず、Hello Finagleを見ながら、Finagle製のWebサーバを立てることを目指す。まずは、静的なHTMLファイル返答するところまで作ろう。
 

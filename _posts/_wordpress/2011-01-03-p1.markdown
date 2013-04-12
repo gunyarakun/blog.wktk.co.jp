@@ -1,75 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-01-03 01:35:25
+lang: ja
+layout: post
+tags: [技術メモ, Python, Google App Engine]
 title: Kay Frameworkでの携帯開発を支援するkay-jpmobileを公開
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 105
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xMDU=
-date: 2011-01-03 10:35:25.000000000 +09:00
-categories:
-- 技術メモ
-- Python
-- Google App Engine
-tags: []
-comments:
-- id: 52
-  author: みずしまじゅんき
-  author_email: !binary |-
-    akB4bi0tdHB0NDkzYS5qcA==
-  author_url: !binary |-
-    aHR0cDovL3huLS10cHQ0OTNhLmpw
-  date: !binary |-
-    MjAxMS0wMi0xNSAxODo0NjozMCArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMS0wMi0xNSAwOTo0NjozMCArMDkwMA==
-  content: ! '(11:9d1fbec280caにて確認)
-
-    middleware.pyの70行目でcontent-typeのヘッダを書き換えていますが、これは57行目からはじまるifの中に入れたほうがいいのではないでしょうか。
-
-    このままだと、動的に画像を生成してcontent-typeをimage/jpegで出力したい場合でも書き換えられてしまいます。'
-- id: 53
-  author: tasuku
-  author_email: !binary |-
-    YmxvZ0B3a3RrLmNvLmpw
-  author_url: !binary ""
-  date: !binary |-
-    MjAxMS0wMi0yMiAxODoxNDoyMiArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMS0wMi0yMiAwOToxNDoyMiArMDkwMA==
-  content: ご指摘ありがとうございます！changeset 12:306149e655baにて修正いたしました。
-- id: 110
-  author: masayuki
-  author_email: !binary |-
-    YmxvZ0B2ZXJ5Z29vZHRvd24uY29t
-  author_url: !binary |-
-    aHR0cDovL2Jsb2cudmVyeWdvb2R0b3duLmNvbS8=
-  date: !binary |-
-    MjAxMS0xMC0yMCAyMDozMTo1MSArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMC0yMCAxMTozMTo1MSArMDkwMA==
-  content: ! "初めまして！\r\n\r\nkay-jpmobileを使わせてもらおうと思いプロジェクトに組み込んだ所\r\nemoji_table.pyのmaxunicodeでエラーが発生してしまいました。\r\nkayのバージョンは1.1.1を使用しています。\r\n\r\nmy-project-name/lib/jpmobile/emoji_table.py\",
-    line 4, in \r\n    raise UnicodeError, \"Python internal code must be UCS-4.\"\r\nUnicodeError:
-    Python internal code must be UCS-4.\r\n\r\nローカル環境にあるpython2.5のmaxunicodeの値を調べた所\r\n>>>
-    from sys import maxunicode\r\n>>> print maxunicode\r\n65535\r\n\r\nとなっていました。\r\n\r\n\r\nこれはどのように対応すればよろしいかご教授いただけないでしょうか。\r\nよろしくお願いします。"
-- id: 112
-  author: tasuku
-  author_email: !binary |-
-    YmxvZ0B3a3RrLmNvLmpw
-  author_url: !binary ""
-  date: !binary |-
-    MjAxMS0xMC0yMSAxMTowMjo0MSArMDkwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMC0yMSAwMjowMjo0MSArMDkwMA==
-  content: ! "masayukiさん、質問ありがとうございます。\r\n\r\nPython自身の内部エンコーディングがucs4である必要があります。\r\nPythonのビルド時に&ndash;enable-unicode=ucs4を指定すれば、\r\n内部エンコーディングをucs4に出来ます。\r\n\r\n以下のブログが参考になります。\r\nhttp://dsas.blog.klab.org/archives/51322951.html"
 ---
 Kay Frameworkで携帯サイト開発を支援する、kay-jpmobileというアプリケーションを書いてみた。django-bpmobileのKay移植版的な。bpmobileにはまったく及んでいませんが、絵文字まわりがある程度実装できたので、とりあえず公開。
 

@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2010-07-30 16:28:56
+lang: ja
+layout: post
+tags: [英語学習]
 title: P-Study SystemでアルクのSVL/SILの問題集を簡単に作成する
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 15
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xNQ==
-date: 2010-07-31 01:28:56.000000000 +09:00
-categories:
-- 英語学習
-tags: []
-comments: []
 ---
 最近、英語を勉強し始めています。
 

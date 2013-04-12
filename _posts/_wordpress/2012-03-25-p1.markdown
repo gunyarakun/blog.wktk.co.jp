@@ -1,31 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2012-03-24 15:03:17
+lang: ja
+layout: post
+tags: [Python, Ruby, MySQL, Java, Groovy, Gradle, Querydsl, Perl]
 title: JSON on HTTPやWeb APIを各言語でどうやって実装するのか
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 234
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yMzQ=
-date: 2012-03-25 00:03:17.000000000 +09:00
-categories:
-- Python
-- Ruby
-- MySQL
-- Java
-- Groovy
-- Gradle
-- Querydsl
-- Perl
-tags: []
-comments: []
 ---
 HTTPでアクセスして、JSONを返すようなWebサーバを書きたいとする。 どんな言語を選ぶか。どんなミドルウェアを選ぶか。どんなライブラリを選ぶか。
 

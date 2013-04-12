@@ -1,5 +1,6 @@
 ---
 layout: post
+title: はてなとWordpressから最強ブログシステムに移行する
 lang: ja
 tags : [intro, beginner, jekyll, tutorial]
 ---

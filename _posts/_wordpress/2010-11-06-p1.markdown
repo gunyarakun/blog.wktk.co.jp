@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
-title: ! '&Oslash;MQ(zeromq)について調査する。'
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
+date: 2010-11-05 21:32:14
+lang: ja
+layout: post
+tags: [技術メモ]
+title: '&Oslash;MQ(zeromq)について調査する。'
 wordpress_id: 71
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD03MQ==
-date: 2010-11-06 06:32:14.000000000 +09:00
-categories:
-- 技術メモ
-tags: []
-comments: []
 ---
 <a href="http://www.zeromq.org/">&Oslash;MQ(zeromq)</a>について簡単に調査したのでメモ。元ネタは<a href="http://zguide.zeromq.org/chapter:all">&Oslash;MQ - The Guide</a>。
 <h2>概要</h2>

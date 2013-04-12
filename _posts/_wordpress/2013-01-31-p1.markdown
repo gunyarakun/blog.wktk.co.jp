@@ -1,26 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2013-01-31 03:17:10
+lang: ja
+layout: post
+tags: [技術メモ, WordPress, nginx]
 title: 次世代HTTP候補のSPDYをWordpress + Nginxで有効にする
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 322
-wordpress_url: !binary |-
-  aHR0cHM6Ly9ibG9nLndrdGsuY28uanAvP3A9MzIy
-date: 2013-01-31 12:17:10.000000000 +09:00
-categories:
-- 技術メモ
-- WordPress
-- nginx
-tags: []
-comments: []
 ---
 SPDY、流行ってますよね。
 

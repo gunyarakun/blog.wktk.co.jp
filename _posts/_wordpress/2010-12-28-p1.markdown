@@ -1,26 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2010-12-27 20:31:57
+lang: ja
+layout: post
+tags: [技術メモ, Python, Google App Engine]
 title: Kay Frameworkで携帯電話対応サイトを作ってみる
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 91
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD05MQ==
-date: 2010-12-28 05:31:57.000000000 +09:00
-categories:
-- 技術メモ
-- Python
-- Google App Engine
-tags: []
-comments: []
 ---
 Google App Engineの手習いに掲示板システムを書いている。使っているフレームワークは、Kay Framework。
 

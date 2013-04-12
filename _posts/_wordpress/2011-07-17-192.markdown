@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-07-16 21:25:10
+lang: ja
+layout: post
+tags: [Java]
 title: JavaでPlay frameworkを試しに遊んでみるもさっそく詰まったでござる
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 192
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xOTI=
-date: 2011-07-17 06:25:10.000000000 +09:00
-categories:
-- Java
-tags: []
-comments: []
 ---
 ひさびさにJavaを触りたいと思っていた。理由はすっかり忘れているから。
 

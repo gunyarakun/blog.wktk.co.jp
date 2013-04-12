@@ -1,26 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-06-02 03:23:59
+lang: ja
+layout: post
+tags: [技術メモ, PHP, WordPress]
 title: Debian/Ubuntuで、nginx + FastCGIでWordPressを高速に動かす
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 184
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xODQ=
-date: 2011-06-02 12:23:59.000000000 +09:00
-categories:
-- 技術メモ
-- PHP
-- WordPress
-tags: []
-comments: []
 ---
 <p>昨日、ブログのエントリをアップしてTwitterで宣伝したら、即サイトが落ちた。ダサすぎる。というわけで、Apache2を廃し、nginx(proxy) + nginx(FastCGI)の構成でWordPressを動かす設定をする。サーバはAmazon EC2。</p>
 <p>この構成を試す前に行ったnginx(proxy) + Apache2(mod-php)は簡単に性能を上げることができた。しかし、nginx + nginxではどうもうまくキャッシュしてくれない。HTTPヘッダを見てみると、

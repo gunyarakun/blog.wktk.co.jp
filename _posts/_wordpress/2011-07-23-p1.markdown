@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-07-23 06:39:17
+lang: ja
+layout: post
+tags: [日常]
 title: SALSA AIR/Cosmolite/Liquis/ZERO Air、どのスーツケースを買うかで悩む
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 196
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xOTY=
-date: 2011-07-23 15:39:17.000000000 +09:00
-categories:
-- 日常
-tags: []
-comments: []
 ---
 スーツケース選びで悩んでいる。
 

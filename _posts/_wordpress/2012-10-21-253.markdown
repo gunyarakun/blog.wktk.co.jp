@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2012-10-21 12:51:13
+lang: ja
+layout: post
+tags: [日常]
 title: 冬だ！グニャ鍋だ！（俺式ピェンローレシピ）
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 253
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0yNTM=
-date: 2012-10-21 21:51:13.000000000 +09:00
-categories:
-- 日常
-tags: []
-comments: []
 ---
 急に肌寒くなってきました。読者の皆様はいかがお過ごしでしょうか。
 

@@ -1,26 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2013-02-07 18:48:59
+lang: ja
+layout: post
+tags: [技術メモ, Python, Ruby]
 title: RPythonで書かれたRuby処理系Topazで遊ぶ
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 328
-wordpress_url: !binary |-
-  aHR0cHM6Ly9ibG9nLndrdGsuY28uanAvP3A9MzI4
-date: 2013-02-08 03:48:59.000000000 +09:00
-categories:
-- 技術メモ
-- Python
-- Ruby
-tags: []
-comments: []
 ---
 <a href="http://docs.topazruby.com/en/latest/blog/announcing-topaz/">Topaz</a>というRuby処理系が話題となっているようだ。RPythonで書かれており、CRuby(YARV)よりも高速だという。
 

@@ -1,24 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2011-05-23 00:53:31
+lang: ja
+layout: post
+tags: [日常]
 title: ブログ更新停止という病、その快癒に向けて
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 179
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD0xNzk=
-date: 2011-05-23 09:53:31.000000000 +09:00
-categories:
-- 日常
-tags: []
-comments: []
 ---
 ブログ更新しない病を発病していました。
 

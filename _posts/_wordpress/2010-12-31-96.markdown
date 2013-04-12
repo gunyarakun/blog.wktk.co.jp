@@ -1,25 +1,10 @@
 ---
-layout: !binary |-
-  cG9zdA==
-status: !binary |-
-  cHVibGlzaA==
-published: true
+date: 2010-12-30 22:50:30
+lang: ja
+layout: post
+tags: [技術メモ, Python]
 title: Google App Engine(Python)でどう絵文字を扱うか悩む
-author: !binary |-
-  dGFzdWt1
-author_login: !binary |-
-  dGFzdWt1
-author_email: !binary |-
-  YmxvZ0B3a3RrLmNvLmpw
 wordpress_id: 96
-wordpress_url: !binary |-
-  aHR0cDovL2Jsb2cud2t0ay5jby5qcC8/cD05Ng==
-date: 2010-12-31 07:50:30.000000000 +09:00
-categories:
-- 技術メモ
-- Python
-tags: []
-comments: []
 ---
 Google App Engine上のサービスで絵文字対応をしたい。2010年12月現在。
 
