@@ -9,13 +9,12 @@ wordpress_id: 100
 Google App Engineでおそらく不具合であろう挙動に出会った。
 誰か情報があったら助けてほしいな。
 
-通常のGoogleのアカウントを、AAAA@example.comで取得。
+通常のGoogleのアカウントを、AAAA@example.com で取得。
 そのアカウントを使い、Google App Engineに登録。
 その後、Google Appsのアカウントを AAAA@example.com で取得。
 
 こういった状態のもと、App Engine 管理コンソールで作成したアプリケーションがリストに追加されないという問題があった。
-<a href="https://groups.google.com/group/google-app-engine-japan/browse_thread/thread/3cde38b1695db422/bd2efc8262c88322?show_docid=bd2efc8262c88322&hl=ja">https://groups.google.com/group/google-app-engine-japan/browse_thread/thread/3cde38b1695db422/bd2efc8262c88322?show_docid=bd2efc8262c88322&hl=ja
-</a>と同じ症状のようだ。
+<a href="https://groups.google.com/group/google-app-engine-japan/browse_thread/thread/3cde38b1695db422/bd2efc8262c88322?show_docid=bd2efc8262c88322&amp;hl=ja">https://groups.google.com/group/google-app-engine-japan/browse_thread/thread/3cde38b1695db422/bd2efc8262c88322?show_docid=bd2efc8262c88322&amp;hl=ja</a>と同じ症状のようだ。
 
 上記メールの方は、以下のAppsログインページからログインすれば問題が解決したようだ。
 http://appengine.google.com/a/example.com/
@@ -28,27 +27,27 @@ http://appengine.google.com/a/example.com/
 <a href="http://www.google.com/support/a/bin/answer.py?answer=185186">http://www.google.com/support/a/bin/answer.py?answer=185186</a>
 
 メールアドレスがかぶっているのがよくないと考え、
-- Googleの個人アカウントは、そのままAAAA@example.comとする。
-- Google Appsのアカウントを、BBBB@example.comに変更する。
+- Googleの個人アカウントは、そのままAAAA@example.com とする。
+- Google Appsのアカウントを、BBBB@example.com に変更する。
 をチャレンジ。
 
-Googleの個人アカウントの設定ページで、AAAA@example.comのメールアドレスを、CCCC@example.comに変更。
+Googleの個人アカウントの設定ページで、AAAA@example.com のメールアドレスを、CCCC@example.com に変更。
 Google Appsの管理画面で、BBBB@example.com というユーザを作成し、AAAA@example.com というユーザを削除。
-Googleの個人アカウントの設定ページで、CCCC@example.comのメールアドレスを、AAAA@example.comに変更。
+Googleの個人アカウントの設定ページで、CCCC@example.com のメールアドレスを、AAAA@example.com に変更。
 
 さあこれでどうだ！…やっぱり問題解決せず。
-しかも、appcfg updateでAAAA@example.comのメールアドレスを指定してデプロイすることも出来なくなっている。
+しかも、appcfg updateでAAAA@example.com のメールアドレスを指定してデプロイすることも出来なくなっている。
 
-どうやら、Google AppsアカウントでありなおかつAAAA@example.comでないと、
+どうやら、Google AppsアカウントでありなおかつAAAA@example.com でないと、
 アプケーションリストをきちんと閲覧することができない & デプロイできないのではないか、と予想。
 
 方針を変えて、
-- Googleの個人アカウントは、DDDD@example.comとする。
-- Google Appsのアカウントを、AAAA@example.comに戻す。
+- Googleの個人アカウントは、DDDD@example.com とする。
+- Google Appsのアカウントを、AAAA@example.com に戻す。
 をチャレンジ。
 
 しようと思ったら、なんと削除したメールアドレスでは5日間Appsアカウントの作成ができないらしい。うおお。
-<a href="http://www.google.com/support/a/bin/answer.py?answer=107878&&hl=en">http://www.google.com/support/a/bin/answer.py?answer=107878&&hl=en</a>
+<a href="http://www.google.com/support/a/bin/answer.py?answer=107878&amp;hl=en">http://www.google.com/support/a/bin/answer.py?answer=107878&amp;hl=en</a>
 
 いろいろ移行作業をしている途中で、http://appengine.google.com/を見てみると、
 アプリケーションが複数表示されているのに、
@@ -59,7 +58,7 @@ Issue Trackerに報告しようと思ったら、似たような問題を報告�
 <a href="http://code.google.com/p/googleappengine/issues/detail?id=2421">http://code.google.com/p/googleappengine/issues/detail?id=2421</a>
 んでも放置されているんだよなー…
 
-とりあえず、5日待ってAAAA@example.comのアカウント作成を再申請してみるか。復活してほしい。
+とりあえず、5日待ってAAAA@example.com のアカウント作成を再申請してみるか。復活してほしい。
 
 [追記] 復活できなかったので、問題を報告しておいた。
 <a href="http://code.google.com/p/googleappengine/issues/detail?id=4388">http://code.google.com/p/googleappengine/issues/detail?id=4388</a>
