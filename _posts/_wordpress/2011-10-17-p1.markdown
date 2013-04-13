@@ -28,7 +28,7 @@ Scala始めるならまずこれ、コップ本を読みだした。最近技術
 
 ここで一考。サーバはデータだけを返して、各種レンダリングはクライアントでやらせよう。ほら今時はスマホアプリの時代ですよ。サーバはデータだけ返して、クライアントでレンダリングですよ。SEO的には悪そうだけど、まあスケールはしそうだよね。そういう観点だと、Webフレームワークは使う必要はないか。そしたら、Twitterのfinagleでも使ってみるかね。HTMLが欲しくなったら、薄いラッパをかませばいいし。@bibrostさんもそんな構成勧めてた気がする！
 
-ScalaからMongoDBに接続するにはどうすればいいかなー。「Scala MongoDB」でGoogle検索。どれどれどんなドライバ使ってんのかなー&hellip;。１位、Salat。２位、lift-mongodb。３位、Casbah。ぎゃー。全部名前違うやんけ！不吉な香りがするぞ。
+ScalaからMongoDBに接続するにはどうすればいいかなー。「Scala MongoDB」でGoogle検索。どれどれどんなドライバ使ってんのかなー…。１位、Salat。２位、lift-mongodb。３位、Casbah。ぎゃー。全部名前違うやんけ！不吉な香りがするぞ。
 
 んでも、それぞれ中身を見てみると、SalatはCasbahを用いたO/Dマッパー、lift-mongodbはLift内にあるドライバらしい。Liftは使わないし、依存関係も軽くしたいので、Salat/Casbahを使うしかない。MongoDBを使うので、せっかくだったらO/Dマッパー使ってみるか。O/Rマッパーはあんまり使ったことないけど。O/Dマッパーって単語は正しいのかしら。
 
@@ -45,10 +45,10 @@ Rogueとか、Java阪ドライバのScalaラッパとかもあるらしい、と
 </ul>
 「finagle MongoDB」でGoogle検索。
 <a href="https://github.com/robi42/heroku-finagle-rogue" target="_blank"> Heroku + finagle + MongoDBのサンプルコード発見!!</a>
-あ、でもコイツはRogueを使ってるな&hellip;まあいい。
+あ、でもコイツはRogueを使ってるな…まあいい。
 
 「finagle Salat」でGoogle検索。
-ムムム&hellip;意味ある検索結果が見つからない。
+ムムム…意味ある検索結果が見つからない。
 
 「scala MongoDB Heroku」でGoogle検索。
 <a href="http://devcenter.heroku.com/articles/scaling-out-with-scala-and-akka " target="_blank"> Scaling Out with Scala and Akka on Heroku</a>ってのが見つかる。

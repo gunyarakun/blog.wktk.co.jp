@@ -52,4 +52,4 @@ http://www.amazon.co.jp/%E5%AD%A6%E8%BE%9E%E9%83%8E-%E2%80%95-%E5%8D%98%E8%AA%9E
 <h3>まとめ</h3>
 というわけで、最新版のPDIC/Unicodeで学辞郎の辞書を読む込むことができ、さらにP-Study System用のSVL/SIL問題集が作れちゃいました。
 
-次は、LONGMAN Dictionary of Contemporary English第５版から、米発音を抽出するプログラムを書いています。英語の勉強をするはずなのに、プログラミングばっかりやっている&hellip;不吉な予感！！
+次は、LONGMAN Dictionary of Contemporary English第５版から、米発音を抽出するプログラムを書いています。英語の勉強をするはずなのに、プログラミングばっかりやっている…不吉な予感！！

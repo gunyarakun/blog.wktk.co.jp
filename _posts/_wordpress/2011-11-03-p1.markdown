@@ -12,11 +12,11 @@ Scala勉強会(56回)に参加したら、<a href="http://twitter.com/xuwei_k">@
 
 casbahはJava版ドライバの薄いラッパであること。MongoDB -> Java、またはJava -> Scalaでそれぞれインピーダンスミスマッチがあることを教えてもらった。あと、実際に人が開発している様子を見れたのは貴重。コマンドラインでの実行方法とか、ちょっとしたデバッグの方法とか。こういうのは、勉強会に参加する大きなメリット。
 
-Casbahを使ってScalaでデータを入れてみるか。ますは<a href="http://api.mongodb.org/scala/casbah/current/setting_up.html#installing-setting-up-casbah">Casbahのインストールドキュメント</a>を読む。むむむ、インストール方法の選択肢が5つもある。それぞれのメリット・デメリットがよくわからないなぁ&hellip;&nbsp;<a href="http://blog.restartr.com/2011/03/07/access-to-mongodb-in-scala-with-casbah/">ScalaからMongoDBへアクセスする &ndash; Casbah編</a>&nbsp;ではsbtというのを使っていたので、それ使ってみよう。
+Casbahを使ってScalaでデータを入れてみるか。ますは<a href="http://api.mongodb.org/scala/casbah/current/setting_up.html#installing-setting-up-casbah">Casbahのインストールドキュメント</a>を読む。むむむ、インストール方法の選択肢が5つもある。それぞれのメリット・デメリットがよくわからないなぁ…&nbsp;<a href="http://blog.restartr.com/2011/03/07/access-to-mongodb-in-scala-with-casbah/">ScalaからMongoDBへアクセスする &ndash; Casbah編</a>&nbsp;ではsbtというのを使っていたので、それ使ってみよう。
 
 sbtとはなんぞや。コップ本の巻末索引を見るとあった。どうやらビルドツールらしい。コップ本には基本的にsbtの解説がない。
 
-<a href="https://github.com/harrah/xsbt/wiki">sbtのページにある手順</a>&nbsp;を参考にして、導入。またインストール方法の選択肢がいっぱいあるのかと思いきや、jar配置して、起動スクリプトを書くだけでいいらしいので楽チン&hellip;。かと思いきや、sbtを実行するとエラーが出まくる。
+<a href="https://github.com/harrah/xsbt/wiki">sbtのページにある手順</a>&nbsp;を参考にして、導入。またインストール方法の選択肢がいっぱいあるのかと思いきや、jar配置して、起動スクリプトを書くだけでいいらしいので楽チン…。かと思いきや、sbtを実行するとエラーが出まくる。
 <pre>Error: Could not retrieve JNA</pre>
 どうやら依存しているJNAの自動フェッチに失敗しているらしい。
 
@@ -68,7 +68,7 @@ object TestMongo {
     collection.find().foreach(println)
   }
 }</pre>
-エラー。どうやら、MongoDBObjectのファクトリメソッドに渡している最後のコンマがまずいらしい。取ってみる。&hellip;動かない。import com.mongodbの時点で、comにmongodbなんてメンバないぜと言われる。
+エラー。どうやら、MongoDBObjectのファクトリメソッドに渡している最後のコンマがまずいらしい。取ってみる。…動かない。import com.mongodbの時点で、comにmongodbなんてメンバないぜと言われる。
 
 しばらく悩んだ結果、pwdがsrc/main/scalaだったのがダメみたい。sbtが見るbuild.sbtはカレントにないとダメなのね。Hello, World的なものの場合には何もimportしていなかったから、カレントにbuild.sbtがなくてもsbt runが問題なく動作していたらしい。build.sbtがあるディレクトリまで上がって実行。
 <pre>"_id" : { "$oid" : "4e9c5f8e03644d5841503e66"} , "name" : "lobby" , "name_jp" : "ロビー" , "domain" : "mentai.2ch.net"}</pre>
@@ -108,7 +108,7 @@ be板も考えると、
 
 <a href="http://d.hatena.ne.jp/masa_w/20101130/1291084939">MongoDBにおける関連（Relation）のスキーマ設計</a>&nbsp;を読むと、１つのCollectionになるべく詰めてあげたほうが効率がよいらしい。しかし、Collectionには最大サイズがあるため、実用的にはCollectionを分割するようだ。今回は、それぞれのCollectionを別に分けて設計したい。
 
-しかし、Scalaらしいオブジェクトモデリングがわからん。素直にBbs、BBSThread、Res、Userとかをcase classで書き起こせばいいんだろうか。また、日付型は何を使うのがいいのかな？&hellip;これは勉強不足だな。というわけで、Scalaで書かれたソースコードを読むお勉強モードに切り替える。
+しかし、Scalaらしいオブジェクトモデリングがわからん。素直にBbs、BBSThread、Res、Userとかをcase classで書き起こせばいいんだろうか。また、日付型は何を使うのがいいのかな？…これは勉強不足だな。というわけで、Scalaで書かれたソースコードを読むお勉強モードに切り替える。
 
 finagleを使うのであれば、finagleのサンプルコードをついでに見るのがよいだろう。Google検索の結果により、<a href="https://github.com/jlcheng/hello-finagle">Hello fingleという素敵なプロジェクト</a>を参考にすることにする。
 

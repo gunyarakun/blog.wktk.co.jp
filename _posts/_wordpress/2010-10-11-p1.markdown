@@ -6,7 +6,7 @@ tags: [会社運営]
 title: deCODEmeとNavigenicsで遺伝子検査をしたデータを公開してみる。
 wordpress_id: 20
 ---
-弊社、株式会社ｗｋｔｋは代表取締役一人だけが従事する会社です。彼に健康上の問題があれば、ゴーイングコンサーンが崩れてしまいます。会社存続リスクの定量化を試みました&hellip; 遺伝子検査を行うことによって！(キリッ
+弊社、株式会社ｗｋｔｋは代表取締役一人だけが従事する会社です。彼に健康上の問題があれば、ゴーイングコンサーンが崩れてしまいます。会社存続リスクの定量化を試みました… 遺伝子検査を行うことによって！(キリッ
 
 というわけで、海外の遺伝子検査サービスを複数申し込んでみて、その比較をしてみました。
 
@@ -53,7 +53,7 @@ FedExによる返送料はキット代金に含まれているようです。
 <a class="thickbox" href="http://farm5.static.flickr.com/4110/5055774662_d647560f74_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4110/5055774662_d647560f74.jpg" width="500" height="375" /></a>
 <a class="thickbox" href="http://farm5.static.flickr.com/4145/5055156979_11e45058f9_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4145/5055156979_11e45058f9.jpg" width="500" height="375" /></a>
 
-「みそぎ」のつもりで、検体を採取する前に、リステリンを使ってしまった馬鹿な僕。何か食べたり飲んだりしたあとは、１時間の間隔を空ける必要があるようです。１時間じっと待ち、唾液をキット内に入れました。規定量まで入れるのがツラかったです&hellip;
+「みそぎ」のつもりで、検体を採取する前に、リステリンを使ってしまった馬鹿な僕。何か食べたり飲んだりしたあとは、１時間の間隔を空ける必要があるようです。１時間じっと待ち、唾液をキット内に入れました。規定量まで入れるのがツラかったです…
 
 キット内の試験管部分だけを取り外し、フタをして標本袋に入れます。
 <a class="thickbox" href="http://farm5.static.flickr.com/4106/5055158945_913bc0f8de_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4106/5055158945_913bc0f8de.jpg" width="500" height="375" /></a>
@@ -72,7 +72,7 @@ FedExの伝票を書きます。意外とメンドイ。
 税関申告用の書類を書かなければいけません。送るものの重さを書く欄がありますが、僕が計ったときには116gでした。
 <a class="thickbox" href="http://farm5.static.flickr.com/4108/5055777840_27b895f213_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4108/5055777840_27b895f213.jpg" width="500" height="375" /></a>
 
-FedExの伝票と税関申告用の書類をまとめて、粘着面つきの袋に入れます。袋だらけ&hellip;
+FedExの伝票と税関申告用の書類をまとめて、粘着面つきの袋に入れます。袋だらけ…
 <a class="thickbox" href="http://farm5.static.flickr.com/4105/5055160247_dec5c3638c_b.jpg" target="_blank"><img src="http://farm5.static.flickr.com/4105/5055160247_dec5c3638c.jpg" width="500" height="375" /></a>
 
 検体が入ったキットと各種書類を、近所のFedEx/kinkosに持ち込みました。ここで１つトラブルが発生。なんと、もともと入っていた伝票は無効とのこと。
@@ -92,7 +92,7 @@ FedExの伝票と税関申告用の書類をまとめて、粘着面つきの袋
 
 <a href="http://www.flickr.com/photos/gunyarakun/5054007228/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4086/5054007228_89cb8eb6db.jpg" width="252" height="500" /></a>
 
-検査結果の英語が分かんねー&hellip;訳してみました。
+検査結果の英語が分かんねー…訳してみました。
 <ul>
 	<li>Abdominal aneurysm(腹部大動脈瘤)</li>
 	<li>Alzheimer's disease(アルツハイマー病)</li>
@@ -121,11 +121,11 @@ FedExの伝票と税関申告用の書類をまとめて、粘着面つきの袋
 	<li>Sarcoidosis(サルコイドーシス)</li>
 	<li>Stomach cancer, diffuse(未分化型胃がん)</li>
 </ul>
-株式会社ｗｋｔｋ代表取締役は、未分化型胃がん、変形性関節症、心臓発作、肥満症のリスクが平均より高いようです。また、乳糖不耐症である可能性が高いことが分かりました。牛乳でお腹ゴロゴロする人ってことです。でも、ゴロゴロしたことないんですよねー&hellip;
+株式会社ｗｋｔｋ代表取締役は、未分化型胃がん、変形性関節症、心臓発作、肥満症のリスクが平均より高いようです。また、乳糖不耐症である可能性が高いことが分かりました。牛乳でお腹ゴロゴロする人ってことです。でも、ゴロゴロしたことないんですよねー…
 
 検査項目をクリックすると、より詳細な情報が表示されます。
 
-Obesity(肥満)について表示してみました。79%の人は、遺伝子的には僕より肥満になりやすいようです。ただし、同じページの記述によれば、33%は環境によって影響されるらしいです。大食いとかやめないと&hellip;
+Obesity(肥満)について表示してみました。79%の人は、遺伝子的には僕より肥満になりやすいようです。ただし、同じページの記述によれば、33%は環境によって影響されるらしいです。大食いとかやめないと…
 <a href="http://www.flickr.com/photos/gunyarakun/5053387623/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4112/5053387623_5db4701397.jpg" width="239" height="500" /></a>
 
 Your DNAというタブがあります。
@@ -273,16 +273,16 @@ Male lineという項目を見ます。これは、父由来のY染色体を解�
 
 Y染色体グループにはさらにサブグループがあります。僕の場合は、Y染色体グループがOで、サブグループはO3a3でした。日本人男性の半数はOグループなんだって。
 
-これらの結果を見る限り、僕は東アジア人のようです。<strong>イタリア生まれ長崎育ちの色男</strong>だと思っていたのになー&hellip;もっといろいろ混血していれば、面白い結果が出るのかもしれないですね。
+これらの結果を見る限り、僕は東アジア人のようです。<strong>イタリア生まれ長崎育ちの色男</strong>だと思っていたのになー…もっといろいろ混血していれば、面白い結果が出るのかもしれないですね。
 
 Man of kinshipという項目を見ます。
 <a href="http://www.flickr.com/photos/gunyarakun/5054006394/sizes/o/" target="_blank"><img src="http://farm5.static.flickr.com/4110/5054006394_4b5704f84c.jpg" width="422" height="500" /></a>
 
 Man of kinshipを閲覧する際には、Javaのアプリケーションが起動します。いくつかの軸のなかから３軸を選び、地域ごとに色分けされた遺伝情報を３次元上に描くものです。
 <img src="http://farm5.static.flickr.com/4108/5053386873_8c4265f0c1.jpg" width="499" height="500" />
-ばっちり東アジア人ゾーンにプロットされていました。ちぇ&hellip;（ゲバラ）
+ばっちり東アジア人ゾーンにプロットされていました。ちぇ…（ゲバラ）
 <h3>SNPsのcsvデータ</h3>
-deCODEmeでは、解析されたSNPsの一覧をcsvファイルでダウンロードすることができます。とはいえ、ダウンロードしても使い勝手がない&hellip;
+deCODEmeでは、解析されたSNPsの一覧をcsvファイルでダウンロードすることができます。とはいえ、ダウンロードしても使い勝手がない…
 というわけで、<a href="http://tasuku.suenaga.name/SNPs.zip" target="_blank">ダウンロードした僕のSNPsデータ</a>を公開します。
 
 ファイル形式はcsvファイルです。SNPごとに、自分がどのタイプであるのかがわかります。

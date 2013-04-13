@@ -8,7 +8,7 @@ wordpress_id: 220
 ---
 11/3に、@xuwei_k さんの誕生祝 &amp; Scalaハッカソン！に参加した。とりあえず、Hello Finagleを見ながら、Finagle製のWebサーバを立てることを目指す。まずは、静的なHTMLファイル返答するところまで作ろう。
 
-むむむ&hellip;sbtの標準ディレクトリ構成がわからん。sbtのディレクトリ構成はMaven由来らしいので、<a href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Mavenのディレクトリ構成</a>を見る。
+むむむ…sbtの標準ディレクトリ構成がわからん。sbtのディレクトリ構成はMaven由来らしいので、<a href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Mavenのディレクトリ構成</a>を見る。
 
 どうやら、src/main/webappというディレクトリを掘ればいいらしい。ホントにこれでいいのかな。「sbt resources 」でGoogle検索。そのものずばりな、<a href="http://stackoverflow.com/questions/3868708/what-are-resources-folders-in-sbt-projects-for">What are &ldquo;resources&rdquo; folders in SBT projects for?</a>という質問を発見。そこのリンクから、さらに<a href="http://stackoverflow.com/questions/5285898/how-to-get-a-resource-within-scalatest-w-sbt">how to get a resource within scalatest w/ sbt</a>を見る。
 
@@ -56,7 +56,7 @@ class ThriftFileReader extends Service[String, Array[Byte]] {
     // returns immediately while the future pool executes the operation on a different thread
   }
 }</pre>
-このThriftFileReaderを実行してみると、型エラーが出た。fromFileはscala.io.BufferedSourceを返すが、FuturePool.apply()は、Array[Byte]を受け取る。scala.io.BufferedSourceからArray[Byte]に変換する方法を調べよう&hellip;と思ったけど、面倒なのでやめる。toArrayあたりでいいのかな？
+このThriftFileReaderを実行してみると、型エラーが出た。fromFileはscala.io.BufferedSourceを返すが、FuturePool.apply()は、Array[Byte]を受け取る。scala.io.BufferedSourceからArray[Byte]に変換する方法を調べよう…と思ったけど、面倒なのでやめる。toArrayあたりでいいのかな？
 
 とりあえず、同期でもいいからファイルをHTTP経由で返すところまでもっていこう。
 <pre class="syntax scala">response.setContent(copiedBuffer(scala.io.Source.fromFile("src/main/webapp/index.html").mkString, UTF_8))</pre>
@@ -79,7 +79,7 @@ pathによってきちんと返すファイルを変えよう。
     case "/" => "/index.html"
     case _ => path
   }</pre>
-初match！どきどき&hellip;あれれ、動作しない。ルートにアクセスしても、/index.htmlの内容を返してくれない。なんでだろ？調べてみると、pathが「/」の際に、２個目のcaseにマッチしていないようだ。なんでだ。俺たちはまだ、青春知らずさ。
+初match！どきどき…あれれ、動作しない。ルートにアクセスしても、/index.htmlの内容を返してくれない。なんでだろ？調べてみると、pathが「/」の際に、２個目のcaseにマッチしていないようだ。なんでだ。俺たちはまだ、青春知らずさ。
 
 ためしにifでマッチするかどうか試してみるか。
 <pre class="syntax scala">  val path = request.getUri

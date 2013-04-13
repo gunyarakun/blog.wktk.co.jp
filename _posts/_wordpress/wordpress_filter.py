@@ -8,6 +8,8 @@ import yaml
 from yaml import SafeLoader
 import re
 
+hellip_re = re.compile(r'&hellip;')
+
 def construct_binary(loader, node):
   return loader.construct_scalar(node)
 def construct_yaml_str(self, node):
@@ -24,19 +26,23 @@ for path in files:
   # split header and body
   contents = content.split(u'---')
   header = contents[1]
-  content = u'---'.join(contents[2:])
+  body = u'---'.join(contents[2:])
 
   original_header_data = yaml.load(header)
   new_header_data = {}
-  new_header_data['tags'] = original_header_data['categories']
-  new_header_data['date'] = original_header_data['date']
-  new_header_data['title'] = original_header_data['title']
-  new_header_data['wordpress_id'] = original_header_data['wordpress_id']
-  new_header_data['layout'] = 'post'
-  new_header_data['lang'] = 'ja'
+  if 'categories' in original_header_data:
+    # not converted yet
+    new_header_data['tags'] = original_header_data['categories']
+    new_header_data['date'] = original_header_data['date']
+    new_header_data['title'] = original_header_data['title']
+    new_header_data['wordpress_id'] = original_header_data['wordpress_id']
+    new_header_data['layout'] = 'post'
+    new_header_data['lang'] = 'ja'
+  else:
+    new_header_data = original_header_data
 
   header = yaml.dump(new_header_data, allow_unicode = True)
+  new_body = re.sub(hellip_re, u'…', body)
 
-  new_content = u'---'.join([u'', u'\n' + header.decode('utf-8'), content])
-
+  new_content = u'---'.join([u'', u'\n' + header.decode('utf-8'), new_body])
   codecs.open(path, 'w', 'utf-8').write(new_content)

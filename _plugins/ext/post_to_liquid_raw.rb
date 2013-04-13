@@ -84,7 +84,12 @@ module Jekyll
 
     def do_layout(payload, layouts)
       @original_content = self.content
-      self.do_layout_orig(payload, layouts)
+      begin
+        self.do_layout_orig(payload, layouts)
+      rescue Exception => e
+        puts self.content
+        raise e
+      end
       @layouted = true
     end
 

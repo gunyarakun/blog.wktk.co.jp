@@ -13,7 +13,7 @@ wordpress_id: 192
 以下のようなエラーが自動コンパイル時に発生する。
 <pre>Compilation error (In /app/models/user.java around line 9)
 The file /app/models/user.java could not be compiled. Error raised is : The public type User must be defined in its own file</pre>
-user.javaというファイル名なのにUserというpublicクラスを定義しようとしてエラー。しかし、ファイルシステム上のファイル名はきちんとUser.javaなんだが&hellip;
+user.javaというファイル名なのにUserというpublicクラスを定義しようとしてエラー。しかし、ファイルシステム上のファイル名はきちんとUser.javaなんだが…
 
 試しに、アプリケーションのtmpディレクトリを削除いてみたら、エラーが変わり
 <pre>Compilation error (In /app/models/user.java around line 9)

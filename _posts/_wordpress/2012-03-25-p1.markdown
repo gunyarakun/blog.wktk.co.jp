@@ -53,7 +53,7 @@ SQL BuilderであるはArelはActiveRecordの一部となっている。よっ�
 
 ついでに、Travis CIで継続的インテグレーションを行う。
 
-Sinatraのかわりに、<a href="https://github.com/intridea/grape/wiki">grape</a>と<a href="http://restfulie.caelum.com.br/">restfulie</a>の採用も考えたけど、周辺のプロダクトやドキュメントの充実っぷり、HTMLでのスタックトレースのキレイさに惹かれたんよ&hellip;。
+Sinatraのかわりに、<a href="https://github.com/intridea/grape/wiki">grape</a>と<a href="http://restfulie.caelum.com.br/">restfulie</a>の採用も考えたけど、周辺のプロダクトやドキュメントの充実っぷり、HTMLでのスタックトレースのキレイさに惹かれたんよ…。
 <h2>Perl</h2>
 Perlでは、簡単なプロトタイプ実装をしてみた。仕様をフル実装はできていないし、Dispatcherも分割できていない。
 
@@ -128,7 +128,7 @@ Pythonはさほど問題なくミドルウェアの選定も開発もできそ�
 
 フロントのビュー作成部分は、やはりゆるく・スピーディーに書きたい。また、教育コストが低くあって欲しい。そして、「楽しく」あってほしい。
 
-JVM言語でメジャーなのは、Java/Groovy/Jython/JRuby/Clojure/Scala/Kotlinか（JPerlは名前的に紛らわしいな&hellip;）。それはともかく、これらの言語のどれを採用すべきか。
+JVM言語でメジャーなのは、Java/Groovy/Jython/JRuby/Clojure/Scala/Kotlinか（JPerlは名前的に紛らわしいな…）。それはともかく、これらの言語のどれを採用すべきか。
 
 個人的には、JRuby on RailsとScalaの組み合わせなんかが面白いと思っている。Ruby on Railsはちまたに解説も大量にある。少しのお膳立てをしてあげれば、JRuby on Railsも難しくない。<a href="http://www.infoq.com/articles/linkedin-scala-jruby-voldemort">LinkedInの事例もあるよね。</a>TwitterはJavaとRubyをThriftでつないでいるから、これはまた違った路線。
 
@@ -138,4 +138,4 @@ JVM言語でメジャーなのは、Java/Groovy/Jython/JRuby/Clojure/Scala/Kotli
 
 <a href="https://github.com/gunyarakun/api-server-standard">リポジトリはこちら。</a>
 
-スペシャルサンクスで、同僚の稲川さんと、勤め先のハッカソン部(部長&nbsp;<a href="http://www.hatena.ne.jp/riywo/">id:riywo</a>）、java-ja温泉参加者のみなさま。はてブで意見いただいた方もありがとうございます。たしかに話を聞いているとPlay! 2は合致してそうなんだよなー&hellip;
+スペシャルサンクスで、同僚の稲川さんと、勤め先のハッカソン部(部長&nbsp;<a href="http://www.hatena.ne.jp/riywo/">id:riywo</a>）、java-ja温泉参加者のみなさま。はてブで意見いただいた方もありがとうございます。たしかに話を聞いているとPlay! 2は合致してそうなんだよなー…

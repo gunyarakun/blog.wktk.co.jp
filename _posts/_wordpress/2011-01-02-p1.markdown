@@ -36,7 +36,7 @@ Googleの個人アカウントの設定ページで、AAAA@example.comのメー�
 Google Appsの管理画面で、BBBB@example.com というユーザを作成し、AAAA@example.com というユーザを削除。
 Googleの個人アカウントの設定ページで、CCCC@example.comのメールアドレスを、AAAA@example.comに変更。
 
-さあこれでどうだ！&hellip;やっぱり問題解決せず。
+さあこれでどうだ！…やっぱり問題解決せず。
 しかも、appcfg updateでAAAA@example.comのメールアドレスを指定してデプロイすることも出来なくなっている。
 
 どうやら、Google AppsアカウントでありなおかつAAAA@example.comでないと、
@@ -57,7 +57,7 @@ Googleの個人アカウントの設定ページで、CCCC@example.comのメー�
 
 Issue Trackerに報告しようと思ったら、似たような問題を報告している人がいた。
 <a href="http://code.google.com/p/googleappengine/issues/detail?id=2421">http://code.google.com/p/googleappengine/issues/detail?id=2421</a>
-んでも放置されているんだよなー&hellip;
+んでも放置されているんだよなー…
 
 とりあえず、5日待ってAAAA@example.comのアカウント作成を再申請してみるか。復活してほしい。
 
