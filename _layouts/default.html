@@ -1,4 +1,4 @@
-<!-- vim: set expandtab ts=4 sw=4 nowrap ft=html ff=unix : -->
+<!-- vim: set expandtab ts=2 sw=2 nowrap ft=html ff=unix : -->
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
   <head>
@@ -13,23 +13,16 @@
 
     <link href="/assets/stylesheets/screen.css" rel="stylesheet">
 
-    <!-- FIXME: change icons -->
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- TODO: icons -->
+    <!--link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"-->
 
-    <!-- FIXME: fb -->
-    <meta property="og:title" content="{{ page.title | escape  }}"/>
-    <meta property="og:url" content="http://tech.nitoyon.com{{ page.url | remove: 'index.html' }}"/>
-    <meta property="og:type" content="{% if page.url == '/en/index.html' %}website{% elsif page.url == '/en/blog/index.html' %}blog{% else %}article{% endif %}"/>
-    <meta property="og:description" content="{{ page.raw.content | strip_newlines | strip_html | truncatewords: 40 | truncate: 300 | escape }}"/>
-    <meta property="og:image" content="{% if page.thumbnail != null %}{{ page.thumbnail }}{% else %}http://tech.nitoyon.com/apple-touch-icon-114x114.png{% endif %}"/>
-    <meta property="og:site_name" content="{{ sub_title }}"/>
-    <meta property="fb:admins" content="1297551349" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/{{ page.lang }}/blog/index.xml" />{% if page.alternate %}
-    <link rel="alternate" hreflang="{{page.alternate.lang }}" href="http://tech.nitoyon.com{{ page.alternate.url }}">{% endif %}
+    <!-- TODO: facebook -->
+
+    <link href="//twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
   </head>
 
   <body>
@@ -39,9 +32,22 @@
       </div>
     </div> <!-- /container -->
 
-    <div>
-      FIXME: Add Google Analytics tag
-    </div>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16318808-2']);
+      _gaq.push(['_trackPageview']);
 
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script src="//twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script>
+      $(function() {
+        window.prettyPrint && prettyPrint();
+      });
+    </script>
   </body>
 </html>

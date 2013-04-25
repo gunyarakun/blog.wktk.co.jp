@@ -1,0 +1,142 @@
+---
+date: 2012-03-24 15:03:17
+lang: ja
+layout: post
+permalink: /archives/234
+tags: [Python, Ruby, MySQL, Java, Groovy, Gradle, Querydsl, Perl]
+title: JSON on HTTPやWeb APIを各言語でどうやって実装するのか
+wordpress_id: 234
+---
+HTTPでアクセスして、JSONを返すようなWebサーバを書きたいとする。 どんな言語を選ぶか。どんなミドルウェアを選ぶか。どんなライブラリを選ぶか。
+
+たとえば、TIOBE Softwareが公表している<a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">「Programming Community Index(PCI)」という指標がある。</a>人気のあるプログラミング言語の数値化。これを見ていて思ったのは、「多すぎだよね、プログラミング言語」ということ。これらのうち、どの言語を勉強し、どの言語をプロジェクトに採用すべきなのか。
+
+その感触を得るために、 「同じ仕様のREST serviceを複数言語で実装したらいいんじゃね？」 と思った。いくつかの言語で実装を起こしてみている。
+<h2>前提条件</h2>
+大規模な開発を想定する。ユーザの規模が大規模。トランザクション数が大規模。そして、開発者が大規模。
+
+実用的かつモダンな開発を想定する。プロジェクト毎のバージョンを固定したモジュール管理、コード埋め込みドキュメント、ユニットテスト、継続的インテグレーション、A/Bテスト、ロギング、死活監視、プロファイリング、エラー時のわかりやすいスタックトレース、ホットデプロイ、セキュリティ、認証、ランキング、memcachedでのキャッシュ、Accept-Languageによる文言の多言語化などである。
+
+Web APIの仕様は、<a href="http://www.slideshare.net/apigee/restful-api-design-second-edition">RESTful API Design Second Edition</a>を参考にする。HATEOASな設計にそれほどこだわらずに。
+<h2>要件</h2>
+言語は、以下の3つを当初のターゲットとする。
+<ul>
+	<li>Perl</li>
+	<li>Ruby</li>
+	<li>Java</li>
+</ul>
+以下のような要件とする。よくあるWebシステムで、API提供寄り、というイメージ。
+<ul>
+	<li>JSON via HTTP&nbsp;<a href="http://gunyarakun.github.com/api-server-standard/api.html">詳細な仕様はGitHub Pagesを参照のこと。</a></li>
+	<li>かんたんなCRUD。</li>
+	<li>データベースのパスワードなど各種設定は、YAMLから読み込む</li>
+	<li>複数人での開発を前提とする。RouterとかDispatcherのような、HTTP path to methodのマッピングは分割可能とする。</li>
+	<li>RDBMSはMySQL。余計な論点を持ち込まないため。</li>
+	<li>依存パッケージはプロジェクトローカルに配置し、インターネットから自動fetchする</li>
+	<li>かんたんなHTMLをテンプレートを通じて返すことができる。ちょっとした動的HTMLを返したいこともある。</li>
+	<li>静的なファイルをHTTP経由で配信できる。</li>
+	<li>APIサーバ用途がメインだが、ちょっとした動的HTMLを返したいこともあるだろう。</li>
+	<li>O/Rマッパーは使わないかわりに、SQL builderを使う。</li>
+	<li>HTTP RequestのAcceptヘッダの先頭を見て、HTMLの場合にはJSONをインデントつけて見やすくしたHTMLとして出力してほしい</li>
+	<li>エラーの場合、HTTP RequestのAcceptヘッダの先頭を見て、HTMLでない場合にはJSONのフォーマット内にリッチなエラー情報を埋め込んで欲しい</li>
+</ul>
+ドキュメントはSphinxで書く。RESTfulなAPIの仕様を書くために、<a href="https://github.com/deceze/Sphinx-HTTP-domain">Sphinx HTTP Domain</a>を導入。
+
+以下、各言語で未完成ながらもミドルウェア選定・実装をしてみた感想を述べる。
+<h2>Ruby</h2>
+まず、Rubyから実装してみた。テストはほぼ未着手。
+
+選んだミドルウェア・ライブラリはこちら。
+
+Unicorn/Sinatra/mysql2/Arel/yaml/json/YARD yard-sinatra/rspec rake-test/memcached/RubyProf/shotgun/rack-protection/split/rvm gem
+
+SQL BuilderであるはArelはActiveRecordの一部となっている。よって、最小限のActiveRecordのメソッドも使う。
+
+ついでに、Travis CIで継続的インテグレーションを行う。
+
+Sinatraのかわりに、<a href="https://github.com/intridea/grape/wiki">grape</a>と<a href="http://restfulie.caelum.com.br/">restfulie</a>の採用も考えたけど、周辺のプロダクトやドキュメントの充実っぷり、HTMLでのスタックトレースのキレイさに惹かれたんよ…。
+<h2>Perl</h2>
+Perlでは、簡単なプロトタイプ実装をしてみた。仕様をフル実装はできていないし、Dispatcherも分割できていない。
+
+選んだミドルウェア・ライブラリはこちら。自信ないなー。
+
+Starlet/Amon2/DBD::mysql/SQL::Maker/YAML::XS/JSON::XS/POD/Test::Unit Test::WWW::Mechanize::PSGI/Cache::Memcached::Fast/Devel::NYTProf/Plack::Loader::Shotgun/Amon2::Plugin::Web::CSRFDefender/(A/B testing framework見つからず)/cpanm
+
+Perlで一番いやだったのは、JSONで「数値」を返すために加工が必要なこと。MySQL由来の「数値」は、明示的な加工をしない限り「数字」になってしまう。JSON Schema的なものを使えばいいんだろうけど。
+
+WAFについて、Mojolicious::LiteかAmon2か悩んだ。Mojolicious::Liteのほうが見た目的にシャレオツな書き方ができる気がする。特にフック部分。あと、コップの水が溢れるエラー画面がカッチョイイ。国内Perl Mongersへの刺さり具合を考えてAmon2とした。
+
+PSGIベースのA/Bテストフレームワークはあるのかな。<a href="https://github.com/andrew/split">Rubyのsplit</a>的な。
+
+あとは、Doxygen的なものをPODでやるのはどうするんだろう。<a href="https://github.com/pvande/yard-perl-plugin">YARDでPerlのドキュメントを書く、ってものもあったけどアクティブじゃない。</a>
+<h2>Java</h2>
+Javaのコードは久しく書いていない。知識レベルが、JDK 1.3で止まっている。 そのせいもあり、Javaのミドルウェア選定は悩んでいて、プロトタイプ実装しかできていない。
+
+選んだミドルウェア・ライブラリはこちら。自信ゼロ。
+
+Jetty/htmleasy(resteasy)/ConnectorJ/Querydsl/SnakeYAML/JSON.simple/JavaDoc/TestNG Spock/xmemcached/(JVMTI対応の何かのプロファイラ)/Gradle Jetty Plguin/(Servlet用のセキュリティフィルター探してない)/(A/B test framweworkも探してない)/Gradle Ivy
+
+Sinatraライクなフレームワークは、Spark/Napalm/htmleasyの3つを発見。 htmleasyは、JBossのRESTEasyというJAX-RS実装を元にしているようだ。 3フレームワークの中では、一番開発が活発そうだ。これにしよう。
+
+そもそも、JAX-RSという仕様があるのを知らなかった。なんでも仕様があるなJava。リファレンス実装はJersey。Apache CXFなんて実装もある。
+
+SQL builderは<a href="http://www.jooq.org/">jOOQ</a>、<a href="http://www.querydsl.com/">Querydsl</a>、<a href="http://iciql.com/">iciql</a>で悩んだ。Querydslは<a href="http://www.springsource.org/spring-data/jpa">Spring JPA</a>や<a href="http://www.springsource.org/spring-data/jdbc-extensions">Spring Data JDBC Extension</a>でもサポートされている。よって、Querydslを選択した。
+
+問題なのはJDBCラッパ。まずは、生JDBC + Querydslを検討し、プロトタイプ実装をしてみた。次に、Spring JPA + Querydsl、Spring Data JDBC Extension + Querydslも考えた。いまいちどれがいいのかわからないし、htmleasy(RESTeasy)と食いあわせがよいものがわからない。
+
+ビルドツールはGradle。sbtと迷った。Scala版を書くならsbtなので、JvaはGradleでいくことに。YAML読み込みやQuerydslのモデルクラス作成も頑張って書いてみた。Maven Pluginで用意されている機能を移植するのはめんどいなー。Gradleでのライブラリ読み込みがいまいちよくわかっていない。<a href="http://togetter.com/li/260291">今どきのJavaっ子はGradleだよねー</a>というのにほだされた。実際、Gradleのほうが小回りが利いてよい。
+
+DI containerはGuice。XML書かなくてよいという噂だけで選択。んでも、DI containerのキモをつかめてないんだよなー。モデルクラスをPOJOにしたいでしょ？ってくらいの認識しかないんだなこれが。
+<h2>JRuby + Netty</h2>
+これは飛び道具的な。ちょっとネタ的だが、意外といけるんじゃねと思っていたりする。とりあえず、HTTPで固定のレスポンスを返すまで実装してみた。
+
+<a href="http://netty.io/">Netty</a>とは、非同期I/Oネットワークアプリケーションフレームワーク。こないだまでJBoss内のプロジェクトだった気がしたけど、どうやら独立したらしい。
+
+ちなみに、Nettyを使ったRack対応サーバとして、<a href="http://kevwil.github.com/aspen/">aspen</a>というものがある。
+<h2>Python / PHP / Scala / C# / JavaScript</h2>
+未着手だが、これらの言語でも実装したい。
+
+Pythonはさほど問題なくミドルウェアの選定も開発もできそう。PHPはRESTなんてガン無視しつつ生PHPで書くが好みだが、かなりミドルウェア選定で悩みそう。Scalaは2ch cloneの開発が止まっているが、そちらを先にやりたい。C#は、MS系に寄せるか、そうでないかで選択肢がありそう。JavaScriptだとNodeを使うんだろうが、どのくらいミドルウェア揃っているんだろう。
+<h2>TODO</h2>
+まだまだやるべきことは多い。俺TDD苦手だな。テストがあることが重要なのではなく、コードがテスタブルであることは重要だ、という信念は持っている。しかし、やはりテストを書くのはめんどい。
+<ul>
+	<li>各言語で仕様を満たす。</li>
+	<li>テストカバレッジ100%を目指す。</li>
+	<li>ドキュメントカバレッジ100%を目指す。</li>
+	<li>OAuth2認証</li>
+	<li>memcachedでGETの場合のキャッシュを行う。</li>
+	<li>日次バッチ</li>
+	<li>A/B test</li>
+	<li>ランキング</li>
+	<li>fluentdによるロギング</li>
+	<li>死活監視、リソース監視</li>
+</ul>
+各言語でスループットの計測も行いたい。早ければ正義というわけでもないが、生産性と性能とのトレードオフを見極めたい。TPC-C/Eとまでは言わないが、何かしらのJSON/HTML on HTTPの標準的な性能評価法が確立していて欲しい。
+
+現時点の僕の実装は、各言語とも完成度が低い。同じハードウェアで計測する場合でも、OSの設定や、JVMの設定、コンパイルオプションも性能に大きく影響する。それらの数値をチューニングした上で計測を行う必要がある。適切なチューニングを行わないままベンチマークを行い、その結果をブログに掲載したらどうなるか。想像するだに身震いする。モヒカンの宴。abかhttperfあたりでの性能計測シェルスクリプトを書くくらいに留めておこう。ヘタレ俺。
+<h2>まとめ</h2>
+結局、どの言語・ミドルウェア・ライブラリが適しているかの結論は出せていない。そして、将来的にも出せる見込みはない。ただ、各言語でこのプロジェクトが目指すところを実装することには意味を感じている。実用的なWeb APIプログラムを書くときの基礎はあるべきだ。
+
+今回のプロジェクトは、メジャーな3言語を対象とした。情報があふれている3言語なのに、調査にかなり時間を費やした。情報があふれているからこそ、調査に時間がかかるのかもしれない。
+
+なぜJavaの調査をしたか。これからの大規模サーバサイドWeb開発環境は、いよいよJVM上に寄っていくのではないか、と予想しているからである。
+
+バックエンドのロジック部分と、フロントのビュー作成部分は分けたい。お互いを呼び出す必要がある。 内部APIを呼び出しするだけなのに、HTTP(あるいはThriftでも)のオーバーヘッドに耐えなければならない。それはつらい。すべてJVM内部で閉じていれば、関数呼び出しで済むのだ。
+
+仮にJVM外の言語から機能を利用しようとすれば、それこそHTTP経由でアクセスすればよい。HTTPクライアントライブラリがないWeb向け実用言語はないだろう。HTTPさえサポートすれば、最低限の相互運用性は確保できる。たとえば、全銀協標準プロトコル@TCP/IPはCORBAを採用しているが、Web系に限れば、もはやCORBAもSOAPも出る幕はないだろう。
+
+バックエンドのロジック部分は静的型付言語のほうがいいのではないか。<a href="http://tech.cm55.com/wiki/scala/ruby">動的型付言語は使い物にならない</a>という意見もあるが、そこまでは思っていない。しかし、純粋なロジック部分については静的型付言語で書きたい。
+
+フロントのビュー作成部分は、やはりゆるく・スピーディーに書きたい。また、教育コストが低くあって欲しい。そして、「楽しく」あってほしい。
+
+JVM言語でメジャーなのは、Java/Groovy/Jython/JRuby/Clojure/Scala/Kotlinか（JPerlは名前的に紛らわしいな…）。それはともかく、これらの言語のどれを採用すべきか。
+
+個人的には、JRuby on RailsとScalaの組み合わせなんかが面白いと思っている。Ruby on Railsはちまたに解説も大量にある。少しのお膳立てをしてあげれば、JRuby on Railsも難しくない。<a href="http://www.infoq.com/articles/linkedin-scala-jruby-voldemort">LinkedInの事例もあるよね。</a>TwitterはJavaとRubyをThriftでつないでいるから、これはまた違った路線。
+
+しかし、<a href="http://toyoshi.hatenablog.com/entry/2012/03/09/143753">各言語で知らなきゃいけないことが多すぎないか。</a>本来は3言語で仕様を完璧に満たして公開したかったが、途中公開に踏み切ったのは、そもそものミドルウェア・ライブラリ選定に早めにツッコミもらったほうがよさそうだ、という判断による。JSONパースライブラリが複数あってどれ選べばいいかわからないという状況は、「多様性があっていいよね」とプラスに捉えられるほど僕の人生は余っていない。
+
+「なんでこの言語がないんだ！」という方々。 「こんなミドルウェア・ライブラリ選ぶなんてセンスねーな」という方々、 pull requestお待ちしております。マジで。書いてて自信ないんで。
+
+<a href="https://github.com/gunyarakun/api-server-standard">リポジトリはこちら。</a>
+
+スペシャルサンクスで、同僚の稲川さんと、勤め先のハッカソン部(部長&nbsp;<a href="http://www.hatena.ne.jp/riywo/">id:riywo</a>）、java-ja温泉参加者のみなさま。はてブで意見いただいた方もありがとうございます。たしかに話を聞いているとPlay! 2は合致してそうなんだよなー…
