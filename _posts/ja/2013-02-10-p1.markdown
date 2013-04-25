@@ -28,8 +28,7 @@ BLAKE2bは64bit CPUで高速に動き512bit出力。BLAKE2sは8-32bit CPUで高�
 
 ビット数あたりの早さでは、MD5を超え、MurmurHashに肉薄している。結構速いっすね。cmptheseでRateの割り算ができればもっときれいに比較できるかな。
 
-<code>
-[perl]
+<pre>
                         Rate SHA512    (512bit) SHA1      (160bit) BLAKE2b   (512bit) BLAKE2s   (256bit) MD5       (128bit) MurmurHash(256bit)
 SHA512    (512bit)   70572/s                 --                -0%               -90%               -92%               -94%               -95%
 SHA1      (160bit)   70671/s                 0%                 --               -90%               -92%               -94%               -95%
@@ -37,7 +36,6 @@ BLAKE2b   (512bit)  704225/s               898%               896%              
 BLAKE2s   (256bit)  833333/s              1081%              1079%                18%                 --               -30%               -45%
 MD5       (128bit) 1190476/s              1587%              1585%                69%                43%                 --               -21%
 MurmurHash(256bit) 1515152/s              2047%              2044%               115%                82%                27%                 --
-[/perl]
 </code>
 
 <h2>どんな風に書いたか</h2>
@@ -97,8 +95,7 @@ typemapというファイルの存在を知らずにハマったのが一番時�
 
 <h2>ベンチマークコード</h2>
 
-<code>
-[perl]
+<pre class="prettyprint lang-perl">
 use Benchmark qw(:all);
 
 use Digest::MD5;
@@ -138,5 +135,4 @@ cmpthese(1000000, {
     'SHA512    (512bit)' => sub { sha1($str) },
     'BLAKE2b   (512bit)' => sub { blake2b($str) },
 });
-[/perl]
-</code>
+</pre>

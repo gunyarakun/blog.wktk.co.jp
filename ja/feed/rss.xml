@@ -4,8 +4,8 @@ layout: nil
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title }}</title>
-    <link>{{ site.production_url }}</linl>
+    <title>グニャラくんのwktk運営日記</title>
+    <link>{{ site.production_url }}</link>
     <atom:link href="{{ site.production_url }}/feed/rss.xml" rel="self" type="application/rss+xml" />
     <description></description>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}</pubDate>
@@ -13,7 +13,7 @@ layout: nil
 
     {% for post in site.posts %}
       <item>
-        <title>{{ post.title }}</title>
+        <title>{{ post.title | xml_escape }}</title>
         <link>{{ site.production_url }}{{ post.url }}</link>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %Z" }}</pubDate>
         <guid>{{ site.production_url }}{{ post.id }}</guid>
