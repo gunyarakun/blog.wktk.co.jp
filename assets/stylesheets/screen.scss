@@ -135,6 +135,8 @@ article img {
 }
 
 /* google code prettify */
+@import 'google-code-prettify-desert';
+
 ol.linenums {
   padding-left: 40px;
   font-family: $monospace;
@@ -145,5 +147,5 @@ li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
   list-style-type: decimal;
 }
 
-@import 'google-code-prettify-desert';
-@import 'twitter.scss';
+/* twitter button */
+@import 'twitter';
