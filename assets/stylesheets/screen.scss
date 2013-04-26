@@ -2,11 +2,13 @@
 ---
 @charset 'utf-8';
 
+$experimental-support-for-opera:false;
+$experimental-support-for-khtml:false;
+
 @import 'compass/reset';
 @import 'compass/css3/background-size';
 @import 'compass/css3/box-shadow';
 @import 'compass/css3/border-radius';
-@import 'compass/css3/text-shadow';
 @import 'compass/typography/vertical_rhythm';
 @import 'compass/utilities/general/clearfix';
 
@@ -53,7 +55,7 @@ body {
   left: $base-line-height / 2;
   bottom: $base-line-height / 2;
   background: white;
-  border-radius: $base-line-height / 2;
+  @include border-radius($base-line-height / 2);
   padding: 20px;
   overflow-y: scroll;
 }
@@ -66,7 +68,7 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: #ccc;
-  border-radius: 5px;
+  @include border-radius(5px);
 }
 
 h1 {
