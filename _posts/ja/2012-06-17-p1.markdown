@@ -12,7 +12,8 @@ wordpress_id: 244
 <del>Plack::Middleware::Deflaterで、Androidブラウザでだけ表示がされなかったり、コンテンツが途中で切れてしまう不具合に悩んでいる(Android 2.3.3 simulator, 2.3.4実機で確認)。</del>PCブラウザ、iPhoneだとOK。
 
 再現手順は以下のとおりだけど、なんでじゃろ。解析のためにAndroidをビルドするのもなー。
-<pre class="prettyprint linenums lang-perl">#!/usr/bin/env perl
+<pre class="prettyprint linenums lang-perl">
+#!/usr/bin/env perl
 use strict;
 use warnings;
 use utf8;
@@ -29,4 +30,5 @@ builder {
     return [200, ['Content-Type' => 'text/html'],
       ['<html><head><title>Android Error</title></head><body>This text cannot be shown in Android</body></html>']];
   }
-};</pre>
+};
+</pre>
