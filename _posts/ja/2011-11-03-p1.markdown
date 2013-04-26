@@ -18,12 +18,20 @@ Casbahを使ってScalaでデータを入れてみるか。ますは<a href="htt
 sbtとはなんぞや。コップ本の巻末索引を見るとあった。どうやらビルドツールらしい。コップ本には基本的にsbtの解説がない。
 
 <a href="https://github.com/harrah/xsbt/wiki">sbtのページにある手順</a>&nbsp;を参考にして、導入。またインストール方法の選択肢がいっぱいあるのかと思いきや、jar配置して、起動スクリプトを書くだけでいいらしいので楽チン…。かと思いきや、sbtを実行するとエラーが出まくる。
-<pre>Error: Could not retrieve JNA</pre>
+
+<pre class="prettyprint">
+Error: Could not retrieve JNA
+</pre>
+
 どうやら依存しているJNAの自動フェッチに失敗しているらしい。
 
 ~/.ivy2/local/net.java.dev.jna/jna/3.2.3/jars/
 にjna-3.2.3.jarをjna.jarにリネームして置いてあげたら、
-<pre>Error: Could not retrieve Scala 2.9.1</pre>
+
+<pre class="prettyprint">
+Error: Could not retrieve Scala 2.9.1i
+</pre>
+
 だって。
 
 ここでふて寝しそうになったが、Debianで動かすのをやめてMacで動かしてみる。最近のオシャレミドルウェアは大体Macで簡単に入るようになっている。そうでないと開発者に使ってもらえないからねー。マーケティング的に。
@@ -35,26 +43,37 @@ sbtとはなんぞや。コップ本の巻末索引を見るとあった。ど�
 Antはずっと前に触ったことあるけど、MavenとかIvyとか全然知らんかった僕。とりあえず、プロジェクトファイルを書けば、プロジェクトの生成と依存ライブラリの導入ができるらしい。
 
 build.sbtってファイルはこんな風に書けばいいのかな？
-<pre>name := "Clone2ch"
+
+<pre class="prettyprint lang-scala linenums">
+name := "Clone2ch"
 version := "1.0"
 scalaVersion := "2.9.1"
 libraryDependencies ++= Seq(
   "com.mongodb.casbah" % "casbah_2.9.0-1" % "2.1.5.0"
-)</pre>
+)
+</pre>
+
 試しにsbt起動したらエラー。eof expected but ';' found.だと。
 どうやら、各行ごとに空行を挟む必要があるみたい。空行挟んだら通った。
 どういうパースをしているのかいまいちわかってない。
-<pre>mkdir -p src/main/scala
-vim src/main/scala/TestMongo.scala
----
+
+<pre class="prettyprint lang-bash linenums">
+> mkdir -p src/main/scala
+> vim src/main/scala/TestMongo.scala
+</pre>
+
+<pre class="prettyprint lang-scala linenums">
 object TestMongo {
   def main(args: Array[String]) {
     println("test mongo")
   }
 }
----</pre>
+</pre>
+
 んで、sbt runとかすると、「test mongo」って表示される。ふー、長かったぜ。初めての対話環境外でのScalaプログラミング。んじゃ、さっそくMongoDBに値を突っ込んでみよー。
-<pre class="prettyprint linenums lang-scala">import com.mongodb.casbah.Imports._
+
+<pre class="prettyprint linenums lang-scala">
+import com.mongodb.casbah.Imports._
 
 object TestMongo {
   def main(args: Array[String]) {
@@ -68,24 +87,42 @@ object TestMongo {
     )
     collection.find().foreach(println)
   }
-}</pre>
+}
+</pre>
+
 エラー。どうやら、MongoDBObjectのファクトリメソッドに渡している最後のコンマがまずいらしい。取ってみる。…動かない。import com.mongodbの時点で、comにmongodbなんてメンバないぜと言われる。
 
 しばらく悩んだ結果、pwdがsrc/main/scalaだったのがダメみたい。sbtが見るbuild.sbtはカレントにないとダメなのね。Hello, World的なものの場合には何もimportしていなかったから、カレントにbuild.sbtがなくてもsbt runが問題なく動作していたらしい。build.sbtがあるディレクトリまで上がって実行。
-<pre>"_id" : { "$oid" : "4e9c5f8e03644d5841503e66"} , "name" : "lobby" , "name_jp" : "ロビー" , "domain" : "mentai.2ch.net"}</pre>
+
+<pre class="prettyprint linenums lang-json">
+"_id" : { "$oid" : "4e9c5f8e03644d5841503e66"} , "name" : "lobby" , "name_jp" : "ロビー" , "domain" : "mentai.2ch.net"}
+</pre>
+
 おおー、動いたきゃっきゃ。もっかいrun!
-<pre>{ "_id" : { "$oid" : "4e9c5f8e03644d5841503e66"} , "name" : "lobby" , "name_jp" : "ロビー" , "domain" : "mentai.2ch.net"}
-{ "_id" : { "$oid" : "4e9c5feb036461f9a18ebaad"} , "name" : "lobby" , "name_jp" : "ロビー" , "domain" : "mentai.2ch.net"}</pre>
+
+<pre class="prettyprint linenums lang-json">
+{ "_id" : { "$oid" : "4e9c5f8e03644d5841503e66"} , "name" : "lobby" , "name_jp" : "ロビー" , "domain" : "mentai.2ch.net"}
+{ "_id" : { "$oid" : "4e9c5feb036461f9a18ebaad"} , "name" : "lobby" , "name_jp" : "ロビー" , "domain" : "mentai.2ch.net"}
+</pre>
+
 ぎゃーレコードが２つに増えた。nameをidにすればいいのかな？でもnatural keyとsurrogate keyは分けたいよね。$oidはどうやら一意でかつ必ず付与されそうだから、natural keyをそのままidとしても問題ないのかな？と思ったけど、nameをid_とするのはやめておこう。
 
 unique制約的なものはどうやって付与するんだろう。
 
 「mongodb unique constraint」でGoogle検索。MongoDBのJavaScriptでは
-<pre>db.bbs.ensureIndex({name: 1}, {unique: true});</pre>
+
+<pre class="prettyprint linenums lang-javascript">
+db.bbs.ensureIndex({name: 1}, {unique: true});
+</pre>
+
 的な感じでunique制約が付けられるようだ。
 
 「ensureIndex casbah」でGoogle検索。
-<pre>def ensureIndex [A] (keys: A, name: String, unique: Boolean)(implicit arg0: (A) &rArr; DBObject): Unit</pre>
+
+<pre class="prettyprint linenums lang-javascript">
+def ensureIndex [A] (keys: A, name: String, unique: Boolean)(implicit arg0: (A) &rArr; DBObject): Unit
+</pre>
+
 でuniqueインデックスが付けられるらしい。
 
 ふと思ったこと。シャーディング時のunique制約確認はどうやっているんだろう。まあ、bbsはシャーディングするほどのレコード量にならないからいいか。
@@ -95,16 +132,20 @@ unique制約的なものはどうやって付与するんだろう。
 さて、実際にモデリングを始めてみよう。
 
 ２ちゃんねる掲示板の要件を簡単に整理。
+
 <ul>
-	<li>掲示板は、ホスト名と掲示板名で一意に特定される。</li>
-	<li>スレッドは、掲示板とスレッドIDで一意に特定される。</li>
-	<li>レスは、スレッドとレス番号で一意に特定される。</li>
+  <li>掲示板は、ホスト名と掲示板名で一意に特定される。</li>
+  <li>スレッドは、掲示板とスレッドIDで一意に特定される。</li>
+  <li>レスは、スレッドとレス番号で一意に特定される。</li>
 </ul>
+
 be板も考えると、
+
 <ul>
-	<li>ユーザは、メールアドレスで一意に特定される。</li>
-	<li>レスには、ユーザが1対1対応する、もしくはユーザが空である。</li>
+  <li>ユーザは、メールアドレスで一意に特定される。</li>
+  <li>レスには、ユーザが1対1対応する、もしくはユーザが空である。</li>
 </ul>
+
 というわけで、基本的に1対多なリレーションが多いわけですな。
 
 <a href="http://d.hatena.ne.jp/masa_w/20101130/1291084939">MongoDBにおける関連（Relation）のスキーマ設計</a>&nbsp;を読むと、１つのCollectionになるべく詰めてあげたほうが効率がよいらしい。しかし、Collectionには最大サイズがあるため、実用的にはCollectionを分割するようだ。今回は、それぞれのCollectionを別に分けて設計したい。
