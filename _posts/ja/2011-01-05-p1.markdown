@@ -11,7 +11,7 @@ zeromq requires libuuid which is included in packages such as e2fsprogs-devel (R
 
 e2fsprogs-devel contains not only libuuid but also many other libraries. If you need install ONLY libuuid from source code(and build zeromq with it), you should follow below.
 
-<pre class="prettyprint lang-bash">
+<pre class="prettyprint linenums lang-bash">
 PREFIX=/usr
 
 # libuuid

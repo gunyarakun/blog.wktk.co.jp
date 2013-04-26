@@ -19,8 +19,7 @@ wordpress_id: 328
 
 python環境はpythonbrewで、今回はvirtualenvは使わない。OSはMountain Lion。git/Mercurial/各種ビルドツールは入っている感じで。
 
-<code>
-[shell]
+<pre class="prettyprint linenums lang-bash">
 mkdir topazos
 cd topazos
 git clone http://github.com/topazproject/topaz
@@ -28,8 +27,7 @@ hg clone https://bitbucket.org/pypy/pypy
 cd topaz
 pip install -r requirements.txt
 python ../pypy/rpython/bin/rpython -Ojit targettopaz.py
-[/shell]
-</code>
+</pre>
 
 RPythonが出すマンデルブロ集合をぼーっと見ていると、ビルドが終わる。
 最適化をかけたあと、RPythonの実行系も含んだC言語のソースコードを吐き出し、それをビルドするようだ。
@@ -38,25 +36,21 @@ RPythonが出すマンデルブロ集合をぼーっと見ていると、ビル�
 
 まずは試しに起動、と。
 
-<code>
-[shell]
+<pre class="prettyprint linenums lang-bash">
 > bin/topaz
 RPython traceback:
   File "topaz_main.c", line 128, in entry_point
   File "topaz_main.c", line 2163, in _entry_point
 Fatal RPython error: NotImplementedError
 [1]    99870 abort      bin/topaz
-[/shell]
-</code>
+</pre>
 
 Oh。なんか失敗した。-eでワンライナーするか、スクリプトファイルが必要らしい。
 
-<code>
-[shell]
+<pre class="prettyprint linenums lang-bash">
 > bin/topaz -e "puts 'Hello Topaz.'"
 Hello Topaz.
-[/shell]
-</code>
+</pre>
 
 やたー、動いた。
 
@@ -64,8 +58,7 @@ Hello Topaz.
 
 差が6つの素数の組である、<a href="https://gist.github.com/havenwood/4724778">セクシー素数を求めるRubyコード</a>を動かしてみる。セクシーな結果は出るのかな。
 
-<code>
-[shell]
+<pre class="prettyprint linenums lang-bash">
 > ruby -v
 ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-darwin12.0.0]
 > time ruby sexy_prime.rb
@@ -75,7 +68,7 @@ ruby sexy_prime.rb  51.76s user 0.03s system 99% cpu 51.793 total
 10.434968
 bin/topaz sexy_prime.rb  10.42s user 0.02s system 99% cpu 10.444 total
 [/shell]
-</code>
+</pre>
 
 Oh, Sexy! 確かにこのベンチマークコードではかなり速くなっているようだ。
 
@@ -92,8 +85,7 @@ Oh, Sexy! 確かにこのベンチマークコードではかなり速くなっ�
 
 ためしに、topaz/modules/math.pyを見てみよう。
 
-<code>
-[python]
+<pre class="prettyprint linenums lang-python">
 from __future__ import absolute_import
 
 import math
@@ -127,8 +119,7 @@ class Math(Module):
             return space.newfloat(math.log(value))
         else:
             return space.newfloat(math.log(value) / math.log(base))
-[/python]
-</code>
+</pre>
 
 どうみてもRPythonです。本当にありがとうございました。
 

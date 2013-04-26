@@ -25,14 +25,14 @@ wordpress_id: 220
 まずは、HTTP Methodのハンドリングだな。NettyのHTTPRequestのメソッドであるgetMethod()でパターンマッチするのが常道か。「"getMethod match"」でGoogle検索。それでひっかかった、<a href="http://code.google.com/p/punk/">PunkというWebフレームワーク</a>がサイズ小さそうなので読んでみる。
 
 ソースを読む上で、vimのsyntax highlightが欲しい。
-<pre class="prettyprint lang-bash">sbaz install scala-tool-support
+<pre class="prettyprint linenums lang-bash">sbaz install scala-tool-support
 cp -R /usr/local/Cellar/scala/2.9.1/libexec/misc/scala-tool-support/vim/ ~/.vim</pre>
 という風にしたら、syntax highlightがついた。いえー。
 
 Punkでは、静的ファイルをどのように読み込み、クライアントに返しているのか。
-<pre class="prettyprint lang-bash">ack File</pre>
+<pre class="prettyprint linenums lang-bash">ack File</pre>
 でgrep。src/main/scala/punk/PunkFilter.scalaにreadFile()というメソッドがあるらしい。
-<pre class="prettyprint lang-scala">    private def readFile(url: URL) = {
+<pre class="prettyprint linenums lang-scala">    private def readFile(url: URL) = {
       scala.io.Source.fromURL(url).mkString
     }</pre>
 うーむ。scala.io.Source.fromURL(url).mkStringってその場で文字列作るから、ファイルI/O待ってブロックするんじゃねーの？
@@ -41,7 +41,7 @@ FinagleのイベントループにFile I/Oも載せられるような何かは�
 と思ったらあったー、<a href="https://github.com/twitter/finagle#Using%20Future%20Pools">Finagleのドキュメント内、Using Future Pools</a>。
 
 FinagleはFutureという型をよく使うが、一種の遅延評価みたいなもんだろう。上記のサンプルに、importを補うとこんな感じか。
-<pre class="prettyprint lang-scala">import com.twitter.finagle.Service
+<pre class="prettyprint linenums lang-scala">import com.twitter.finagle.Service
 import com.twitter.util.FuturePool
 import java.util.concurrent.Executors
 
@@ -60,19 +60,19 @@ class ThriftFileReader extends Service[String, Array[Byte]] {
 このThriftFileReaderを実行してみると、型エラーが出た。fromFileはscala.io.BufferedSourceを返すが、FuturePool.apply()は、Array[Byte]を受け取る。scala.io.BufferedSourceからArray[Byte]に変換する方法を調べよう…と思ったけど、面倒なのでやめる。toArrayあたりでいいのかな？
 
 とりあえず、同期でもいいからファイルをHTTP経由で返すところまでもっていこう。
-<pre class="prettyprint lang-scala">response.setContent(copiedBuffer(scala.io.Source.fromFile("src/main/webapp/index.html").mkString, UTF_8))</pre>
+<pre class="prettyprint linenums lang-scala">response.setContent(copiedBuffer(scala.io.Source.fromFile("src/main/webapp/index.html").mkString, UTF_8))</pre>
 うむ。ブラウザからアクセスしたところ、index.htmlが表示された。しかし、このcopiedBufferをはさむところがなんかダサいな。
 
 responseはNettyのHttpResponseのインスタンス。setContentはバッファを受け取る。fromFile()はscala.io.BufferedSourceを返す。setContentが受け取るのはorg.jboss.netty.buffer.ChannelBufferインターフェース互換のもの。うまくやれば直接変換できそうな予感。そうすれば、FuturePoolでラップしなくても、実際にI/Oが必要となったときにFile -> Networkに直に転送してくれたりできそうな気配がする。けど、これもあまり深追いしないでおく。
 
 pathによってきちんと返すファイルを変えよう。
-<pre class="prettyprint lang-scala">response.setContent(copiedBuffer(scala.io.Source.fromFile("src/main/webapp" + request.getUri).mkString, UTF_8))</pre>
+<pre class="prettyprint linenums lang-scala">response.setContent(copiedBuffer(scala.io.Source.fromFile("src/main/webapp" + request.getUri).mkString, UTF_8))</pre>
 動作した。
 
 上記のサンプルは、「/」へのアクセスでindex.htmlを返してくれない。また、ありがちな「../../../etc/passwd」的なものに弱い。前者について、HttpRequestのパスが「/」の場合には「/index.html」と解釈するようにしよう。後者について、パスを作ったあとパスの正規化をして、そのprefixをチェックする、っていうのが一般的な処理だろう。今回は、Scalaの正規表現を勉強したいので、とりあえず「..」という部分文字列があったら例外を投げるようにしてみる。
 
 こんな感じでよかんべ。「..」にマッチする正規表現をソースコードに埋め込むのは面倒だ。最初は、"\\.\\."と書いたが、"""\.\."""とも書けるようだ。
-<pre class="prettyprint lang-scala">  val tentenRegex = """\.\.""".r
+<pre class="prettyprint linenums lang-scala">  val tentenRegex = """\.\.""".r
   val path = request.getUri
 
   val filePath = "src/main/webapp/" + path match {
@@ -83,7 +83,7 @@ pathによってきちんと返すファイルを変えよう。
 初match！どきどき…あれれ、動作しない。ルートにアクセスしても、/index.htmlの内容を返してくれない。なんでだろ？調べてみると、pathが「/」の際に、２個目のcaseにマッチしていないようだ。なんでだ。俺たちはまだ、青春知らずさ。
 
 ためしにifでマッチするかどうか試してみるか。
-<pre class="prettyprint lang-scala">  val path = request.getUri
+<pre class="prettyprint linenums lang-scala">  val path = request.getUri
 
   if (path == "/") {
     println("match de-su")

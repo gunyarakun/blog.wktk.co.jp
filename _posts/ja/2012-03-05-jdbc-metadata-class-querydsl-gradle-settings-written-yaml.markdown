@@ -10,7 +10,7 @@ wordpress_id: 229
 This is an example of build.gradle to make JDBC metadata class for Querydsl.
 JDBC settings are written in ../config.yaml. The target RDBMS of JDBC is MySQL.
 It's not smart, although it works well.
-<pre class="prettyprint lang-groovy">// vim: set expandtab ts=2 sw=2 nowrap ft=groovy ff=unix : */
+<pre class="prettyprint linenums lang-groovy">// vim: set expandtab ts=2 sw=2 nowrap ft=groovy ff=unix : */
 sourceCompatibility = 1.6 // TODO: 1.7
 version = '1.0'
 group = 'jp.co.wktk.apiserver'

@@ -54,7 +54,7 @@ object TestMongo {
 }
 ---</pre>
 んで、sbt runとかすると、「test mongo」って表示される。ふー、長かったぜ。初めての対話環境外でのScalaプログラミング。んじゃ、さっそくMongoDBに値を突っ込んでみよー。
-<pre class="prettyprint lang-scala">import com.mongodb.casbah.Imports._
+<pre class="prettyprint linenums lang-scala">import com.mongodb.casbah.Imports._
 
 object TestMongo {
   def main(args: Array[String]) {

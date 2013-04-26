@@ -36,7 +36,7 @@ BLAKE2b   (512bit)  704225/s               898%               896%              
 BLAKE2s   (256bit)  833333/s              1081%              1079%                18%                 --               -30%               -45%
 MD5       (128bit) 1190476/s              1587%              1585%                69%                43%                 --               -21%
 MurmurHash(256bit) 1515152/s              2047%              2044%               115%                82%                27%                 --
-</code>
+</pre>
 
 <h2>どんな風に書いたか</h2>
 
@@ -58,34 +58,24 @@ stringencodersのAscii85は、Adobe式というか、PostScript/PDFで使われ�
 
 以下のようなことで悩んだ。
 
-<ul>
-<li>
 Module::Build::Pluggable::XSUtilを使っているモジュールが少ない。ただでさえ、Build.PLを使っているモジュールが少ないのに、情報量が少なくて詰んだ。typester先生の<a href="https://github.com/typester/EV-Hiredis">EV::Hiredis</a>を見ながらしのいだ。
-</li>
-<li>
+
 Module::Build::PluggableとModule::Build->subclassを共存させる方法がよくわかんなくて、ACTION_codeでソースコードテンプレートからソースを生成したかったけど、Build.PLのトップレベルでソースコードを生成してしのいだ。Module::Build::Pluggableのソースコードを見る限り、そう簡単にはいかないっぽい。
 <a href="https://github.com/tokuhirom/mRuby.pm/blob/master/Build.PL">mRuby.pmのBuild.PL</a>のように、
 自分でppport.h生成とc99 checkをやらないといけないのかもしれないけど、ちょっと面倒。
-</li>
-<li>
+
 ソースコードテンプレートに変更があっても、Buildで検出してくれない。ソースコードを生成しなおして、Buildできるようにしたい。
 <a href="https://github.com/tokuhirom/Nana/blob/master/Build.PL">NanaのBuild.PL</a>のようにすれば、うまく自動生成をハンドリングしてくれるのかな。
-</li>
-<li>
+
 shipitしようとすると、Digest-BLAKE2-0.01/というディレクトリが消えずに残っていて怒られた。.gitignoreとMANIFEST.SKIPに書いてしのいだがなんか不吉な予感する。
-</li>
-<li>
+
 CPANにソースコードテンプレートであるBLAKE2x.pmファイルがインデックス化されている。そのモジュールはインストールされず、別名のモジュールがインストールされちゃいます。
-</li>
-<li>
+
 CPANにblake2ディレクトリのREADMEがインデックス化されている。
-</li>
-<li>
+
 今でもh2xsを最初に使うべきなのかな。今回はh2xsを全く使わず。
-</li>
-<li>
+
 typemapというファイルの存在を知らずにハマったのが一番時間を食った。h2xsを使わないのがよくないのか。
-</li>
 
 <h2>まとめ</h2>
 
@@ -95,7 +85,7 @@ typemapというファイルの存在を知らずにハマったのが一番時�
 
 <h2>ベンチマークコード</h2>
 
-<pre class="prettyprint lang-perl">
+<pre class="prettyprint linenums lang-perl">
 use Benchmark qw(:all);
 
 use Digest::MD5;

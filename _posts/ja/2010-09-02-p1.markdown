@@ -12,10 +12,10 @@ wordpress_id: 34
 さくらの共用レンタルサーバの環境設定について書かれたいろんなブログを見た。HTTP経由でのファイル取得にはwgetを使っていることが多かった。fetchのほうがFreeBSDっぽくね？
 
 cshをbashに変える。
-<pre class="prettyprint lang-bash">% chsh -s /usr/local/bin/bash
+<pre class="prettyprint linenums lang-bash">% chsh -s /usr/local/bin/bash
 </pre>
 gitを入れる。Subversionよりは依存ライブラリが少なくてやりやすいか。
-<pre class="prettyprint lang-bash">$ fetch http://kernel.org/pub/software/scm/git/git-1.7.2.tar.gz
+<pre class="prettyprint linenums lang-bash">$ fetch http://kernel.org/pub/software/scm/git/git-1.7.2.tar.gz
 $ tar xvfz git-1.7.2.tar.gz
 $ cd git-1.7.2
 $ ./configure --prefix=$HOME/usr --without-tcltk
@@ -23,7 +23,7 @@ $ gmake
 $ gmake install
 </pre>
 vimを入れる。
-<pre class="prettyprint lang-bash">$ fetch ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
+<pre class="prettyprint linenums lang-bash">$ fetch ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
 $ fetch ftp://ftp.vim.org/pub/vim/extra/vim-7.2-extra.tar.gz
 $ fetch ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz
 

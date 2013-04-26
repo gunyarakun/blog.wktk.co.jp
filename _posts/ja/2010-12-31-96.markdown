@@ -24,7 +24,7 @@ PerlのEncode::JP::Emojiモジュールでも、同プロジェクトの変換�
 emoji4unicodeプロジェクトでは、xml形式で絵文字変換テーブルを提供している。それをパースするPythonスクリプトも提供されている。
 変換テーブルは以下のようなスクリプトで簡単に取り出せる。
 
-<pre class="prettyprint lang-python">
+<pre class="prettyprint linenums lang-python">
 #!/usr/bin/python
 from e4u import emoji4unicode as e4u_google
 

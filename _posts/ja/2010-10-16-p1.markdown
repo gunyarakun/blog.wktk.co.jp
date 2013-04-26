@@ -20,7 +20,7 @@ Python経由でOpenCVの顔認識を行う実例が、<a href="http://yamashita.
 「旧バインディングが使えるのであれば、そのままでいいじゃーん」と思いました。しかし、cvSetImageROIに対応する関数呼び出しは、どうやら新形式でないとサポートされていないようです。
 
 というわけで、上記エントリのコードを新形式に移植してみました。これから新規でPython + OpenCVのスクリプトを書く場合は、新形式を使うのがよいでしょう。
-<pre class="prettyprint lang-python">
+<pre class="prettyprint linenums lang-python">
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import cv

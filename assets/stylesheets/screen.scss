@@ -16,7 +16,7 @@ $serif_ja: "ヒラギノ明朝 Pro W6","Hiragino Mincho Pro","HGS明朝E","Ｍ�
 $gothic: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ",Meiryo,"ＭＳ Ｐゴシック",Helvetica,Arial,Verdana,sans-serif;
 $console: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
 $code: "Courier New","Andale Mono",monospace,serif;
-$monospace: Monaco, "Courier New", monospace;
+$monospace: Monaco, Consolas, "Courier New", monospace;
 $aa: "Mona", "IPA MONAPGOTHIC", "MS PGothic", "ＭＳ Ｐゴシック", "MS Pｺﾞｼｯｸ", "MS Pゴシック", sans-serif;
 
 /* vertical rhythm font-size */
@@ -117,3 +117,24 @@ div.ascii-art {
   line-height:18px;
   font-family: $aa;
 }
+
+pre, code {
+  margin: 0 auto;
+  font-size: 9pt;
+  padding: 4px;
+  font-family: $monospace;
+  overflow-x: scroll;
+}
+
+/* google code prettify */
+ol.linenums {
+  padding-left: 40px;
+  font-family: $monospace;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
+{
+  list-style-type: decimal;
+}
+
+@import 'google-code-prettify-desert.css';
