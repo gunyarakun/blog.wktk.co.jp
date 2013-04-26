@@ -18,10 +18,12 @@ module Jekyll
 
     def convert(content)
       begin
+        load_paths = Compass.configuration.sass_load_paths.clone
+        load_paths.push(Dir::getwd + '/assets/stylesheets/')
         options = {
           :syntax => :scss,
           :style => :compact,
-          :load_paths => Compass.configuration.sass_load_paths
+          :load_paths => load_paths,
         }
         Sass::Engine.new(content, options).render
       rescue StandardError => e
