@@ -8,10 +8,12 @@ title: Plack::Middleware::Image::DummyでCPAN authorデビュー!!
 wordpress_id: 309
 ---
 始めてのCPAN module、Plack::Middleware::Image::Dummyをshipitした。
+
 <ul>
-	<li><a href="http://search.cpan.org/~gunya/Plack-Middleware-Image-Dummy/">http://search.cpan.org/~gunya/Plack-Middleware-Image-Dummy/</a></li>
-	<li><a href="https://github.com/gunyarakun/p5-Plack-Middleware-Image-Dummy">https://github.com/gunyarakun/p5-Plack-Middleware-Image-Dummy</a></li>
+  <li><a href="http://search.cpan.org/~gunya/Plack-Middleware-Image-Dummy/">http://search.cpan.org/~gunya/Plack-Middleware-Image-Dummy/</a></li>
+  <li><a href="https://github.com/gunyarakun/p5-Plack-Middleware-Image-Dummy">https://github.com/gunyarakun/p5-Plack-Middleware-Image-Dummy</a></li>
 </ul>
+
 約7年前に「<a href="http://d.hatena.ne.jp/tasukuchan/20060324/1143188619">本当のワタシ　デビュー！</a>」というCPAN authorになるぜエントリを書いていたのだが、やっとのデビュー。下積み長い！
 
 Plack::Middleware::Image::Dummy は、<a href="http://dummyimage.com/">Dynamic Dummy Image Generator</a>のPlack版です。指定の幅・サイズ・ファイル形式の画像をURL1つで作ることができます。
@@ -33,8 +35,7 @@ hirose31さんはシンボリックリンクを張っていて、単純明快で
 こういったリリースしたぜブログエントリでなんでmetacpanのURLを貼るのか疑問だったんだけど、metacpanのほうが早く更新されるのね。
 というわけで、こんな小品をリリースできていけたらいいな、と思っとる次第です。
 <h2>追記</h2>
+
 なんか今考えたらPlack::App::DummyImageとかのほうがいいんじゃね？と思ったりした。というわけで「Plack::App dummy」とCPANで検索してみたら、似たようなモジュールが上がっているという悲しい結末。せつないですね。先にモジュール見つけていたらこれ使っていたのに。TMTOWTDI!!!!
 
-<a href="http://search.cpan.org/~bayashi/Plack-App-DummyBox/lib/Plack/App/DummyBox.pm">http://search.cpan.org/~bayashi/Plack-App-DummyBox/lib/Plack/App/DummyBox.pm
-
-</a>
+<a href="http://search.cpan.org/~bayashi/Plack-App-DummyBox/lib/Plack/App/DummyBox.pm">http://search.cpan.org/~bayashi/Plack-App-DummyBox/lib/Plack/App/DummyBox.pm</a>
