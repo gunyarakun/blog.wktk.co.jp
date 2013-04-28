@@ -12,6 +12,8 @@ $experimental-support-for-khtml:false;
 @import 'compass/typography/vertical_rhythm';
 @import 'compass/utilities/general/clearfix';
 
+@import 'zurui';
+
 // fonts
 $serif: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
 $serif_ja: "ヒラギノ明朝 Pro W6","Hiragino Mincho Pro","HGS明朝E","ＭＳ Ｐ明朝", serif;
@@ -43,6 +45,10 @@ body {
   min-width: 100%;
   min-height: 100%;
   color: #333333;
+  background-color: #f8f8f8;
+  font-family: $gothic;
+
+  @include box-shadow(rgba(0, 0, 0, .15) 0 0 100px inset);
 }
 
 .page-wrap {
@@ -54,6 +60,9 @@ h1 {
   @include adjust-font-size-to($font-size, 2);
   @include leader(0, $font-size);
   @include trailer(1, $font-size);
+  @include ts-fff;
+  font-weight: 600;
+  @include line-bottom;
 }
 
 h2 {
@@ -112,6 +121,10 @@ article img {
   width: auto; /* for IE 9 */
 }
 
+hr {
+  @include line-bottom;
+}
+
 /* google code prettify */
 @import 'google-code-prettify-desert';
 
@@ -126,8 +139,9 @@ li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 }
 
 /* blog parts */
-.center {
+.blog-parts {
   text-align: center;
+  padding: 4px;
 }
 
 /* twitter button */
