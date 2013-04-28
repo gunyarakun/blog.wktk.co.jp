@@ -55,14 +55,15 @@ body {
 
 .page-wrap {
   margin: 0;
-  padding: 3px;
+  padding: 0;
+  text-align: center;
 }
 
 h1 {
   $font-size: 30px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(0, $font-size);
-  @include trailer(1, $font-size);
+  @include trailer(0, $font-size);
 
   padding: 6px;
 
@@ -74,6 +75,7 @@ h1 {
   color: #f8f8f8;
   font-weight: 600;
   @include ts-black;
+  text-align: center;
 }
 
 h2 {
@@ -148,11 +150,30 @@ li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
   list-style-type: decimal;
 }
 
-/* blog parts */
-.blog-parts {
-  text-align: center;
-  padding: 4px;
+/* responsible: column drop */
+.main {
+  text-align: left;
+}
+
+@media screen and (min-width: 980px) {
+  .main {
+    width: 650px;
+    padding: 1px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .right-bar {
+    width: 300px;
+    padding: 1px;
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 
 /* twitter button */
 @import 'twitter';
+
+/* right bar */
+.center {
+  text-align: center;
+}
