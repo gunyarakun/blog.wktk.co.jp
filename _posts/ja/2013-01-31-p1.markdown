@@ -15,12 +15,13 @@ SPDY、流行ってますよね。
 
 というわけで、このブログをSPDY対応にしてみました。
 このブログは、Nginxの2重構成となっていて、片方がリバースプロクシ、もう片方がWordPressのPHP実行環境とFastCGIでつながる用。
+
 <h2>SPDYパッチを当てたNginxをビルドする</h2>
+
 NginxでSPDYを有効にする場合、OpenSSL 1.0.1以降が必要とのことですが、システムにそれをインストールする必要はないようです。
 Debianなので、aptitudeでもろもろ入れています。
 
-<code>
-[shell]
+<pre style="prettyprint lang-bash">
 # ビルドに必要なものを入れる
 sudo aptitude install build-essential libpcre3-dev zlib1g-dev
 
@@ -66,16 +67,17 @@ tar xvfz openssl-1.0.1c.tar.gz
   --with-openssl=openssl-1.0.1c
 make
 sudo make install
-[/shell]
-</code>
+</pre>
+
 <h2>Nginxの設定</h2>
+
 Nginxの設定ファイルを書く。
 <ul>
-	<li>sslを有効にする。証明書も買ったよ。</li>
-	<li>reverse proxyしてキャッシュする用と、Wordpressホスト用と両方の設定を書く。reverse proxyのときにヘッダに各種情報を仕込んでおく。</li>
+  <li>sslを有効にする。証明書も買ったよ。</li>
+  <li>reverse proxyしてキャッシュする用と、Wordpressホスト用と両方の設定を書く。reverse proxyのときにヘッダに各種情報を仕込んでおく。</li>
 </ul>
-<code>
-[text]
+
+<pre style="prettyprint">
 user www-data;
 worker_processes  1;
 
@@ -89,7 +91,7 @@ events {
 http {
   include     mime.types;
 
-  access_log	/var/log/nginx/access.log;
+  access_log  /var/log/nginx/access.log;
 
   sendfile        on;
   #tcp_nopush     on;
@@ -214,26 +216,26 @@ http {
     }
   }
 }
-[/text]
-</code>
+</pre>
+
 <h2>WordPress側のSSL設定をする</h2>
+
 wp-config.phpのwp-settings.php読み込み前に、Proxyに来たプロトコルを見てHTTPSかどうかを判定するロジックを入れる。
 strtolowerはいらない気がするけど、wp-includes/functions.phpのis_sslと同じノリでやってみる。
 
-<code>
-[php]
+<pre style="prettyprint lang-php">
 // tasuku: added for proxy
 if ( isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &amp;&amp; strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https' ) {
         $_SERVER['HTTPS'] = 'on';
 }
-[/php]
-</code>
+</pre>
+
 <h2>Nginxのinitスクリプトを書く</h2>
+
 initスクリプトを書く。Debianのnginxデフォルトのinitスクリプトのほぼコピペ。
 
-<code>
-[shell]
-#! /bin/sh
+<pre style="prettyprint lang-bash">
+#!/bin/sh
 
 ### BEGIN INIT INFO
 # Provides:          nginx
@@ -268,28 +270,28 @@ test_nginx_config() {
 
 case "$1" in
   start)
-	echo -n "Starting $DESC: "
+  echo -n "Starting $DESC: "
         test_nginx_config
-	start-stop-daemon --start --quiet --pidfile /var/run/$NAME.pid \
-		--exec $DAEMON -- $DAEMON_OPTS || true
-	echo "$NAME."
-	;;
+  start-stop-daemon --start --quiet --pidfile /var/run/$NAME.pid \
+    --exec $DAEMON -- $DAEMON_OPTS || true
+  echo "$NAME."
+  ;;
   stop)
-	echo -n "Stopping $DESC: "
-	start-stop-daemon --stop --quiet --pidfile /var/run/$NAME.pid \
-		--exec $DAEMON || true
-	echo "$NAME."
-	;;
+  echo -n "Stopping $DESC: "
+  start-stop-daemon --stop --quiet --pidfile /var/run/$NAME.pid \
+    --exec $DAEMON || true
+  echo "$NAME."
+  ;;
   restart|force-reload)
-	echo -n "Restarting $DESC: "
-	start-stop-daemon --stop --quiet --pidfile \
-		/var/run/$NAME.pid --exec $DAEMON || true
-	sleep 1
+  echo -n "Restarting $DESC: "
+  start-stop-daemon --stop --quiet --pidfile \
+    /var/run/$NAME.pid --exec $DAEMON || true
+  sleep 1
         test_nginx_config
-	start-stop-daemon --start --quiet --pidfile \
-		/var/run/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS || true
-	echo "$NAME."
-	;;
+  start-stop-daemon --start --quiet --pidfile \
+    /var/run/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS || true
+  echo "$NAME."
+  ;;
   reload)
         echo -n "Reloading $DESC configuration: "
         test_nginx_config
@@ -307,28 +309,32 @@ case "$1" in
         fi
         ;;
   status)
-	status_of_proc -p /var/run/$NAME.pid "$DAEMON" nginx &amp;&amp; exit 0 || exit $?
-	;;
+  status_of_proc -p /var/run/$NAME.pid "$DAEMON" nginx &amp;&amp; exit 0 || exit $?
+  ;;
   *)
-	echo "Usage: $NAME {start|stop|restart|reload|force-reload|status|configtest}" >&amp;2
-	exit 1
-	;;
+  echo "Usage: $NAME {start|stop|restart|reload|force-reload|status|configtest}" >&amp;2
+  exit 1
+  ;;
 esac
 
 exit 0
-[/shell]
-</code>
+</pre>
+
 <h2>動作確認する</h2>
+
 Google Chromeであれば、
+
 <ul>
-<li><a href="chrome://net-internals/#spdy">chrome://net-internals/#spdy</a></li>
-<li><a href="https://chrome.google.com/webstore/detail/spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin">https://chrome.google.com/webstore/detail/spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin</a></li>
+  <li><a href="chrome://net-internals/#spdy">chrome://net-internals/#spdy</a></li>
+  <li><a href="https://chrome.google.com/webstore/detail/spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin">https://chrome.google.com/webstore/detail/spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin</a></li>
 </ul>
 
 Firefoxであれば、
+
 <ul>
 <li><a href="https://addons.mozilla.org/ja/firefox/addon/spdy-indicator/">https://addons.mozilla.org/ja/firefox/addon/spdy-indicator/</a></li>
 </ul>
+
 でSPDYが有効かどうかチェックできる。
 
 なぜかChromeのSPDY indicatorでは有効判定されていないが、SPDYで通信はなされているようだ。
