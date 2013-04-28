@@ -9,6 +9,8 @@ $experimental-support-for-khtml:false;
 @import 'compass/css3/background-size';
 @import 'compass/css3/box-shadow';
 @import 'compass/css3/border-radius';
+@import 'compass/css3/border-radius';
+@import 'compass/css3/images';
 @import 'compass/typography/vertical_rhythm';
 @import 'compass/utilities/general/clearfix';
 
@@ -60,9 +62,17 @@ h1 {
   @include adjust-font-size-to($font-size, 2);
   @include leader(0, $font-size);
   @include trailer(1, $font-size);
-  @include ts-fff;
+
+  padding: 6px;
+
+  $background-color: #222;
+  background-color: $background-color;
+  @include background-image(linear-gradient(lighten($background-color, 10%), $background-color));
+  @include box-shadow(rgba(255, 255, 255, .25) 0 0 60px inset);
+
+  color: #f8f8f8;
   font-weight: 600;
-  @include line-bottom;
+  @include ts-black;
 }
 
 h2 {
@@ -110,7 +120,6 @@ div.ascii-art {
 pre, code {
   margin: 0 auto;
   font-size: 9pt;
-  padding: 4px;
   font-family: $monospace;
   overflow-x: scroll;
 }

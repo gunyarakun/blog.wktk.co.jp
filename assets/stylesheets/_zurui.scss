@@ -20,10 +20,10 @@
   @include box-shadow(rgba(255, 255, 255, $op2) 0 1px 0);
 }
 
-@mixin ts-000($op: .4) {
-  text-shadow: -1px -1px rgba(255, 255, 255, $op);
+@mixin ts-black($op: .7) {
+  text-shadow: -1px -1px rgba(0, 0, 0, $op);
 }
 
-@mixin ts-fff($op: .7) {
+@mixin ts-white($op: .7) {
   text-shadow: -1px -1px rgba(255, 255, 255, $op);
 }
