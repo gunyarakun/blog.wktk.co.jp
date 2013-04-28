@@ -39,9 +39,6 @@ body:before {
 }
 
 body {
-  // FIXME: kimeru
-  background: url(/assets/images/7530054972_6e987e8540_o.jpg) no-repeat center center fixed;
-  //background: url(/assets/images/7758832526_79b91743ec_o.jpg) no-repeat center center fixed;
   @include background-size(cover);
   min-width: 100%;
   min-height: 100%;
@@ -49,26 +46,7 @@ body {
 }
 
 .page-wrap {
-  position: fixed;
-  top: $base-line-height / 2;
-  right: $base-line-height / 2;
-  left: $base-line-height / 2;
-  bottom: $base-line-height / 2;
-  background: white;
-  @include border-radius($base-line-height / 2);
-  padding: 20px;
-  overflow-y: scroll;
-}
-::-webkit-scrollbar-track {
-  background: none;
-}
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: #ccc;
-  @include border-radius(5px);
+  margin: 3px;
 }
 
 h1 {
@@ -145,6 +123,11 @@ ol.linenums {
 li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 {
   list-style-type: decimal;
+}
+
+/* blog parts */
+.center {
+  text-align: center;
 }
 
 /* twitter button */
