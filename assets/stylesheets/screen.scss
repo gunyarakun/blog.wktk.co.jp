@@ -104,7 +104,7 @@ h5 {
   @include trailer(1, $font-size);
 }
 
-p, ul, blockquote {
+p, ul, ol, dl, blockquote {
   @include adjust-font-size-to($base-font-size, 1);
   @include leader(1, $base-font-size);
   @include trailer(1, $base-font-size);
