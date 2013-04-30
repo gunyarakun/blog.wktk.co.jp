@@ -14,18 +14,20 @@ div.hatena-asin-detail {
     margin: 0 10px 0 0 ;
   }
 
-  div.hatena-asin-detail-info{
+  div.hatena-asin-detail-info {
     margin: 0 0 0 140px;
     word-break: break-all;
 
-    p.hatena-asin-detail-title{
+    p.hatena-asin-detail-title {
       font-weight: bold;
+      font-size: 14px;
       width: 100%;
       margin: 0;
     }
 
     ul {
       list-style-type: none;
+      font-size: 11px;
       margin: 5px 0 0 0;
       padding: 0;
       li {
