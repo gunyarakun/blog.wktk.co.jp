@@ -1,0 +1,100 @@
+<Item>
+  <ASIN>B00200KMD8</ASIN>
+  <DetailPageURL>http://www.amazon.co.jp/%E3%83%91%E3%83%8A%E3%82%BD%E3%83%8B%E3%83%83%E3%82%AF-TK-CT10-K-Panasonic-%E5%A4%A9%E3%81%B7%E3%82%89%E6%B2%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%8A%E3%83%BC%E3%83%AC%E3%83%83%E3%83%84%E3%83%95%E3%83%A9%E3%82%A4-%E9%BB%92/dp/B00200KMD8%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00200KMD8</DetailPageURL>
+  <ItemLinks>
+    <ItemLink>
+      <Description>Add To Wishlist</Description>
+      <URL>http://www.amazon.co.jp/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00200KMD8%26SubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00200KMD8</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>Tell A Friend</Description>
+      <URL>http://www.amazon.co.jp/gp/pdp/taf/B00200KMD8%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00200KMD8</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Customer Reviews</Description>
+      <URL>http://www.amazon.co.jp/review/product/B00200KMD8%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00200KMD8</URL>
+    </ItemLink>
+    <ItemLink>
+      <Description>All Offers</Description>
+      <URL>http://www.amazon.co.jp/gp/offer-listing/B00200KMD8%3FSubscriptionId%3DAKIAI25GIA3PABWCDXZQ%26tag%3Dwktk09-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D5143%26creativeASIN%3DB00200KMD8</URL>
+    </ItemLink>
+  </ItemLinks>
+  <SmallImage>
+    <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL._SL75_.jpg</URL>
+    <Height Units="pixels">75</Height>
+    <Width Units="pixels">68</Width>
+  </SmallImage>
+  <MediumImage>
+    <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL._SL160_.jpg</URL>
+    <Height Units="pixels">160</Height>
+    <Width Units="pixels">144</Width>
+  </MediumImage>
+  <LargeImage>
+    <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL.jpg</URL>
+    <Height Units="pixels">500</Height>
+    <Width Units="pixels">451</Width>
+  </LargeImage>
+  <ImageSets>
+    <ImageSet Category="primary">
+      <SwatchImage>
+        <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL._SL30_.jpg</URL>
+        <Height Units="pixels">30</Height>
+        <Width Units="pixels">27</Width>
+      </SwatchImage>
+      <SmallImage>
+        <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">68</Width>
+      </SmallImage>
+      <ThumbnailImage>
+        <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">68</Width>
+      </ThumbnailImage>
+      <TinyImage>
+        <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL._SL110_.jpg</URL>
+        <Height Units="pixels">110</Height>
+        <Width Units="pixels">99</Width>
+      </TinyImage>
+      <MediumImage>
+        <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">144</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>http://ecx.images-amazon.com/images/I/41WW44V3VnL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">451</Width>
+      </LargeImage>
+    </ImageSet>
+  </ImageSets>
+  <ItemAttributes>
+    <Binding>ホーム&amp;キッチン</Binding>
+    <Brand>パナソニック</Brand>
+    <CatalogNumberList>
+      <CatalogNumberListElement>4547441821659</CatalogNumberListElement>
+    </CatalogNumberList>
+    <EAN>4547441821659</EAN>
+    <EANList>
+      <EANListElement>4547441821659</EANListElement>
+    </EANList>
+    <Label>パナソニック</Label>
+    <Manufacturer>パナソニック</Manufacturer>
+    <Model>TK-CT10-K</Model>
+    <MPN>TK-CT10-K</MPN>
+    <PackageDimensions>
+      <Height Units="hundredths-inches">732</Height>
+      <Length Units="hundredths-inches">748</Length>
+      <Weight Units="hundredths-pounds">168</Weight>
+      <Width Units="hundredths-inches">732</Width>
+    </PackageDimensions>
+    <PartNumber>TK-CT10-K</PartNumber>
+    <ProductGroup>Kitchen</ProductGroup>
+    <ProductTypeName>ABIS_KITCHEN</ProductTypeName>
+    <Publisher>パナソニック</Publisher>
+    <ReleaseDate>2009-04-01</ReleaseDate>
+    <SKU>4547441821659-24-20768</SKU>
+    <Studio>パナソニック</Studio>
+    <Title>Panasonic 天ぷら油クリーナーレッツフライ 黒 TK-CT10-K</Title>
+  </ItemAttributes>
+</Item>
