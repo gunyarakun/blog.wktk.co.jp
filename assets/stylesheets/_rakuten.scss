@@ -1,0 +1,32 @@
+/* rakuten */
+div.rakuten-detail {
+  margin: 1em;
+  padding: 1em;
+  border: .4em solid rgb(191, 0, 0);
+  @include border-radius(1em, 1em);
+  background: white;
+
+  img.rakuten-detail-image {
+    float: left;
+    border: 0;
+    margin: 0 10px 0 0 ;
+  }
+
+  div.rakuten-detail-info {
+    margin: 0 0 0 140px;
+    word-break: break-all;
+
+    p.rakuten-detail-title {
+      font-weight: bold;
+      width: 100%;
+      margin: 0;
+    }
+  }
+  div.rakuten-detail-foot {
+    clear: both;
+  }
+  p a {
+    border: 0;
+  }
+}
+

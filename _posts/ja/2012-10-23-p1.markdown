@@ -72,15 +72,7 @@ Arduinoを使った電子工作などが流行っていますが、次は、木�
 
 木工工具は、インパクトドライバーがあれば事足ります。僕はマキタのインパクトドライバー兼震動ドリルという素敵なものを使っています。
 
-<div style="text-align: left; padding-bottom: 20px; font-size: small; /zoom: 1; overflow: hidden;">
-<div style="clear: both;">
-<div style="float: left; margin: 0px 12px 1px 0px;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T3379K/wktk09-22/ref=nosim" rel="nofollow" target="_blank"><img style="border: none;" src="http://ecx.images-amazon.com/images/I/31%2BAWk1HeWL._SL160_.jpg" alt="" /></a></div>
-<div style="height: 160; margin-bottom: 10px;">
-<div style="margin-bottom: 10px; line-height: 120%;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T3379K/wktk09-22/ref=nosim" rel="nofollow" target="_blank">【コンパクト＆ライトボディ + 電子クラッチ 4モード＋テクス用ネジ専用モード】　充電式4モードインパクトドライバ　TP131DRFX　色：青　【14.4Vモデル】</a></div>
-<div style="float: left;"></div>
-</div>
-</div>
-</div>
+{% amazon jp:B009T3379K:detail %}
 
 インパクトドライバーのチャックと反対側にある面に、水準器を取り付けています。水準器を見ながら穴あけなどをすると、かなりの精度で垂直が出せます。
 
@@ -88,7 +80,7 @@ Arduinoを使った電子工作などが流行っていますが、次は、木�
 
 つけている水準器はコレです。2個セットなので、裏側に取り付けるときの水平出しにも便利です。
 
-<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009T3379K/wktk09-22/ref=nosim" rel="nofollow" target="_blank"><img src="http://ec2.images-amazon.com/images/I/41EkD125oiL._SL160_.jpg" alt="シンワ" width="100" height="100" border="0" />シンワ 丸型気泡管ＢФ 16mm</a>
+{% amazon jp:B0020E9TTW:detail %}
 
 木材同士、もしくは木材と金具の接合について。通常は、すべて木ネジでOKです。今回は、ムラコシ精工の「鬼目ナット」を全面的に採用しました。「鬼目ナット」とは、木にメスネジを作る金具です。木ネジを何度も取り外したりしていると、強度の低下が心配です。引越しの際の分解や、製作時の試行錯誤ができる状況を確保するため、ボルトの取り付け、取り外しが何度もできる鬼目ナットを採用しました。
 
@@ -114,13 +106,13 @@ Arduinoを使った電子工作などが流行っていますが、次は、木�
 
 天板にコンセント、欲しいですよね。パナソニックから、マルチメディアコンセントというかっちょいいコンセントが発売されています。TV/CS/電話/LAN(Cat.5e)/コンセントが一緒になったすぐれもの。これ取り付けたい！
 
-[rakuten]n-denservice:10004917[/rakuten]
+{% rakuten itemCode:n-denservice:10004917:detail %}
 
 コンセントは通常壁面に埋め込まれています。壁の中にはスイッチボックスというものがあり、柱などに取り付けられています。スイッチボックスにあるメスねじ穴に、コンセントプレートなどを取りつけることによって、コンセントは壁に固定されているわけです。んでも、今回柱とかないし。
 
 こんな場合には、未来工業製「パネルボックス」が使えます。板にはさんで使うスイッチボックスです。しかも、板厚が2-25mmまでのものと、2-40mmまでの深型と二種類あります。今回天板の板厚が30mmだったので、深型のパネルボックスを取り付けます。マルチメディアコンセントが付けられるように、3ヶ用パネルボックスSBP-3WYを選びました。
 
-[rakuten]kys:10173199[/rakuten]
+{% rakuten itemCode:kys:10173199:detail %}
 
 …さて、ここで問題発生。設計やパーツ選び自体は問題がなかったのですが、法律的に問題があったのです。
 
