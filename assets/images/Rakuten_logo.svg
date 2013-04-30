@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    version="1.0"
-   width="199.99997"
-   height="66.155624"
+   width="75.57935286046126"
+   height="25"
    id="svg2964">
+  <g transform="scale(0.3778968209868295)">
   <defs
      id="defs2966">
     <clipPath
@@ -55,5 +55,6 @@
        d="M 391.48888,561.86954 L 391.48888,554.94518 L 389.31241,556.12828 L 378.71312,561.8837 L 378.71312,568.8116 L 391.48888,561.86954"
        id="path4057"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+  </g>
   </g>
 </svg>

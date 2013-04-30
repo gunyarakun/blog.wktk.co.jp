@@ -1,4 +1,6 @@
 /* rakuten */
+@import 'compass/css3/background-size';
+
 div.rakuten-detail {
   margin: 1em;
   padding: 1em;
@@ -23,6 +25,10 @@ div.rakuten-detail {
     }
   }
   div.rakuten-detail-foot {
+    background-image: url(/assets/images/Rakuten_logo.svg);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    height: 25px;
     clear: both;
   }
   p a {

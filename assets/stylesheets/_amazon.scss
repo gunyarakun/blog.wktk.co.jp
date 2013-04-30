@@ -1,4 +1,6 @@
 /* amazon */
+@import 'compass/css3/background-size';
+
 div.hatena-asin-detail {
   margin: 1em;
   padding: 1em;
@@ -33,6 +35,11 @@ div.hatena-asin-detail {
     }
   }
   div.hatena-asin-detail-foot {
+    background-image: url(/assets/images/Amazon.co.jp_Logo.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    @include background-size(20%);
+    height: 123px * 0.2;
     clear: both;
   }
   p a {
