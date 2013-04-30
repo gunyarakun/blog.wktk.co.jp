@@ -12,7 +12,9 @@ Rubyからgroongaを使うrroongaをインストールした。
 Ruby用pkg-configライブラリがビルドに必要となっているようだ。RubyGemsを入れていない環境に導入したので、Ruby用pkg-configライブラリを単体導入した。pkg-configライブラリ単体がどこでダウンロードできるのか悩んだが、<a href="http://rubyforge.org/projects/cairo/">RubyForgeのcairoプロジェクト</a>からダウンロードできた。
 
 pkg-configライブラリは単一のrbファイルであるので、以下に示すようにmake installしなくても、rroongaのビルドディレクトリにコピーしてあげるだけでもよいだろう。
-<pre># groonga
+
+<pre style="prettyprint lang-bash">
+# groonga
 tar xvfz groonga-1.0.4.tar.gz &amp;&amp; \
   cd groonga-1.0.4 &amp;&amp; \
   ./configure --prefix=/usr --without-cutter &amp;&amp; \
