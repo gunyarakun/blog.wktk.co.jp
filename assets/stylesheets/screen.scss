@@ -127,6 +127,11 @@ pre, code {
   overflow-x: scroll;
 }
 
+article li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
 article img {
   max-width: 100%;
   height: auto;
