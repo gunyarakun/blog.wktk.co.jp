@@ -41,7 +41,7 @@ MATLABのコードがあるので、GNU Octaveで試してみてもいいかな�
 
 当該ブログのlevinson_durbin.pyが置いてある必要あり。あと、ほとんどのコードは上記ブログ由来のものです。
 
-<pre class="prettyprint linenums lang-bash">
+<pre class="prettyprint linenums lang-python">
 # coding:utf-8
 import wave
 import numpy as np
