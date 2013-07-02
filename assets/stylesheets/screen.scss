@@ -145,6 +145,10 @@ hr {
 /* google code prettify */
 @import 'google-code-prettify-desert';
 
+ol li {
+  list-style-type: decimal;
+}
+
 ol.linenums {
   padding-left: 40px;
   font-family: $monospace;
