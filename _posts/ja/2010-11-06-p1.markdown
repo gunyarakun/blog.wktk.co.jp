@@ -118,7 +118,7 @@ wordpress_id: 71
 	<li>Debianの場合、ビルドにuuid-devパッケージもしくはe2fslibs-devが必要。uuid-devは、e2fslibs内で使われているUUID生成ライブラリlibuuidだけをパッケージとしたもの。</li>
 	<li>足周りのTCPやIPCは完全に隠蔽される。横からいじることはできない。</li>
 	<li>メッセージングパターンの組み合わせは、http://zguide.zeromq.org/chapter:all を参考にすること。</li>
-	<li>メッセージングパターンの複雑な組み合わせ例として、http://ipython.scipy.org/doc/nightly/html/development/parallel\_connections.html が挙げられる。</li>
+	<li>メッセージングパターンの複雑な組み合わせ例として、[http://ipython.scipy.org/doc/nightly/html/development/parallel\_connections.html](http://ipython.scipy.org/doc/nightly/html/development/parallel\_connections.html) が挙げられる。(2013年8月27日現在リンク切れ)</li>
 </ul>
 <h2>感想</h2>
 <ul>
