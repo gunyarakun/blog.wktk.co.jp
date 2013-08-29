@@ -86,44 +86,76 @@ a.header {
   color: #f8f8f8;
 }
 
-h1 {
-  @include leader(0.5, 30px);
-}
+/* article body */
 
-h2 {
+.article-body h2 {
   $font-size: 24px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
 }
 
-h3 {
+.article-body h3 {
   $font-size: 18px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
 }
 
-h4 {
+.article-body h4 {
   $font-size: 18px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
 }
 
-h5 {
+.article-body h5 {
   $font-size: 18px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
 }
 
-p, ul, ol, dl, blockquote {
+.article-body p, ul, ol, dl, blockquote {
   @include adjust-font-size-to($base-font-size, 1);
   @include leader(1, $base-font-size);
   @include trailer(1, $base-font-size);
   margin-left: $base-font-size;
   margin-right: $base-font-size;
+}
+
+
+.article-body li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+  width: auto; /* for IE 9 */
+}
+
+/* common */
+
+// for link
+@import 'compass/css3/images';
+@import 'compass/css3/transition';
+@import 'compass/css3/background-clip';
+
+a {
+  color: #333;
+  @include transition(0.3s);
+}
+
+a:hover {
+  color: #fcfcfc;
+  background-color: #333;
+  text-decoration: none;
+}
+
+h1 {
+  @include leader(0.5, 30px);
 }
 
 div.ascii-art {
@@ -137,17 +169,6 @@ pre, code {
   font-size: 9pt;
   font-family: $monospace;
   overflow-x: scroll;
-}
-
-article li {
-  list-style-type: disc;
-  list-style-position: inside;
-}
-
-article img {
-  max-width: 100%;
-  height: auto;
-  width: auto; /* for IE 9 */
 }
 
 hr {
@@ -195,8 +216,41 @@ li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 @import 'twitter';
 
 /* right bar */
-.center {
-  text-align: center;
+.right-bar {
+  $font-size: 12px;
+  @include adjust-font-size-to($font-size, 1);
+  @include leader(0.5, $font-size);
+  @include trailer(0.5, $font-size);
+}
+
+.right-bar ul {
+  text-align: left;
+}
+
+.right-bar h2 {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size, 1);
+  @include leader(0, $font-size);
+  @include trailer(1, $font-size);
+
+  $background-color: #222;
+  background-color: $background-color;
+  @include background-image(linear-gradient(lighten($background-color, 10%), $background-color));
+  @include box-shadow(rgba(255, 255, 255, .25) 0 0 60px inset);
+
+  color: #f8f8f8;
+  font-weight: 600;
+}
+
+.right-bar h3 {
+  $font-size: 14px;
+  @include adjust-font-size-to($font-size, 0);
+  font-weight: 600;
+}
+
+.right-bar li {
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 @import 'amazon';
