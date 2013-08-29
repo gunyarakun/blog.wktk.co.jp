@@ -137,6 +137,17 @@ a.header {
 }
 
 /* common */
+.social-button-container {
+  @include adjust-font-size-to($base-font-size, 1);
+  @include leader(1, $base-font-size);
+  @include trailer(1, $base-font-size);
+  margin-left: $base-font-size;
+  margin-right: $base-font-size;
+}
+
+.social-button-container > div {
+  display: inline-block;
+}
 
 // for link
 @import 'compass/css3/images';

@@ -3,6 +3,64 @@ layout: default
 ---
 <article class="article-body">
   <h1>{{ page.title }}</h1>
+
+<!-- from: http://tokkono.cute.coocan.jp/blog/slow/index.php/xhtmlcss/asynchronous-loading-of-major-social-buttons/ -->
+<script id="social-buttons">
+$(function() {
+  (function(w,d){
+    w.___gcfg={lang:"ja"};
+    var s,e = d.getElementById("social-buttons"),
+    a=function(u,f){if(!d.getElementById(f)){s=d.createElement("script");
+    s.src=u;if(f){s.id=f;}e.parentNode.insertBefore(s,e);}};
+    a("https://apis.google.com/js/plusone.js");
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+    a("//platform.twitter.com/widgets.js","twitter-wjs");
+    a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
+  })(this, document);
+});
+</script>
+
+<div class="social-button-container">
+  <!-- Twitter -->
+  <div class="social">
+    <a href="https://twitter.com/share" class="twitter-share-button"
+      data-lang="{{ page.lang }}"
+      data-url="{{ site.production_url }}{{ page.url }}"
+      data-text="Tweet this page"
+      data-via="me"
+    >Tweet</a>
+  </div>
+
+  <!-- Hatena -->
+  <div class="social">
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+      data-hatena-bookmark-layout="standard"
+      data-hatena-bookmark-url="{{ site.production_url }}{{ page.url }}">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only.gif"
+        alt="このエントリーをはてなブックマークに追加" width="20" height="20"
+        style="border: none">
+    </a>
+  </div>
+
+  <!-- Google plusone -->
+  <div class="social">
+    <div class="g-plusone" data-size="medium" data-href="{{ site.production_url }}{{ page.url }}"></div>
+  </div>
+
+  <!-- Facebook -->
+  <div class="social">
+    <div id="fb-root"></div>
+    <div class="fb-like"
+      data-href="{{ site.production_url }}{{ page.url }}"
+      data-layout="button_count"
+      data-send="false"
+      data-width="120"
+      data-show-faces="false">
+    </div>
+  </div>
+</div>
+<!-- end of social buttons -->
+
   {{ content }}
 </article>
 <hr>
