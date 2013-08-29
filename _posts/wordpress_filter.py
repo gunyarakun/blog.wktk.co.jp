@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from glob import glob
+import os
 import codecs
 import sys
 import yaml
 from yaml import SafeLoader
+import time
 import re
+from datetime import datetime
 
 hellip_re = re.compile(r'&hellip;')
 
@@ -47,3 +50,8 @@ for path in files:
 
   new_content = u'---'.join([u'', u'\n' + header.decode('utf-8'), new_body])
   codecs.open(path, 'w', 'utf-8').write(new_content)
+
+  if new_header_data['date']:
+    # d = datetime.strptime(new_header_data['date'], '%Y-%m-%d %H:%M:%S')
+    d = int(time.mktime(new_header_data['date'].timetuple()))
+    os.utime(path, (d, d))
