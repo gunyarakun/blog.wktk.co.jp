@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 僕がAmazonで買っている日用品たち賛歌
+title: 30台男子を支える日用品 - 日用品評論社
 lang: ja
 tags : [life]
 ---
