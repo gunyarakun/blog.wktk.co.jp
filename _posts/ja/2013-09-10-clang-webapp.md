@@ -11,7 +11,7 @@ tags : [tech, clang]
 
 まずライブラリの管理。モジュールをインストールし、可能であればバージョンを固定し、適切にロードする機能が必要だ。
 C言語の場合は、静的リンクをすればすべてのモジュールがひとつのバイナリファイルにまとまる。バージョンも固定され、適切にロードも行われる。
-動的ライブラリを固定するのはめんどい。chrootとかで。
+動的リンクで読み込まれるライブラリを切り替えるのはめんどい。chrootとかで。
 
 ## アプリケーションサーバー
 
@@ -22,6 +22,8 @@ IISというWebサーバには、ISAPIというWebサーバを拡張するため
 しかし今でも使われているんだろうかISAPI。さすがに.netの何かにはなっていそうだが。
 
 ## リクエストパラメーターの処理
+
+各Webサーバの内部関数を用いるのが高速だ。
 
 Apacheの場合。[ap_args_to_table()](http://ci.apache.org/projects/httpd/trunk/doxygen/group__APACHE__CORE__SCRIPT.html#gaed25877b529623a4d8f99f819ba1b7bd)か、
 [ap_parse_form_data()](http://ci.apache.org/projects/httpd/trunk/doxygen/group__APACHE__CORE__DAEMON.html#ga9d426b6382b49754d4f87c55f65af202)を使おう。昔みたいに手でパースする必要はない。
@@ -81,6 +83,8 @@ POSTデータを扱う場合には[form-input-nginx-module](https://github.com/c
 
 IISでISAPIを使う場合、[Discover ISAPI. Working with GET-POST data](http://www.codeproject.com/Articles/2570/Discover-ISAPI-Working-with-GET-POST-data)を参照のこと。MFCを使う版も使わない版もあるぞ。MFCという単語を久々にタイプするわけだが。
 
+もちろん、Node.jsでも使われている[http-parser](https://github.com/joyent/http-parser)や、安心のkazuhoウェアであるところの[picohttpparser](https://github.com/kazuho/picohttpparser)も使うことができる。ツッコミありがとう[@mattn_jp](https://twitter.com/mattn_jp/status/377406804613156864)。
+
 ## ルーティング
 
 気合い。
@@ -112,9 +116,11 @@ JSONについて。
 C言語からは、自由に言語処理系を呼び出すことができる。
 例えばRubyを呼び出せば、Rackに準拠したRuby on RailsやSinatraなどのフレームワークが使える。
 PythonもPerlも自由自在。つまりは最強なのだ。
+組み込みやすいLuaやPythonやmrubyなんかを呼び出すのがよいだろう。
 
-もし言語の呼び出し部分が面倒であれば、FastCGIプロトコルを実装することをオススメする。WSGI/Rack/PSGI/PHP全てで対応している。
+もし言語の呼び出し部分が面倒であれば、FastCGIプロトコルを実装することをオススメする。WSGI実装/Rack/PSGI実装/PHPの全てにおいてFastCGIプロトコルに対応している。
 
 ## まとめ
 
 以上。しかし、メンテナンス性が著しく低下するので、他の言語を採用してほしい。
+(元ネタ: [PerlでWebAppの開発に必要なN個のこと](http://d.hatena.ne.jp/gfx/20130909/1378741015))
