@@ -27,8 +27,8 @@ IISというWebサーバには、ISAPIというWebサーバを拡張するため
 
 各Webサーバの内部関数を用いるのが高速だ。
 
-Apacheの場合。[ap_args_to_table()](http://ci.apache.org/projects/httpd/trunk/doxygen/group__APACHE__CORE__SCRIPT.html#gaed25877b529623a4d8f99f819ba1b7bd)か、
-[ap_parse_form_data()](http://ci.apache.org/projects/httpd/trunk/doxygen/group__APACHE__CORE__DAEMON.html#ga9d426b6382b49754d4f87c55f65af202)を使おう。昔みたいに手でパースする必要はない。
+Apacheの場合。[ap\_args\_to\_table()](http://ci.apache.org/projects/httpd/trunk/doxygen/group__APACHE__CORE__SCRIPT.html#gaed25877b529623a4d8f99f819ba1b7bd)か、
+[ap\_parse\_form\_data()](http://ci.apache.org/projects/httpd/trunk/doxygen/group__APACHE__CORE__DAEMON.html#ga9d426b6382b49754d4f87c55f65af202)を使おう。昔みたいに手でパースする必要はない。
 
 lighttpdの場合。便利関数がない。こんなんでGETパラメータはparseできる。
 
@@ -79,13 +79,13 @@ split_get_params(array *get_params, buffer *qrystr) {
 }
 </pre>
 
-nginxの場合。[ngx_http_arg()](http://lxr.evanmiller.org/http/ident?i=ngx_http_arg)でよい。
-[ngx_http_get_variable()](http://lxr.evanmiller.org/http/ident?i=ngx_http_get_variable)もあるが、領域を動的に確保するので開放しなければならない。
+nginxの場合。[ngx\_http\_arg()](http://lxr.evanmiller.org/http/ident?i=ngx_http_arg)でよい。
+[ngx\_http\_get\_variable()](http://lxr.evanmiller.org/http/ident?i=ngx_http_get_variable)もあるが、領域を動的に確保するので開放しなければならない。
 POSTデータを扱う場合には[form-input-nginx-module](https://github.com/calio/form-input-nginx-module)を参照のこと。
 
 IISでISAPIを使う場合、[Discover ISAPI. Working with GET-POST data](http://www.codeproject.com/Articles/2570/Discover-ISAPI-Working-with-GET-POST-data)を参照のこと。MFCを使う版も使わない版もあるぞ。MFCという単語を久々にタイプするわけだが。
 
-もちろん、Node.jsでも使われている[http-parser](https://github.com/joyent/http-parser)や、安心のkazuhoウェアであるところの[picohttpparser](https://github.com/kazuho/picohttpparser)も使うことができる。ツッコミありがとう[@mattn_jp](https://twitter.com/mattn_jp/status/377406804613156864)。
+もちろん、Node.jsでも使われている[http-parser](https://github.com/joyent/http-parser)や、安心のkazuhoウェアであるところの[picohttpparser](https://github.com/kazuho/picohttpparser)も使うことができる。ツッコミありがとう[@mattn\_jp](https://twitter.com/mattn_jp/status/377406804613156864)。
 
 ## ルーティング
 
