@@ -13,7 +13,7 @@ ESTAのサイトにつながらない！ESTAのサイトに接続できない！
 
 <!--more-->
 <h2>結論</h2>
-診断くん(http://taruo.net/e/)に接続し、REMOTE_ADDRの横にある文字を記憶（127.0.0.1のような数値になっている）。
+[診断くん](http://taruo.net/e/)に接続し、REMOTE_ADDRの横にある文字を記憶（127.0.0.1のような数値になっている）。
 
 NTTやケーブルテレビ会社から借りているインターネットに接続するための箱の電源をひっこ抜き（複数の箱があるならすべてを引っこ抜く）、しばらく待ってすべて電源を入れる。
 
@@ -38,12 +38,16 @@ NTTやケーブルテレビ会社から借りているインターネットに�
 接続できたときとできなかったときのtracerouteの結果をとっていたのだが、Windowsのcmd.exeでログをとっていなかったため内容が失われた。
 
 tracertの18ホップ目で、
-<pre>GigabitEthernet7-0-0.GW9.DCA5.ALTER.NET [152.63.40.21]</pre>
+<pre>
+GigabitEthernet7-0-0.GW9.DCA5.ALTER.NET [152.63.40.21]
+</pre>
 までで止まればサイトの閲覧がNG。
 
 tracertの17, 18ホップ目で、
-<pre>GigabitEthernet7-0-0.GW9.DCA5.ALTER.NET [152.63.40.21]
-cbp.dhs.gov.gov-gw.customer.alter.net [63.66.37.242]</pre>
+<pre>
+GigabitEthernet7-0-0.GW9.DCA5.ALTER.NET [152.63.40.21]
+cbp.dhs.gov.gov-gw.customer.alter.net [63.66.37.242]
+</pre>
 まで到達すれば、サイトの閲覧が可能だった。
 
 単にIPのTTLが足りないだけなのかもしれないが、個人的にはサイトにつながるようになったからよい。
