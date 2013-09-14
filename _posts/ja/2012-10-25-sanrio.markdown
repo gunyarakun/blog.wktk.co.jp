@@ -1,0 +1,125 @@
+---
+date: 2012-10-24 06:00:59
+lang: ja
+layout: post
+permalink: /archives/269
+tags: [会社運営]
+title: 新しい概念「サンリオ力」を提唱します
+wordpress_id: 269
+---
+造語には、力がある。
+
+深澤真紀による「草食男子」は、もはや一般概念といってもよい浸透ぶりである。いち現象を示すための単語というレベルを超えた。もはやその単語自身があらたな価値観を作り出しているように感じる。
+
+<a href="http://www.mri.co.jp/REPORT/JOURNAL/2006/jm06111508.pdf">トヨタ自動車の岡本渉による「見える化」</a>は、「可視化」に置換しても意味が通じる言葉にもかかわらず、好んで使われるし、実際ニュアンスが違うように感じる。
+
+赤瀬川原平による「老人力」、安野モヨコによる「女子力」など、「～力」と名のつく造語がある。僕は、<strong>「サンリオ力」</strong>という造語を提案したい。
+
+「サンリオ力」とは、<strong>多様性を確保すること</strong>、である。多様性そのものではなく、それを確保すること、に重みをおいている。
+
+<a href="http://dic.nicovideo.jp/a/%E3%81%8A%E3%81%BE%E3%81%88%E3%81%AF%E4%BD%95%E3%82%92%E8%A8%80%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%82%93%E3%81%A0">おまえは何を言っているんだ</a>って？ サンリオの歴代キャラクター群を見てごらんなさい。
+<ul>
+  <li><a href="http://www.sanrio.co.jp/characters/year/index.html">1970年代のサンリオキャラクター</a></li>
+  <li><a href="http://www.sanrio.co.jp/characters/year/1980.html">1980年代のサンリオキャラクター</a></li>
+  <li><a href="http://www.sanrio.co.jp/characters/year/1990.html">1990年代のサンリオキャラクター</a></li>
+  <li><a href="http://www.sanrio.co.jp/characters/year/2000.html">2000年代のサンリオキャラクター</a></li>
+  <li><a href="http://www.sanrio.co.jp/characters/year/2010.html">2010年代のサンリオキャラクター</a></li>
+</ul>
+「もうこれは定番だよね」、「あ、こんなキャラクターいたな、なつかしー」と思うキャラクター、多かったと思う。
+
+でもね、<strong>「こんなんあったんや…」</strong>的なキャラクターの多さ！これが「サンリオ力」である。
+
+いくつかキャラクターの例を挙げてみよう。
+
+&nbsp;
+
+カルチャーショックというキャラクターがいる。
+
+<a href="http://www.sanrio.co.jp/characters/detail/cultureshock/index.html"><img alt="" src="http://www.sanrio.co.jp/characters/detail/cultureshock/images/img_001.gif" /></a>
+<blockquote>『西洋の文化を学ぶために花の都パリに洋行したお侍さん、
+夢之介と鉄之進が体験するカルチャーショック！』</blockquote>
+「これが商品化されていた」という事実が僕にとってカルチャーショックだぞ。これがヒットするロジックが、皆目わからない。でも、これ、当たっていたのかもしれない。
+
+&nbsp;
+
+ピエロ・カモメ・きりん、などは、もう一般名詞である。「Windows」と同じですよ。
+
+<a href="http://www.sanrio.co.jp/characters/detail/pierrot/index.html">
+<img alt="" src="http://www.sanrio.co.jp/characters/detail/pierrot/images/img_001.gif" />
+</a>
+<a href="http://www.sanrio.co.jp/characters/detail/kamome/index.html">
+<img alt="" src="http://www.sanrio.co.jp/characters/detail/kamome/images/img_001.gif" />
+</a>
+<a href="http://www.sanrio.co.jp/characters/detail/kirin/index.html">
+<img alt="" src="http://www.sanrio.co.jp/characters/detail/kirin/images/img_001.gif" />
+</a>
+
+&nbsp;
+
+Twitterで、おなかが痛いことを「ぽんぽんぺいん」と称するのがはやっている。ノンノン。そいつは古いぜ。これからは、「ぽんぽんひえた」だぜ！！！ #ponponhieta
+
+<a href="http://www.sanrio.co.jp/characters/detail/ponponhieta/index.html"><img alt="" src="http://www.sanrio.co.jp/characters/detail/ponponhieta/images/img_001.gif" /></a>
+
+たぶん「みんなのたぁ坊」系を狙ったんだと思う。それにしても、まったくヒットの予感がしない。「もし高校野球の女子マネージャーがドラッカーの『マネジメント』を読んだら」と同じくらいに。僕がサンリオのそれなりに偉い立場だったら、これの商品化リジェクトしてますよ、おそらく。でも、サンリオはコイツを商品化してきた。
+
+そもそも、「みんなのたぁ坊」が成功していた、というのも後知恵である。僕だったら「たぁ坊」もリジェクトしているぞ。しかし、「たぁ坊」は当たった。
+
+<img class="alignnone" title="みんなのたぁ坊" alt="" src="http://www.sanrio.co.jp/characters/detail/tabo/images/index_img_001.jpg" width="357" height="325" />
+
+&nbsp;
+
+昔ファミ通で、こんな話を読んだことがある。クレヨンしんちゃんを読んで、これは当たると思った。ゲーム化権を獲得したいと思い、上司にかけあった。上司は「こんな下品なマンガのゲームが当たるはずがない」とそれをリジェクトした。そういう話だった。臼井儀人作品は「おーえるグミ」が一番好きな僕でさえ、上司の気持ちはよくわかる。「クレヨンしんちゃん」は大当たりだ。
+
+&nbsp;
+
+ハンギョドンもそれなりに当たった。
+
+<img alt="" src="http://www.sanrio.co.jp/characters/detail/hangyodon/images/img_001.jpg" />
+
+「半獣半人」ですよ。絶対カースト外。これが当たったのがなぜか、僕には説明できない。
+
+&nbsp;
+
+死んでいるキャラクターと思われがちな「バッドばつ丸」は、米国人気が高いそうだ。実際、「バッドばつ丸」はハワイのオアフ島生まれである。ああ無駄知識。
+
+<img class="alignnone" title="バッドばつ丸" alt="" src="http://www.sanrio.co.jp/characters/detail/badtzmaru/images/index_img_001.jpg" width="370" height="321" />
+
+<a href="http://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%83%E3%83%88%E3%83%BB%E3%83%81%E3%83%83%E3%82%AF">The Hot Chick</a>というB級映画がある。もちろん、B級映画という呼称は褒め言葉である。とたまたまテレビの深夜放送でやっていた。かなり面白かった。映画内のワンシーン、主人公の女子高生の部屋が映し出されていた。ベッドの上に、なんと「バッドばつ丸」のぬいぐるみが置いてあったのだ。
+
+&nbsp;
+
+イチゴマンというキャラを知っているだろうか。
+
+<img alt="" src="http://www.sanrio.co.jp/characters/detail/ichigoman/images/ichigoman.gif" />
+
+どうみてもキティちゃんです。本当にありがとうございました。
+<blockquote>『人間の持つ、腹黒い心や邪悪な心が生み出した「モンスター」と戦うスーパーヒーロー。正体はハローキティ。
+あるきっかけで手にした古い絵本の導きで、イチゴマンに変身することに。イチゴ型のスマートフォンを天空に掲げ、みんなで合唱する「パワー・ザ・キティ！」の声が数百万ヘルツに達するとイチゴマンに変身する。』</blockquote>
+サンリオが弱い領域である「ヒーロー」を明確に狙っている。「スマートフォン」という単語をわざわざ入れているところも、キャラクターの現代化についてもイニシアチブを執っていこうというあらわれではないか。すごいぞサンリオ。
+
+イチゴマン、なんと<a href="http://www.puroland.co.jp/event/2012_ichigoman_show/">2012年10月27日に、ピューロランドでイベントがあるらしい</a>。
+
+<img alt="" src="http://www.puroland.co.jp/event/2012_ichigoman_show/img/back_img.jpg" />
+
+僕がこの画像を見て、「<a href="http://dic.nicovideo.jp/a/%E3%81%BB%E3%82%81%E6%98%A5%E9%A6%99">ほめ春香</a>やん…」と思ってしまったのは秘密。
+
+
+<h2>むすび</h2>
+「卵は一つのカゴに盛るな」というのは、有名な相場格言である。原文といわれる、マーク・トゥェインの「ノータリン・ウィルソンの悲劇」では、卵はひとつのカゴに盛り、そのカゴをよくよく見守れ、というほうが最適らしいが、そいつは脱線。ノーベル経済学賞を受賞したハリー・マーコウィッツによる「ポートフォリオ理論」でも、対象となる銘柄の数が多ければ多いほど、期待収益が高まり、しかも安定する、と学んだ記憶がある。キャラクタービジネスにおけるキャラクターは、銘柄である。ハイリスク、ハイリターン。数理モデルからも、「サンリオ力」がサンリオのつよさの原点であることを説明できるのではないか。
+
+「多様性が善だ」なんて、単純な論理を展開するつもりはない。質が絶対的に低いモノはあるし、そんなものがいくらあったとしても、全体の質が上がるわけではない。
+
+「多様性を確保する」という文化。ヒドいもの以外は、とりあえず出して、世に問うてみるという姿勢。そんな「サンリオ力」がキャラクタービジネスには求められているのでないか。それは、キャラクタービジネスに限られたものではない。コンテンツビジネス一般に援用できる力ではないのか。
+
+ちなみに、ライバル会社の「San-X」も面白い。
+
+San-Xは、「リラックマ」「たれぱんだ」「こげぱん」「アフロ犬」などで有名なキャラクタービジネス会社である。「ひこねのよいにゃんこ」で有名な「もへろん」さんのキャラクターもSan-Xから出ていたような記憶があるのだが、記憶違いか。著作者人格権はホントに気をつけたほうがいいよね…、というのはまたまた脱線だから置いておく。
+
+San-Xについて、僕は、平成に入ってから起業された会社だと思い込んでいた。実は、San-Xは歴史が古い会社なのだ。
+
+<a href="http://www.san-x.co.jp/company/comp01.html">San-Xの会社概要ページを見てほしい。</a>
+1932年創業である。「太平洋戦争」と「リラックマ」が同じ系列に並べられている企業の広報ページなど、そうそうないぞ。
+
+San-Xのサイトのトップページにも、よく知らないようなキャラクターがずらっと並んでいる。実際、ほとんどのキャラクターは市場から消えるんだろう。一回もキデイランドに並ぶこともなく。だが、San-Xにも「サンリオ力」はあるし、それを尊重しようとしていることが、よく伝わってくる。San-Xも、「サンリオ力」がある会社なのだ。「サンリオ力」が長い社歴の間に培われていったのであろう。
+
+あなたの職場、「サンリオ力」がありますか？

@@ -10,7 +10,6 @@ destination: ./_site
 lsi: false # not use related-posts
 pygments: true
 markdown: redcarpet
-auto: false
 permalink: /:categories/entry/:year/:month/:day/:title
 
 default_update_policy:

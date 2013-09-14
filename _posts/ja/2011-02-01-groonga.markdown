@@ -1,0 +1,48 @@
+---
+date: 2011-01-31 23:24:24
+lang: ja
+layout: post
+permalink: /archives/116
+tags: [tech, groonga]
+title: 全文検索エンジンgroongaについての発表資料を公開しました。
+wordpress_id: 116
+---
+2010年末に、３つに勉強会にて「全文検索エンジンgroonga」の紹介をさせていただきました。
+<ul>
+  <li><a href="http://atnd.org/events/9458" target="_blank">第4回Solr勉強会</a></li>
+  <li><a href="http://atnd.org/events/9234" target="_blank">groongaを囲む夕べ</a></li>
+  <li><a href="http://info.dwango.co.jp/rd/2010/12/2.html" target="_blank">ドワンゴ技術勉強会(2) MySQL</a>について</li>
+</ul>
+それぞれの勉強会にて用いた発表資料を公開いたします。
+
+<!--more-->
+
+groongaの紹介部分については使いまわしがバレバレですが、それぞれの勉強会の特性に合わせた味付けをしているので、ぜひご覧になっていただければ嬉しいです。勉強会当日のレポートをされている方もいらっしゃるようなので、興味のある方は検索してみるとよいでしょう。
+
+また、groongaを囲む夕べに関しては、他の発表者さんの資料も以下のリンクから見ることができます。
+<ul>
+  <li><a href="http://www.clear-code.com/blog/2010/12/1.html" target="_blank">Ruby/groonga (rroonga/ActiveGroonga/Racknga) について</a></li>
+  <li><a href="http://www.slideshare.net/ItagakiTakahiro/textsearch-groonga-v01" target="_blank">textsearch groonga</a></li>
+</ul>
+<h3>第4回Solr勉強会</h3>
+Solrという全文検索システムがあります。LuceneというJavaによる全文検索ライブラリをラップしたもので、HTTPを経由して簡単に検索を行うことができます。いわばgroongaのライバル的な存在です。
+
+そのSolrの勉強会にお呼ばれしたので、ビクビクしながら発表した資料です。
+<div id="__ss_6771718" style="width: 425px;"><strong style="display: block; margin: 12px 0 4px;"><a title="全文検索エンジン groongaの紹介@Solr勉強会#4" href="http://www.slideshare.net/TasukuSuenaga/groonga">全文検索エンジン groongaの紹介@Solr勉強会#4</a></strong><object id="__sse6771718" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=solr-groonga-110201015127-phpapp02&amp;stripped_title=groonga&amp;userName=TasukuSuenaga" /><param name="name" value="__sse6771718" /><param name="allowfullscreen" value="true" /><embed id="__sse6771718" type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=solr-groonga-110201015127-phpapp02&amp;stripped_title=groonga&amp;userName=TasukuSuenaga" allowfullscreen="true" allowscriptaccess="always" name="__sse6771718"></embed></object>&nbsp;
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/TasukuSuenaga">Tasuku Suenaga</a>.</div>
+</div>
+<h3>groongaを囲む夕べ</h3>
+groongaオンリーイベントです。スキマフェスティバル2010の一環として開催…ではなく、飛ぶ鳥を落とす勢いのGREEさんに会議室をお貸しいただきました。ありがとうございます。
+
+groongaオンリーイベントということで、groongaの内部構造については他の資料に比べてちょっと詳しいです。
+<div id="__ss_6771789" style="width: 425px;"><strong style="display: block; margin: 12px 0 4px;"><a title="全文検索エンジンgroongaの紹介@groongaを囲む夕べ" href="http://www.slideshare.net/TasukuSuenaga/groongagroonga">全文検索エンジンgroongaの紹介@groongaを囲む夕べ</a></strong><object id="__sse6771789" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=gree-groonga-110201020327-phpapp01&amp;stripped_title=groongagroonga&amp;userName=TasukuSuenaga" /><param name="name" value="__sse6771789" /><param name="allowfullscreen" value="true" /><embed id="__sse6771789" type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=gree-groonga-110201020327-phpapp01&amp;stripped_title=groongagroonga&amp;userName=TasukuSuenaga" allowfullscreen="true" allowscriptaccess="always" name="__sse6771789"></embed></object>&nbsp;
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/TasukuSuenaga">Tasuku Suenaga</a>.</div>
+</div>
+<h3>ドワンゴ技術勉強会(2)</h3>
+ドワンゴの荒木さんにお呼ばれされて発表しました。MySQLについての話がメインの勉強会ということで、それに沿ったお話をしました。配られたハンバーガーがおいしかったです。
+
+MySQL + groongaであるmroongaは、まだまだ開発すべき項目が残っている状況です。
+<div id="__ss_6139206" style="width: 425px;"><strong style="display: block; margin: 12px 0 4px;"><a title="MySQLを通じた全文検索エンジンSenna/groongaの利用について" href="http://www.slideshare.net/TasukuSuenaga/mysqlsennagroonga-6139206">MySQLを通じた全文検索エンジンSenna/groongaの利用について</a></strong><object id="__sse6139206" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=dwango-groonga-101213022805-phpapp02&amp;stripped_title=mysqlsennagroonga-6139206&amp;userName=TasukuSuenaga" /><param name="name" value="__sse6139206" /><param name="allowfullscreen" value="true" /><embed id="__sse6139206" type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=dwango-groonga-101213022805-phpapp02&amp;stripped_title=mysqlsennagroonga-6139206&amp;userName=TasukuSuenaga" allowfullscreen="true" allowscriptaccess="always" name="__sse6139206"></embed></object>&nbsp;
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/TasukuSuenaga">Tasuku Suenaga</a>.</div>
+</div>
+<script src="https://b.scorecardresearch.com/beacon.js?c1=7&amp;c2=7400849&amp;c3=1&amp;c4=&amp;c5=&amp;c6="></script><script src="https://b.scorecardresearch.com/beacon.js?c1=7&amp;c2=7400849&amp;c3=1&amp;c4=&amp;c5=&amp;c6="></script><script src="https://b.scorecardresearch.com/beacon.js?c1=7&amp;c2=7400849&amp;c3=1&amp;c4=&amp;c5=&amp;c6="></script>
