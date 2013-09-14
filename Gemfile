@@ -6,4 +6,4 @@ gem 'hparser'
 gem 'amazon-ecs'
 gem 'compass'
 
-gem 'sequel'
+gem 'sequel' # For migration from wordpress
