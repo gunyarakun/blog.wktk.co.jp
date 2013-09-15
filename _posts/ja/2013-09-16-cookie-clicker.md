@@ -33,8 +33,37 @@ tags : [life, game]
 
 ウルテクです。以下の「javascript:」から始まる文字をブラウザのアドレス欄に入力してみましょう。
 
-<blockquote class="twitter-tweet"><p>javascript:(function(){Game.goldenCookie.spawn();})()&#10;黄金クッキー、食い放題やー</p>&mdash; ところてん (@tokoroten) <a href="https://twitter.com/tokoroten/statuses/379283461493637120">September 15, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+### 毎秒10クリック
+
+<pre class="prettyprint lang-ini">
+javascript:setInterval(function(){ Game.ClickCookie(); }, 100);
+</pre>
+
+by [@sh2](http://dbstudy.info/temp/cookie.txt)
+
+### ゴールデンクッキーを5秒に1回出す
+
+<pre class="prettyprint lang-ini">
+javascript:setInterval(function(){ Game.goldenCookie.spawn(); Game.goldenCookie.click(); }, 5000);
+</pre>
+
+by [@sh2](http://dbstudy.info/temp/cookie.txt)
+
+### 設備を10秒に1回、高い方から購入
+
+<pre class="prettyprint lang-ini">
+setInterval(function(){ for (var i = 9; i >= 0; i--) { $("#product" + i).click(); } }, 10000);
+</pre>
+
+by [@sh2](http://dbstudy.info/temp/cookie.txt)
+
+### ゴールデンクッキー即出し
+
+<pre class="prettyprint lang-ini">
+javascript:(function(){Game.goldenCookie.spawn();})()
+</pre>
+
+by [@tokoroten](https://twitter.com/tokoroten/statuses/379283461493637120)
 
 ## 1クリックあたりのクッキー製造枚数を増やすアイテム
 
