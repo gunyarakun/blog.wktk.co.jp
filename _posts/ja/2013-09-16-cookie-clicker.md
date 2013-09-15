@@ -1,6 +1,6 @@
 ---
 layout: post
-title: クッキーを焼きまくるゲームCookie Clikerの攻略
+title: クッキーを焼きまくるゲームCookie Clikerの攻略メモ
 lang: ja
 tags : [life, game]
 ---
@@ -13,6 +13,46 @@ tags : [life, game]
 - 画面左のクッキーをクリックするたびにクッキーが生産される。最初は1クリック1枚。
 - クリックしなくても自動的にクッキーを作ってくれる、クッキー生産設備をクッキーで買える。
 - 1クリックあたりのクッキー製造枚数や、クッキー生産設備の1秒間あたりのクッキー製造枚数(CpS)は、クッキーで買えるアイテムで向上することができる。なお、この両者は別物。
+
+## ゴールデンクッキー
+
+画面上にたまに出てくるクッキー。クリックするとよいことが起こる。
+
+### ゴールデンクッキーの効果一覧
+
+- frenzy: Cookieの生産が7倍になる。間隔は77秒。
+- multiply cookies: 今持っているクッキー数の10%もしくは、20分間のクッキー生産数のうち低い値のクッキーをもらえる。
+- click frenzy: クリック時のCookieの生産量が777倍になる。間隔は13秒。たまーに出る。
+- chain cookie: 連続でクッキーが出て、それをクリックするたびに6個、66個、666個…とクッキーがもらえる。ほとんどお目にかかれない。
+- clot: 未見
+- ruin cookies: 未見
+
+ゴールデンクッキーは、直前に取ったゴールデンクッキーの種類となるべく異なるように調整されている。
+
+## 裏技
+
+ウルテクです。以下の「javascript:」から始まる文字をブラウザのアドレス欄に入力してみましょう。
+
+<blockquote class="twitter-tweet"><p>javascript:(function(){Game.goldenCookie.spawn();})()&#10;黄金クッキー、食い放題やー</p>&mdash; ところてん (@tokoroten) <a href="https://twitter.com/tokoroten/statuses/379283461493637120">September 15, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+## 1クリックあたりのクッキー製造枚数を増やすアイテム
+
+足し算で増えるアイテム
+
+- Thousand fingers: 0.1枚増える。設備Cursorを20個買うとアンロック。
+- Million fingers: 0.5枚増える。設備Cursorを40個買うとアンロック。
+- Billion fingers: 2枚増える。設備Cursorを80個買うとアンロック。
+- Trillion fingers: 10枚増える。設備Cursorを120個買うとアンロック。
+- Quadrillion fingers: 20枚増える。設備Cursorを160個買うとアンロック。
+- Quintillion fingers: 100枚増える。設備Cursorを200個買うとアンロック。
+
+かけ算で増えるアイテム。足し算アイテムの効果も活きるし、かけ算同士は重ねがけできる。
+
+- Plastic mouse: 0.01倍増える。クリックして作ったクッキー数が1,000枚でアンロック。
+- Iron mouse: 0.01倍増える。クリックして作ったクッキー数が100,000枚でアンロック。
+- Titanium mouse: 0.01倍増える。クリックして作ったクッキー数が10,000,000枚でアンロック。
+- Adamantium mouse: 0.01倍増える。クリックして作ったクッキー数が1,000,000,000枚でアンロック。
 
 ## クッキー製造設備
 
@@ -90,38 +130,3 @@ tags : [life, game]
 - 初期購入クッキー量: 3,999,999,999
 - 初期CpS: 999,999
 
-## 1クリックあたりのクッキー製造枚数を増やすアイテム
-
-足し算で増えるアイテム
-
-- Thousand fingers: 0.1枚増える。設備Cursorを20個買うとアンロック。
-- Million fingers: 0.5枚増える。設備Cursorを40個買うとアンロック。
-- Billion fingers: 2枚増える。設備Cursorを80個買うとアンロック。
-- Trillion fingers: 10枚増える。設備Cursorを120個買うとアンロック。
-- Quadrillion fingers: 20枚増える。設備Cursorを160個買うとアンロック。
-- Quintillion fingers: 100枚増える。設備Cursorを200個買うとアンロック。
-
-かけ算で増えるアイテム。足し算アイテムの効果も活きるし、かけ算同士は重ねがけできる。
-
-- Plastic mouse: 0.01倍増える。クリックして作ったクッキー数が1,000枚でアンロック。
-- Iron mouse: 0.01倍増える。クリックして作ったクッキー数が100,000枚でアンロック。
-- Titanium mouse: 0.01倍増える。クリックして作ったクッキー数が10,000,000枚でアンロック。
-- Adamantium mouse: 0.01倍増える。クリックして作ったクッキー数が1,000,000,000枚でアンロック。
-
-## ゴールデンクッキーの効果一覧
-
-- frenzy: Cookieの生産が7倍になる。間隔は77秒。
-- multiply cookies: 今持っているクッキー数の10%もしくは、20分間のクッキー生産数のうち低い値のクッキーをもらえる。
-- click frenzy: クリック時のCookieの生産量が777倍になる。間隔は13秒。たまーに出る。
-- chain cookie: 連続でクッキーが出て、それをクリックするたびに6個、66個、666個…とクッキーがもらえる。ほとんどお目にかかれない。
-- clot: 未見
-- ruin cookies: 未見
-
-ゴールデンクッキーは、直前に取ったゴールデンクッキーの種類となるべく異なるように調整されている。
-
-## 裏技
-
-ウルテクです。以下の「javascript:」から始まる文字をブラウザのアドレス欄に入力してみましょう。
-
-<blockquote class="twitter-tweet"><p>javascript:(function(){Game.goldenCookie.spawn();})()&#10;黄金クッキー、食い放題やー</p>&mdash; ところてん (@tokoroten) <a href="https://twitter.com/tokoroten/statuses/379283461493637120">September 15, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
