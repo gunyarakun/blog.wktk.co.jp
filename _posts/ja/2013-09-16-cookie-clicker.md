@@ -121,7 +121,7 @@ tags : [life, game]
 
 ### Portal
 
-なんじゃろ。
+ワープゲートのことらしい(by [@fladdict](https://twitter.com/fladdict))。
 
 - 初期購入クッキー量: 1,666,666
 - 初期CpS: 6,666
