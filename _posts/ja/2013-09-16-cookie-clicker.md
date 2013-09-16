@@ -39,7 +39,7 @@ tags : [life, game]
 javascript:setInterval(function(){ Game.ClickCookie(); }, 100);
 </pre>
 
-by [@sh2](http://dbstudy.info/temp/cookie.txt)
+by [@sh2nd](http://dbstudy.info/temp/cookie.txt)
 
 ### ゴールデンクッキーを5秒に1回出す
 
@@ -47,7 +47,7 @@ by [@sh2](http://dbstudy.info/temp/cookie.txt)
 javascript:setInterval(function(){ Game.goldenCookie.spawn(); Game.goldenCookie.click(); }, 5000);
 </pre>
 
-by [@sh2](http://dbstudy.info/temp/cookie.txt)
+by [@sh2nd](http://dbstudy.info/temp/cookie.txt)
 
 ### 設備を10秒に1回、高い方から購入
 
@@ -55,7 +55,7 @@ by [@sh2](http://dbstudy.info/temp/cookie.txt)
 setInterval(function(){ for (var i = 9; i >= 0; i--) { $("#product" + i).click(); } }, 10000);
 </pre>
 
-by [@sh2](http://dbstudy.info/temp/cookie.txt)
+by [@sh2nd](http://dbstudy.info/temp/cookie.txt)
 
 ### ゴールデンクッキー即出し
 
