@@ -53,6 +53,17 @@ body {
   @include box-shadow(rgba(0, 0, 0, .15) 0 0 100px inset);
 }
 
+@mixin headline-black-background {
+  $background-color: #222;
+  background-color: $background-color;
+  @include background-image(linear-gradient(lighten($background-color, 10%), $background-color));
+  @include box-shadow(rgba(255, 255, 255, .25) 0 0 60px inset);
+
+  color: #f8f8f8;
+  font-weight: 600;
+  @include ts-black;
+}
+
 .page-wrap {
   margin: 0;
   padding: 0;
@@ -66,16 +77,9 @@ div.header, h1 {
   @include trailer(0, $font-size);
 
   padding: 6px;
-
-  $background-color: #222;
-  background-color: $background-color;
-  @include background-image(linear-gradient(lighten($background-color, 10%), $background-color));
-  @include box-shadow(rgba(255, 255, 255, .25) 0 0 60px inset);
-
-  color: #f8f8f8;
-  font-weight: 600;
-  @include ts-black;
   text-align: center;
+
+  @include headline-black-background;
 }
 
 a.header {
@@ -93,6 +97,8 @@ a.header {
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
+  @include headline-black-background;
+  padding-left: 1em;
 }
 
 .article-body h3 {
