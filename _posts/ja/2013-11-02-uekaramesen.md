@@ -6,6 +6,8 @@ title: 「上から目線」ということばについて
 ---
 「上から目線」ということばがある。そういう言葉を見るような情報チャンネルは避けるようにしているが、たまに目にすることがある。　
 
+<script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/sm19124782"></script><noscript><a href="http://www.nicovideo.jp/watch/sm19124782">【ニコニコ動画】上から目線　オリーブ</a></noscript>
+
 ## 僕の考える「上から目線」
 
 [ニコニコ大百科というサイトで「上から目線」の記事を書いたことがある。](http://dic.nicovideo.jp/r/a/%E4%B8%8A%E3%81%8B%E3%82%89%E7%9B%AE%E7%B7%9A/390247)[現在の記事](http://dic.nicovideo.jp/a/%E4%B8%8A%E3%81%8B%E3%82%89%E7%9B%AE%E7%B7%9A)では、「上から目線」を上から目線で説明する、というネタ記事になっている。そして、掲示板ではその記事の方針に対して上から目線で批判する、というMETAMETAな状態。
