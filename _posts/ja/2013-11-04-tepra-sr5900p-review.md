@@ -105,9 +105,9 @@ iOS版のTEPRA LINKでは、なんと手書き文字も印刷することがで�
 
 Windows版ラベルソフト「SPC10」には、[SPI10-API](http://www.kingjim.co.jp/support/tepra/spc10_api)というものが用意されています。このAPIを使えば、Windowsで動作するソフトからSPC10を呼び出し、テプラによるラベル印刷を行うことができます。資産管理や在庫管理アプリケーションと連携するソリューションが提案されているようです。
 
-また、iOS向けに、[TEPRA-Print SDK](http://www.kingjim.co.jp/support/tepra/sdk)というものが提供されています。このTEPRA-Print SDKを用いたアプリ「ぺったQ」というものもすでにリリースされていますぞ。
+また、iOS向けに、[TEPRA-Print SDK](http://www.kingjim.co.jp/support/tepra/sdk)というものが提供されています。このTEPRA-Print SDKを用いたアプリ「[ぺったQ](https://itunes.apple.com/jp/app/pettaq/id720005586)」というものもすでにリリースされていますぞ。
 
-![ぺったQ](/assets/images/entry/2013-11-04/tepra-pettaq.png)
+<!-- ![ぺったQ](/assets/images/entry/2013-11-04/tepra-pettaq.png) -->
 
 「ぺったQ」は、テプラの持つQRコード印刷機能を用いて、ラベルに印刷されたQRコードと写真やURLなどの情報を紐付けるiOSアプリです。
 
@@ -169,11 +169,11 @@ Mac OS X用シンプルラベルソフトSMA3を使ってみましょう。Mac O
 
 Apple社製ワイヤレスルーターを用いたテプラ共有環境では、[TEPRA App](https://itunes.apple.com/jp/app/tepra-app/id459990794)というiOSのアプリでテプラの印刷をすることができました。しかし、TEPRA Appはもう古いんです！
 
-![TEPRA App](/assets/images/entry/2013-11-04/tepra-app.png)
+<!-- ![TEPRA App](/assets/images/entry/2013-11-04/tepra-app.png) -->
 
-新しいアプリの名前、それはTEPRA LINK。AppStoreの検索で、TEPRAで検索したらTEPRA Appのほうが先に出てしまいますが、間違えちゃだめです。TEPRA AppはSR5900Pに対応していません。
+新しいアプリの名前、それは[TEPRA LINK](https://itunes.apple.com/jp/app/tepra-link/id552289922)。AppStoreの検索で、TEPRAで検索したらTEPRA Appのほうが先に出てしまいますが、間違えちゃだめです。TEPRA AppはSR5900Pに対応していません。
 
-![TEPRA LINK](/assets/images/entry/2013-11-04/tepra-link.png)
+<!-- ![TEPRA LINK](/assets/images/entry/2013-11-04/tepra-link.png) -->
 
 TEPRA LINKの編集画面はこんな感じです。結構シンプル。凝ったラベルはパソコンで、カンタンなラベルはTEPRA LINKで、と使い分けるポリシーなのでしょう。
 
@@ -181,7 +181,7 @@ TEPRA LINKの編集画面はこんな感じです。結構シンプル。凝っ�
 
 もちろん、テプラらしさを出すための画像もちゃんと入ってます。ぎっちり詰まって表示されるのがまたたまらない。
 
-![TEPRA LINK 編集画面](/assets/images/entry/2013-11-04/tepra-link-kigo.png)
+![TEPRA LINK 画像一覧](/assets/images/entry/2013-11-04/tepra-link-kigo.png)
 
 TEPRA LINKを使ってテープを印刷する様子を動画で撮影しました。ケーブルはSR5900Pの電源ケーブルだけ。
 
