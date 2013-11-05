@@ -121,7 +121,7 @@ Windows版ラベルソフト「SPC10」には、[SPI10-API](http://www.kingjim.c
 
 <img src="http://farm6.staticflickr.com/5472/10669408523_c8a826d6b9_z.jpg" />
 
-開封の議。りりしいお顔が登場しました。
+開封の儀。りりしいお顔が登場しました。
 
 <img src="http://farm4.staticflickr.com/3766/10669221374_165972895d_z.jpg" />
 
