@@ -6,6 +6,8 @@ tags : [book]
 ---
 「果てなき渇望」、読了しました。職場で隣の席の@shibukawaから無言ですっと差し出された1冊の本。「[果てなき渇望Advent Calender 2013](http://www.adventar.org/calendars/118)」というものの存在はTwitterでの発言で知っていたのですが、この本のことだったとは。というわけで、「[果てなき渇望Advent Calender 2013](http://www.adventar.org/calendars/118)」14日目のエントリー。
 
+{% amazon jp:4794219032:detail %}
+
 ## ボディビルディングについて
 
 当書籍は、ボディビルディングを行う人々についてあつかったルポルタージュである。
