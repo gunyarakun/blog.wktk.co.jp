@@ -7,23 +7,21 @@ title: gitで特定ディレクトリで特定のタグ/ブランチを追う
 ---
 gitで以下のようなことをやりたい。試しにスクリプト書いてみたんだが、どうもダサい感じがする。
 
-```
 入力値: リポジトリURL と タグ/ブランチ
 
 指定のリポジトリURLから、特定のタグ/ブランチをcloneしてくる。すでにclone済みであって、clone済みのものが最新であればcloneしてこない。タグ・ブランチ名がバージョン番号っぽいものであれば、--depth 1を使って容量を削減する。
-```
 
 用途としては、モジュールを特定バージョンやブランチに固定したいが、ブランチ名の場合には履歴もちゃんととってそのモジュールの開発もできるようにしたい、というもの。
 
 ## 試しに書いたもの
 
-```bash
+<pre class="prettyprint linenums">
 #!/bin/bash
 BASE_URL="git@xxxx:user"
 
 # $1 = repository_name, $2 = tag or branch
 
-if [[ "$i" =~ / ]]; then
+if [[ "$1" =~ / ]]; then
   echo "abune-" # For avoiding 'rm -rf /'
   exit 1
 fi
@@ -65,20 +63,21 @@ if [ "$local_hash" != "$remote_hash" ]; then
 else
   echo "nanmosen"
 fi
+</pre>
 
 ## ダサいところ
 
 指定されたtagがannotated tagの場合にはコミットそのもののhash値を取るために、一回^{}を付けて聞いているのがイケてない。annotated tagでない場合は2回聞いちゃうので遅くなる。
 
-```
+<pre class="prettyprint">
 git ls-remote git@xxx:user/rep v0.0.1^{commit}
-```
+</pre>
 
 でうまくいくかと思ったけどダメだった。
 
-```
+<pre class="prettyprint">
 git ls-remote git@xxx:user/rep v0.0.1*
-```
+</pre>
 
 というのも考えたが、v0.0.1^{}と同時にv0.0.13などもひっかかってしまうのでダメ。
 
@@ -86,18 +85,18 @@ git ls-remote git@xxx:user/rep v0.0.1*
 
 ローカルのほうですでにclone済みの場合には、
 
-```
+<pre class="prettyprint">
 git describe --tag
-```
+</pre>
 
 した結果現在指しているタグを取得する。次に、取得したタグを用いて、そのタグがannonated tagだった場合annotated tagのhash値を取る。具体的には、
 
-```
+<pre class="prettyprint">
 git show-ref --tag -d $fetched_tag
-```
+</pre>
 
 をして、一番下の1行を取得する。
 
 これとリモートの指定されたhash値を比較する。これでリモートに対するコマンド発行数が1回に減らせそう。
 
-ただ、もっとスマートに書けそうな気がするんだよなー。というわけでブログで投げっぱなしジャーマン。
+ただ、もっとスマートに書けそうな気がするんだよなー。.gitディレクトリの中のファイルを見る系に手を出したらいいのかな。というわけでブログで投げっぱなしジャーマン。ツッコミは[@tasukuchan](https://twitter.com/tasukuchan/)まで。
