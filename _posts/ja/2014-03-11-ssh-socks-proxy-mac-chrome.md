@@ -23,6 +23,16 @@ OpenSSHのクライアントは、SOCKSによるダイナミックポートフ�
 ssh -f -N -D 1080 user@example.com
 </pre>
 
+.ssh/configに書いてもよい。
+
+<pre class="prettyprint">
+Host fumidai.example.com
+  User user
+  Protocol 2
+  ForwardAgent yes
+  DynamicForward 1080
+</pre>
+
 ## Macでの設定
 
 ネットワーク環境設定で、SOCKS Proxyを使って通信が出来るようになる。
