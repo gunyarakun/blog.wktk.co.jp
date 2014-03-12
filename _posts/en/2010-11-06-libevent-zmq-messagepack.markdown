@@ -13,7 +13,8 @@ This is a simple sample code which recieves request from web browser with libeve
 - Web server returns JSON. If get parameter `callback' is specified, it returns JSONP of which function name is the `callback' parameter.
 - The client recieves msgpack's map and print it to stdout. You can write some logics like logging instead printing.
 
-Web server
+## Web server
+
 <pre class="prettyprint linenums lang-c">
 #include <stdio.h>
 #include <string.h>
@@ -149,7 +150,8 @@ main(int argc, char **argv)
 }
 </pre>
 
-client
+## client
+
 <pre class="prettyprint linenums lang-c">
 #include <zmq.h>
 #include <stdio.h>
@@ -208,7 +210,8 @@ main(int argc, char **argv)
 }
 </pre>
 
-Makefile
+## Makefile
+
 <pre class="prettyprint linenums lang-makefile">
 all: suggest-client suggest-server
 
