@@ -45,6 +45,16 @@ Host fumidai.example.com
 
 ありとあらゆる通信をSOCKS proxy経由にする場合は、[Proxifier](http://www.proxifier.com/mac/)などを導入する必要がある。
 
+sshだけであれば、ssh -Wを使うとよい。netcatを使う方法もあるが、割愛。target.example.comがアクセスしたい先のホスト名。ポート番号などが違う場合には、ProxyCommandに適切なオプションを追加すること。
+
+<pre class="prettyprint">
+Host target.example.com
+  User user
+  Protocol 2
+  ForwardAgent yes
+  ProxyCommand ssh -W %h:%p fumidai.example.com
+</pre>
+
 ## Mac上でのGoogle ChromeでのSOCKSプロキシ利用方法
 
 上記で述べたとおり、Macのネットワーク設定でSOCKSプロキシは設定できる。しかし、深遠なる理由によってそれがかなわない場合もある。
