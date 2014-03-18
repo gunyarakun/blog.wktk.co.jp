@@ -37,9 +37,15 @@ Host fumidai.example.com
 
 ネットワーク環境設定で、SOCKS Proxyを使って通信が出来るようになる。注意するのは、Bypass proxy settings for these Hosts & Domainsという例外設定に、ssh先のサーバを入れておくこと。
 
+これで、Macのネットワーク環境設定を使うようなアプリケーションであれば、全てSOCKS proxyを通じた通信ができる。例えば、Google ChromeでのブラウジングなどはSOCKS proxy経由となる。
+
+ただし、コマンドラインアプリケーション、例えばsshなどは、このSOCKS Proxyを使って通信しない。
+
+ありとあらゆる通信をSOCKS proxy経由にする場合は、[Proxifier](http://www.proxifier.com/mac/)などを導入する必要がある。
+
 ## Mac上でのGoogle ChromeでのSOCKSプロキシ利用方法
 
-Macのネットワーク設定でSOCKSプロキシは設定できる。しかし、深遠なる理由によってそれがかなわない場合もある。
+上記で述べたとおり、Macのネットワーク設定でSOCKSプロキシは設定できる。しかし、深遠なる理由によってそれがかなわない場合もある。
 
 例えば、Macの非標準のVPNソフトウェアを使っていて、そのVPNソフトウェア経由でないと踏み台サーバにsshできない、といった場合だ。
 
