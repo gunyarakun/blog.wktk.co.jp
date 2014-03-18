@@ -35,7 +35,7 @@ Host fumidai.example.com
 
 ## Macでの設定
 
-ネットワーク環境設定で、SOCKS Proxyを使って通信が出来るようになる。
+ネットワーク環境設定で、SOCKS Proxyを使って通信が出来るようになる。注意するのは、Bypass proxy settings for these Hosts & Domainsという例外設定に、ssh先のサーバを入れておくこと。
 
 ## Mac上でのGoogle ChromeでのSOCKSプロキシ利用方法
 
