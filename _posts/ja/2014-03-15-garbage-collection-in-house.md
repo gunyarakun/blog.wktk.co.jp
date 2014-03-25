@@ -65,6 +65,6 @@ title: ガベージコレクションで考える効率的な部屋の掃除法
 
 引っ越し法を簡単に行うようにするためには、どうしたらよいでしょうか。気軽にかつ低コストに引っ越せる環境を整えたいところです。なんとかオッサンが唯一持っているITの知識を援用できないでしょうか。
 
-(次回、Immutable Infrastructure編へつづく)
+[次回、Immutable Infrastructure編へつづく](http://blog.wktk.co.jp/ja/entry/2014/03/25/container-house)
 
 {% amazon jp:4798025623:detail %}
