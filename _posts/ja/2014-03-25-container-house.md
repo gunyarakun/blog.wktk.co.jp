@@ -86,6 +86,8 @@ IT業界、おもにWeb業界のなかで、Immutable Infrastructureという言
 
 もちろん、コンテナを用いた住宅はすでに実現されている。
 
+まずは、仮設住宅である。[東北地方太平洋沖地震における仮設住宅](http://www.japan-architects.com/ja/projects/project-review-detail/35682_%E5%A5%B3%E5%B7%9D%E7%94%BA%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E4%BB%AE%E8%A8%AD%E4%BD%8F%E5%AE%85)などの例がある。しかし、仮設ではない住宅ではどうだろうか。
+
 冒頭に引用した写真は、「[現代コンテナ建築研究所](http://www.imweb.ne.jp/container/)」によって手がけられた、デザイナー古賀智顕さんの自宅兼事務所である。
 
 古賀さんについては、「[『エロの「デザインの現場」』 － R18の想像力](http://honz.jp/articles/-/40217)」のエントリを読んでもらえるとよい。URECCO!
