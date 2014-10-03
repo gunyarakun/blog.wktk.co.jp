@@ -19,7 +19,7 @@ title: DeNAを退職し宗教を立ち上げ書籍を出版しアメリカで起
 
 ## 宗教の立ち上げ
 
-宗教[Virtuan Religion](http://ja.virtual-religion.org/)を立ち上げました。
+宗教[Virtual Religion](http://ja.virtual-religion.org/)を立ち上げました。
 
 Virtual Religionですが、現時点では「空飛ぶスパゲッティーモンスター教」のようなフェイク宗教です。宗教法人格の取得を目指していますが、要件である「土地」と「名簿」のうち、名簿の取得は難しそうだからです。僕が40歳になるまでには法人格が取得できるといいな、と考えています。
 
