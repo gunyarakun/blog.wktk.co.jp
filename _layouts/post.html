@@ -4,25 +4,10 @@ layout: default
 <article class="article-body">
   <h1>{{ page.title }}</h1>
 
-<!-- from: http://tokkono.cute.coocan.jp/blog/slow/index.php/xhtmlcss/asynchronous-loading-of-major-social-buttons/ -->
-<script id="social-buttons">
-$(function() {
-  (function(w,d){
-    w.___gcfg={lang:"ja"};
-    var s,e = d.getElementById("social-buttons"),
-    a=function(u,f){if(!d.getElementById(f)){s=d.createElement("script");
-    s.src=u;if(f){s.id=f;}e.parentNode.insertBefore(s,e);}};
-    a("https://apis.google.com/js/plusone.js");
-    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
-    a("//platform.twitter.com/widgets.js","twitter-wjs");
-    a("//connect.facebook.net/ja_JP/all.js#xfbml=1","facebook-jssdk");
-  })(this, document);
-});
-</script>
-
+<!-- social buttons -->
 <div class="social-button-container">
   <!-- Twitter -->
-  <div class="social">
+  <div class="twitter">
     <a href="https://twitter.com/share" class="twitter-share-button"
       data-lang="{{ page.lang }}"
       data-url="{{ site.production_url }}{{ page.url }}"
@@ -32,7 +17,7 @@ $(function() {
   </div>
 
   <!-- Hatena -->
-  <div class="social">
+  <div class="hatena">
     <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
       data-hatena-bookmark-layout="standard"
       data-hatena-bookmark-url="{{ site.production_url }}{{ page.url }}">
@@ -42,21 +27,13 @@ $(function() {
     </a>
   </div>
 
-  <!-- Google plusone -->
-  <div class="social">
-    <div class="g-plusone" data-size="medium" data-href="{{ site.production_url }}{{ page.url }}"></div>
-  </div>
-
   <!-- Facebook -->
-  <div class="social">
-    <div id="fb-root"></div>
-    <div class="fb-like"
-      data-href="{{ site.production_url }}{{ page.url }}"
-      data-layout="button_count"
-      data-send="false"
-      data-width="120"
-      data-show-faces="false">
-    </div>
+  <div class="fb-like"
+    data-href="{{ site.production_url }}{{ page.url }}"
+    data-layout="button_count"
+    data-send="false"
+    data-width="120"
+    data-show-faces="false">
   </div>
 </div>
 <!-- end of social buttons -->
@@ -79,10 +56,43 @@ $(function() {
   </ul>
 </div>
 
-<!-- X:S ZenBackWidget --><div id="zenback-widget-loader"></div><script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var r=Math.ceil((new Date()*1)*Math.random());var j=d.createElement("script");j.id=i;j.async=true;j.src="//w.zenback.jp/v1/?base_uri=http%3A//blog.wktk.co.jp/&nsid=96863410926429355%3A%3A112858368426671922&rand="+r;d.body.appendChild(j);}}(document,"zenback-widget-js");</script><!-- X:E ZenBackWidget -->
-
 <h4>Published</h4>
 <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
+
 <!--h4>Tags</h4>
 <ul class="tag_box">
 </ul-->
+
+<!-- social buttons -->
+<div class="social-button-container">
+  <!-- Twitter -->
+  <div class="twitter">
+    <a href="https://twitter.com/share" class="twitter-share-button"
+      data-lang="{{ page.lang }}"
+      data-url="{{ site.production_url }}{{ page.url }}"
+      data-text="{{ page.title }}"
+      data-via="tasukuchan"
+    >Tweet</a>
+  </div>
+
+  <!-- Hatena -->
+  <div class="hatena">
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"
+      data-hatena-bookmark-layout="standard"
+      data-hatena-bookmark-url="{{ site.production_url }}{{ page.url }}">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only.gif"
+        alt="このエントリーをはてなブックマークに追加" width="20" height="20"
+        style="border: none">
+    </a>
+  </div>
+
+  <!-- Facebook -->
+  <div class="fb-like"
+    data-href="{{ site.production_url }}{{ page.url }}"
+    data-layout="button_count"
+    data-send="false"
+    data-width="120"
+    data-show-faces="false">
+  </div>
+</div>
+<!-- end of social buttons -->

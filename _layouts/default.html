@@ -92,6 +92,10 @@
 
   </div>
 
+  <!-- dummy element for async social button loading -->
+  <div id="social-buttons"></div>
+  <div id="fb-root"></div>
+
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-16318808-2']);
@@ -153,6 +157,18 @@
     function () {
       window.prettyPrint && prettyPrint();
     },
+    function () {
+      // from: http://tokkono.cute.coocan.jp/blog/slow/index.php/xhtmlcss/asynchronous-loading-of-major-social-buttons/ -->
+      (function(w,d){
+        w.___gcfg={lang:'ja'};
+        var s,e = d.getElementById('social-buttons'),
+        a=function(u,f){if(!d.getElementById(f)){s=d.createElement('script');
+        s.src=u;if(f){s.id=f;}e.parentNode.insertBefore(s,e);}};
+        a('//b.st-hatena.com/js/bookmark_button_wo_al.js');
+        a('//platform.twitter.com/widgets.js','twitter-wjs');
+        a('//connect.facebook.net/ja_JP/all.js#xfbml=1','facebook-jssdk');
+      })(this, document);
+    }
   ]
 ));
   </script>

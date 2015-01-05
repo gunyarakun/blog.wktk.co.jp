@@ -146,13 +146,38 @@ a.header {
 .social-button-container {
   @include adjust-font-size-to($base-font-size, 1);
   @include leader(1, $base-font-size);
-  @include trailer(1, $base-font-size);
   margin-left: $base-font-size;
   margin-right: $base-font-size;
-}
 
-.social-button-container > div {
   display: inline-block;
+  height: 30px;
+  overflow: hidden;
+  text-align: left;
+  vertical-align: bottom;
+
+  .twitter {
+    float: left;
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
+    overflow: hidden;
+  }
+
+  .hatena {
+    float: left;
+    width: 62px;
+    height: 30px;
+    margin-right: 10px;
+    overflow: hidden;
+  }
+
+  .fb-like {
+    float: left;
+    width: 115px;
+    height: 25px;
+    line-height: 20px;
+    overflow: hidden;
+  }
 }
 
 // for link
