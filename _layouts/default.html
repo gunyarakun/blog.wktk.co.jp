@@ -105,9 +105,56 @@
   </script>
   <script src="/assets/javascripts/prettify.js"></script>
   <script>
-    $(function() {
+// $(document).ready() equivalent without jQuery
+(function (window, functions) {
+  var document = window.document,
+  functions = functions && functions.splice ? functions : [],
+  ie = document.addEventListener ? false : true,
+  complete = false,
+  dispose = function () {
+    if (complete) {
+      return;
+    };
+    complete = true;
+    if (!ie) {
+      document.removeEventListener('DOMContentLoaded', onDOMContentLoaded);
+      document.removeEventListener('readystatechange', onReadyStateChange);
+      window.removeEventListener('load', onWindowLoad);
+    } else {
+      document.detachEvent('onreadystatechange', onReadyStateChange);
+      window.detachEvent('onload', onWindowLoad);
+    }
+    for (var i = 0, limit = functions.length; i < limit; i++) {
+      setTimeout(functions[i], 25 * i);
+    }
+  },
+  onDOMContentLoaded = function (e) {
+    dispose();
+  },
+  onReadyStateChange = function (e) {
+    if (document.readyState == 'complete') {
+      dispose();
+    }
+  },
+  onWindowLoad = function (e) {
+    dispose();
+  };
+
+  if (!ie) {
+    document.addEventListener('DOMContentLoaded', onDOMContentLoaded, false);
+    document.addEventListener('readystatechange', onReadyStateChange, false);
+    window.addEventListener('load', onWindowLoad, false);
+  } else if (document.attachEvent) {
+    document.attachEvent('onreadystatechange', onReadyStateChange);
+    window.attachEvent('onload', onWindowLoad);
+  }
+} (window,
+  [
+    function () {
       window.prettyPrint && prettyPrint();
-    });
+    },
+  ]
+));
   </script>
 </body>
 </html>
