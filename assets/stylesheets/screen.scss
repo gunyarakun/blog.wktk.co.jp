@@ -149,8 +149,9 @@ a.header {
   margin-left: $base-font-size;
   margin-right: $base-font-size;
 
-  display: inline-block;
+  width: 600px;
   height: 30px;
+  display: inline-block;
   overflow: hidden;
   text-align: left;
   vertical-align: bottom;
