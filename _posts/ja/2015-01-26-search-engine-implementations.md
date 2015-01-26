@@ -15,7 +15,7 @@ title: 【作ってみた】書籍「検索エンジン自作入門」を読ん�
 
 ## PHP
 
-- [id:masayuki5160さんこと、たかなしさんによる、PHPでつくる全文検索エンジン](http://masayuki5160.hatenablog.com/entry/2014/11/16/181634)
+- [id:masayuki5160さんこと、たなかしさんによる、PHPでつくる全文検索エンジン](http://masayuki5160.hatenablog.com/entry/2014/11/16/181634)
 
 PHPはWebエンジニアにとって身近なプログラミング言語です。データソースもTwitterを用いていて、Webエンジニアにとって親しみやすい実装になっています。
 
