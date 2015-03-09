@@ -5,7 +5,7 @@ layout: post
 tags: [tech, webgl]
 title: 生WebGL入門でWebGLに入門する(前編)
 ---
-「[生WebGL入門:初音ミクの美麗3Dモデルを表示する](http://nmi.jp/archives/582)」という記事がある。好評のようだ。3Dはレイトレーシングしか知らない、DirectXはDicect2D専門だったおっさんとしては、3DとWebGLを一緒に学べるチャンスだ。ぜひぜひ学習してみよう。
+「[生WebGL入門:初音ミクの美麗3Dモデルを表示する](http://nmi.jp/archives/582)」という記事がある。好評のようだ。3Dはレイトレーシングしか知らない、DirectXはDirect2D専門だったおっさんとしては、3DとWebGLを一緒に学べるチャンスだ。ぜひぜひ学習してみよう。
 
 ## 準備
 
