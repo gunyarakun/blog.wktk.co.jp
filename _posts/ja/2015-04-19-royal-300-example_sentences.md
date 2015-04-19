@@ -23,10 +23,6 @@ title: 旺文社『表現のための実践ロイヤル英文法』別冊付録�
 
 300個のリストを見ていると、文法書本文へのリファレンスも多く出てきます。ぜひセール中のiPhoneアプリを買ってみてください。
 
-<iframe src="https://widgets.itunes.apple.com/widget.html?c=jp&brc=FFFFFF&blc=FFFFFF&trc=FFFFFF&tlc=FFFFFF&d=&t=&m=software&e=software&w=250&h=300&ids=975445462&wt=discovery&partnerId=&affiliate_id=&at=11lrL2&ct=" frameborder=0 style="overflow-x:hidden;overflow-y:hidden;width:250px;height: 300px;border:0px"></iframe>
-
-なお、英作文のための暗記用例文300の著作者やその代理人からの公開停止要請があれば、すぐに公開を停止します。了解ください。
-
 <script src="https://gist.github.com/gunyarakun/b7f275c1c426787da2e0.js"></script>
 
 さて、この例文300個の音声データも欲しいですよね。
