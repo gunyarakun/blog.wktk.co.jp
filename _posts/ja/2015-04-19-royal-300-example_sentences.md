@@ -21,15 +21,20 @@ title: 旺文社『表現のための実践ロイヤル英文法』別冊付録�
 
 そこで、上記のPDFファイルから人力でデータを抜き出しJSON化しました。どうぞお納めください。
 
-さて、この例文300個の音声データも欲しいですよね。
-Amazonで物理書籍を買って、CDから音声を抽出するのが最も楽でしょう。
-僕はiPhoneアプリ版を購入し、秘密の念力によって例文の日本語訳、通常スピード、遅めのスピードのaacファイルを取得しました。
-オーディオブックはオススメしません。全ての音声がごちゃっと固まって１つのファイルになっているからです。
-
-というわけで、iPhoneアプリ版の『表現のための実践ロイヤル英文法』を購入し、JSONデータと、音声データを用いて学習するのがよいのではないでしょうか。セール中だし。
+300個のリストを見ていると、文法書本文へのリファレンスも多く出てきます。ぜひセール中のiPhoneアプリを買ってみてください。
 
 <iframe src="https://widgets.itunes.apple.com/widget.html?c=jp&brc=FFFFFF&blc=FFFFFF&trc=FFFFFF&tlc=FFFFFF&d=&t=&m=software&e=software&w=250&h=300&ids=975445462&wt=discovery&partnerId=&affiliate_id=&at=11lrL2&ct=" frameborder=0 style="overflow-x:hidden;overflow-y:hidden;width:250px;height: 300px;border:0px"></iframe>
 
 なお、英作文のための暗記用例文300の著作者やその代理人からの公開停止要請があれば、すぐに公開を停止します。了解ください。
 
 <script src="https://gist.github.com/gunyarakun/b7f275c1c426787da2e0.js"></script>
+
+さて、この例文300個の音声データも欲しいですよね。
+
+- Amazonで物理書籍を買って、CDから音声を抽出するのが最も楽
+- iPhoneアプリ版を購入し、秘密の念力によって例文の日本語訳、通常スピード、遅めのスピードのaacファイルを取得する手もあり。unzipとsqlite3でいける。
+- オーディオブックはオススメしません。全ての音声がごちゃっと固まって１つのファイルになっているからです。
+
+自信のある方はiPhoneアプリ版から抽出するのが、キレイに分かれた音声ファイルが得られてよいでしょう。
+
+<iframe src="https://widgets.itunes.apple.com/widget.html?c=jp&brc=FFFFFF&blc=FFFFFF&trc=FFFFFF&tlc=FFFFFF&d=&t=&m=software&e=software&w=250&h=300&ids=975445462&wt=discovery&partnerId=&affiliate_id=&at=11lrL2&ct=" frameborder=0 style="overflow-x:hidden;overflow-y:hidden;width:250px;height: 300px;border:0px"></iframe>
