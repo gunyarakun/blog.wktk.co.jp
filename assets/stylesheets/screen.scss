@@ -306,3 +306,17 @@ blockquote {
 
 @import 'amazon';
 @import 'rakuten';
+
+@media screen and (min-width: 800px) {
+  .table-row {
+    display: table;
+    width: 100%;
+  }
+  .table-column {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .table-column:first-child {
+    width: 20%;
+  }
+}
