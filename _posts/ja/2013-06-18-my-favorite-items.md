@@ -103,7 +103,7 @@ tags : [life]
 
 ビタミン剤は普通にこれ。いろいろ入ってます。
 
-{% rakuten itemCode:kenkoex:10000468:detail %}
+{% amazon jp:B00F4LCLXY:detail %}
 
 頭痛薬はリングルアイビー。
 
