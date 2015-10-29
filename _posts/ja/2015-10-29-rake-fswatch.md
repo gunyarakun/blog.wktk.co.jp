@@ -33,7 +33,7 @@ GIT_REGEX = %r{/\.git/}
 SLEEP_AFTER_BUILD = 10
 
 PATH1 = 'sample'
-PATH1 = 'path'
+PATH2 = 'path'
 
 task :watch do |t|
   mac = (RbConfig::CONFIG['host_os'] =~ /\Adarwin[\d.]+\z/)
