@@ -74,6 +74,7 @@ stmc90405さん
 musashiatsushiさんの回答は、オーストラリアで日本人客がチップを払う文化を根付かせたと主張している。
 
 下記サイトによれば、たしかにオーストラリアではほとんどチップを払わなくてよいようだ。素晴らしい。
+
 - http://www.traveller.com.au/how-much-should-you-tip-in-australia-gkcoxz
 
 <blockquote>
