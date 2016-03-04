@@ -19,7 +19,7 @@ title: アメリカのホテルでハウスキーパーにチップを払うか�
 
 - http://www.tippingresearch.com/most_recent_tipping_papers.html
 
-彼の論文であるBlack-White Differences in Tipping of Various Service Providers (2011)は、黒人と白人でチップの支払い行動がどう違うんや、というもの。TABLE 2によると、黒人・白人とも3割はHotel Maidにチップを支払っていない。
+彼の論文であるBlack-White Differences in Tipping of Various Service Providers (2004)は、黒人と白人でチップの支払い行動がどう違うんや、というもの。TABLE 2によると、黒人・白人とも3割はHotel Maidにチップを支払っていない。
 
 - http://www.tippingresearch.com/uploads/blk_wht_tipping.pdf
 
