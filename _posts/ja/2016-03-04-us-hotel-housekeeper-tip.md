@@ -13,7 +13,7 @@ title: アメリカのホテルでハウスキーパーにチップを払うか�
 
 僕は、部屋を汚したり、ゴミが多かったりなど、特別な事情がない限りはハウスキーパーにチップを払わないようにしている。stiff!!!!
 
-## Michael Lynnによる調査
+## 各種調査
 
 チップに関する論文を出しまくってる、コーネル大学ホテル経営学教授のMichael Lynnという人がいる。
 
@@ -22,6 +22,10 @@ title: アメリカのホテルでハウスキーパーにチップを払うか�
 彼の論文であるBlack-White Differences in Tipping of Various Service Providers (2004)は、黒人と白人でチップの支払い行動がどう違うんや、というもの。TABLE 2によると、黒人・白人とも3割はHotel Maidにチップを支払っていない。
 
 - http://www.tippingresearch.com/uploads/blk_wht_tipping.pdf
+
+HuffingtonPostとYouGovの調査によれば、Housekeeperにチップを支払うのは46%、支払わないのは32%、残りはそういう状況を経験したことがない。
+
+- http://www.huffingtonpost.com/2014/09/22/tipping-poll_n_5851336.html
 
 ## チップが収入に占める額
 
