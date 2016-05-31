@@ -20,7 +20,7 @@ require 'timezone_finder'
 
 db = MaxMindDB.new('./GeoLite2-City.mmdb')
 ret = db.lookup(request.remote_ip)
-tf = TimezoneFinder.bew
+tf = TimezoneFinder.create
 puts tf.timezone_at(ret.location.longitude, ret.location.latitude)
 </pre>
 
