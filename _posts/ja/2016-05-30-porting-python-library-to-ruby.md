@@ -82,7 +82,7 @@ empty_array = [[0.0] * nr_points] * 2
 
 Pythonのdefはクロージャがあり、Rubyのdefはそうでない。グローバル変数化したり、クラス・インスタンス変数化したり、引数に入れたり、好きに処理しよう。
 
-</pre>
+<pre class="prettyprint lang-python">
 a = []
 def funca():
   b = []
