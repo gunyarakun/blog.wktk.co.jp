@@ -75,7 +75,9 @@ empty_array = empty([2, nr_points], dtype='f8')
 </pre>
 
 <pre class="prettyprint lang-ruby">
-empty_array = [[0.0] * nr_points] * 2
+empty_array = [[0.0] * nr_points, [0.0] * nr_points]
+# これだと、中のArrayが同じobjectを指すのでダメ
+# empty_array = [[0.0] * nr_points] * 2
 </pre>
 
 ### 変数のスコープ
