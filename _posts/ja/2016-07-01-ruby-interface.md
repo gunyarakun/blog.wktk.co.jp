@@ -18,7 +18,7 @@ title: RubyでJavaなどのinterfaceっぽいことをしたい
 
 というわけで、やりたいことは満たせた感じ。
 
-```ruby
+<pre class="prettyprint lang-ruby">
 #!/usr/bin/env ruby
 
 module SomeInterface
@@ -36,6 +36,6 @@ class SomeClass
 end
 
 SomeClass.new.method1
-```
+</pre>
 
 もっといい方法があれば教えてください。
