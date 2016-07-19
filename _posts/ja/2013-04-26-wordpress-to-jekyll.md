@@ -40,7 +40,7 @@ JekyllのWikiにある[Blog Migrations]を参考に、migratorを実行しまし
 
 Wordpressから移行したエントリは、Wordpressと同じURLになるように調整しました。permalinkという属性で、エントリごとのパスを指定することができます。
 
-Jekyllで出力されるのは、基本'パス名/index.html'というファイルです。よって、iURLのお尻に「/」がついてしまいます。これを避けるために、Nginxでrewriteするようにしました。
+Jekyllで出力されるのは、基本'パス名/index.html'というファイルです。よって、URLのお尻に「/」がついてしまいます。これを避けるために、Nginxでrewriteするようにしました。
 
 <pre class="prettyprint">
       rewrite ^(/archives/\d+)$ $1/ last;
