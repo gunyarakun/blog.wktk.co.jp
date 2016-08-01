@@ -130,10 +130,15 @@ a.header {
   margin-right: $base-font-size;
 }
 
-
 .article-body li {
   list-style-type: disc;
-  list-style-position: inside;
+  margin-left: $base-font-size;
+}
+
+.article-body li > p, li > ul {
+  margin-left: 0;
+  @include leader(0.2, $base-font-size);
+  @include trailer(0.2, $base-font-size);
 }
 
 .article-body img {
