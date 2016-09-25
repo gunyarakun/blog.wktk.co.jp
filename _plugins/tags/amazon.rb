@@ -11,9 +11,14 @@
 #   3. Install amazon/ecs(`gem install amazon-ecs`).
 #   4. Write access key information to `_amazon.yml' in YAML format.
 #      (ex)
-#        associate_tag: nitoyoncom-22
-#        AWS_access_key_id: XXXXXXXXXXXXXXXXXXXX
-#        AWS_secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#        ja:
+#          AWS_access_key_id: XXXXXXXXXXXXXXXXXXXX
+#          AWS_secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#          associate_tag: nitoyonjp-22
+#        us:
+#          AWS_access_key_id: XXXXXXXXXXXXXXXXXXXX
+#          AWS_secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#          associate_tag: nitoyoncom-22
 #
 # Embed amazon
 # ------------
@@ -143,7 +148,7 @@ module Jekyll
         puts err
         raise err
       end
-      Amazon::Ecs.options = conf.inject({}){|h,(k,v)| h[k.to_sym] = v; h}
+      Amazon::Ecs.options = conf[lang].inject({}){|h,(k,v)| h[k.to_sym] = v; h}
 
       res = Amazon::Ecs.item_lookup(amazon_id, :country => lang, :response_group => 'Images,ItemAttributes')
 
