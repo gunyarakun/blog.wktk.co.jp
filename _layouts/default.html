@@ -22,8 +22,19 @@
   <meta property="og:url" content="{{ site.production_url }}{{ page.url | remove: 'index.html' }}" />
   <meta property="og:type" content="{% if page.url == '/ja/index.html' %}blog{% else %}article{% endif %}" />
   <meta property="og:description" content="{{ page.raw.content | strip_newlines | strip_html | truncatewords: 40 | truncate: 300 | escape }}" />
-  <meta property="og:image" content="{% if page.thumbnail != null %}{{ page.thumbnail }}{% else %}{{ site.production_url }}/assets/images/apple-touch-icon-114x114.png{% endif %}"/>
+  <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.production_url }}{% else %}{{ site.production_url }}/assets/images/apple-touch-icon-114x114.png{% endif %}"/>
   <meta property="og:site_name" content="{{ sub_title }}" />
+
+ <!-- twitter card -->
+  <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
+  <meta name="twitter:site" content="@{{ site.twitter_username }}">
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
+{% if page.image %}
+  <meta name="twitter:image:src" content="{{ page.image | prepend: site.production_url }}">
+{% endif %}
+  <!-- end twitter card -->
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 
