@@ -3,7 +3,7 @@ date: 2016-10-12
 lang: ja
 layout: post
 tags: [tech,ruby]
-title: 自前CIサーバをスクラッチで書く
+title: 自前CIサーバをスクラッチで書いた
 ---
 依存するgitリポジトリが数十あり、Mac上でしか動作しないビルドを動かしている、Jenkinsの移行をすることになった。
 
