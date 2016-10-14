@@ -28,7 +28,6 @@ JenkinsのおかげでContinuous Integrationの概念は広まったし、Jenkin
 ## 要件
 
 - GithubからのWebhookによりビルドスクリプトがキックされる
-- ビルドが成功したら何もしない
 - ビルドが失敗したらSlackに通知する
 - ビルドが失敗から成功に戻ったらSlackに通知する
 - ビルド時のstdout/stderrはどっかファイルに取っておいて、HTTPで配信
