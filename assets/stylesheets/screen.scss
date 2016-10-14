@@ -53,6 +53,10 @@ body {
   @include box-shadow(rgba(0, 0, 0, .15) 0 0 100px inset);
 }
 
+strong {
+  font-weight: bold;
+}
+
 @mixin headline-black-background {
   $background-color: #222;
   background-color: $background-color;
