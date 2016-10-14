@@ -80,4 +80,3 @@ Sinatraの"set :lock, true"はWebhookの処理をするのに便利。あたま�
 - Jenkinsわからないおじさん
 - 簡単なCIサーバをRubyで書いた
   - むしろ、CIの設定をRubyのスクリプトにした、というイメージ
-- 変態的な要件も思いのまま
