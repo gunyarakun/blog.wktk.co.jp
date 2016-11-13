@@ -11,7 +11,7 @@
 #   3. Install amazon/ecs(`gem install amazon-ecs`).
 #   4. Write access key information to `_amazon.yml' in YAML format.
 #      (ex)
-#        ja:
+#        jp:
 #          AWS_access_key_id: XXXXXXXXXXXXXXXXXXXX
 #          AWS_secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 #          associate_tag: nitoyonjp-22
