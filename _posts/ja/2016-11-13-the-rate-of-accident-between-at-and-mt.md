@@ -79,12 +79,24 @@ ATが全事故での事故率は高いのに、死亡事故では事故率に変
 
 すべてのデータをよく説明している仮説ではないけれども、単純で気に入っているし、自分もATの車を運転しているときには停止状態からの急加速をなるべくしないように心がけている。
 
+## 運転者のスキルが違う説
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/tasukuchan">@tasukuchan</a> 拝読しました。停止状態からの急発進はクラッチをガンと繋いじゃえばMTでもできるのでどうですかね…。あとMTは業務で車を運転するプロフェッショナルの率が高そうなのも関係ありそう。バスとかタクシーとかトラックとか。</p>&mdash; Nobutoshi Ogata (@nobu666) <a href="https://twitter.com/nobu666/status/797770748945317888">2016年11月13日</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/tasukuchan">@tasukuchan</a> 両群の運転者のスキルの差ってどれぐらいあるんでしょうね。AT/MTの事故率の差が現代に近づくにつれ開いてるのは、ATの普及(に伴ってスキル無い人がATに流れていくの)に由来してるのかな、ってのを最初に思いました。</p>&mdash; Ken Kawamoto（ガリのほう） (@kenkawakenkenke) <a href="https://twitter.com/kenkawakenkenke/status/797773573632856064">2016年11月13日</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+あると思います！
+
 ## まとめ
 
 - 正面衝突事故や死亡に至らない事故の場合、AT車はMT車より事故率が高い
     - 死亡事故率に関してはAT車/MT車に差はみられない
-- ATは停止状態から急発進ができるのが非死亡事故率の高さにつながるのでは仮説
+- AT車は停止状態から急発進ができるのが非死亡事故率の高さにつながるのでは仮説
     - もしそれが正しければ、急発進を止めれば、事故率は減りそう
+- MT車の運転手のほうがスキル高いのでは仮説
+    - この論文のデータにないのでなんともいえないが、ありえる
 
 自動運転はよカモン！
 
