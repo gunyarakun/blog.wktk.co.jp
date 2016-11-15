@@ -4,7 +4,7 @@ lang: ja
 layout: post
 tags: [life]
 title: すべてがカプセルになる THE PERFECT INSIDER
-image: http://blog.wktk.co.jp/assets/images/entry/2014-03-25/Nakagin_Capsule_Tower_2008.jpg
+image: /assets/images/entry/2014-03-25/Nakagin_Capsule_Tower_2008.jpg
 ---
 こんな世の中が実現してほしい。
 
