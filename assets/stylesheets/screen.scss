@@ -74,6 +74,7 @@ body {
   color: #333333;
   background-color: #f8f8f8;
   font-family: $gothic;
+  font-weight: 500;
   font-feature-settings: "palt" 1;
 
   @include box-shadow(rgba(0, 0, 0, .15) 0 0 100px inset);
