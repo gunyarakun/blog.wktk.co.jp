@@ -5,6 +5,8 @@ layout: post
 tags: [tech]
 title: iPhoneゲームをブラウザで遊べるTombo Platformをリリースしました
 ---
+![Tomboロゴ](/assets/images/entry/2017-02-14/tombo_logo_ogp_1200x630.png)
+
 僕の勤め先である、Tombo, Inc.から[Tombo Platform](https://app.tombo.io/)というものをリリースしました。
 
 iPhoneのアプリをJavaScriptに変換して、ブラウザ上で実行できるミドルウェア、"Apples to Oranges" (A2O)によって変換されたゲームを遊べるプラットフォームです。
@@ -18,3 +20,7 @@ WebゲームをiPhoneアプリにするんじゃないんです。iPhoneアプ�
 現在はゲームに特化していますが、ほかのアプリにも手を広げたいです。最近、スマホ版だけリリースされるサービス多いですよね。Web版を簡単に作れることはメリットあると思ってます。
 
 課金機能とかPush Notificationとかいろいろ足りないところはあるけれども、コンバートしてみたいアプリをお持ちのみなさまはぜひご連絡くださいませませ。
+
+なお、技術的な詳細とかは英語でブログに書いてます。そちらも見てちょ。
+
+https://blog.tombo.io/
