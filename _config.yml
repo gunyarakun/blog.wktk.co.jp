@@ -20,8 +20,8 @@ redcarpet:
   extensions: [autolink, tables, smart, disable_indented_code_blocks]
 
 # TODO: ここから下見直す
-
-production_url : http://blog.wktk.co.jp
+twitter_username: tasukuchan
+production_url: http://blog.wktk.co.jp
 default_image: /assets/images/kiki_with_tasuku_500.jpg
 
 WktkBlog :
