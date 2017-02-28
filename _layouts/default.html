@@ -22,7 +22,7 @@
   <meta property="og:url" content="{{ site.production_url }}{{ page.url | remove: 'index.html' }}" />
   <meta property="og:type" content="{% if page.url == '/ja/index.html' %}blog{% else %}article{% endif %}" />
   <meta property="og:description" content="{{ page.content | strip_newlines | strip_html | truncatewords: 40 | truncate: 300 | escape }}" />
-  <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.production_url }}{% else %}{{ site.production_url }}/assets/images/apple-touch-icon-114x114.png{% endif %}"/>
+  <meta property="og:image" content="{% if page.image_url %}{{ page.image_url }}{% elsif page.image_path %}{{ page.image_path | prepend: site.production_url }}{% else %}{{ site.production_url }}/assets/images/apple-touch-icon-114x114.png{% endif %}"/>
   <meta property="og:site_name" content="{{ sub_title }}" />
 
  <!-- twitter card -->

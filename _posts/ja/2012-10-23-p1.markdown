@@ -6,6 +6,7 @@ permalink: /archives/266
 tags: [日常]
 title: どんな家でもピッタリサイズ！快適パソコンデスクの入手法
 wordpress_id: 266
+image_url: http://farm9.staticflickr.com/8472/8109238544_96e875843e.jpg
 ---
 IKEAの商品を使って、快適なパソコンデスク環境を整えている記事がいくつかあります。
 

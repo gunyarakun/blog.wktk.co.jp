@@ -4,7 +4,7 @@ lang: ja
 layout: post
 tags: [life,restaurant,japan]
 title: 日本で食べた麺類たち(2016年11月~2017年1月)
-image: /assets/images/entry/2017-01-27/2016-12-22-13.jpg
+image_path: /assets/images/entry/2017-01-27/2016-12-22-13.jpg
 ---
 さて、諸事情で去年の11月末から今年の1月頭まで日本に帰っていました。
 
