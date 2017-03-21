@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [tech]
 title: iPhoneゲームをブラウザで遊べるTombo Platformをリリースしました
+image_path: /assets/images/entry/2017-02-14/tombo_logo_ogp_1200x630.png
 ---
 ![Tomboロゴ](/assets/images/entry/2017-02-14/tombo_logo_ogp_1200x630.png)
 

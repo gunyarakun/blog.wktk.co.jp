@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [life]
 title: 通勤ラッシュによる満員電車と慢性残業を解決したい
+image_path: /assets/images/entry/2017-03-21/packed-train-late-work.jpg
 ---
 スーツケースを持ってザックをしょい、ラッシュ時間帯の大江戸線に乗るという判断ミスをしてしまった。
 
