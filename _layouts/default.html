@@ -31,8 +31,8 @@
   <meta name="twitter:creator" content="@{{ site.twitter_username }}">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{{ page.content | strip_newlines | strip_html | truncatewords: 40 | truncate: 300 | escape }}">
-{% if page.image %}
-  <meta name="twitter:image:src" content="{{ page.image | prepend: site.production_url }}">
+{% if page.image_url || page.image_path %}
+  <meta name="twitter:image:src" content="{% if page.image_url %}{{ page.image_url }}{% elsif page.image_path %}{{ page.image_path | prepend: site.production_url }}{% endif %}">
 {% endif %}
   <!-- end twitter card -->
 
