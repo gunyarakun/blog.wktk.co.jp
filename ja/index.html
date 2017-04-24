@@ -3,10 +3,10 @@ layout: page
 lang: ja
 title: グニャラくんのwktk運営日記
 tagline: 趣味の会社経営
+description: 零細企業株式会社wktk代表取締役社長グニャラくんのブログ。
 ---
-
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date_to_string }}</span>: <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
