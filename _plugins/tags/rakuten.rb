@@ -67,16 +67,16 @@ module Jekyll
       elsif @output_type == :title
         datas = load_product_data(@query_type, @query, context)
         datas.map {|data|
-          %(<a href="#{data[:affiliateUrl]}">#{CGI.escapeHTML(data[:itemName])}</a>)
+          %(<a href="#{data[:affiliateUrl]}" target="_blank">#{CGI.escapeHTML(data[:itemName])}</a>)
         }.join(' / ')
       elsif @output_type == :detail
         datas = load_product_data(@query_type, @query, context)
 
         datas.map {|data|
           %(<div class="rakuten-detail">
-  <a href="#{data[:affiliateUrl]}"><img src="#{data[:mediumImageUrls][0]}" class="rakuten-detail-image" alt="#{CGI.escapeHTML(data[:itemName])}" title="#{CGI.escapeHTML(data[:itemName])}"></a>
+  <a href="#{data[:affiliateUrl]}" target="_blank"><img src="#{data[:mediumImageUrls][0]}" class="rakuten-detail-image" alt="#{CGI.escapeHTML(data[:itemName])}" title="#{CGI.escapeHTML(data[:itemName])}"></a>
   <div class="rakuten-detail-info">
-    <p class="rakuten-detail-title"><a href="#{data[:affiliateUrl]}">#{CGI.escapeHTML(data[:itemName])}</a></p>
+    <p class="rakuten-detail-title"><a href="#{data[:affiliateUrl]}" target="_blank">#{CGI.escapeHTML(data[:itemName])}</a></p>
     <p class="rakuten-detail-desc">
       #{CGI.escapeHTML(data[:itemCaption][0..100])}
     </p>

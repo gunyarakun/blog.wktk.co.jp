@@ -59,7 +59,7 @@ module Jekyll
         "(invalid amazon tag parameter)"
       elsif @type == "title"
         data = load_product_data(@lang, @amazon_id, context)
-        %(<a href="#{data[:detailUrl]}">#{CGI.escapeHTML(data[:title])}</a>)
+        %(<a href="#{data[:detailUrl]}" target="_blank">#{CGI.escapeHTML(data[:title])}</a>)
       elsif @type == "detail"
         data = load_product_data(@lang, @amazon_id, context)
 
@@ -76,12 +76,12 @@ module Jekyll
         }.join("\n")
 
         %(<div class="hatena-asin-detail">
-  <a href="#{data[:detailUrl]}"><img src="#{data[:mediumThumnail]}" class="hatena-asin-detail-image" alt="#{CGI.escapeHTML(data[:title])}" title="#{CGI.escapeHTML(data[:title])}"></a>
+  <a href="#{data[:detailUrl]}" target="_blank"><img src="#{data[:mediumThumnail]}" class="hatena-asin-detail-image" alt="#{CGI.escapeHTML(data[:title])}" title="#{CGI.escapeHTML(data[:title])}"></a>
   <div class="hatena-asin-detail-info">
-    <p class="hatena-asin-detail-title"><a href="#{data[:detailUrl]}">#{CGI.escapeHTML(data[:title])}</a></p>
+    <p class="hatena-asin-detail-title"><a href="#{data[:detailUrl]}" target="_blank">#{CGI.escapeHTML(data[:title])}</a></p>
     <ul>
 #{html}
-      <li><a href="#{data[:reviewUrl]}">Amazon のレビューを見る</a></li>
+      <li><a href="#{data[:reviewUrl]}" target="_blank">Amazon のレビューを見る</a></li>
     </ul>
   </div>
   <div class="hatena-asin-detail-foot"></div>
