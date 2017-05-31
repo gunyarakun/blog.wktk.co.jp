@@ -4,7 +4,7 @@ lang: ja
 layout: post
 tags: [life,language,english,chinese,taiwan]
 title: 台湾の澎湖島に語学留学に行く@カリンのお宿(花梨客棧)
-image_path: /assets/images/entry/2017-05-30/entrance.jpg
+image_path: /assets/images/entry/2017-05-30/fireworks.jpg
 ---
 台湾の澎湖という場所に3週間弱中国語の語学留学に行きました。澎湖は、日本でいうと沖縄のイメージ。観光シーズンには1週間に2回の花火大会をやっている、のんびりした島です。
 
