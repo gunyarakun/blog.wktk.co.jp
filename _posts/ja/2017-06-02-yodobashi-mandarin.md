@@ -31,7 +31,7 @@ Qīn'ài de gùkè péngyou, nǐmen hǎo.
 Zhōngxīn huānyíng nín guānglín Yǒudōubāxǐ.
 
 友都八喜是日本著名的大型购物中心。<br />
-Yǒudōubāxǐ shì rìběn zhùmíng de dàxíng gòuwù zhōngxīn.
+Yǒudōubāxǐ shì Rìběn zhùmíng de dàxíng gòuwù zhōngxīn.
 
 精明商品将近一百万种，数码相机，摄像机，名牌手表，化妆品，电子游戏，名牌箱包等应有尽有。<br />
 Jīngmíng shāngpǐn jiāngjìn yī bǎi wàn zhǒng, shùmǎxiàngjī, shèxiàngjī, míngpai shǒubiǎo, huàzhuāngpǐn, diànzǐ yóuxì, míngpai xiāng bāo děng yīngyǒujìnyǒu.
