@@ -353,4 +353,8 @@ blockquote {
   .table-column:first-child {
     width: 20%;
   }
+  .sidebar-fixed {
+    position: fixed;
+    top: 20px;
+  }
 }
