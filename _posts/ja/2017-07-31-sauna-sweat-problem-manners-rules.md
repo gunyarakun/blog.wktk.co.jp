@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [life,japan]
 title: 「水風呂に入る前の汗流し」から考えるマナーとルール
+image_path: /assets/images/entry/2017-07-31/sendai-kaichi.jpg
 ---
 どこにも説明がされていないマナーなるもので怒られが発生するのがきらいだ。
 
