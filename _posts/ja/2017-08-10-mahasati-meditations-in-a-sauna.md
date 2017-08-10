@@ -3,7 +3,7 @@ date: 2017-08-10 21:23:00 +900
 lang: ja
 layout: post
 tags: [life,japan]
-title: サウナの中で手動瞑想をする
+title: サウナの中で手動瞑想、水風呂の中で指先瞑想をする
 image_path: /assets/images/entry/2017-08-10/Mahasati_Rhythmic_Movements.gif
 ---
 サウナの中では、手動瞑想をしている。
