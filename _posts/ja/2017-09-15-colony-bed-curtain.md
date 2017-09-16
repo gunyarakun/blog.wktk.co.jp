@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [life]
 title: 二段ベッドの上段にカーテンをつける
+image_path: /assets/images/entry/2017-09-15/after.jpg
 ---
 海外に住み始めて、日本に帰るときには安いホステルによく泊まるようになった。
 
