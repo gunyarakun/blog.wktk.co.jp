@@ -133,21 +133,24 @@ a.header {
 }
 
 .article-body h3 {
-  $font-size: 18px;
+  $font-size: 16px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
+  @include headline-black-background;
+  margin-left: 2em;
+  padding-left: 2em;
 }
 
 .article-body h4 {
-  $font-size: 18px;
+  $font-size: 16px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
 }
 
 .article-body h5 {
-  $font-size: 18px;
+  $font-size: 16px;
   @include adjust-font-size-to($font-size, 2);
   @include leader(1, $font-size);
   @include trailer(1, $font-size);
