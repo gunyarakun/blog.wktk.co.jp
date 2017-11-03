@@ -7,7 +7,7 @@ destination: ./_site
 lsi: false # not use related-posts
 highlighter: pygments
 markdown: redcarpet
-permalink: /ja/:year/:month/:day/:title
+permalink: /ja/entry/:year/:month/:day/:title
 
 redcarpet:
   extensions:
