@@ -40,6 +40,8 @@
 # Copyright 2012, nitoyon. All rights reserved.
 # BSD License.
 
+require 'rexml/document'
+
 module Jekyll
 
   class AmazonTag < Liquid::Tag

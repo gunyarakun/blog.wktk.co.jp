@@ -22,6 +22,7 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+
 require "jekyll"
 
 module Jekyll
@@ -47,7 +48,7 @@ module Jekyll
         page.data['image'] = img if img
       end
       # Now do the same with posts
-      site.posts.each do |post|
+      site.posts.docs.each do |post|
         #puts "hola"
         #puts Jekyll::VERSION
         #puts post.class
@@ -62,7 +63,9 @@ module Jekyll
     end # generate
 
     #
-    # page: is either a Jekyll::Page or a Jekyll::post
+    # page: is either a Jekyll::Page or a Jekyll::Post in 2.x. In Jekyll 3.0 is Jekyll::Document and
+    # in Jekyll 3.3 is either Jekyll::Page or Jekyll::Document (fascinating!)
+    #
     # returns the path of the first image found in the contents
     # of the page/post
     #
@@ -76,14 +79,23 @@ module Jekyll
       if page.data['image']
         return page.data['image']
       end
+
+      # fix for jekyll 3.3.0,
+      @site.config['kramdown'] = @site.config['kramdown'].dup
+
       # convert the contents to html, and extract the first <img src="" apearance
       # I know, it's not efficient, but rather easy to implement :)
 
-      htmled = page.transform # for jekyll 2.x pages
+      # Convertible for jekyll 3.0 and 3.3 posts & collections
+      if page.class < Jekyll::Convertible || page.class == Jekyll::Document
+        htmled = Jekyll::Renderer.new(@site, page, @site.site_payload).convert(page.content)
+      else
+        htmled = page.transform # for jekyll 2.x pages
+      end
 
       img_url = htmled.match(/<img.*\ssrc=[\"\']([\S.]+)[\"\']/i)
       return img_url[1] if img_url != nil
-      return @site.config['default_image'] if @site.config['default_image'] != nil
+      return @site.config['image'] if @site.config['image'] != nil
       return nil
     end
 

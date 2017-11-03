@@ -1,32 +1,21 @@
-# This is the default format.
-# For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock"]
 
 safe: false
 baselurl: /
-lang: [en, ja]
 
 destination: ./_site
 lsi: false # not use related-posts
-pygments: true
+highlighter: pygments
 markdown: redcarpet
-permalink: /:categories/entry/:year/:month/:day/:title
-
-default_update_policy:
-  page:     "{% if page.raw.modified %}1{% endif %}"
-  post:     "{% if page.raw.modified or page.previous.raw.yaml_modified or page.next.raw.yaml_modified %}1{% endif %}"
+permalink: /ja/:year/:month/:day/:title
 
 redcarpet:
-  extensions: [autolink, tables, smart, disable_indented_code_blocks]
+  extensions:
+    - autolink
+    - tables
+    - smart
+    - disable_indented_code_blocks
 
-# TODO: ここから下見直す
 twitter_username: tasukuchan
 production_url: http://blog.wktk.co.jp
 default_image: /assets/images/kiki_with_tasuku_500.jpg
-
-WktkBlog :
-  BASE_PATH : false
-
-  archive_path: /archive.html
-  categories_path : /categories.html
-  tags_path : /tags.html
