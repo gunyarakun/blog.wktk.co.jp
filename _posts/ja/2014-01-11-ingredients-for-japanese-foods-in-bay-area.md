@@ -1,5 +1,5 @@
 ---
-date: 2014-01-11 20:06:05
+date: 2014-01-12 12:06:05 +0900
 lang: ja
 layout: post
 tags: [usalife]
