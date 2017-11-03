@@ -1,5 +1,5 @@
 ---
-date: 2014-10-02 19:00:00
+date: 2014-10-03 11:00:00 +0900
 lang: ja
 layout: post
 tags: [life]

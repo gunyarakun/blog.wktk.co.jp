@@ -1,5 +1,5 @@
 ---
-date: 2014-08-28 18:04:31
+date: 2014-08-29 10:04:31 +0900
 lang: ja
 layout: post
 tags: mongodb redis

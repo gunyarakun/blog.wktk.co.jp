@@ -1,5 +1,5 @@
 ---
-date: 2014-02-13 19:13:59
+date: 2014-02-14 11:13:59 +0900
 lang: ja
 layout: post
 tags: [game]

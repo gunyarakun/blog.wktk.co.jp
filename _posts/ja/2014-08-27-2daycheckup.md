@@ -1,5 +1,5 @@
 ---
-date: 2014-08-27 21:31:54
+date: 2014-08-28 13:31:54 +0900
 lang: ja
 layout: post
 tags: [life]
