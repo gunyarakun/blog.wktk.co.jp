@@ -15,6 +15,9 @@ redcarpet:
     - tables
     - smart
     - disable_indented_code_blocks
+sass:
+  style: :compact
+  compass: true
 
 twitter_username: tasukuchan
 production_url: http://blog.wktk.co.jp

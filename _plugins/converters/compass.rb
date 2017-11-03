@@ -1,33 +1,30 @@
 # referred https://gist.github.com/960150
 # referred load_compass method at lib/sass/exec.rb
+
 require 'sass'
-require 'compass'
 
 module Jekyll
-  class SassConverter < Converter
-    safe true
-    priority :low
+  module Converters
+    class Scss
+      def compass_sass_load_paths
+        return [] unless jekyll_sass_configuration["compass"]
+        require 'compass'
+        Compass.configuration.sass_load_paths
+      end
 
-    def matches(ext)
-      ext =~ /scss/i
-    end
+      def sass_dir_relative_to_site_source
+        Jekyll.sanitized_path(@config["source"], 'assets/stylesheets')
+      end
 
-    def output_ext(ext)
-      ".css"
-    end
-
-    def convert(content)
-      begin
-        load_paths = Compass.configuration.sass_load_paths.clone
-        load_paths.push(Dir::getwd + '/assets/stylesheets/')
-        options = {
-          :syntax => :scss,
-          :style => :compact,
-          :load_paths => load_paths,
+      def sass_load_paths
+        if safe?
+          [sass_dir_relative_to_site_source]
+        else
+          (user_sass_load_paths + compass_sass_load_paths +
+           [sass_dir_relative_to_site_source]).uniq
+        end.select { |load_path|
+          !load_path.is_a?(String) || File.directory?(load_path)
         }
-        Sass::Engine.new(content, options).render
-      rescue StandardError => e
-        puts "[Sass Error] #{e.message}"
       end
     end
   end
