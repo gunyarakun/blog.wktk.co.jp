@@ -1,5 +1,5 @@
 ---
-date: 2017-10-10 21:01:23 -800
+date: 2017-10-11 13:01:23 +0900
 lang: ja
 layout: post
 tags: [tech,golang,appengine]

@@ -1,5 +1,5 @@
 ---
-date: 2017-05-30 17:31:12 -0800
+date: 2017-05-31 09:31:12 +0900
 lang: ja
 layout: post
 tags: [life,language,english,chinese,taiwan]

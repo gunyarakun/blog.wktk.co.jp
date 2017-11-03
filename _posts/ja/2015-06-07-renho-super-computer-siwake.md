@@ -1,5 +1,5 @@
 ---
-date: 2015-06-07 18:00:00
+date: 2015-06-08 10:00:00 +0900
 lang: ja
 layout: post
 tags: [social]

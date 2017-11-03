@@ -1,5 +1,5 @@
 ---
-date: 2016-07-01 18:04:25
+date: 2016-07-02 06:04:25 +0900
 lang: ja
 layout: post
 tags: [tech,ruby]

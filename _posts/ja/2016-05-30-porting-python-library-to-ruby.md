@@ -1,5 +1,5 @@
 ---
-date: 2016-05-30 17:49:23
+date: 2016-05-31 09:49:23 +0900
 lang: ja
 layout: post
 tags: [tech,ruby,python]
