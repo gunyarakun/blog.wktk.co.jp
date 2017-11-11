@@ -18,19 +18,21 @@ Twitterでのリプライやニュースなどに関する感想をなるべく�
 
 ## 人間の数の問題だ
 
-ハロウィンのあとのゴミ: ただ単に人が多いから
+- 例) ハロウィンのあとのゴミ: ただ単に人が多いから
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">「何故日本人は死ぬまで働くのか？」というフランスの研究会で「『戦後世代が過労労働の末に現代日本の礎を築いた』という誤った国民的神話のせいではないか。日本の経済発展は朝鮮戦争の特需と人口由来の内需であり、過労働が要因ではない。だが経営者は神話で労働者を洗脳してきた」という発言が出る</p>&mdash; 井の中の井守@10月2冊出ます (@Imori15671615) <a href="https://twitter.com/Imori15671615/status/906116828124123136?ref_src=twsrc%5Etfw">2017年9月8日</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-批判であっても知られたほうが成功する: 炎上マーケティング
+- 例) 批判であっても知られたほうが成功する: 炎上マーケティング
 
 ## 派閥が違う
 
 - 嫌いなものは、理解が浅くなる
 - 理解が浅いものは、嫌いになる
 - 嫌いな人がミスすると、指摘してしまう
-- (賛成か反対かを決めたあとに、単語を拾い読みして誤読する、というツイートがあった記憶があるのだが見当たらない)
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">文章が読めない人は、文章を読まずにそこに伏流してる感情に共感するか反発するかを選択して、「共感/反発」という方向を決定させてから単語を適当に拾い集めて書き手が何を言ったかを決める、という読み方をしてるっぽいんだよな。</p>&mdash; 垣内 玲 (@R_Kakiuchi_0921) <a href="https://twitter.com/R_Kakiuchi_0921/status/903866658527223808?ref_src=twsrc%5Etfw">2017年9月2日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## 単なるミスだ
 
