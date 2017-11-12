@@ -45,4 +45,10 @@ http://www.ywad.com/books/1194.html より
 
 ## 議論に関するすべての情報が手に入るわけではない
 
-人それぞれ公にしていない事情がある
+- 人それぞれ公にしていない事情がある
+- 観測範囲の問題・選択バイアス
+    - 例) （自分と対立する）〜な人はどうして攻撃的なのか？
+        - 攻撃的な人しかからんでこない
+    - 例) Abraham Waldの仕事を元ネタにした画像
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">これは文系脳の僕にとっては驚天動地だった。<br><br>「選択バイアスの罠」 <a href="https://t.co/UuMgGcLmle">pic.twitter.com/UuMgGcLmle</a></p>&mdash; みたま (@mitama_) <a href="https://twitter.com/mitama_/status/843113907577208832?ref_src=twsrc%5Etfw">2017年3月18日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
