@@ -1,8 +1,6 @@
 <!-- vim: set expandtab ts=2 sw=2 nowrap ft=html ff=unix : -->
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
-{% if page.url contains '/blog/' %}{% assign is_blog = 1 %}{% endif %}
-{% capture sub_title %}{% if is_blog %}{{ 'blog_name'|t}}{% else %}{{ 'site_name'|t}}{% endif %}{% endcapture %}
 {% assign filtered_content = page.content | strip_newlines | strip_html %}
 {% capture description %}{% if page.description %}{{ page.description }}{% elsif layout.description %}{{ layout.description }}{% elsif filtered_content %}{{ filtered_content | truncatewords: 40 | truncate: 300 }}{% endif %}{% endcapture %}
 <head>
@@ -23,8 +21,8 @@
   <meta property="og:title" content="{{ page.title | escape }}" />
   <meta property="og:url" content="{{ site.production_url }}{{ page.url | remove: 'index.html' }}" />
   <meta property="og:type" content="{% if page.url == '/ja/index.html' %}blog{% else %}article{% endif %}" />
-  <meta property="og:image" content="{% if page.image_url %}{{ page.image_url }}{% elsif page.image_path %}{{ page.image_path | prepend: site.production_url }}{% else %}{{ site.production_url }}/assets/images/apple-touch-icon-114x114.png{% endif %}"/>
-  <meta property="og:site_name" content="{{ sub_title }}" />
+  <meta property="og:image" content="{% if page.image_url %}{{ page.image_url }}{% elsif page.image_path %}{{ page.image_path | prepend: site.production_url }}{% else %}{{ site.production_url }}{{ site.default_image }}{% endif %}"/>
+  <meta property="og:site_name" content="{{ site.site_name }}" />
 {% if description %}
 <meta property="og:description" content="{{ description | escape }}" />
 {% endif %}
