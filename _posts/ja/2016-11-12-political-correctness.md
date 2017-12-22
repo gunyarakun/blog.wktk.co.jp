@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [life]
 title: それ、本気で聞いてます？ 僕に「ポリティカル・コレクトネス」の話をさせたら長くなりますよ？
+image_path: /assets/images/entry/2016-11-12/right-left-with-illust-ya.png
 ---
 僕のTwitterのタイムラインに「ポリティカル・コレクトネス」という単語を見かけるようになった。
 
