@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [life,restaurant,japan]
 title: プチ・スーパーサイズ・ミー、「1日一杯野郎ラーメン生活」してみた
+image_path: /assets/images/entry/2017-12-10/2017-12-08.jpg
 ---
 「1日一杯野郎ラーメン生活」という、野郎ラーメンというラーメンチェーンで、月額8,600円で1日1杯ラーメンを食べられるサービスに登録した。
 

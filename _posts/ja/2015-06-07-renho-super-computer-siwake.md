@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [social]
 title: 「2位じゃダメ？」の事業仕分けで分かる、なぜ理系新卒が就活で面接を突破できないか
+image_path: /assets/images/entry/2015-06-07/presentation.jpg
 ---
 蓮舫さんの「2位じゃダメなんでしょうか？」発言で有名な、次世代スーパーコンピュータ開発の事業仕分け。
 
