@@ -3,6 +3,14 @@
 <html lang="{{ page.lang }}">
 {% assign filtered_content = page.content | strip_newlines | strip_html %}
 {% capture description %}{% if page.description %}{{ page.description }}{% elsif layout.description %}{{ layout.description }}{% elsif filtered_content %}{{ filtered_content | truncatewords: 40 | truncate: 300 }}{% endif %}{% endcapture %}
+{% capture image_url %}{% if page.image_url %}{{ page.image_url }}{% elsif page.image_path %}{{ page.image_path | prepend: site.production_url }}{% endif %}{% endcapture %}
+{% capture default_image_url %}{{ site.production_url }}{{ site.default_image }}{% endcapture %}
+{% if image_url == '' %}
+  {% assign image_url = nil %}
+  {% assign image_url_with_default = default_image_url %}
+{% else %}
+  {% assign image_url_with_default = image_url %}
+{% endif %}
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
@@ -21,23 +29,21 @@
   <meta property="og:title" content="{{ page.title | escape }}" />
   <meta property="og:url" content="{{ site.production_url }}{{ page.url | remove: 'index.html' }}" />
   <meta property="og:type" content="{% if page.url == '/ja/index.html' %}blog{% else %}article{% endif %}" />
-  <meta property="og:image" content="{% if page.image_url %}{{ page.image_url }}{% elsif page.image_path %}{{ page.image_path | prepend: site.production_url }}{% else %}{{ site.production_url }}{{ site.default_image }}{% endif %}"/>
+  <meta property="og:image" content="{{ image_url_with_default }}"/>
   <meta property="og:site_name" content="{{ site.site_name }}" />
 {% if description %}
 <meta property="og:description" content="{{ description | escape }}" />
 {% endif %}
 
  <!-- twitter card -->
-  <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
+  <meta name="twitter:card" content="{% if image_url %}summary_large_image{% else %}summary{% endif %}">
   <meta name="twitter:site" content="@{{ site.twitter_username }}">
   <meta name="twitter:creator" content="@{{ site.twitter_username }}">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 {% if description %}
   <meta name="twitter:description" content="{{ description | escape}}">
 {% endif %}
-{% if page.image_url or page.image_path %}
-  <meta name="twitter:image:src" content="{% if page.image_url %}{{ page.image_url }}{% elsif page.image_path %}{{ page.image_path | prepend: site.production_url }}{% endif %}">
-{% endif %}
+  <meta name="twitter:image:src" content="{{ image_url_with_default }}">
   <!-- end twitter card -->
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
