@@ -4,8 +4,11 @@ lang: ja
 layout: post
 tags: [tech]
 title: 「エンジニアリング組織論への招待」を読んだ
+image_path: /assets/images/entry/2018-02-26/engineering-organization-theory.jpg
 ---
 「エンジニアリング組織論への招待　～不確実性に向き合う思考と組織のリファクタリング」を読んだので簡単に感想を。
+
+![エンジニアリング組織論への招待　～不確実性に向き合う思考と組織のリファクタリング](/assets/images/entry/2018-02-26/engineering-organization-theory.jpg)
 
 - 読んでて面白い。
     - 「面白い」の表現の不確実性を減らして具体的に書くと:
