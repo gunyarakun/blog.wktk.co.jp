@@ -171,7 +171,7 @@ Uber POOLは最大4人まで相乗りします。2名の場合は昔は無料、
 
 エコタクシーは安さ異常ですよね。車の台数が少なくて拾うの大変ですが。
 
-<iframe src="//banners.itunes.apple.com/banner.html?partnerId=&aId=11lrL2&bt=catalog&t=catalog_white&id=860466501&c=jp&l=ja-JP&w=320&h=50&store=apps" frameborder=0 style="overflow-x:hidden;overflow-y:hidden;width:320px;height:50px;border:0px"></iframe>
+<iframe src="//banners.itunes.apple.com/banner.html?partnerId=&aId=11lrL2&bt=catalog&t=catalog_white&id=1303540430&c=jp&l=ja-JP&w=320&h=50&store=apps" frameborder=0 style="overflow-x:hidden;overflow-y:hidden;width:320px;height:50px;border:0px"></iframe>
 
 タクシーの相乗り「AINORY」というアプリもあります。ただし、マッチングを成立させるのが難しいようです。
 
