@@ -19,25 +19,31 @@ title: ヨォドォバァシィカァメェラで学ぶ中国語
   あなたのブラウザは <code>audio</code> 要素をサポートしていません。
 </audio>
 
-## 簡化字・拼音
+## 簡化字・拼音・日本語訳
 
 Welcome to 友都八喜 camera。<br />
-Welcome to Yǒudōubāxǐ camera.
+Welcome to Yǒudōubāxǐ camera.<br />
+ヨドバシカメラへようこそ。
 
 亲爱的顾客朋友，你们好。<br />
-Qīn'ài de gùkè péngyou, nǐmen hǎo.
+Qīn'ài de gùkè péngyou, nǐmen hǎo.<br />
+親愛なるお客様、こんにちは。
 
 衷心欢迎您光临友都八喜。<br />
-Zhōngxīn huānyíng nín guānglín Yǒudōubāxǐ.
+Zhōngxīn huānyíng nín guānglín Yǒudōubāxǐ.<br />
+ヨドバシにお越しいただき、まことにありがとうございます。
 
 友都八喜是日本著名的大型购物中心。<br />
-Yǒudōubāxǐ shì Rìběn zhùmíng de dàxíng gòuwù zhōngxīn.
+Yǒudōubāxǐ shì Rìběn zhùmíng de dàxíng gòuwù zhōngxīn.<br />
+ヨドバシは、日本で有名なショッピングモールです。
 
 精明商品将近一百万种，数码相机，摄像机，名牌手表，化妆品，电子游戏，名牌箱包等应有尽有。<br />
-Jīngmíng shāngpǐn jiāngjìn yī bǎi wàn zhǒng, shùmǎxiàngjī, shèxiàngjī, míngpai shǒubiǎo, huàzhuāngpǐn, diànzǐ yóuxì, míngpai xiāng bāo děng yīngyǒujìnyǒu.
+Jīngmíng shāngpǐn jiāngjìn yī bǎi wàn zhǒng, shùmǎxiàngjī, shèxiàngjī, míngpai shǒubiǎo, huàzhuāngpǐn, diànzǐ yóuxì, míngpai xiāng bāo děng yīngyǒujìnyǒu.<br />
+素敵な商品がおよそ100万個、デジカメ、ビデオカメラ、ブランド時計、化粧品、テレビゲーム、ブランドバッグなどなんでもあります。
 
 最新的款式，最优惠的价格，最优质的服务。<br />
-Zuìxīn de kuǎnshì, zuì yōuhuì de jiàgé, zuì yōuzhì de fúwù.
+Zuìxīn de kuǎnshì, zuì yōuhuì de jiàgé, zuì yōuzhì de fúwù.<br />
+最新のスタイル、最安の価格、最高のサービス。
 
 ## 繁体字・注音
 
