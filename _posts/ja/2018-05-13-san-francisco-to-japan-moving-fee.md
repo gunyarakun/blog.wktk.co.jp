@@ -23,6 +23,10 @@ https://www.yamatoamerica.com/moving/move_tanshin.aspx
 - レギュラー $1,200 小30箱 or 大15箱: 1,502,820cm3 1,252cm3/$
 - エクストラ $1,420 小40箱 or 大20箱: 2,003,760cm3 1,411cm3/$
 
+###
+
+段ボールの配達は1回のみで、プランを上位に変えるときにはYAMATOの営業所に段ボールを取りに行くか、段ボールを送ってもらう必要がある。レギュラーからエクストラに変更したかったのだが、段ボールを送ってもらうのに$100かかった。
+
 ## シングル人パック by 米国日本通運
 
 https://www.nittsu.com/hikkoshi/BranchServiceDisplay.aspx?branchServiceID=20
