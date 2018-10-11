@@ -13,17 +13,17 @@ title: ssh経由のSOCKSプロキシを通じてMac上のGoogle Chromeでブラ�
 
 OpenSSHのクライアントは、SOCKSによるダイナミックポートフォワーディングをサポートしている。あたかもssh先のサーバからsocket通信しているかのようにできる。
 
-特定のIPアドレスからしか閲覧できないWebサイトをWebブラウザから閲覧したい場合がある。squidみたいなHTTP proxyを立てたり、VPNのソフトウェアを入れなくても、sshを通じたSOCKSプロキシだけで、そういったWebサイトを閲覧することができる。
+特定のIPアドレスからしか閲覧できないWebサイトをWebブラウザから閲覧したい場合がある。squidみたいなHTTP proxyを立てたり、VPNのソフトウェアを入れなくても、sshを通じたSOCKSだけで、そういったWebサイトを閲覧することができる。
 
 ## OpenSSHでの接続方法
 
--DでSOCKSプロキシとしてListenするポート番号指定。1080が慣習のようですがなんでもよい。-fでbackground実行、-Nでremote commandを実行しない、つまりシェルを開かない。SOCKSプロキシとして使うときには両者をつけるとよいだろう。
+-DでSOCKSとしてListenするポート番号を指定できる。1080が慣習のようですがなんでもよい。-fでbackground実行、-Nでremote commandを実行しない、つまりシェルを開かない。SOCKSプロキシとして使うときには-f -Nともにつけるとよいだろう。
 
 <pre class="prettyprint">
-ssh -f -N -D 1080 user@example.com
+ssh -f -N -D 1080 user@fumidai.example.com
 </pre>
 
-.ssh/configに書いてもよい。
+.ssh/configにも各種設定を書ける。
 
 <pre class="prettyprint">
 Host fumidai.example.com
@@ -35,7 +35,9 @@ Host fumidai.example.com
 
 ## Macでの設定
 
-ネットワーク環境設定で、SOCKS Proxyを使って通信が出来るようになる。注意するのは、Bypass proxy settings for these Hosts & Domainsという例外設定に、ssh先のサーバを入れておくことと、Exclude simple hostnamesのチェックをつけておくこと。前者はないとうまく動かないし、後者はlocalhostなどへの通信まで奪われてしまう。
+ネットワーク環境設定で設定すれば、SOCKSを使って通信が出来るようになる。
+
+注意するのは、Bypass proxy settings for these Hosts & Domainsという例外設定に、ssh先のサーバを入れておくことと、Exclude simple hostnamesのチェックをつけておくこと。前者はないとうまく動かないし、後者はlocalhostなどへの通信まで奪われてしまう。
 
 ![Macのネットワーク環境設定におけるSOCKS Proxyの設定](/assets/images/entry/2014-03-11/mac_socks_proxy.png)
 
@@ -45,7 +47,7 @@ Host fumidai.example.com
 
 ありとあらゆる通信をSOCKS proxy経由にする場合は、[Proxifier](http://www.proxifier.com/mac/)などを導入する必要がある。
 
-sshだけであれば、ssh -Wを使うとよい。netcatを使う方法もあるが、割愛。target.example.comがアクセスしたい先のホスト名。ポート番号などが違う場合には、ProxyCommandに適切なオプションを追加すること。
+sshだけであれば、ssh -Wを使うとよい(netcatを使う方法もあるが、割愛)。target.example.comがアクセスしたい先のホスト名。ポート番号などが違う場合には、ProxyCommandに適切なオプションを追加すること。
 
 <pre class="prettyprint">
 Host target.example.com
@@ -76,3 +78,11 @@ alias chrome="open /Applications/Google\ Chrome.app/ --args --proxy-server=\"soc
 </pre>
 
 SOCKSサーバがDNSによる名前解決を必要とする場合、--host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE hostname" のようにして、SOCKSサーバの名前解決だけはSOCKS経由でやらないような配慮が必要となる。今回は127.0.0.1の直IPだし、localhostに変えてもhostsで名前解決できるのでいらない。
+
+## Mac上でのGoogle Chromeで特定のドメインのみSOCKS経由にする
+
+Google Chrome拡張である[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=ja)を入れると、特定のドメインだけをSOCKS経由でアクセスできるようになる。
+
+profileというものを複数作ることができて、profileごとにproxyのルールを切り替えることができる。
+
+WebブラウジングでSOCKSを使う人にとっては便利な拡張。
