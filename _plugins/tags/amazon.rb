@@ -129,11 +129,11 @@ module Jekyll
       end
 
       if doc.nil?
-        puts "loading #{lang} #{amazon_id}"
+        puts "loading Amazon #{lang} #{amazon_id}"
         xml_str = load_product_from_web(lang, amazon_id, config_path)
         doc = REXML::Document.new(xml_str)
         open(cache_path, 'w') { |f| f.write(xml_str) }
-        puts "loaded"
+        puts "loaded Amazon #{lang} #{amazon_id}"
       end
 
       doc
@@ -155,7 +155,8 @@ module Jekyll
       res = Amazon::Ecs.item_lookup(amazon_id, :country => lang, :response_group => 'Images,ItemAttributes')
 
       if res.has_error?
-        ""
+        puts res.error
+        raise
       else
         res.doc.xpath('//Items/Item').to_s
       end
