@@ -45,7 +45,7 @@ SodaStreamという炭酸いっぱい作るマシーンがあるので、炭酸�
 
 低温調理器ANOVAです。あたためてZiplocぶち込む。温度も時間も忘れた。
 
-{% amazon jp:B01761T6V4:detail %}
+{% amazon jp:B00UKPBXM4:detail %}
 
 ![昆布分離](/assets/images/entry/2016-09-24/8.jpg)
 
