@@ -4,6 +4,7 @@ lang: ja
 layout: post
 tags: [life]
 title: 米国でバーニングマンに参加して、起業に失敗し、韓国で美容整形して日本に帰国しました
+image_path: /assets/images/entry/2019-01-09/tasogare.jpg
 ---
 最近ブログを全然書いていませんでした。[まとまった文章は月額777円のnote連載に書いていますが](https://twitter.com/tasukuchan/status/957606692232970240)、近況についてここで書きます。
 
