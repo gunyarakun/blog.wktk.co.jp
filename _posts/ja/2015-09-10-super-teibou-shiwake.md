@@ -54,7 +54,9 @@ title: 「スーパー堤防」がなぜ廃止になったのか、議事録か�
 
 ## 平成21年11月事業仕分け
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/qlzlI7_g5rU" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-4-3">
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/qlzlI7_g5rU" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ### 資料
 
@@ -1562,7 +1564,9 @@ title: 「スーパー堤防」がなぜ廃止になったのか、議事録か�
 
 ## 平成22年10月事業仕分け
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0i0Ur6voP-I" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-16-9">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0i0Ur6voP-I" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ### 資料
 

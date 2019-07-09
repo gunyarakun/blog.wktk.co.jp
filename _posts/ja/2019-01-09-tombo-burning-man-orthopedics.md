@@ -30,7 +30,9 @@ image_path: /assets/images/entry/2019-01-09/tasogare.jpg
 
 参加したグループで撮った動画をまとめた「バーニングマン2017 ダイジェスト」がYouTubeに上がっています。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3tHV3bHKdMw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-16-9">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3tHV3bHKdMw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 インターネット上で検索すると、いろいろ語っている人の記事が読めると思います。
 個人的には、バーニングマンはあまり言葉で語るものではないな、という感覚です。語る価値がないというわけではなく、語ることによって伝えられる価値が少ない。

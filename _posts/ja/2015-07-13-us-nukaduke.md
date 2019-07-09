@@ -70,7 +70,9 @@ NIJIYAが、ぬか床のキットを売っています。容器付きですよ�
 
 ![ぬか床セット](/assets/images/entry/2015-07-13/nijiya-nukadoko.jpg)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q7YUEDrKdlQ" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-16-9">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Q7YUEDrKdlQ" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ぬか漬けは、追加のぬかを準備しておく必要があります。漬けた種から水が出たときに、それを埋める必要があるからです。
 

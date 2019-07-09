@@ -71,7 +71,9 @@ iOS版のTEPRA LINKでは、なんと手書き文字も印刷することがで�
 
 例えばりぼん印刷。紹介動画を見てください。
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/-SbLX4ULCLg" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-4-3">
+    <iframe width="420" height="315" src="//www.youtube.com/embed/-SbLX4ULCLg" frameborder="0" allowfullscreen></iframe>
+</div>
 
 [KING JIMのテプラりぼん紹介ページ](http://www.kingjim.co.jp/products/tepra/utility/tape/ribbon/)には、作例がいくつか掲載されています。グリーンのりぼんに金文字なのが好きかな。
 
@@ -131,7 +133,9 @@ Windows版ラベルソフト「SPC10」には、[SPI10-API](http://www.kingjim.c
 
 では、試しに印刷印刷、と。まずは、テプラ自身のACアダプタ用のラベルを印刷しましょう。ACアダプタって、いっぱいありすぎてどれがどれ用だか混乱したりしますよね。印刷の様子を動画で撮影しました。
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/VS-c5_ontVY?rel=0" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-16-9">
+    <iframe width="560" height="315" src="//www.youtube.com/embed/VS-c5_ontVY?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ACアダプタにばしっと貼りました。わかりやすい。
 
@@ -185,7 +189,9 @@ TEPRA LINKの編集画面はこんな感じです。結構シンプル。凝っ�
 
 TEPRA LINKを使ってテープを印刷する様子を動画で撮影しました。ケーブルはSR5900Pの電源ケーブルだけ。
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/vr5cmyCPPV0?rel=0" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-16-9">
+    <iframe width="560" height="315" src="//www.youtube.com/embed/vr5cmyCPPV0?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
 
 実は、TEPRA LINKよりTEPRA Appのほうが好みだったりします。TEPRA Appは画像１つと文字を続けて印刷するというテプラっぽい使い方に特化しているからです。これからのTEPRA LINKの改良に期待したいところです。
 
@@ -217,7 +223,9 @@ SR5900Pから、あらかじめ丸形・楕円・角丸にカットされたカ�
 
 ただ、SR5900Pの前面についているトリマー、これがうるさい。トリマーとは、ラベルの角をカットすることによって、ラベルがはがれにくいように加工するものです。うるさい様子を動画で撮影しました。
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/l3BN4ohjxpk?rel=0" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-16-9">
+    <iframe width="560" height="315" src="//www.youtube.com/embed/l3BN4ohjxpk?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ガチョガチョガチョガチョ。これはよくない。
 

@@ -41,7 +41,9 @@ image_path: /assets/images/entry/2017-08-10/Mahasati_Rhythmic_Movements.gif
 
 子どもが手動瞑想をやっている動画があって、「ああ、こんな感じでいいんだな」とわかる。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LU0qy835yNg" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-16-9">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/LU0qy835yNg" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## サウナの中で手動瞑想をするメリット
 

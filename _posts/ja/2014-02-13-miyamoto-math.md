@@ -15,7 +15,9 @@ title: 超中毒パズルゲー「宮本算数教室の教材 賢くなるパズ
 
 その独自のパズルをゲーム仕立てにしたのが、今回取り上げる「宮本算数教室の教材 賢くなるパズルDS版」というわけ。
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/65tHmXQD1Rs" frameborder="0" allowfullscreen></iframe>
+<div class="iframe-responsive-wrapper iframe-responsive-wrapper-4-3">
+    <iframe width="420" height="315" src="//www.youtube.com/embed/65tHmXQD1Rs" frameborder="0" allowfullscreen></iframe>
+</div>
 
 宮本算数教室を営んでいる宮本哲也先生、情熱大陸に取り上げられたことがあります。この回の情熱大陸もかなり面白いので、どうにかして観てください。
 

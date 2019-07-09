@@ -358,3 +358,24 @@ blockquote {
     top: 20px;
   }
 }
+
+.iframe-responsive-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.iframe-responsive-wrapper-16-9 {
+  padding-top: 56.25%;
+}
+
+.iframe-responsive-wrapper-4-3 {
+  padding-top: 75%;
+}
+
+.iframe-responsive-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
