@@ -71,11 +71,14 @@ module Jekyll
           { :key => :date , :label => '発売日' },
           { :key => :media , :label => 'メディア' },
         ]
-        html = labels.map { |l|
+        htmls = []
+        labels.each do |l|
           v = data[l[:key]]
           next if v.nil?
-          %(      <li><span class="hatena-asin-detail-label">#{l[:label]}:</span> #{CGI.escapeHTML(data[l[:key]])}</li>)
-        }.join("\n")
+          htmls << %(<li><span class="hatena-asin-detail-label">#{l[:label]}:</span> #{CGI.escapeHTML(data[l[:key]])}</li>)
+        end
+
+        html = htmls.join("\n")
 
         %(<div class="hatena-asin-detail">
   <a href="#{data[:detailUrl]}" target="_blank"><img src="#{data[:mediumThumnail]}" class="hatena-asin-detail-image" alt="#{CGI.escapeHTML(data[:title])}" title="#{CGI.escapeHTML(data[:title])}"></a>
