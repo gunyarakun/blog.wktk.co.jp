@@ -7,7 +7,7 @@ tags: [英語学習]
 title: Longman(5訂版)附属DVDから英語・米語のMP3を抽出する
 wordpress_id: 23
 ---
-前エントリ「<a href="http://blog.wktk.co.jp/archives/15">P-Study SystemでアルクのSVL/SILの問題集を簡単に作成する</a>」にて、英単語の学習を「<a href="http://www.takke.jp/">P-Study System</a>」を用いて行っていることを書きました。<a href="http://twitter.com/takke/status/21500818692">P-Study Systemの作者様にも当ブログを認知いただけた</a>ようです。ありがたいことです。
+前エントリ「<a href="/archives/15">P-Study SystemでアルクのSVL/SILの問題集を簡単に作成する</a>」にて、英単語の学習を「<a href="http://www.takke.jp/">P-Study System</a>」を用いて行っていることを書きました。<a href="http://twitter.com/takke/status/21500818692">P-Study Systemの作者様にも当ブログを認知いただけた</a>ようです。ありがたいことです。
 
 認知記念に（？）、ロングマン 現代英英辞典【5訂版】(通称: LDOCE5)から、英語・米語発音の音声を取り出し、P-Study Systemで使える(だろう)形式のMP3ファイルに変換するスクリプトを公開してみます。
 

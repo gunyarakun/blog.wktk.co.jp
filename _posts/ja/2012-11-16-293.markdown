@@ -9,7 +9,7 @@ wordpress_id: 293
 ---
 <h2>この記事は更新された版があります</h2>
 
-<a href="http://blog.wktk.co.jp/archives/278">2012/11/16: いただいたフィードバックをもとに、version 2を書きました。</a>
+<a href="/archives/278">2012/11/16: いただいたフィードバックをもとに、version 2を書きました。</a>
 
 <h2>まえがき</h2>
 

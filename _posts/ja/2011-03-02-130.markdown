@@ -27,7 +27,7 @@ wordpress_id: 130
 
 ぜひ手に取ってみてください。
 
-<img src="http://farm6.static.flickr.com/5138/5490983233_d56e9213a8.jpg" alt="献本用の山" title="献本用の山" width="500" height="375" />
+<img src="https://farm6.static.flickr.com/5138/5490983233_d56e9213a8.jpg" alt="献本用の山" title="献本用の山" width="500" height="375" />
 
 <h3>追記</h3>
 

@@ -10,7 +10,7 @@ iOS 4.0以降には、Accelerate Frameworkというものが用意されてい�
 
 Accelerate Frameworkは数値計算ライブラリvecLibと画像計算ライブラリvImageからなる。vecLibは、数値計算ライブラリであるBLAS, LAPACK, vDSPからなる。
 
-今回は、数値計算ライブラリLAPACK(のC言語版であるCLAPACK)にある、非対称行列の固有値を求めるdgeev_()関数を使いたい。<a href="http://blog.wktk.co.jp/ja/entry/2013/06/14/formant-detection-with-numpy">音声からのフォルマント抽出をしたいからだ。</a>
+今回は、数値計算ライブラリLAPACK(のC言語版であるCLAPACK)にある、非対称行列の固有値を求めるdgeev_()関数を使いたい。<a href="/ja/entry/2013/06/14/formant-detection-with-numpy">音声からのフォルマント抽出をしたいからだ。</a>
 
 ## RubyMotionでなんかXCodeだと使える関数を探す方法
 

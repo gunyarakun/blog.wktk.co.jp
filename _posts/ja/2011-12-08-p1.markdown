@@ -13,7 +13,7 @@ wordpress_id: 225
 
 <a href="http://www.wktk.co.jp/public/gunyara-nicogakkai-2011-12-06.zip">学会で紹介した、ニコニコ動画タグの関係性を表した生データ（重みなしグラフ、lgl形式）と、それをデンドログラム・Voronoi Treemapで図示したpdfをダウンロードできるようにしました。</a>
 
-<img src="http://farm8.staticflickr.com/7166/6472323183_62970470f1_o.jpg" alt="" title="ニコニコ動画タグ解析" width="384" height="384" class="aligncenter" />
+<img src="https://farm8.staticflickr.com/7166/6472323183_62970470f1_o.jpg" alt="" title="ニコニコ動画タグ解析" width="384" height="384" class="aligncenter" />
 
 発表当日いい忘れたことがあります。やはり、ニコニコ動画は「音楽サイト」だな、ということです。
 <ul>

@@ -63,7 +63,7 @@ iOS版のTEPRA LINKでは、なんと手書き文字も印刷することがで�
 
 「オリコン整理法で収納家具を全部捨てた」というブログエントリを執筆中です。オリコンというコンテナを使って荷物を整理しています。オリコンの中身を表示するために貼っているテプラのフォントは、EPSON Pゴシック W7です。
 
-<img src="http://farm8.staticflickr.com/7341/10669185325_dec492df9e_z.jpg" />
+<img src="https://farm8.staticflickr.com/7341/10669185325_dec492df9e_z.jpg" />
 
 ## りぼんに印刷してプレゼントに
 
@@ -99,7 +99,7 @@ iOS版のTEPRA LINKでは、なんと手書き文字も印刷することがで�
 
 {% amazon jp:B000HC8H88:detail %}
 
-<img src="http://farm8.staticflickr.com/7337/10669229866_17c05c649d_z.jpg" />
+<img src="https://farm8.staticflickr.com/7337/10669229866_17c05c649d_z.jpg" />
 
 ## SDKを使ってテプラワールドを拡張できる
 
@@ -121,15 +121,15 @@ Windows版ラベルソフト「SPC10」には、[SPI10-API](http://www.kingjim.c
 
 それでは、実際に最新のテプラSR5900Pを使ってみた様子をレポートします。
 
-<img src="http://farm6.staticflickr.com/5472/10669408523_c8a826d6b9_z.jpg" />
+<img src="https://farm6.staticflickr.com/5472/10669408523_c8a826d6b9_z.jpg" />
 
 開封の儀。りりしいお顔が登場しました。
 
-<img src="http://farm4.staticflickr.com/3766/10669221374_165972895d_z.jpg" />
+<img src="https://farm4.staticflickr.com/3766/10669221374_165972895d_z.jpg" />
 
 後ろ姿もシンプルです。
 
-<img src="http://farm4.staticflickr.com/3788/10669153425_2ee40247bc_z.jpg" />
+<img src="https://farm4.staticflickr.com/3788/10669153425_2ee40247bc_z.jpg" />
 
 では、試しに印刷印刷、と。まずは、テプラ自身のACアダプタ用のラベルを印刷しましょう。ACアダプタって、いっぱいありすぎてどれがどれ用だか混乱したりしますよね。印刷の様子を動画で撮影しました。
 
@@ -139,7 +139,7 @@ Windows版ラベルソフト「SPC10」には、[SPI10-API](http://www.kingjim.c
 
 ACアダプタにばしっと貼りました。わかりやすい。
 
-<img src="http://farm4.staticflickr.com/3810/10669235724_13de379c1e_z.jpg" />
+<img src="https://farm4.staticflickr.com/3810/10669235724_13de379c1e_z.jpg" />
 
 ### Windowsでテプラ
 
@@ -211,11 +211,11 @@ SR5900Pから、あらかじめ丸形・楕円・角丸にカットされたカ�
 
 これをジーコロ印刷すれば、備品管理ラベルのできあがりー。資産名のところの横幅半分はさすがに解像度的にキツかったようだ。「その他サイクロトロン等」などどんな備品でも管理し放題です。
 
-<img src="http://farm8.staticflickr.com/7325/10669244834_916b3494a5_z.jpg" />
+<img src="https://farm8.staticflickr.com/7325/10669244834_916b3494a5_z.jpg" />
 
 マックブック・プロ・レティナに貼ってみました。銀色がなじんでいます。
 
-<img src="http://farm8.staticflickr.com/7415/10669441463_b3839de3b2_z.jpg" />
+<img src="https://farm8.staticflickr.com/7415/10669441463_b3839de3b2_z.jpg" />
 
 ### トリマーを使ってみよう
 
@@ -235,15 +235,15 @@ SR5900Pから、あらかじめ丸形・楕円・角丸にカットされたカ�
 
 箱の裏の説明を見れば一目瞭然、単なる角丸カットバサミです、はい。
 
-<img src="http://farm6.staticflickr.com/5494/10669213666_cbd1fbaec6_z.jpg" />
+<img src="https://farm6.staticflickr.com/5494/10669213666_cbd1fbaec6_z.jpg" />
 
 2種類の大きさの角丸が切れます。テプラ以外の用途にも使えるんじゃないかな。
 
-<img src="http://farm4.staticflickr.com/3727/10669239974_b449539170_z.jpg" />
+<img src="https://farm4.staticflickr.com/3727/10669239974_b449539170_z.jpg" />
 
 連続印刷してハーフカットがなされたラベルを、RT36Wを使って角丸にしてみました。ハーフカットされているところを折ってチョキンと切るだけ。うるさくないし、キレイに処理できます。
 
-<img src="http://farm8.staticflickr.com/7297/10669172065_cbb30926f0_z.jpg" />
+<img src="https://farm8.staticflickr.com/7297/10669172065_cbb30926f0_z.jpg" />
 
 ## まとめ
 
