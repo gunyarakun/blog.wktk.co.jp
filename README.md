@@ -11,7 +11,7 @@ This repository contains sources of blog of wktk inc., japanese company.
 
 ## How to build
 
-We use rvm. Accept .rvmrc.
+We use rbenv.
 
   > bundle install
   > jekyll --server --auto
