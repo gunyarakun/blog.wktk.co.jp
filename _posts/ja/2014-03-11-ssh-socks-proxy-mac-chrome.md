@@ -33,6 +33,10 @@ Host fumidai.example.com
   DynamicForward 1080
 </pre>
 
+## Windowsでの設定
+
+[FreeCap](http://www.freecap.ru/eng/) で通信できるらしい。
+
 ## Macでの設定
 
 ネットワーク環境設定で設定すれば、SOCKSを使って通信が出来るようになる。
@@ -79,10 +83,35 @@ alias chrome="open /Applications/Google\ Chrome.app/ --args --proxy-server=\"soc
 
 SOCKSサーバがDNSによる名前解決を必要とする場合、--host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE hostname" のようにして、SOCKSサーバの名前解決だけはSOCKS経由でやらないような配慮が必要となる。今回は127.0.0.1の直IPだし、localhostに変えてもhostsで名前解決できるのでいらない。
 
-## Mac上でのGoogle Chromeで特定のドメインのみSOCKS経由にする
+## Google Chromeで特定のドメインのみSOCKS経由にする
 
 Google Chrome拡張である[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=ja)を入れると、特定のドメインだけをSOCKS経由でアクセスできるようになる。
 
 profileというものを複数作ることができて、profileごとにproxyのルールを切り替えることができる。
 
 WebブラウジングでSOCKSを使う人にとっては便利な拡張。
+
+## curlをsocks proxy経由にする
+
+hostnameの名前解決はsocks proxy経由にしない場合
+
+`curl --proxy socks5://localhost:1080 http://example.com/`
+
+hostnameの名前解決もsocks proxy経由にする場合
+
+`curl --proxy socks5h://localhost:1080 http://example.com/`
+
+## Linux, macOSなどで任意のプロセスをsocks proxy経由にする
+
+[tsocks](http://tsocks.sourceforge.net/) を使い、socket経由のAPIを横流しすることができる。
+
+ただ、Macの場合は保護機能が働いてしまう。
+
+Macのリカバリーモードで
+
+```
+csrutil disable
+csrutil enable --without debug
+```
+
+とするとよい。
