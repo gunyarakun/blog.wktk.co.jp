@@ -5,7 +5,7 @@ baselurl: /
 
 destination: ./_site
 lsi: false # not use related-posts
-highlighter: pygments
+highlighter: rouge
 markdown: redcarpet
 permalink: /ja/entry/:year/:month/:day/:title
 
