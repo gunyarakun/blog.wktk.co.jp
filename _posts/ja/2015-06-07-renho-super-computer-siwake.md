@@ -61,7 +61,9 @@ image_path: /assets/images/entry/2015-06-07/presentation.jpg
 
 動画もあります。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G6Csz26o1gw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding: 30px; height: 0; overflow: hidden">
+    <iframe src="https://www.youtube.com/embed/G6Csz26o1gw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"></iframe>
+</div>
 
 ### 行政刷新会議ワーキングチーム 「事業仕分け」第３ＷＧ
 
