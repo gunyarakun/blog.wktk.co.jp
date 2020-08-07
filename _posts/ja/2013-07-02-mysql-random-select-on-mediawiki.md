@@ -6,7 +6,7 @@ tags : [rdbms, mysql, php]
 ---
 「ランダムで何かの要素を表示したい」という要件を見かける。難易度は低い。すぐ実装できる。が、それなりにスケールする実装は簡単ではない。
 
-<blockquote class="twitter-tweet"><p>カウンター、ランキングなど、「コンピュータだとすぐできそうじゃん」と思えるようなことを、スケールする実装に仕上げるのは難しい。</p>&mdash; グニャラくん / 末永 匡 (@tasukuchan) <a href="https://twitter.com/tasukuchan/statuses/326538208420712449">April 23, 2013</a></blockquote>
+<blockquote class="twitter-tweet"><p>カウンター、ランキングなど、「コンピュータだとすぐできそうじゃん」と思えるようなことを、スケールする実装に仕上げるのは難しい。</p>&mdash; グニャラくん (@gunyarakun) <a href="https://twitter.com/gunyarakun/statuses/326538208420712449">April 23, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 MediaWikiというソフトウェアがある。Wikipediaで使われているWikiソフトウェアだ。Wikipediaにも「<a href="http://ja.wikipedia.org/wiki/%E7%89%B9%E5%88%A5:%E3%81%8A%E3%81%BE%E3%81%8B%E3%81%9B%E8%A1%A8%E7%A4%BA">おまかせ表示</a>」という機能がある。記事をランダムに1つ表示してくれる機能だ。さすがにWikipediaで使われている機能なので、スケールする実装になっているだろう。

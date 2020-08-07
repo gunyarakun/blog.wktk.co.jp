@@ -41,4 +41,4 @@ Sorted Setを用いた検索エンジンの例として、[Writing a simple keyw
 
 「検索エンジン自作入門」を読んで、ぜひぜひ検索エンジンを実際に作ってみましょう! あなたの好きな言語、DBMSで実装しましょう。
 
-作ってみた方は、ぜひ Twitter: [@tasukuchan](https://twitter.com/tasukuchan/) か、[検索エンジン自作入門の公式ページ](http://gihyo.jp/book/2014/978-4-7741-6753-4)のお問い合わせからお知らせいただけるとありがたいです。随時追記させていただきます。
+作ってみた方は、ぜひ Twitter: [@gunyarakun](https://twitter.com/gunyarakun/) か、[検索エンジン自作入門の公式ページ](http://gihyo.jp/book/2014/978-4-7741-6753-4)のお問い合わせからお知らせいただけるとありがたいです。随時追記させていただきます。

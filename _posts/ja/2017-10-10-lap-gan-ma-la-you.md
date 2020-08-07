@@ -65,4 +65,4 @@ image_path: /assets/images/entry/2017-10-10/laoganma-bottles.jpg
 
 異常なブームになって、普通の日本のスーパーで買えるようになるのを願ってる。
 
-ここにも売ってるよ、という情報があれば、[Twitterの@tasukuchan](https://twitter.com/tasukuchan/)まで。
+ここにも売ってるよ、という情報があれば、[Twitterの@gunyarakun](https://twitter.com/gunyarakun/)まで。

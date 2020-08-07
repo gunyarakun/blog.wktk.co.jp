@@ -13,14 +13,14 @@ title: Habitatのソースコードに出てくるNobuoって誰?ってつぶや
 
 とりあえず、Twitterでつぶやいてみた。
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">Habitatのソースコード読んでたんだけど、この富士通かNiftyかの人と思われるNobuoさんが誰か気になる。こういうドキュメントも残っているのっていい。<a href="https://t.co/BTw8rcFy7y">https://t.co/BTw8rcFy7y</a></p>&mdash; グニャラくん ⛽ 末永匡 (@tasukuchan) <a href="https://twitter.com/tasukuchan/status/752315654691102721">2016年7月11日</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">Habitatのソースコード読んでたんだけど、この富士通かNiftyかの人と思われるNobuoさんが誰か気になる。こういうドキュメントも残っているのっていい。<a href="https://t.co/BTw8rcFy7y">https://t.co/BTw8rcFy7y</a></p>&mdash; グニャラくん (@gunyarakun) <a href="https://twitter.com/gunyarakun/status/752315654691102721">2016年7月11日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 僕のツイートを見た、元ログイン編集者の<a href="https://twitter.com/sentoki">船田戦闘機さん</a>が心当たりがあるらしく、facebookで拡散してくれた。
 
 その結果、Nobuo本人が現れた！
 
-<blockquote class="twitter-tweet" data-conversation="none" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/tasukuchan">@tasukuchan</a> ぼくみたいです。</p>&mdash; 高橋信夫 (@nobuotakahashi) <a href="https://twitter.com/nobuotakahashi/status/752705002632732672">2016年7月12日</a></blockquote>
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/gunyarakun">@gunyarakun</a> ぼくみたいです。</p>&mdash; 高橋信夫 (@nobuotakahashi) <a href="https://twitter.com/nobuotakahashi/status/752705002632732672">2016年7月12日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 本人もすっかり経緯を忘れていた（！）ようなのですが、<a href="https://github.com/Museum-of-Art-and-Digital-Entertainment/habitat/blob/6f54b01b6d72deb081c24390c62ebfd9105e9e69/Habitape/missing">送ったメール</a>が発見されて確定。

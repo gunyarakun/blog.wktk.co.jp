@@ -81,10 +81,10 @@ ATが全体での事故率は高いのに、死亡事故では事故率に変わ
 
 ## 運転者のスキルが違う説
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/tasukuchan">@tasukuchan</a> 拝読しました。停止状態からの急発進はクラッチをガンと繋いじゃえばMTでもできるのでどうですかね…。あとMTは業務で車を運転するプロフェッショナルの率が高そうなのも関係ありそう。バスとかタクシーとかトラックとか。</p>&mdash; Nobutoshi Ogata (@nobu666) <a href="https://twitter.com/nobu666/status/797770748945317888">2016年11月13日</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/gunyarakun">@gunyarakun</a> 拝読しました。停止状態からの急発進はクラッチをガンと繋いじゃえばMTでもできるのでどうですかね…。あとMTは業務で車を運転するプロフェッショナルの率が高そうなのも関係ありそう。バスとかタクシーとかトラックとか。</p>&mdash; Nobutoshi Ogata (@nobu666) <a href="https://twitter.com/nobu666/status/797770748945317888">2016年11月13日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/tasukuchan">@tasukuchan</a> 両群の運転者のスキルの差ってどれぐらいあるんでしょうね。AT/MTの事故率の差が現代に近づくにつれ開いてるのは、ATの普及(に伴ってスキル無い人がATに流れていくの)に由来してるのかな、ってのを最初に思いました。</p>&mdash; Ken Kawamoto（ガリのほう） (@kenkawakenkenke) <a href="https://twitter.com/kenkawakenkenke/status/797773573632856064">2016年11月13日</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/gunyarakun">@gunyarakun</a> 両群の運転者のスキルの差ってどれぐらいあるんでしょうね。AT/MTの事故率の差が現代に近づくにつれ開いてるのは、ATの普及(に伴ってスキル無い人がATに流れていくの)に由来してるのかな、ってのを最初に思いました。</p>&mdash; Ken Kawamoto（ガリのほう） (@kenkawakenkenke) <a href="https://twitter.com/kenkawakenkenke/status/797773573632856064">2016年11月13日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 あると思います！

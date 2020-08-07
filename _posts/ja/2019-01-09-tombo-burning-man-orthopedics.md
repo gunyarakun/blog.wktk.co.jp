@@ -6,7 +6,7 @@ tags: [life]
 title: 米国でバーニングマンに参加して、起業に失敗し、韓国で美容整形して日本に帰国しました
 image_path: /assets/images/entry/2019-01-09/tasogare.jpg
 ---
-最近ブログを全然書いていませんでした。[まとまった文章は月額777円のnote連載に書いていますが](https://twitter.com/tasukuchan/status/957606692232970240)、近況についてここで書きます。
+最近ブログを全然書いていませんでした。[まとまった文章は月額777円のnote連載に書いていますが](https://twitter.com/gunyarakun/status/957606692232970240)、近況についてここで書きます。
 
 [DeNAを退職し宗教を立ち上げ書籍を出版しアメリカで起業します](http://blog.wktk.co.jp/ja/entry/2014/10/03/start-virtual-religion-and-tombo)という昔書いたエントリと対になるイメージです。
 

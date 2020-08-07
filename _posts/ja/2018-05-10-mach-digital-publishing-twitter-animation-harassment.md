@@ -109,5 +109,5 @@ nobiさんという方が、Unite Tokyoというイベントに出席した際�
 
 というマッハエントリ。noteで文章を書いているので、興味があれば購読してほしい。
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">noteで雑記を公開しています。月777円。<br>ブログやTwitterで書きづらい日々のよしなしごとを綴っています。各ノートの冒頭は読めるようにしてあるので、パラパラ見てやってください。<a href="https://t.co/cxMrNMhNSJ">https://t.co/cxMrNMhNSJ</a></p>&mdash; グニャラくん末永匡 (@tasukuchan) <a href="https://twitter.com/tasukuchan/status/957606692232970240?ref_src=twsrc%5Etfw">2018年1月28日</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">noteで雑記を公開しています。月777円。<br>ブログやTwitterで書きづらい日々のよしなしごとを綴っています。各ノートの冒頭は読めるようにしてあるので、パラパラ見てやってください。<a href="https://t.co/cxMrNMhNSJ">https://t.co/cxMrNMhNSJ</a></p>&mdash; グニャラくん (@gunyarakun) <a href="https://twitter.com/gunyarakun/status/957606692232970240?ref_src=twsrc%5Etfw">2018年1月28日</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

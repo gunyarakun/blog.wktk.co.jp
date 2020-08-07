@@ -114,4 +114,4 @@ walgreens、寿司も売ってあるし、ユニクロとかJINSとかある通�
 
 ## まとめ
 
-情報募集中。Twitter <a href="https://twitter.com/tasukuchan/">@tasukuchan</a>まで。
+情報募集中。Twitter <a href="https://twitter.com/gunyarakun/">@gunyarakun</a>まで。

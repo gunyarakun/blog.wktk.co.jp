@@ -34,7 +34,7 @@ IATA(国際航空運送協会)は、預ける荷物について、幅高さ長�
 
 とても便利だったのだが、3回繰り返して使っていると、痛みが激しい。角潰れ、内外部からの鋭利な物体による破損、湿気を吸うことによる内部のウェーブのよれなど、やはり繰り返し使うには強度が足りない。
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">荷物を４つ預けられるのだが、どう見ても運び屋的な感じになってしまった。中身はファミコン スーファミ 64 ゲームキューブ Wii DSや加藤一二三さんのサイン色紙などの宗教グッズが入ってます。 <a href="http://t.co/yIjXd0hEus">pic.twitter.com/yIjXd0hEus</a></p>&mdash; グニャラくん ⛽ 末永匡 (@tasukuchan) <a href="https://twitter.com/tasukuchan/status/532772199065583616">2014年11月13日</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">荷物を４つ預けられるのだが、どう見ても運び屋的な感じになってしまった。中身はファミコン スーファミ 64 ゲームキューブ Wii DSや加藤一二三さんのサイン色紙などの宗教グッズが入ってます。 <a href="http://t.co/yIjXd0hEus">pic.twitter.com/yIjXd0hEus</a></p>&mdash; グニャラくん (@gunyarakun) <a href="https://twitter.com/gunyarakun/status/532772199065583616">2014年11月13日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## プラスチックダンボールという解
@@ -76,7 +76,7 @@ IATA(国際航空運送協会)は、預ける荷物について、幅高さ長�
 
 ## あとがき
 
-僕の欲しいものについて、興味・意見があればTwitterの[@tasukuchan](https:///twitter.com/tasukuchan/) にお問い合わせください。
+僕の欲しいものについて、興味・意見があればTwitterの[@gunyarakun](https:///twitter.com/gunyarakun/) にお問い合わせください。
 
 - このクラウドファンディングサービスを利用してみたら？
 - ダンボール以外にもいいものあるよ(ex. スーツケースの素材をつかった箱状のなにか)

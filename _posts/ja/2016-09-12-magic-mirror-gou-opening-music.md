@@ -61,7 +61,7 @@ title: マジックミラー号シリーズのオープニング曲の音源を�
 
 元の音源が入ったCDを買いたくて、Twitterで情報提供を求めた。
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">マジックミラー号の曲、僕も探している。何かのBGM集の1曲なんだろうけど。 このように、数々の名曲が歴史に埋もれていってしまっている現状。国会図書館デジタルコレクション化希望。 卓球さんもヒントでピントの音源がなくて嘆いているぞ。 <a href="http://t.co/CuQAimWhsG">http://t.co/CuQAimWhsG</a></p>&mdash; グニャラくん ⚠ (@tasukuchan) <a href="https://twitter.com/tasukuchan/status/471559411534540801">2014年5月28日</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">マジックミラー号の曲、僕も探している。何かのBGM集の1曲なんだろうけど。 このように、数々の名曲が歴史に埋もれていってしまっている現状。国会図書館デジタルコレクション化希望。 卓球さんもヒントでピントの音源がなくて嘆いているぞ。 <a href="http://t.co/CuQAimWhsG">http://t.co/CuQAimWhsG</a></p>&mdash; グニャラくん ⚠ (@gunyarakun) <a href="https://twitter.com/gunyarakun/status/471559411534540801">2014年5月28日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 しかし、情報は集まらず。
@@ -90,4 +90,4 @@ title: マジックミラー号シリーズのオープニング曲の音源を�
 
 ## 多くの人を救えます。情報提供を。
 
-マジックミラー号のオープニング曲について情報をお持ちの方は、Twitterの[@tasukuchan](https:///twitter.com/tasukuchan/) にこっそり教えてください。人助けです。
+マジックミラー号のオープニング曲について情報をお持ちの方は、Twitterの[@gunyarakun](https:///twitter.com/gunyarakun/) にこっそり教えてください。人助けです。
