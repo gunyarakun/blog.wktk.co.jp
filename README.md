@@ -14,7 +14,7 @@ This repository contains sources of blog of wktk inc., japanese company.
 We use rbenv.
 
   > bundle install
-  > jekyll --server --auto
+  > rake preview
 
 ## How to deploy
 
