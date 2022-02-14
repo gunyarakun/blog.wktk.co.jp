@@ -8,7 +8,7 @@
 #
 #   1. Install this script to `_plugin` folder.
 #   2. Create cache directory `_caches/amazon`.
-#   3. Install amazon/ecs(`gem install amazon-ecs`).
+#   3. Install vacuum(`gem install vacuum`).
 #   4. Write access key information to `_amazon.yml' in YAML format.
 #      (ex)
 #        jp:
@@ -39,8 +39,6 @@
 #
 # Copyright 2012, nitoyon. All rights reserved.
 # BSD License.
-
-require 'rexml/document'
 
 module Jekyll
 
@@ -84,10 +82,6 @@ module Jekyll
   <a href="#{data[:detailUrl]}" target="_blank"><img src="#{data[:mediumThumnail]}" class="hatena-asin-detail-image" alt="#{CGI.escapeHTML(data[:title])}" title="#{CGI.escapeHTML(data[:title])}"></a>
   <div class="hatena-asin-detail-info">
     <p class="hatena-asin-detail-title"><a href="#{data[:detailUrl]}" target="_blank">#{CGI.escapeHTML(data[:title])}</a></p>
-    <ul>
-#{html}
-      <li><a href="#{data[:reviewUrl]}" target="_blank">Amazon のレビューを見る</a></li>
-    </ul>
   </div>
   <div class="hatena-asin-detail-foot"></div>
 </div>)
@@ -99,28 +93,38 @@ module Jekyll
     def load_product_data(lang, amazon_id, context)
       doc = load_product_with_cache(lang, amazon_id, context)
 
-      def element_text(doc, xpath)
-        elm = doc.elements[xpath]
-        elm.nil? ? nil : elm.text
+      require 'pp'
+      pp doc
+
+      item = doc.dig('ItemsResult', 'Items', 0)
+      item_info = item['ItemInfo']
+      byline = item_info['ByLineInfo']
+
+      def author(byline)
+        return nil if byline.nil?
+        if byline['Contributors'] and byline['Contributors'].length > 0
+          return byline['Contributors'].map{|c| c['Name']}.join(',')
+        end
+        nil
       end
 
       data = {
-        :detailUrl      => element_text(doc, '/Item/DetailPageURL'),
-        :reviewUrl      => element_text(doc, '//ItemLink/URL[contains(text(), "review")]'),
-        :mediumThumnail => element_text(doc, '//MediumImage/URL'),
-        :title          => element_text(doc, '//ItemAttributes/Title'),
-        :author         => element_text(doc, '//ItemAttributes/Author'),
-        :publisher      => element_text(doc, '//ItemAttributes/Manufacturer'),
-        :date           => element_text(doc, '//ItemAttributes/PublicationDate') ||
-                           element_text(doc, '//ItemAttributes/ReleaseDate'),
-        :media          => element_text(doc, '//ItemAttributes/Binding'),
+        :detailUrl      => item['DetailPageURL'],
+        :reviewUrl      => nil,
+        :mediumThumnail => item.dig('Images', 'Primary', 'Medium', 'URL'),
+        :title          => item.dig('ItemInfo', 'Title', 'DisplayValue'),
+        :author         => author(byline),
+        :publisher      => byline.dig('Manufacturer', 'DisplayValue'),
+        :date           => item_info.dig('ContentInfo', 'PublicationDate', 'DisplayValue') ||
+                           item_info.dig('ProductInfo', 'ReleaseDate', 'DisplayValue'),
+        :media          => item_info.dig('ContentInfo', 'Classifications', 'ProductGroup', 'DisplayValue'),
       }
     end
 
     def load_product_with_cache(lang, amazon_id, context)
       config_path = File.join(context.registers[:site].source, '_amazon.yml')
       caches_dir = File.join(context.registers[:site].source, '_caches/amazon')
-      cache_path = File.join(caches_dir, "#{lang}.#{amazon_id}.xml")
+      cache_path = File.join(caches_dir, "#{lang}.#{amazon_id}.json")
       unless FileTest.directory?(caches_dir)
         puts "Cache directory doesn't exist: #{caches_dir}"
         raise "Cache directory doesn't exist: #{caches_dir}"
@@ -128,14 +132,13 @@ module Jekyll
 
       doc = nil
       if FileTest.file?(cache_path)
-        open(cache_path) { |f| doc = REXML::Document.new(f.read) }
+        open(cache_path) { |f| doc = JSON.load(f) }
       end
 
       if doc.nil?
         puts "loading Amazon #{lang} #{amazon_id}"
-        xml_str = load_product_from_web(lang, amazon_id, config_path)
-        doc = REXML::Document.new(xml_str)
-        open(cache_path, 'w') { |f| f.write(xml_str) }
+        doc = load_product_from_web(lang, amazon_id, config_path)
+        open(cache_path, 'w') { |f| JSON.dump(hash, f) }
         puts "loaded Amazon #{lang} #{amazon_id}"
       end
 
@@ -143,7 +146,7 @@ module Jekyll
     end
 
     def load_product_from_web(lang, amazon_id, config_path)
-      require 'amazon/ecs'
+      require 'vacuum'
 
       # load config from config_path
       conf = {}
@@ -153,16 +156,19 @@ module Jekyll
         puts err
         raise err
       end
-      Amazon::Ecs.options = conf[lang].inject({}){|h,(k,v)| h[k.to_sym] = v; h}
 
-      res = Amazon::Ecs.item_lookup(amazon_id, :country => lang, :response_group => 'Images,ItemAttributes')
+      request = Vacuum.new(
+        marketplace: lang.upcase, # ex.) JP
+        access_key: conf[lang]['AWS_access_key_id'],
+        secret_key: conf[lang]['AWS_secret_key'],
+        partner_tag: conf[lang]['associate_tag']
+      )
+      response = request.get_items(
+        item_ids: [amazon_id],
+        resources: ['Images.Primary.Medium', 'ItemInfo.Title', 'ItemInfo.ByLineInfo', 'ItemInfo.Classifications', 'ItemInfo.ContentInfo', 'ItemInfo.ProductInfo'],
+      )
 
-      if res.has_error?
-        puts res.error
-        raise
-      else
-        res.doc.xpath('//Items/Item').to_s
-      end
+      response.to_h
     end
   end
 end
