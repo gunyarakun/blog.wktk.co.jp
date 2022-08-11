@@ -58,10 +58,18 @@ module Jekyll
       if @lang.nil?
         "(invalid amazon tag parameter)"
       elsif @type == "title"
-        data = load_product_data(@lang, @amazon_id, context)
-        %(<a href="#{data[:detailUrl]}" target="_blank">#{CGI.escapeHTML(data[:title])}</a>)
+        begin
+          data = load_product_data(@lang, @amazon_id, context)
+          %(<a href="#{data[:detailUrl]}" target="_blank">#{CGI.escapeHTML(data[:title])}</a>)
+        rescue
+          "(cannot get Amazon #{@lang} #{@amazon_id})"
+        end
       elsif @type == "detail"
-        data = load_product_data(@lang, @amazon_id, context)
+        begin
+          data = load_product_data(@lang, @amazon_id, context)
+        rescue
+          return "(cannot get Amazon #{@lang} #{@amazon_id})"
+        end
 
         labels = [
           { :key => :author , :label => '作者' },
@@ -92,9 +100,6 @@ module Jekyll
 
     def load_product_data(lang, amazon_id, context)
       doc = load_product_with_cache(lang, amazon_id, context)
-
-      require 'pp'
-      pp doc
 
       item = doc.dig('ItemsResult', 'Items', 0)
       item_info = item['ItemInfo']
@@ -138,7 +143,11 @@ module Jekyll
       if doc.nil?
         puts "loading Amazon #{lang} #{amazon_id}"
         doc = load_product_from_web(lang, amazon_id, config_path)
-        open(cache_path, 'w') { |f| JSON.dump(hash, f) }
+        unless doc.has_key?('ItemsResult')
+          puts doc
+          raise "Invalid Amazon: #{lang} #{amazon_id}"
+        end
+        open(cache_path, 'w') { |f| JSON.dump(doc, f) }
         puts "loaded Amazon #{lang} #{amazon_id}"
       end
 
@@ -167,6 +176,8 @@ module Jekyll
         item_ids: [amazon_id],
         resources: ['Images.Primary.Medium', 'ItemInfo.Title', 'ItemInfo.ByLineInfo', 'ItemInfo.Classifications', 'ItemInfo.ContentInfo', 'ItemInfo.ProductInfo'],
       )
+
+      sleep 7
 
       response.to_h
     end
