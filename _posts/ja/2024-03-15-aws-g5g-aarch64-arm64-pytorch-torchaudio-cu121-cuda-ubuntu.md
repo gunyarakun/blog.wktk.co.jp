@@ -162,3 +162,14 @@ RUN mkdir /dist && cp /pytorch/dist/torch-2.2.1-cp311-cp311-linux_aarch64.whl /d
 import torch
 print(torch.cuda.is_available())
 ```
+
+## soundfileでも気をつけて
+
+`soundfile` 経由で音声ファイルを読もうとすると、Ubuntuのaptで入れた `libsoundfile 1.0.31-2ubuntu0.1` は古いっぽくエラーが出た。
+
+Pythonで `soundfile` をインストールするとき、バンドルのlibsoundfileを使うらしいのだが、aarch64だとまだっぽい。
+
+Add Linux ARM64 (aarch64) wheel support
+https://github.com/bastibe/python-soundfile/pull/415
+
+上記のissueにaoirintさんがビルドしたarm64のバイナリへのリンクもあるので、それを使うなり自前で新し目のlibsoundfileを入れるなどして対処しよう。

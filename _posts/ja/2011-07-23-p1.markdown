@@ -17,4 +17,3 @@ Samsonite Cosmolite Spinnet 74cmは実際使っているところを見たこと
 
 {% rakuten itemCode:selection:10007431:detail %}
 {% rakuten itemCode:glv:10023533:detail %}
-{% rakuten itemCode:getueno:10001812:detail %}
